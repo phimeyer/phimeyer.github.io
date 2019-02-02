@@ -5,8 +5,8 @@ permalink: /talks/
 author_profile: true
 ---
 
-2018
-======
+<b>2018</b>
+
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_CAP_Transparency_Newsworthiness.pdf"><span style="color: #333333;"><span style="font-size: medium;">Transparency or Newsworthiness? The Probability of Constitutional Court Press Release Occurrence</span></span></a>, Paper presented at 11th Annual CAP Conference, Panel: Agendas and Agenda Setting beyond mainstream media (E1), University of Amsterdam (UvA), July 5, 2018.
 
@@ -16,15 +16,13 @@ author_profile: true
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_Dissemination_of_Information.pdf"><span style="color: #333333;"><span style="font-size: medium;">Dissemination of legal information: Structure and Topics of Online Available Court Decisions</span></span></a>, Paper presented at POLTEXT Incubator Workshop, Panel: Legal 1, Centre for Social Sciences, Hungarian Academy of Sciences, Budapest, May 10, 2018.
 
-2017
-======
+<b>2017</b>
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Building%20Policy%20Images.pdf"><span style="color: #333333;"><span style="font-size: medium;">Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda</span></span></a>, Paper presented at 10th Annual CAP Conference, Panel: Bureaucratic and Judicial Agendas (A2), University of Glasgow, June 15, 2017.
 
 - Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda, Paper presented at General Conference of the European Consortium for Political Research, Section: Law and Courts, Panel: Media Representation and Salience of Courts (P222), University of Oslo, September 7, 2017.
 
-2016
-======
+<b>2016</b>
 
 - Verfassungen ohne Schutz? Gerichtliche Stärke im Ausnahmezustand, Paper presented at the 6th Conference of the DVPW theme group Politik und Recht, Humboldt University Berlin, September 23, 2016 (with Benjamin G. Engst, M.A.).
 
