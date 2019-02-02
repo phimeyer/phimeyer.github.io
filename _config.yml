@@ -12,7 +12,7 @@ title_separator          : "-"
 name                     : &name "Philipp Meyer"
 description              : &description "Research Associate and Lecturer in the research group on Comparative Government and German Politics at the Department of Political Science, Leibniz University Hannover"
 url                      : https://phimeyer.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+baseurl                  : "/cv" # the subpath of your site, e.g. "/blog"
 repository               : 
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
