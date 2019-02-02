@@ -7,21 +7,14 @@ author_profile: true
 
 2018
 ======
-- Subsidizing Mr. Gates: Probability of Court Press Release Occurrence*, Paper presented at 11th Annual
-CAP Conference, Panel: Agendas and Agenda Setting beyond mainstream media (E1), University
-of Amsterdam (UvA), July 5, 2018.
+- <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_CAP_Transparency_Newsworthiness.pdf"><span style="color: #333333;"><span style="font-size: medium;">Transparency or Newsworthiness? The Probability of Constitutional Court Press Release Occurrence</span></span></a>, Paper presented at 11th Annual CAP Conference, Panel: Agendas and Agenda Setting beyond mainstream media (E1), University of Amsterdam (UvA), July 5, 2018.
 
-- Dissemination of legal information: Structure and Topics of Online Available Court Decisions, Paper
-presented at 11th Annual CAP Conference, Panel: Political Parties & Courts (A3), University of
-Amsterdam (UvA), July 4, 2018.
+- <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_CAP_Dissemination_of_Information.pdf"><span style="color: #333333;"><span style="font-size: medium;">Dissemination of legal information: Structure and Topics of Online Available Court Decisions</span></span></a>, Paper presented at 11th Annual CAP Conference, Panel: Political Parties & Courts (A3), University of Amsterdam (UvA), July 4, 2018.
 
-- Transparency or Newsworthiness? The Probability of Constitutional Court Press Release Occurrence,
-Paper presented at 8th Annual Conference of the European Political Science Association
-(EPSA), Panel: Judicial Politics II, Vienna, June 21, 2018.
+- <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_EPSA_Transparency_Newsworthiness.pdf"><span style="color: #333333;"><span style="font-size: medium;">Transparency or Newsworthiness? The Probability of Constitutional Court Press Release Occurrence</span></span></a>, Paper presented at 8th Annual Conference of the European Political Science Association (EPSA), Panel: Judicial Politics II, Vienna, June 21, 2018.
 
-- Dissemination of legal information: Structure and Topics of Online Available Court Decisions, Paper
-presented at POLTEXT Incubator Workshop, Panel: Legal 1, Centre for Social Sciences, Hungarian
-Academy of Sciences, Budapest, May 10, 2018.
+- <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_Dissemination_of_Information.pdf"><span style="color: #333333;"><span style="font-size: medium;">Dissemination of legal information: Structure and Topics of Online Available Court Decisions</span></span></a>, Paper
+presented at POLTEXT Incubator Workshop, Panel: Legal 1, Centre for Social Sciences, Hungarian Academy of Sciences, Budapest, May 10, 2018.
 
 2017
 ======
