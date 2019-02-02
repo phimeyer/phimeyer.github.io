@@ -1,15 +1,10 @@
 ---
-title: "Paper Title Number 2"
 collection: publications
-permalink: /publication/2010-10-01-paper-title-number-2
-excerpt: 'This paper is about the number 2. The number 3 is left for future work.'
-date: 2010-10-01
-venue: 'Journal 1'
-paperurl: 'http://academicpages.github.io/files/paper2.pdf'
-citation: 'Your Name, You. (2010). &quot;Paper Title Number 2.&quot; <i>Journal 1</i>. 1(2).'
+paperurl: 'https://link.springer.com/chapter/10.1007%2F978-3-658-22663-3_13'
+citation: 'Meyer, Philipp & Christoph Hönnige.2019. &quot;Rolle und Einfluss des Bundesverfassungsgerichts in der Amtszeit der Regierung Merkel III&quot; <i>Zwischen Stillstand, Politikwandel und Krisenmanagement. Eine Bilanz der Regierung Merkel 2013-2017</i>. 1(2).'
 ---
 This paper is about the number 2. The number 3 is left for future work.
 
-[Download paper here](http://academicpages.github.io/files/paper2.pdf)
+[Access paper here](https://link.springer.com/chapter/10.1007%2F978-3-658-22663-3_13)
 
 Recommended citation: Your Name, You. (2010). "Paper Title Number 2." <i>Journal 1</i>. 1(2).
