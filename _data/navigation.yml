@@ -2,22 +2,13 @@
 main:
 
 - title: "Publications"
-    url: https://phimeyer.github.io/publications/
+    url: /publications/
 
   - title: "Presentatons"
-    url: https://phimeyer.github.io/talks/    
+    url: /talks/    
 
   - title: "Teaching"
-    url: https://phimeyer.github.io/teaching/    
-    
-#  - title: "Portfolio"
-#    url: /portfolio/
-        
-#  - title: "Blog Posts"
- #   url: /year-archive/
+    url: /teaching/    
     
   - title: "CV"
-    url: https://phimeyer.github.io/cv/
-    
- # - title: "Guide"
-#    url: https://phimeyer.github.io//markdown/
+    url: /cv/
