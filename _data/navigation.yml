@@ -2,13 +2,13 @@
 main:
 
 - title: "Publications"
-    url: /publications/
+    url: phimeyer.github.io/publications/
 
   - title: "Presentatons"
-    url: /talks/    
+    url: phimeyer.github.io/talks/    
 
   - title: "Teaching"
-    url: /teaching/    
+    url: phimeyer.github.io/teaching/    
     
   - title: "CV"
-    url: /cv/
+    url: phimeyer.github.io/cv/
