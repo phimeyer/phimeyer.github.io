@@ -5,8 +5,8 @@ permalink: /teaching/
 author_profile: true
 ---
 
-Undergraduate
--- 
+<b>Undergraduate</b>
+
 
 - <p><b>Einführung in die Politikwissenschaft - Seminar mit Tutorium</b><br>
   Leibniz University Hannover<br>
@@ -47,8 +47,8 @@ Undergraduate
   Summer Term 2015<br>
   <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/SS15-Parteien_und_Parteiensystem_Deutschlands_in_vergleichender_Perspektive.pdf"><span style="color: #333333;"><span style="font-size: medium;">See evaluation</span></span></a>
 
-Graduate
--- 
+<b>Graduate</b>
+
 - <p><b>The Politics of Attention</b><br>
   Leibniz University Hannover<br>
   Summer Term 2017</p>
