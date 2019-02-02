@@ -5,10 +5,12 @@ excerpt: "Contact me"
 author_profile: true
 ---
 
-Philipp Meyer
-Leibniz University Hannover
+Office Address
+Gottfried Wilhelm Leibniz Universit¨at
+Institut f¨ur Politische Wissenschaft
 Schneiderberg 50
 30167 Hannover
+(0511) 762-4917
 
 E-Mail: p.meyer@ipw.uni-hannover.de
 Phone: +49-511-762-4917
