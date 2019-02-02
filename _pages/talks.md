@@ -26,16 +26,8 @@ author_profile: true
 2016
 ======
 
-- Verfassungen ohne Schutz? Gerichtliche Staerke im Ausnahmezustand, Paper presented at the 6th
-Conference of the DVPW theme group Politik und Recht, Humboldt University Berlin, September
-23, 2016 (with Benjamin G. Engst, M.A.).
+- Verfassungen ohne Schutz? Gerichtliche Staerke im Ausnahmezustand, Paper presented at the 6th Conference of the DVPW theme group Politik und Recht, Humboldt University Berlin, September 23, 2016 (with Benjamin G. Engst, M.A.).
 
-- Constitutions Without Any Protection: the limits of judicial structures during the state of emergency,
-Paper presented at General Conference of the European Consortium for Political Research
-(ECPR), Section: Law and Courts, Panel: Data and Methods in Court Research (P079), University
-of Prague, September 8, 2016 (with Benjamin G. Engst, M.A.).
+- Constitutions Without Any Protection: the limits of judicial structures during the state of emergency, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Data and Methods in Court Research (P079), University of Prague, September 8, 2016 (with Benjamin G. Engst, M.A.).
 
-- Constitutional Review in Europe: Institutional Developments from 1995 to 2015 in the EU-28,
-Paper presented at General Conference of the European Consortium for Political Research (ECPR),
-Section: Law and Courts, Panel: Domestic Courts: Decision-making and Policy Implementation
-(P102), University of Prague, September 9, 2016 (with Prof. Dr. Christoph Hoennige).
+- Constitutional Review in Europe: Institutional Developments from 1995 to 2015 in the EU-28, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Domestic Courts: Decision-making and Policy Implementation (P102), University of Prague, September 9, 2016 (with Prof. Dr. Christoph Hoennige).
