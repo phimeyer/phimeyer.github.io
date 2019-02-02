@@ -2,7 +2,6 @@
 title: "Rolle und Einfluss des Bundesverfassungsgerichts in der Amtszeit der Regierung Merkel III"
 collection: publications
 category: edited volumes
-permalink: /publication/2019-ZohlnhöferSaalfeld.md
 date: 2019
 collection: publications
 paperurl: 'https://link.springer.com/chapter/10.1007%2F978-3-658-22663-3_13'
