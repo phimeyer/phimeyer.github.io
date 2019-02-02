@@ -10,5 +10,5 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 {% include base_path %}
 
 {% for post in site.publications reversed %}
-  {% include publications-single.html %}
+  {% include archive-single.html %}
 {% endfor %}
