@@ -29,8 +29,8 @@ Academy of Sciences, Budapest, May 10, 2018.
 Agenda*, Paper presented at 10th Annual CAP Conference, Panel: Bureaucratic and Judicial Agendas
 (A2), University of Glasgow, June 15, 2017.
 
-* *Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media
-Agenda*, Paper presented at General Conference of the European Consortium for Political Research,
+* *<p style="line-height: 1.5;" align="center"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/01_Academic%20CV_Philipp%20Meyer.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media
+Agenda.</b></span></span></a>*, Paper presented at General Conference of the European Consortium for Political Research,
 Section: Law and Courts, Panel: Media Representation and Salience of Courts (P222), University
 of Oslo, September 7, 2017.
 
