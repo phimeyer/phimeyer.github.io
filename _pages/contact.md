@@ -15,7 +15,8 @@ Schneiderberg 50
 E-Mail: p.meyer@ipw.uni-hannover.de
 Phone: +49-511-762-4917
 
-* Twitter: [PhiMeyer](http://twitter.com/PhiMeyer)
-* Google Scholar: [author:philipp-meyer](https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de)
-* LinkedIn: [philipp-meyer2](https://www.linkedin.com/in/philipp-meyer2/)
-* LU Hannover: [Department of Political Science Hannover](https://www.ipw.uni-hannover.de/11174.html)
+* [Department of Political Science Hannover](https://www.ipw.uni-hannover.de/11174.html)
+* [Twitter](http://twitter.com/PhiMeyer)
+* [ORCID](https://orcid.org/0000-0002-7986-9432)
+* [Google Scholar](https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de)
+* [LinkedIn](https://www.linkedin.com/in/philipp-meyer2/)
