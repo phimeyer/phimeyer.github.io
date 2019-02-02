@@ -17,10 +17,10 @@ Education
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Since 2015: Lecturer and Research Associate
+  * Department of Political Science, Chair of Comparative Government and German Politics, University of Hannover
+  * PhD Working Title: \Strategic Communication through Judicial Public Relations by Constitutional Courts"
+  * Supervisor: Prof. Dr. Christoph Hönnige
 
 * Fall 2015: Research Assistant
   * Github University
