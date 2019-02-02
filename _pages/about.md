@@ -8,12 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-I research politics at the Department of Political Science at the Leibniz University Hannover. I earned a degree in Politics and Administration from the University of Konstanz and a PhD in Political Science from the University of Mannheim. Before joining the Hannover Department, I was affiliated with the Austrian National Election Study and the Methods Department at the University of Vienna, as well as the Social Science Department at the University of Frankfurt. My work focuses on party politics, legislative studies and municipal politics. I am also interested in novel developments in political methodology, such as Bayesian statistics, automated text analysis and the application of big data in political research
-
-I am a Research Associate, Teaching Fellow and PhD Student in the Department of Political Science at Leibniz University Hannover, Germany. 
+I am a Research Associate, Teaching Fellow and PhD Student in the Department of Political Science at Leibniz University Hannover, Germany. I earned a bachelor degree in Political Science and History form the University of Greifswald and a master degree in Political Science from the University of Bamberg.
 
 I research politics with particular interest and expertise in:
+- Judicial Politics and Judicial Public Relations
+- Political Communication
+- Comparative Political Institutions
 
-► Party politics, party system change and electoral candidates
-► European politics, particularly Central and Eastern Europe
-► Research methods, mixed-methods and Big (Political) Data
+
+I am also interested in novel developments in political methodology, such as automated text analysis and various applications of big data in political research.
+
