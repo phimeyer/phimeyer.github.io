@@ -11,9 +11,9 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.A. in Political Science and History, University of Greifswald, 2007
+* M.A. in Poilitical Science, University of Bamberg, 2014
+* Ph.D in Political Science, University of Hannover, 2021 (expected)
 
 Work experience
 ======
