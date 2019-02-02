@@ -1,7 +1,5 @@
 ---
 title: "Der Niedersächsische Staatsgerichtshof"
-collection: publications
-category: edited volumes
 permalink: /publication/2017-Reutter
 date: 2017-02-17
 paperurl: 'https://link.springer.com/chapter/10.1007/978-3-658-16094-4_10'
