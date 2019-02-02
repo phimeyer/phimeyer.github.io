@@ -82,9 +82,9 @@ analytics:
 author:
   name             : "Philipp Meyer"
   avatar           : "PhilippMeyer.jpg"
-  bio              : "Political scientist of judicial politics and political communication; teaching and research staff at the <a style='color: black;' href='https://www.ipw.uni-hannover.de/'>Department of Political Science, Leibni University Hannover</a>"
+  bio              : "Political scientist of judicial politics and political communication; lecturer and research fellow at the <a style='color: black;' href='https://www.ipw.uni-hannover.de/'>Department of Political Science, Leibniz University Hannover</a>"
   location         : "Hannover, Germany"
-  employer         : "Leibniz University Hannover"
+  employer         : ""
   googlescholar    : "https://scholar.google.com/citations?user=mk7kDiQAAAAJ&hl=de"
   email            : "p.meyer@ipw.uni-hannover.de"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
