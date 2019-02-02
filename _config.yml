@@ -82,11 +82,11 @@ analytics:
 author:
   name             : "Philipp Meyer"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : "Research Associate & Lecturer"
   location         : "Hannover, Germany"
-  employer         :
+  employer         : "Comparative Government and German Politics at the Department of Political Science, Leibniz University Hannover"
   googlescholar    : "https://scholar.google.com/citations?user=mk7kDiQAAAAJ&hl=de"
-  email            :
+  email            : "p.meyer@ipw.uni-hannover.de"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -95,19 +95,19 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : 
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/philipp-meyer2/"
   orcid            : "https://orcid.org/0000-0002-7986-9432"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "PhiMeyer"
+  twitter          : "@PhiMeyer"
   vine             :
   weibo            :
   xing             :
@@ -178,10 +178,10 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
-  talks:
+ # portfolio:
+  #  output: true
+  #  permalink: /:collection/:path/
+  presentations:
     output: true
     permalink: /:collection/:path/
 
@@ -252,7 +252,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Europe/Berlin # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
