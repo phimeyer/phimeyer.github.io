@@ -12,7 +12,7 @@ title_separator          : "-"
 name                     : &name "Philipp Meyer"
 description              : &description "Research Associate and Lecturer" 
 url                      : https://phimeyer.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+baseurl                  :  # the subpath of your site, e.g. "/blog"
 repository               : 
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
@@ -29,7 +29,7 @@ comments:
   facebook:
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : "dark" # "light" (default), "dark"
+    colorscheme          : # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages" # "master", "gh-pages"
@@ -84,7 +84,7 @@ author:
   avatar           : "PhilippMeyer.jpg"
   bio              : "Research Associate & Lecturer"
   location         : "Hannover, Germany"
-  employer         : "Comparative Government and German Politics at the Department of Political Science, Leibniz University Hannover"
+  employer         : "Leibniz University Hannover"
   googlescholar    : "https://scholar.google.com/citations?user=mk7kDiQAAAAJ&hl=de"
   email            : "p.meyer@ipw.uni-hannover.de"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
