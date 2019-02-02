@@ -6,13 +6,19 @@ author_profile: true
 ---
 
 Office Address
-Gottfried Wilhelm Leibniz Universit¨at
+
+Gottfried Wilhelm Leibniz Universitaet
+
 Institut f¨ur Politische Wissenschaft
+
 Schneiderberg 50
+
 30167 Hannover
+
 (0511) 762-4917
 
 E-Mail: p.meyer@ipw.uni-hannover.de
+
 Phone: +49-511-762-4917
 
 * [Department of Political Science Hannover](https://www.ipw.uni-hannover.de/11174.html)
