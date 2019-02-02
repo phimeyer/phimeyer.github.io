@@ -10,7 +10,7 @@ locale                   : "de-EU"
 title                    : "Philipp Meyer"
 title_separator          : "-"
 name                     : &name "Philipp Meyer"
-description              : &description "Research Associate & Lecturer" 
+description              : &description "political scientist<br/>research and teaching fellow" 
 url                      : https://phimeyer.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  :  # the subpath of your site, e.g. "/blog"
 repository               : 
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Philipp Meyer"
   avatar           : "PhilippMeyer.jpg"
-  bio              : "Research Associate & Lecturer"
+  bio              : "Political scientist of judicial politics and political communication; teaching and research staff at the <a style='color: black;' href='https://www.ipw.uni-hannover.de/'>Department of Political Science, Leibni University Hannover</a>"
   location         : "Hannover, Germany"
   employer         : "Leibniz University Hannover"
   googlescholar    : "https://scholar.google.com/citations?user=mk7kDiQAAAAJ&hl=de"
