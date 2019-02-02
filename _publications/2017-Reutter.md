@@ -3,7 +3,7 @@ title: "Der Niedersächsische Staatsgerichtshof"
 collection: publications
 category: edited volumes
 permalink: /publication/2017-Reutter
-date: 2017
+date: 2017-02-17
 paperurl: 'https://link.springer.com/chapter/10.1007/978-3-658-16094-4_10'
 citation: 'Meyer, Philipp & Christoph Hönnige. 2017. Der Niedersächsische Staatsgerichtshof. In: Reutter, Werner (ed.) Landesverfassungsgerichte: Entwicklung – Aufbau – Funktionen. Wiesbaden: Springer VS, S. 219-241.'
 ---
