@@ -8,9 +8,9 @@ author_profile: true
 Undergraduate
 -- 
 
-- <p><b>Einfuehrung in die Politikwissenschaft - Seminar mit Tutorium</b><br>
+- <p><b>Einführung in die Politikwissenschaft - Seminar mit Tutorium</b><br>
   Leibniz University Hannover<br>
-  Winter Terms: 2016/2017, 2017/2018, 2018/2019 (2x))<br>
+  Winter Terms: 2016/2017, 2017/2018, 2018/2019 (2x)<br>
   <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/WS18_19-Einführung_in_die_Politische_Wissenschaft_(mit_Tutorium)_B.pdf"><span style="color: #333333;"><span style="font-size: medium;">See most recent evaluation</span></span></a></p>
 
 - <p><b>Moderne Demokratien im Vergleich - Lektürekurs</b><br>
@@ -42,7 +42,6 @@ Undergraduate
   Winter Term 2015/2016<br>
   <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/WS15_16-Moderne_Demokratien_im_Vergleich__Forschungswerkstatt.pdf"><span style="color: #333333;"><span style="font-size: medium;">See evaluation</span></span></a></p>
   
-
 - <p><b>Parteien und Parteiensystem Deutschlands in vergleichender Perspektive</b><br>
   Leibniz University Hannover<br>
   Summer Term 2015<br>
