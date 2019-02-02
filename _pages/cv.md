@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 {% capture written_label %}'None'{% endcapture %}
 
-<a style="line-height: 1.5;" href="http://www.stuartgeiger.com/geiger-cv.pdf"><span style="color: #333333;"><span style="font-size: medium;">Also available in PDF format.</span></span></a>
+<a style="line-height: 1.5;" href="01 Academic CV_Philipp Meyer.pdf"><span style="color: #333333;"><span style="font-size: medium;">Also available in PDF format.</span></span></a>
 <h1 class="western" align="center"><b>Philipp Meyer</b></h1>
 <p style="line-height: 1.5;" align="center"><span style="font-size: medium;"><b>Curriculum Vitae</b> </span></p>
 
