@@ -23,7 +23,7 @@ I am particularly interested in research on Comparative Political Institutions a
 
 - Meyer, Philipp & Christoph Hönnige. Gaining control of the agenda: how judicial public relations enable courts to focus issue attention.
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-MeyerHönnige"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
-
+  
 <b>Working Paper</b>
 
 - Meyer, Philipp. Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions.
