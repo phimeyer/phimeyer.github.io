@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Philipp Meyer"
-  avatar           : "<img src="PhilippMeyer.jpg" alt="PhiMey" width="200"/>"
+  avatar           : "PhilippMeyer.jpg"
   bio              : "Political scientist of judicial politics and political communication; lecturer and research fellow at the <a style='color: black;' href='https://www.ipw.uni-hannover.de/'>Department of Political Science, Leibniz University Hannover</a>"
   location         : "Hannover, Germany"
   googlescholar    : "https://scholar.google.com/citations?user=mk7kDiQAAAAJ&hl=de"
