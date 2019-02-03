@@ -1,7 +1,7 @@
 ---
 title: "Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions"
 category: working paper
-permalink: /publication/2018-Meyer
+permalink: /publication/2018b-Meyer
 date: 2018-07-04
 citation: 'Meyer, Philipp. Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions. Working Paper.'
 ---
