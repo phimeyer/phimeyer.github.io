@@ -5,6 +5,9 @@ permalink: /teaching/
 author_profile: true
 ---
 
+I taught first year undergraduate as well as advanced undergraduate and graduate classes in Comparative Politics in German and English at the Leibniz University Hannover with a focus on the scientific method (first year classes) and the comparasion of political institutuons. This page will provide you with a list of classes I taught as well as the student evaluations of these classes.
+
+
 <b>Undergraduate</b>
 
 
