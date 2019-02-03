@@ -7,7 +7,7 @@ paperurl: 'https://link.springer.com/chapter/10.1007%2F978-3-658-22663-3_13'
 citation: 'Meyer, Philipp & Christoph Hönnige. 2019. Rolle und Einfluss des Bundesverfassungsgerichts in der Amtszeit der Regierung Merkel III. In: Zohlnhöfer, Reimut & Thomas Saalfeld (eds.) Zwischen Stillstand, Politikwandel und Krisenmanagement. Eine Bilanz der Regierung Merkel 2013-2017. Wiesbaden: Springer VS, 317-341.'
 ---
 
-![alt text](https://phimeyer.github.io/images/absorptionMerkelII.png "Absorption Scenarios")
+![alt text](https://phimeyer.github.io/images/absorptionMerkelII.jpg "Absorption Scenarios")
 
 
 <p><b>Abstract</b><br>
