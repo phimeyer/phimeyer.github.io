@@ -10,7 +10,7 @@ citation: 'Engst, Benjamin G. & Philipp Meyer. 2016. Constitutions Without Prote
 <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://benjamin-engst.de/"><span style="color: #333333;"><span style="font-size: medium;">Benjamin G. Engst (University of Mannheim)</span></span></a>
 
 
-![alt text](https://phimeyer.github.io/images/regionyear.png "RegionYear")
+<p>![alt text](https://phimeyer.github.io/images/regionyear.png "RegionYear")</p>
 
 
 
