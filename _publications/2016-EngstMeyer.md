@@ -1,5 +1,6 @@
 ---
 title: "Constitutions Without Protection?"
+category: working paper
 permalink: /publication/2016-EngstMeyer
 date: 2016-10-17
 
