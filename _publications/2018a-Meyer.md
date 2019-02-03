@@ -3,6 +3,7 @@ title: "Influencing The News: The Ability Of Constitutional Courts To Influence 
 category: submitted paper
 permalink: /publication/2018-Meyer
 date: 2017-04-04
+citation: 'Meyer, Philipp. Influencing The News: The Ability Of Constitutional Courts To Influence The Media. Working Paper.'
 ---
 
 ![alt text](https://phimeyer.github.io/images/childcare1.png "Childcare Decision")
