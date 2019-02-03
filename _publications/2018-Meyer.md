@@ -1,5 +1,5 @@
 ---
-title: "Influencing The News"
+title: "Influencing The News: The Ability Of Constitutional Courts To Influence The Media"
 category: submitted paper
 permalink: /publication/2018-Meyer
 date: 2017-04-04
