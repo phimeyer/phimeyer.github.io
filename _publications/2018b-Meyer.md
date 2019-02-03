@@ -3,6 +3,8 @@ title: "Dissemination of Legal Information: Structure and Topics of Online Avail
 category: working paper
 permalink: /publication/2018-Meyer
 date: 2018-07-04
+citation: 'Meyer, Philipp. Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions. Working Paper.'
+---
 ---
 
 ![alt text](https://phimeyer.github.io/images/agendatopics.png "CAP Topics")
