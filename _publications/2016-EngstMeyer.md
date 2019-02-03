@@ -2,7 +2,6 @@
 title: "Constitutions Without Protection?"
 category: working paper
 permalink: /publication/2016-EngstMeyer
-date: 2016-10-17
 citation: 'Engst, Benjamin G. & Philipp Meyer. 2016. Constitutions Without Protection? Judicial Strength in a State of Emergency. Working Paper.'
 ---
 
