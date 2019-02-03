@@ -2,7 +2,6 @@
 title: "Gaining control of the agenda: how judicial public relations enable courts to focus issue attention"
 category: working paper
 permalink: /publication/2019-MeyerHönnige
-date: 2018-06-01
 citation: 'Meyer, Philipp & Christoph Hönnige. Gaining control of the agenda: how judicial public relations enable courts to focus issue attention. Working Paper.'
 ---
 
