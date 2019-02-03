@@ -5,6 +5,8 @@ permalink: /talks/
 author_profile: true
 ---
 
+This page provides you with a list of conference presentations I have given per year. Additionally some presentation slides are also available.
+
 <b>2018</b>
 
 
