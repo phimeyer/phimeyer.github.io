@@ -6,13 +6,13 @@ date: 2016-10-17
 citation: 'Engst, Benjamin G. & Philipp Meyer. 2016. Constitutions Without Protection? Judicial Strength in a State of Emergency. Working Paper.'
 ---
 
-Together with
+<p><b>Together with</b><br>
 <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://benjamin-engst.de/"><span style="color: #333333;"><span style="font-size: medium;">Benjamin G. Engst (University of Mannheim)</span></span></a>
 
 
 
 
-<b>Abstract</b>
+<p><b>Abstract</b><br>
 To what extent is the judiciary able to act as an effective guardian of oonstitutional provisions during the state of emergency? 
 Modern democracies face a dilemma which is to balance state powers in times of crises. To deal efficiently and effectively 
 with exceptional situations, governments are able to declare the state of emergency to change the political structure in favor of 
@@ -27,10 +27,10 @@ We also assess the relationship between the protection of civil liberties and th
 Results show that the judiciary in countries with a common law tradition has a stronger position than the judiciary 
 in civil law countries. Civil liberties are better protected in states with a strong judiciary while executive compliance is 
 frequent in states with a weaker judiciary. A strong judiciary contributes to a healthy political system balancing state powers in 
-times of crises.
+times of crises.</p>
 
-<b>Status</b>
-Draft presented.
+<p><b>Status</b><br>
+Draft presented.</p>
 
 [Access paper here (Version: 09/2016)](http://phimeyer.github.io/files/c414b2f4-3ad2-46fa-9413-d32ccbdb34b2.pdf)
 
