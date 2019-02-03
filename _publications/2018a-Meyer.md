@@ -5,6 +5,9 @@ permalink: /publication/2018-Meyer
 date: 2017-04-04
 ---
 
+![alt text](https://phimeyer.github.io/images/childcare1.png "Childcare Decision")
+
+
 <p><b>Abstract</b><br>
 The public relies on the media to gather information about court decisions. As court decisions are barely read, courts try to influence media content by promoting decisions through press releases. However, the mechanisms behind the court-media relationship are unclear. This paper develops a theoretical argument on how information about decisions are revealed in media content. Results show that similarity is explained by oral hearings and concrete review cases. The findings highlight that previous efforts of courts to enhance transparency help to further exert influence on the news content after a decision. </p>
 
