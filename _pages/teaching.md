@@ -19,7 +19,7 @@ I taught first year undergraduate as well as advanced undergraduate and graduate
 - <p><b>Moderne Demokratien im Vergleich - Lektürekurs</b><br>
   Leibniz University Hannover<br>
   Winter Terms: 2015/2016, 2016/2017, 2017/2018<br>
-  <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/_WS17_18-Moderne_Demokratien_im_Vergleich__Lektürekurs_(263999).pdf"><span style="color: #333333;"><span style="font-size: medium;">See most recent evaluation</span></span></a>
+  <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/WS17_18-Moderne_Demokratien_im_Vergleich__Lektürekurs.pdf"><span style="color: #333333;"><span style="font-size: medium;">See most recent evaluation</span></span></a>
     
 - <p><b>Introduction to Text Analysis and Digital Research</b><br>
   together with Justin Chun-ting Ho, University of Edinburgh<br>
