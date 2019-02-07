@@ -10,5 +10,5 @@ redirect_from:
 {% include base_path %}
 {% capture written_label %}'None'{% endcapture %}
 
-<p style="line-height: 1.5;" align="center"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/01_Academic%20CV_Philipp%20Meyer.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Download my CV in PDF format.</b></span></span></a>
+<p style="line-height: 1.5;" align="center"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/01_Academic%20CV_Philipp%20Meyer.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Download my Academic CV in PDF format.</b></span></span></a>
   
