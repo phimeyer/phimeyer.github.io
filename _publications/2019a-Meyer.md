@@ -6,7 +6,7 @@ citation: 'Meyer, Philipp. Judicial Public Relations: Determinants of Press Rele
 ---
 
 
-![alt text](https://phimeyer.github.io/images/03_1_Logit_Model.jpeg "Logistic regression with year fixed effects")
+![alt text](https://phimeyer.github.io/images/03_1_Logit_Model.jpg "Logistic regression with year fixed effects")
 
 
 <p><b>Abstract</b><br>
