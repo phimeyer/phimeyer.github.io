@@ -1,18 +1,22 @@
 ---
-title: "Influencing The News: The Ability Of Constitutional Courts To Influence The Media"
+title: "Media success of the German Federal Constitutional Court"
 category: submitted paper
 permalink: /publication/2018a-Meyer
-citation: 'Meyer, Philipp. Influencing The News: The Ability Of Constitutional Courts To Influence The Media. Working Paper.'
+citation: 'Meyer, Philipp. Media success of the German Federal Constitutional Court. Working Paper.'
 ---
 
 ![alt text](https://phimeyer.github.io/images/childcare1.png "Childcare Decision")
 
 
 <p><b>Abstract</b><br>
-The public relies on the media to gather information about court decisions. As court decisions are barely read, courts try to influence media content by promoting decisions through press releases. However, the mechanisms behind the court-media relationship are unclear. This paper develops a theoretical argument on how information about decisions are revealed in media content. Results show that similarity is explained by oral hearings and concrete review cases. The findings highlight that previous efforts of courts to enhance transparency help to further exert influence on the news content after a decision. </p>
+Media coverage affects the perceived legitimacy of the judiciary, but what determines whether newspapers notice, pick up and report on court cases? Research shows that the newsworthiness of an event is the decisive reason for the media to cover it. This holds true for court cases, where the degree of newsworthiness is determined by procedural characteristics, indications of specific judicial behavior and
+institutional aspects.
+This paper examines the extent to which case characteristics (e.g. proceeding types), judicial behavior (e.g. dissenting opinions) and institutional aspects (e.g. press release publications) influence media coverage on constitutional court cases in Germany. Based on of 3.408 court cases and 9.436 media reports between 2008 and 2018, I follow Haselmayer et al. (2017) and use local text alignment scores between court cases and newspaper articles to identify media coverage of court cases. Rare-event logistic regression models are conducted to examine the extent to which case characteristics, judicial behavior, and institutional variation influence media coverage.
+
+Results show that the media is more likely to report on court cases which indicate political (e.g. declaration of unconstitutionality) or legal (e.g. dissenting opinion) conflicts or when the Court invites the attention of the media by issuing press releases. This confirms the importance of media gatekeeping as media outlets selectively transmit information about court cases to the public, therefore they shed light on the role of the media in influencing the legitimacy of courts in general. </p>
 
 <p><b>Status</b><br>
-Paper under review.</p>
+Work in progress.</p>
 
 
 
