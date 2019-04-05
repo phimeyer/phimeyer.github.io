@@ -1,12 +1,9 @@
 ---
 title: "Media success of the German Federal Constitutional Court"
-category: submitted paper
+category: working paper
 permalink: /publication/2018a-Meyer
 citation: 'Meyer, Philipp. Media success of the German Federal Constitutional Court. Working Paper.'
 ---
-
-![alt text](https://phimeyer.github.io/images/childcare1.png "Childcare Decision")
-
 
 <p><b>Abstract</b><br>
 Media coverage affects the perceived legitimacy of the judiciary, but what determines whether newspapers notice, pick up and report on court cases? Research shows that the newsworthiness of an event is the decisive reason for the media to cover it. This holds true for court cases, where the degree of newsworthiness is determined by procedural characteristics, indications of specific judicial behavior and
