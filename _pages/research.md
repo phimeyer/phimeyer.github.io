@@ -19,7 +19,7 @@ I am particularly interested in research on Comparative Political Institutions a
 
 <b>Recent Paper Projects</b>
 
-- Meyer, Philipp. Influencing The News: The Ability Of Constitutional Courts To Influence The Media.
+- Meyer, Philipp. Media success of the German Federal Constitutional Court.
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
 
 - Meyer, Philipp & Christoph Hönnige. Gaining control of the agenda: how judicial public relations enable courts to focus issue attention.
