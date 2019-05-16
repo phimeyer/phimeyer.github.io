@@ -5,8 +5,6 @@ permalink: /publication/2019-MeyerHönnige
 citation: 'Meyer, Philipp & Christoph Hönnige. Issue attention and issue diversity in the German Federal Constitutional Court. Working Paper.'
 ---
 
-![alt text](https://phimeyer.github.io/images/preplexity.png "RegionYear")
-
 <p><b>Abstract</b><br>
 Policy agenda research has ignored judicial policy agendas outside the US Supreme Court. The ability of a court to shape the policy agenda depends on its docket control power. Discretionary docket control facilitates a Court's agenda-setting power, while a mandatory docket suppresses it. Yet, there are certainly other tools that courts could use at their disposal to enjoy at least some degree of agenda-setting powers that discretionary docket control gives courts. Recent research has shown that press releases are strategically used by courts to promote certain cases and issues. Thus, this paper asks the following research question: Which policy issues do courts promote with press releases and how does a court's decision agenda and its public relations agenda differ? To address this we will examine the German Federal Constitutional Court (FCC) between 1998 and 2010. The data includes 4489 decisions from which 1029 are promoted by press releases. 
 	
