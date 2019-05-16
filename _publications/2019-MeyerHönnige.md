@@ -1,14 +1,16 @@
 ---
-title: "Gaining control of the agenda: how judicial public relations enable courts to focus issue attention"
+title: "Issue attention and issue diversity in the German Federal Constitutional Court"
 category: working paper
 permalink: /publication/2019-MeyerHönnige
-citation: 'Meyer, Philipp & Christoph Hönnige. Gaining control of the agenda: how judicial public relations enable courts to focus issue attention. Working Paper.'
+citation: 'Meyer, Philipp & Christoph Hönnige. Issue attention and issue diversity in the German Federal Constitutional Court. Working Paper.'
 ---
 
 ![alt text](https://phimeyer.github.io/images/preplexity.png "RegionYear")
 
 <p><b>Abstract</b><br>
- Policy agenda scholars have largely ignored judicial policy agendas apart from the United States Supreme Court. Especially patterns of agenda change using punctuated equilibrium theory are understudied in the case of judicial institutions. Furthermore, recent research on judicial public relations has revealed that courts around the world especially use press release to strategically promote specific decisions. In this context, this paper asks the following research question: Do public relations help courts focus their policy agenda? To address this gap the case and public relations agenda of the German Federal Constitutional Court (FCC) between 1996 and 2018 will be examined. The data for this analysis includes 6941 court cases decided by Court and 1539 decision-related press releases. As the FCC does not possess an effective docket control, its agenda is quite fragmentated. This paper argues that the Court can strategically focus its policy agenda on specific issues using press releases as a means of judicial public relations. Through semi-supervised text classification of decisions and press releases according to the coding framework provided by the Comparative Agendas Project, this paper compares the case agenda of the FCC and the Court’s public relations agenda. The analysis provides a unique overview of the Court’s case and public relations agenda and it demonstrates that judicial public relations can help courts without effective docket control to gain agenda-setting control.</p>
+Policy agenda research has ignored judicial policy agendas outside the US Supreme Court. The ability of a court to shape the policy agenda depends on its docket control power. Discretionary docket control facilitates a Court's agenda-setting power, while a mandatory docket suppresses it. Yet, there are certainly other tools that courts could use at their disposal to enjoy at least some degree of agenda-setting powers that discretionary docket control gives courts. Recent research has shown that press releases are strategically used by courts to promote certain cases and issues. Thus, this paper asks the following research question: Which policy issues do courts promote with press releases and how does a court's decision agenda and its public relations agenda differ? To address this we will examine the German Federal Constitutional Court (FCC) between 1998 and 2010. The data includes 4489 decisions from which 1029 are promoted by press releases. 
+	
+ As the FCC has a mandatory docket, its agenda is quite fragmented. This paper argues that the Court can focus its policy agenda on specific issues by promoting cases with press releases. Through supervised text classification of court cases, this paper examines the policy topics of the FCC decisions and compares them with the policy topics the Court promotes through press releases. It will focus on classical concepts and metrics of the policy agenda literature, like the punctuated equilibrium theory, kurtosis and entropy. \textbf{The results show that........} The analysis provides a unique overview of both agenda types and it demonstrates that judicial public relations can help courts without effective docket control to gain agenda-setting control. </p>
 
 <p><b>Status</b><br>
 Work in Progress.</p>
