@@ -310,3 +310,4 @@ compress_html:
     envs: development
 
 theme: jekyll-theme-minimal
+theme_color: black
