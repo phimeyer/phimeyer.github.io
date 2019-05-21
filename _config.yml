@@ -48,6 +48,7 @@ staticman:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
   path                   : # blank (default) uses feed.xml
+theme_color              : black
 
 # SEO Related
 google_site_verification :
@@ -264,6 +265,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
+  - remote_theme: broccolini/swiss
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -310,4 +312,3 @@ compress_html:
     envs: development
 
 theme: jekyll-theme-minimal
-theme_color: black
