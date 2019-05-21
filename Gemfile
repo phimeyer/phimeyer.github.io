@@ -16,10 +16,12 @@ gem "github-pages", group: :jekyll_plugins
 
 # gem "jekyll"
 
+
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
+  remote_theme: broccolini/swiss
   # gem "jekyll-archives"
   gem "jekyll-feed"
   gem 'jekyll-sitemap'
