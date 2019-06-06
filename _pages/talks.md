@@ -7,6 +7,11 @@ author_profile: true
 
 This page provides you with a list of conference presentations I have given per year. Additionally some presentation slides are also available.
 
+<b>2019</b>
+
+
+- <b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b>, Paper presented at POLTEXT Symposium, Waseda University, September 14-15, 2019.
+
 <b>2018</b>
 
 
