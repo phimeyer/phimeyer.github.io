@@ -10,6 +10,9 @@ I taught first year undergraduate as well as advanced undergraduate and graduate
 
 <b>Undergraduate</b>
 
+- <p><b>Praxis der Verfassungsgebung: Ein Planspiel </b><br>
+  Leibniz University Hannover<br>
+  Summer: 2019<br>
 
 - <p><b>Einführung in die Politikwissenschaft - Seminar mit Tutorium</b><br>
   Leibniz University Hannover<br>
