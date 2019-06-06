@@ -14,7 +14,7 @@ I am particularly interested in research on Comparative Political Institutions a
 <b>Submitted for Review</b>
 
 
-- Meyer, Philipp. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts.
+- Meyer, Philipp. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts (Revise and Resubmit).
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
 
 <b>Recent Paper Projects</b>
