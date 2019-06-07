@@ -12,7 +12,7 @@ I taught first year undergraduate as well as advanced undergraduate and graduate
 
 - <p><b>Praxis der Verfassungsgebung: Ein Planspiel </b><br>
   Leibniz University Hannover<br>
-  Summer: 2019<br>
+  Summer Term 2019<br>
 
 - <p><b>Einführung in die Politikwissenschaft - Seminar mit Tutorium</b><br>
   Leibniz University Hannover<br>
@@ -27,7 +27,7 @@ I taught first year undergraduate as well as advanced undergraduate and graduate
 - <p><b>Introduction to Text Analysis and Digital Research</b><br>
   together with Justin Chun-ting Ho, University of Edinburgh<br>
   Leibniz University Hannover<br>
-  Winter 2017/2018</p>
+  Winter Term 2017/2018</p>
 
 - <p><b>Populismus in Vergleichender Perspektive - Klassifzierung von Parteien, Verbänden und Bewegungen</b><br>
   Leibniz University Hannover<br>
