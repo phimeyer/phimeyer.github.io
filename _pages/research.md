@@ -32,7 +32,7 @@ I am particularly interested in research on Comparative Political Institutions a
 - Meyer, Philipp. Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions (data gathering).
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018b-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
   
-- Meyer, Philipp. International Judicial Relations: A Network Analysis of Court Visits (literature search & data gathering).
+- Meyer, Philipp. International Judicial Relations: A Network Analysis of Court Visits (literature review & data gathering).
 
 - Meyer, Philipp, Philipp Köker & Christoph Hönnige. De Jure Judicial Independence Measures and the Problem of Validity: A Case Study on Poland (writing).
 
