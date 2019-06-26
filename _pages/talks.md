@@ -10,7 +10,7 @@ This page provides you with a list of conference presentations I have given per 
 <b>2019</b>
 
 
-- <b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b>, Paper presented at POLTEXT Symposium, Waseda University, September 14-15, 2019 (with Prof. Dr. Christoph Hönnige).
+- <b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b>, Paper presented at POLTEXT Symposium, Waseda University, Tokyo, September 14-15, 2019 (with Prof. Dr. Christoph Hönnige) (upcoming).
 
 <b>2018</b>
 
