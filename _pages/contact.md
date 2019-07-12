@@ -5,7 +5,7 @@ excerpt: "Contact me"
 author_profile: true
 ---
 
-<p>Office Address<br>
+<p><i>Office Address</i><br>
 Gottfried Wilhelm Leibniz Universität<br>
 Institut für Politikwissenschaft<br>
 Schneiderberg 50<br>
