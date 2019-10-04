@@ -18,7 +18,7 @@ I am particularly interested in research on Comparative Political Institutions a
  
  <b>Under review</b>
  
-  - Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker, Susumu Shikano. Dominating the debate: British MPs in Brexit reporting (under review).
+  - Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker & Susumu Shikano. Dominating the debate: British MPs in Brexit reporting (under review).
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-HoennigeEtAl"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
   
   
