@@ -1,11 +1,4 @@
 ---
-title: "Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts"
-category: accepted
-permalink: /publication/2019a-Meyer
-citation: 'Meyer, Philipp. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. Working Paper.'
----
-
----
 title: "Dominating the debate: British MPs in Brexit reporting"
 date: 2019-09-01
 category: revise & resubmit
