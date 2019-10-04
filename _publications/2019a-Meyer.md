@@ -1,6 +1,6 @@
 ---
 title: "Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts"
-category: submitted paper
+category: accepted
 permalink: /publication/2019a-Meyer
 citation: 'Meyer, Philipp. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. Working Paper.'
 ---
