@@ -14,4 +14,4 @@ It remains unclear what institutional characteristics determine the publication 
 releases.</p>
 
 <p><b>Status</b><br>
-Accepted for publication.</p>
+  Accepted for publication (<i>Politics</i>).</p>
