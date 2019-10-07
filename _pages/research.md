@@ -10,11 +10,6 @@ Here you can find information on my submitted papers, recent projects and workin
 
 I am particularly interested in research on Comparative Political Institutions and Quantitative Text Analysis with an emphasis on Judicial Politics, Judicial Public Relations and Political Communication. Currently I am particular interested in when and how the German Federal Constitutional Court uses public relations in order to set frames and influence media coverage and the public.
 
-
-<b>Accepted</b>
-
-- Meyer, Philipp. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts (accepted in <i>Politics</i>).
-  <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
  
  <b>Under review</b>
  
