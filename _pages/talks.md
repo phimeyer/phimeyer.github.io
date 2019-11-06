@@ -10,7 +10,7 @@ This page provides you with a list of conference presentations I have given per 
 <b>2019</b>
 
 
-- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_CourtAgenda.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b></span></span></a>, Paper presented at POLTEXT Symposium, Waseda University, Tokyo, September 14-15, 2019 (with Prof. Dr. Christoph Hönnige).
+- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_CourtAgenda.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b></span></span></a>, Paper presented at 3nd Annual POLTEXT Conference, Panel: CM2 - Communications and Media, Waseda University, Tokyo, September 14-15, 2019 (with Prof. Dr. Christoph Hönnige).
 
 <b>2018</b>
 
@@ -20,7 +20,7 @@ This page provides you with a list of conference presentations I have given per 
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_EPSA_Transparency_Newsworthiness.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Transparency or Newsworthiness? The Probability of Constitutional Court Press Release Occurrence</b></span></span></a>, Paper presented at 8th Annual Conference of the European Political Science Association (EPSA), Panel: Judicial Politics II, Vienna, June 21, 2018.
 
-- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_Dissemination_of_Information.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Dissemination of legal information: Structure and Topics of Online Available Court Decisions</b></span></span></a>, Paper presented at POLTEXT Incubator Workshop, Panel: Legal 1, Centre for Social Sciences, Hungarian Academy of Sciences, Budapest, May 10, 2018.
+- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_Dissemination_of_Information.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Dissemination of legal information: Structure and Topics of Online Available Court Decisions</b></span></span></a>, Paper presented at 1st Annual POLTEXT Conference, Panel: Legal 1, Centre for Social Sciences, Hungarian Academy of Sciences, Budapest, May 10, 2018.
 
 <b>2017</b>
 
