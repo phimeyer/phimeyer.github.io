@@ -14,7 +14,7 @@ Schneiderberg 50<br>
 E-Mail: p.meyer@ipw.uni-hannover.de<br>
 Phone: +49-511-762-4917</p>
 
-* [Department of Political Science, Leibniz University Hannover](https://www.ipw.uni-hannover.de/11174.html)
+* [Department of Political Science, Leibniz University Hannover](https://www.ipw.uni-hannover.de/de/philipp-meyer/)
 * [ORCID](https://orcid.org/0000-0002-7986-9432)
 * [Google Scholar](https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de)
 * [Research Gate](https://www.researchgate.net/profile/Philipp_Meyer10)
