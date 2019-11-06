@@ -1,16 +1,14 @@
 ---
-title: "Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions"
+title: "Promoted Media Occurrence: When and why Newspapers use Court Press Releases for News Content"
 category: working paper
-permalink: /publication/2018b-Meyer
-citation: 'Meyer, Philipp. Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions. Working Paper.'
+permalink: /publication/2018c-Meyer
+citation: 'Meyer, Philipp. Promoted Media Occurrence: When and why Newspapers use Court Press Releases for News Content. Working Paper.'
 ---
 
 ![alt text](https://phimeyer.github.io/images/agendatopics.png "CAP Topics")
 
 <p><b>Abstract</b><br>
-The concept of information dissemination describes the process of broadcasting messages to the public. Dissemination describes the preliminary stage of agenda-building in which information get subsidizes to the public but not further processed (Weaver and Choi, 2014). By focusing on legal information disseminated by courts, this papers asks the following research question: Which kind of information do courts disseminate? This paper will structure and decompose decision information disseminated by the German Federal Constitutional Court (GFCC). The general aim is to present a novel data set which covers all decisions made available on the official court website, decomposed into various decision characteristics (e.g. proceeding type, oral hearing, unanimous decisions) and decision content (e.g. unsuccessful claims, topic of the decision). The data set covers 6911 decisions decided between 1951 and June 2018.</p>
+Several judicial politics and political communication studies have analysed the causes of media coverage on court decisions, using media data which are linked to data on court behaviour. These studies investigate when the media reports on a court decision. However, although several high courts around the world actually promote their decisions through press releases in order to attract the media’s interest, none of these studies examine the influence of courts on the news content. In this article, I focus on true-positive cases – decisions promoted with a press release and covered by at least one newspaper article – to analyse when and why newspapers actually use court press releases to produce news content. Whether or not a press release was used by the media is measured by a text similarity approach.  Potential causes of court press releases usage are diverse and range from court behaviour to policy issues and media characteristics. Methodologically, I use OLS regression models with standard errors clustered by years. Results show, that newspaper use court press releases more likely when an oral hearing was held during adjudication (court behaviour), when the decision at stake deals with either with law, social, or governmental issues (policy issues), and when the time span between newspaper article and court decision is short and when the article is not an opinion piece (media characteristics).</p>
 
 <p><b>Status</b><br>
 Draft presented.</p>
-
-[Access paper here (Version: 07/2018)](http://phimeyer.github.io/files/Meyer_Dissemination_of_Legal_Information.pdf)
