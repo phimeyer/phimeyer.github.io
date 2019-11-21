@@ -1,5 +1,5 @@
 ---
-title: "Promoted Media Occurrence: When and why Newspapers use Court Press Releases for News Content"
+title: "Reproduced News: When Newspapers reproduce Court Press Releases for News Content"
 category: working paper
 permalink: /publication/2018c-Meyer
 citation: 'Meyer, Philipp. Reproduced News: When Newspapers reproduce Court Press Releases for News Content. Working Paper.'
