@@ -13,11 +13,11 @@ I am particularly interested in research on Comparative Political Institutions a
  
  <b>Under review</b>
  
+ - Meyer, Philipp. Why does the News Media Report on Decisions by Constitutional Courts? Explaining Media coverage of Court Decisions with the Case of the German Federal Constitutional Court.
+  <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
+ 
   - Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker & Susumu Shikano. Dominating the debate: British MPs in Brexit reporting (under review).
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-HoennigeEtAl"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
-  
-- Meyer, Philipp. Why does the News Media Report on Decisions by Constitutional Courts? Explaining Media coverage of Court Decisions with the Case of the German Federal Constitutional Court.
-  <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
 
 <b>Recent Paper Projects</b>
 
