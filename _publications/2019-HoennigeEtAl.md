@@ -1,7 +1,7 @@
 ---
 title: "Dominating the debate: British MPs in Brexit reporting"
 date: 2019-09-01
-category: revise & resubmit
+category: under review
 permalink: /publication/2019-HoennigeEtAl
 citation: 'Hönnige, Christoph, Dominic Nyhuis, Philipp Meyer, Philipp Köker & Susumu Shikano. 2019. Dominating the debate: British MPs in Brexit reporting.'
 ---
