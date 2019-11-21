@@ -1,5 +1,5 @@
 ---
-title: "Media success of the German Federal Constitutional Court"
+title: "Why does the News Media Report on Decisions by Constitutional Courts? Explaining Media coverage of Court Decisions with the Case of the German Federal Constitutional Court"
 category: working paper
 permalink: /publication/2018a-Meyer
 citation: 'Meyer, Philipp. Why does the News Media Report on Decisions by Constitutional Courts? Explaining Media coverage of Court Decisions with the Case of the German Federal Constitutional Court. Working Paper.'
