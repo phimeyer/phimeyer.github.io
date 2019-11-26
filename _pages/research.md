@@ -22,7 +22,7 @@ I am particularly interested in research on Comparative Political Institutions a
 <b>Recent Paper Projects</b>
 
  
- - Meyer, Philipp. Reproduced News: When Newspapers reproduce Court Press Releases for News Content (writing).
+ - Meyer, Philipp. Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content (writing).
    <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018c-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
 
 - Meyer, Philipp & Christoph Hönnige. Do Courts have different decision and press release agendas? Evidence from the German case (writing & presenting).
