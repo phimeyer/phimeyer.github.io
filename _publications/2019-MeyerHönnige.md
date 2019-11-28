@@ -1,5 +1,5 @@
 ---
-title: "Issue attention and issue diversity in the German Federal Constitutional Court"
+title: "Do Courts have different decision and press release agendas? Evidence from the German case"
 category: working paper
 permalink: /publication/2019-MeyerHönnige
 citation: 'Meyer, Philipp & Christoph Hönnige. Do Courts have different decision and press release agendas? Evidence from the German case. Working Paper.'
