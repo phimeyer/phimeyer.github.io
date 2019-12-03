@@ -17,9 +17,10 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     <body>
     <div id="leftOne" class='altmetric-embed' data-badge-type='donut' data-doi="https://doi.org/10.1177/0263395719885753">
         </div>
-    <div id="rightOne"><a href="https://plu.mx/plum/a/?doi=10.1177%2F0263395719885753" data-popup="right" data-size="medium" class="plumx-plum-print-popup plum-bigben-theme" data-site="plum" data-hide-when-empty="true" data-pass-hidden-categories="true">Judicial public relations: Determinants of press release publication by constitutional courts</a>
+    <div id="rightOne" data-popup="right" data-size="medium" class="plumx-plum-print-popup plum-bigben-theme" data-site="https://plu.mx/plum/a/?doi=10.1177%2F0263395719885753" data-hide-when-empty="true" data-pass-hidden-categories="true">
         </div>
     </body>
+    
 <b>Chapters in Edited Volumes</b>
 
 - Meyer, Philipp & Christoph Hönnige. 2017.Der Niedersächsische Staatsgerichtshof. In: Reutter, Werner (ed.) <i>Landesverfassungsgerichte: Entwicklung – Aufbau – Funktionen</i>. Wiesbaden: Springer VS, S. 219-241.
