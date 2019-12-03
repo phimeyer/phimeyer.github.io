@@ -19,7 +19,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
   <div align="left">
     <div style="display: inline-block" class='altmetric-embed' data-badge-type='donut' data-doi="https://doi.org/10.1177/0263395719885753"></div>
     
-   <div style="display: inline-block"><a href="https://plu.mx/plum/a/?doi=10.1177%2F0263395719885753" data-popup="right" data-size="large" class="plumx-plum-print-popup plum-bigben-theme" data-site="plum" data-hide-when-empty="true" data-pass-hidden-categories="true">PlumX</a></div>
+   <div style="display: inline-block"><a href="https://plu.mx/plum/a/?doi=10.1177%2F0263395719885753" data-popup="right" data-size="small" class="plumx-plum-print-popup plum-bigben-theme" data-site="plum" data-hide-when-empty="true" data-pass-hidden-categories="true">PlumX</a></div>
    </div>
     
 <b>Chapters in Edited Volumes</b>
