@@ -12,10 +12,11 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 
 <b>Journal articles</b>
 
--  Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>. [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753) <a href="https://plu.mx/plum/a/?doi=10.1177%2F0263395719885753" data-popup="right" data-size="medium" class="plumx-plum-print-popup plum-bigben-theme" data-site="plum" data-hide-when-empty="true" data-pass-hidden-categories="true">Judicial public relations: Determinants of press release publication by constitutional courts</a>
+-  Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>. [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753) 
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
+    <body>
     <div class='altmetric-embed' data-badge-type='donut' data-doi="https://doi.org/10.1177/0263395719885753"></div>
-    
+    <div id="nextOne"><a href="https://plu.mx/plum/a/?doi=10.1177%2F0263395719885753" data-popup="right" data-size="medium" class="plumx-plum-print-popup plum-bigben-theme" data-site="plum" data-hide-when-empty="true" data-pass-hidden-categories="true">Judicial public relations: Determinants of press release publication by constitutional courts</a></div>
 
 <b>Chapters in Edited Volumes</b>
 
