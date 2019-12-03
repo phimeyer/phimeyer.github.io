@@ -15,4 +15,4 @@ It remains unclear what institutional characteristics determine the publication 
 <p><b>Keywords</b><br>constitutional courts, judicial politics, political communication, political public relations, press releases </p>
 
 <p><b>Status</b><br>
-  [Published](https://doi.org/10.1177/0263395719885753)
+  Published
