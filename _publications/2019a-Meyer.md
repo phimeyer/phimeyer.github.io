@@ -2,7 +2,7 @@
 title: "Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts"
 category: published
 permalink: /publication/2019a-Meyer
-citation: 'Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. Politics. https://doi.org/10.1177/0263395719885753'
+citation: 'Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>. <u><a href=“https://doi.org/10.1177/0263395719885753“> DOI: 10.1177/0263395719885753</a></u>'
 ---
 
 
@@ -15,4 +15,4 @@ It remains unclear what institutional characteristics determine the publication 
 <p><b>Keywords</b><br>constitutional courts, judicial politics, political communication, political public relations, press releases </p>
 
 <p><b>Status</b><br>
-  OnlineFirst. <i>Politics</i>. https://doi.org/10.1177/0263395719885753.</p>
+  Published.
