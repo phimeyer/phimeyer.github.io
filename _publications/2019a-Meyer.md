@@ -17,4 +17,4 @@ It remains unclear what institutional characteristics determine the publication 
 <p><b>Status</b><br>
   Published.
   
-  [Access paper here](https://doi.org/10.1177/0263395719885753)
+[Access paper here](https://doi.org/10.1177/0263395719885753)
