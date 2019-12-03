@@ -18,3 +18,5 @@ It remains unclear what institutional characteristics determine the publication 
   Published.
   
   [Access paper here](https://doi.org/10.1177/0263395719885753)
+
+Recommended citation: Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. Politics. DOI: 10.1177/0263395719885753
