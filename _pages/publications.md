@@ -7,20 +7,14 @@ author_profile: true
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
-<script type="text/javascript" src="//cdn.plu.mx/widget-details.js"></script>
-
 You can also find my articles on <u><a href="https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de">my Google Scholar profile</a>.</u>
 
 <b>Journal articles</b>
 
 -  Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>. [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753) 
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
-  
-  <div align="left">
-    <div style="display: inline-block" class='altmetric-embed' data-badge-type='donut' data-doi="https://doi.org/10.1177/0263395719885753"></div>
-    
-   <div style="display: inline-block"><a href="https://plu.mx/plum/a/?doi=10.1177%2F0263395719885753" class="plumx-details plum-bigben-theme" data-site="plum" data-hide-when-empty="true" data-no-link="true" data-pass-hidden-categories="true"></a></div>
-   </div>
+
+    <div class='altmetric-embed' data-badge-type='donut' data-doi="https://doi.org/10.1177/0263395719885753"></div>
     
 <b>Chapters in Edited Volumes</b>
 
