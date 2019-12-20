@@ -13,4 +13,4 @@ Causes of media coverage on court decisions is analysed in several studies. Howe
 <p><b>Keywords</b><br>constitutional courts; open justice; political communication; media gatekeeping; news production </p>
 
 <p><b>Status</b><br>
-Work in progress.</p>
+Under review.</p>
