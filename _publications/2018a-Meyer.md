@@ -11,7 +11,7 @@ Media coverage affects the perceived legitimacy of the judiciary, but why does t
 <p><b>Keywords</b><br>judicial politics; constitutional courts; political communication; media gatekeeping; news values </p>
 
 <p><b>Data</b><br>
-<p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-Media-Coverage-on-the-FCC"><span style="color: #333333;"><span style="font-size: medium;">Replication Data for this study</span></span></a>
+<p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-Media-Coverage-on-the-FCC"><span style="color: #333333;"><span style="font-size: medium;">Replication data for this study</span></span></a>
 
 <p><b>Status</b><br>
 Under review.</p>
