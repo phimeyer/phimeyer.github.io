@@ -15,7 +15,7 @@ It remains unclear what institutional characteristics determine the publication 
 <p><b>Keywords</b><br>constitutional courts, judicial politics, political communication, political public relations, press releases </p>
 
 <p><b>Data</b><br>
-<p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;">Replication Data for this study</span></span></a>
+<p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;">Replication data for this study</span></span></a>
 
 <p><b>Status</b><br>
   Published in <i>Politics</i>
