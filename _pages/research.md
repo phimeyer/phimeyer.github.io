@@ -21,7 +21,7 @@ I am particularly interested in research on Comparative Political Institutions a
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
      <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-Media-Coverage-on-the-FCC"><span style="color: #333333;"><span style="font-size: medium;">Replication Data for this study</span></span></a>  
    
- - Meyer, Philipp. Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content (writing).
+ - Meyer, Philipp. Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content.
    <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018c-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
 
 <b>Recent Paper Projects</b>
