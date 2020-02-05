@@ -1,6 +1,6 @@
 ---
 title: "Why does the News Media Report on Decisions by Constitutional Courts? Explaining Media coverage of Court Decisions with the Case of the German Federal Constitutional Court"
-category: under review
+category: revise and resubmit
 permalink: /publication/2018a-Meyer
 citation: 'Meyer, Philipp. Why does the News Media Report on Decisions by Constitutional Courts? Explaining Media coverage of Court Decisions with the Case of the German Federal Constitutional Court. Working Paper.'
 ---
@@ -14,7 +14,7 @@ Media coverage affects the perceived legitimacy of the judiciary, but why does t
 <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-Media-Coverage-on-the-FCC"><span style="color: #333333;"><span style="font-size: medium;">Replication data for this study</span></span></a>
 
 <p><b>Status</b><br>
-Under review.</p>
+Revise and Resubmit in <i>Political Communication</i>.</p>
 
 
 
