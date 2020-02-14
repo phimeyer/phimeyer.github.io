@@ -26,7 +26,7 @@ I am particularly interested in research on Comparative Political Institutions a
 
 <b>Recent Paper Projects</b>
 
-- Meyer, Philipp & Christoph Hönnige. Understanding intra-institutional agenda setting effects: An assessment of the two policy agendas at the German Federal Constitutional Court (writing & presenting).
+- Meyer, Philipp. Understanding intra-institutional agenda-setting: An assessment of the two policy agendas at the German Federal Constitutional Court (writing & presenting).
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-MeyerHönnige"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
   
 - Meyer, Philipp, Philipp Köker & Christoph Hönnige. De Jure Judicial Independence Measures and the Problem of Validity: A Case Study on Poland (writing).
