@@ -1,6 +1,6 @@
 ---
 title: "Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content"
-category: working paper
+category: under review
 permalink: /publication/2018c-Meyer
 citation: 'Meyer, Philipp. Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content. Working Paper.'
 ---
