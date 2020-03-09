@@ -12,17 +12,17 @@ I am particularly interested in research on Comparative Political Institutions a
 
   <b>Revise and resubmit</b>
   
-  - Meyer, Philipp. Why does the News Media Report on Decisions by Constitutional Courts? Explaining Media coverage of Court Decisions with the Case of the German Federal Constitutional Court. Revise and resubmit in <i>Political Communication</i>.
+  - Meyer, Philipp. Explaining media coverage on constitutional court decisions in Germany: The role of case characteristics. Revise and resubmit in <i>Political Communication</i>.
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
      <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-Media-Coverage-on-the-FCC"><span style="color: #333333;"><span style="font-size: medium;">Replication data for this study</span></span></a>  
+       
+  - Meyer, Philipp. Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content. Revise and resubmit in <i>Journalism Studies</i>.
+   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018c-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
   
   - Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker & Susumu Shikano. Dominating the debate: British MPs in Brexit reporting. Revise and resubmit in <i>Political Research Exchange</i>.
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-HoennigeEtAl"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
  
  <b>Under review</b>
-   
- - Meyer, Philipp. Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content.
-   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018c-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
   
   - Meyer, Philipp. Understanding intra-institutional agenda-setting: An assessment of the two policy agendas at the German Federal Constitutional Court.
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-MeyerHönnige"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
