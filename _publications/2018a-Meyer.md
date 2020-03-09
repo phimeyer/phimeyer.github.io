@@ -10,9 +10,6 @@ Research on the media coverage on decisions by the U.S. Supreme Court shows that
 
 <p><b>Keywords</b><br>judicial politics; constitutional courts; political communication; newsworthiness</p>
 
-<p><b>Data</b><br>
-<p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-Media-Coverage-on-the-FCC"><span style="color: #333333;"><span style="font-size: medium;">Replication data for this study</span></span></a>
-
 <p><b>Status</b><br>
 Revise and Resubmit in <i>Political Communication</i>.</p>
 
