@@ -20,7 +20,7 @@ I am particularly interested in research on Comparative Political Institutions a
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018c-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
   
   
-- Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker & Susumu Shikano. Dominating the debate: British MPs in Brexit reporting. Revise and resubmit in <i>Political Research Exchange</i>.
+- Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker & Susumu Shikano. Dominating the Debate: Visibility Bias and Mentions of British MPs in Newspaper Reporting on Brexit. Revise and resubmit in <i>Political Research Exchange</i>.
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-HoennigeEtAl"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
   
  
