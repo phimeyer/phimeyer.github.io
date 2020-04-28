@@ -1,16 +1,14 @@
 ---
-title: "Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content"
+title: "Promoted media coverage on court decisions: Media gatekeeping of court press releases and the role of news values"
 category: under review
 permalink: /publication/2018c-Meyer
-citation: 'Meyer, Philipp. Promoted Media Coverage: When Newspapers reproduce Court Press Releases for News Content. Working Paper.'
+citation: 'Meyer, Philipp. Promoted media coverage on court decisions: Media gatekeeping of court press releases and the role of news values'
 ---
 
-![alt text](https://phimeyer.github.io/images/similarity_network.jpg "Text Similarity Network")
-
 <p><b>Abstract</b><br>
-Causes of media coverage on court decisions is analysed in several studies. However, although courts frequently publish press releases to attract attention and communicate with the public, none of these studies examine if media outlets use court press releases for news production – defined here as the degree to which the news media reproduces the content of court press releases. To bridge this gap, this study establishes a causal link between the judiciary and the media by focusing on court decisions that are promoted with a press release and verifiably picked up by the media. It examines 423 newspaper articles published by two German daily newspapers (Die Süddeutsche and Die Welt) which have reported on 121 German Federal Constitutional Court cases between 2013 and 2017. Content reproduction is measured by the text-similarity between press releases and news articles and the analysis uses textual network analysis and linear regression with year- and newspaper-fixed effects. Results show that media reproduces press releases when the underlying policy issue is complex, and when the period between documents is short. I interpret these results based on news values research and recent discussions on open justice and reflect on the implications for judicial accountability.</p>
+The present study focuses on the effect of court press releases on media gatekeeping, a field that has remained largely uninvestigated to date. Using original data on the German Federal Constitutional Court, the study analyzes when court press releases are reported on in the media. Certain news values (e.g., conflict, political power, continuity/familiarity) are assumed to increase the probability that a press release will be reported on in the news. By using an automated content analysis approach, this study assesses whether 584 court press releases are reported on in German newspapers over a period of 10 years (2008–2018). Only press releases that promote court decisions are used as they are the official information subsidies that the trigger (i.e., the Court) of the news event (i.e., the decision) disseminates to the public through the media. Findings indicate that only 18% of press releases are reported on in the news. Furthermore, the news values of conflict and political power are found to have no influence on the success of a press release, while press releases that promote decisions with an oral hearing are more likely to be picked up by journalists. Issues that are already on the media’s agenda and are familiar to the public are thus more likely to be covered again.</p>
 
-<p><b>Keywords</b><br>constitutional courts; open justice; political communication; media gatekeeping; news production </p>
+<p><b>Keywords</b><br>court communication; justice reporting; press releases; news values; open justice; computational text analysis </p>
 
 <p><b>Status</b><br>
-Revise and Resubmit in <i>Political Communication</i>.</p>
+Revise and Resubmit in <i>Journalism Studies</i>.</p>
