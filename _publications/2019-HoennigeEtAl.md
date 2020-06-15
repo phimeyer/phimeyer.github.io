@@ -14,4 +14,4 @@ Brexit has been the most important issue in British politics in recent years. Wh
 Brexit; newspaper analysis; media bias; visibility
 
 <p><b>Status</b><br>
-Revise and resubmit in <i>Political Research Exchange</i>.</p>
+Accepted for publication at <i>Political Research Exchange</i>.</p>
