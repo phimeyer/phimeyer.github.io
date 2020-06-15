@@ -7,8 +7,19 @@ author_profile: true
 
 This page provides you with a list of conference presentations I have given per year. Additionally some presentation slides are also available.
 
-<b>2019</b>
 
+<b>2020</b>
+
+
+- <b>Institutional Friction in High Court Policy Agendas: Comparing France, Canada and Germany</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Legal Mobilization: Patterns and Consequences , Virtual Conference, August 2020 (with Christoph Hönnige (Universität Hannover), Sylvain Brouard (Institut d'Etudes Politiques de), Christine Rothmayr Allison (Université de Montréal)).
+
+<i>Panel organization</i>
+
+- <b>Text Analysis in Judicial Politics</b>, Panel organized for the Standing Group on <i>Law and Courts/<i> at the General Conference of the European Consortium for Political Research (ECPR) Virtual Conference, August 2020 (with <b>Lisa Lechner (Universität Innsbruck)</b>).
+  
+ - <b>Communicating the Judiciary</b>, Panel organized for the Standing Group on <i>Law and Courts/<i> at the General Conference of the European Consortium for Political Research (ECPR) Virtual Conference, August 2020 (with <b>Josè M. Reis (Universität Hamburg)</b>).
+  
+<b>2019</b>
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_CourtAgenda.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b></span></span></a>, Paper presented at 2nd Annual POLTEXT Conference, Panel: CM2 - Communications and Media, Waseda University, Tokyo, September 14-15, 2019 (with Prof. Dr. Christoph Hönnige).
 
