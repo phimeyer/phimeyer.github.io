@@ -18,7 +18,7 @@ I am particularly interested in research on Comparative Political Institutions a
  
 <b>Under review</b>
  
- - Meyer, Philipp. Understanding intra-institutional agenda-setting effects: An assessment of the two policy agendas at the German Federal Constitutional Court. Under review at <i>Journal of Public Policy</i>.
+ - Meyer, Philipp. Understanding intra-institutional agenda-setting effects: An assessment of the two policy agendas at the German Federal Constitutional Court.
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-MeyerHönnige"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
   
 <b>Recent Paper Projects</b>
