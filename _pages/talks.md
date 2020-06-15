@@ -22,6 +22,8 @@ This page provides you with a list of conference presentations I have given per 
 <b>2019</b>
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_CourtAgenda.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b></span></span></a>, Paper presented at 2nd Annual POLTEXT Conference, Panel: CM2 - Communications and Media, Waseda University, Tokyo, September 14-15, 2019 (with Prof. Dr. Christoph Hönnige).
+     
+- <b>Leave means leave: The link between MPs Brexit position and newspaper mentions</b>, Paper presented at ECPR Standing Group Conference 2019 (Advances in the Empirical and Theoretical Study of Parliaments), 26–28 September 2019, University of Konstanz (with Christoph Hönnige (Universität Hannover), Dominic Nyhuis (University of North Carolina at Chapel Hill), Philipp Köker (Universität Hannover), Susumu Shikano (Universität Konstanz).
 
 <b>2018</b>
 
@@ -37,7 +39,7 @@ This page provides you with a list of conference presentations I have given per 
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Building%20Policy%20Images.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda</b></span></span></a>, Paper presented at 10th Annual CAP Conference, Panel: Bureaucratic and Judicial Agendas (A2), University of Glasgow, June 15, 2017.
 
-- <b>Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda</b>, Paper presented at General Conference of the European Consortium for Political Research, Section: Law and Courts, Panel: Media Representation and Salience of Courts (P222), University of Oslo, September 7, 2017.
+- <b>Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Media Representation and Salience of Courts (P222), University of Oslo, September 7, 2017.
 
 <b>2016</b>
 
