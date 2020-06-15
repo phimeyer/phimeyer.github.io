@@ -21,7 +21,7 @@ This page provides you with a list of conference presentations I have given per 
   
 <b>2019</b>
 
-- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_CourtAgenda.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b></span></span></a>, Paper presented at 2nd Annual POLTEXT Conference, Panel: CM2 - Communications and Media, Waseda University, Tokyo, September 14-15, 2019 (with Prof. Dr. Christoph Hönnige).
+- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_CourtAgenda.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b></span></span></a>, Paper presented at 2nd Annual POLTEXT Conference, Panel: CM2 - Communications and Media, Waseda University, Tokyo, September 14-15, 2019 (with Christoph Hönnige, Universität Hannover).
      
 - <b>Leave means leave: The link between MPs Brexit position and newspaper mentions</b>, Paper presented at ECPR Standing Group Conference 2019 (Advances in the Empirical and Theoretical Study of Parliaments), 26–28 September 2019, University of Konstanz (with Christoph Hönnige (Universität Hannover), Dominic Nyhuis (University of North Carolina at Chapel Hill), Philipp Köker (Universität Hannover), Susumu Shikano (Universität Konstanz).
 
@@ -43,8 +43,7 @@ This page provides you with a list of conference presentations I have given per 
 
 <b>2016</b>
 
-- <b>Verfassungen ohne Schutz? Gerichtliche Stärke im Ausnahmezustand</b>, Paper presented at the 6th Conference of the DVPW theme group Politik und Recht, Humboldt University Berlin, September 23, 2016 (with Benjamin G. Engst, M.A.).
+- <b>Verfassungen ohne Schutz? Gerichtliche Stärke im Ausnahmezustand</b>, Paper presented at the 6th Conference of the DVPW theme group Politik und Recht, Humboldt University Berlin, September 23, 2016 (with Benjamin G. Engst, Universität Hannover).
+- <b>Constitutions Without Any Protection: the limits of judicial structures during the state of emergency</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Data and Methods in Court Research (P079), University of Prague, September 8, 2016 (with Benjamin G. Engst, Universität Hannover).
 
-- <b>Constitutions Without Any Protection: the limits of judicial structures during the state of emergency</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Data and Methods in Court Research (P079), University of Prague, September 8, 2016 (with Benjamin G. Engst, M.A.).
-
-- <b>Constitutional Review in Europe: Institutional Developments from 1995 to 2015 in the EU-28</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Domestic Courts: Decision-making and Policy Implementation (P102), University of Prague, September 9, 2016 (with Prof. Dr. Christoph Hönnige).
+- <b>Constitutional Review in Europe: Institutional Developments from 1995 to 2015 in the EU-28</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Domestic Courts: Decision-making and Policy Implementation (P102), University of Prague, September 9, 2016 (with Christoph Hönnige, Universität Hannover).
