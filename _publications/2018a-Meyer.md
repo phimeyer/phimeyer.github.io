@@ -1,8 +1,8 @@
 ---
 title: "Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics"
-category: revise and resubmit
+category: 
 permalink: /publication/2018a-Meyer
-citation: 'Meyer, Philipp. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics. Working Paper.'
+citation: 'Meyer, Philipp. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics.'
 ---
 
 <p><b>Abstract</b><br>
@@ -11,7 +11,7 @@ Research on the media coverage of decisions by the U.S. Supreme Court has reveal
 <p><b>Keywords</b><br>judicial politics; constitutional courts; political communication; newsworthiness</p>
 
 <p><b>Status</b><br>
-Revise and Resubmit in <i>Political Communication</i>.</p>
+Accepted for publication at <i>Political Communication</i>.</p>
 
 
 
