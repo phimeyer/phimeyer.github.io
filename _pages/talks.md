@@ -13,11 +13,11 @@ This page provides you with a list of conference presentations I have given per 
 
 - <b>Institutional Friction in High Court Policy Agendas: Comparing France, Canada and Germany</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Legal Mobilization: Patterns and Consequences , Virtual Conference, August 2020 (with Christoph Hönnige (Universität Hannover), Sylvain Brouard (Institut d'Etudes Politiques de), Christine Rothmayr Allison (Université de Montréal)).
 
-<i>Panel organization</i>
+     <i>Panel organization</i>
 
-- <b>Text Analysis in Judicial Politics</b>, Panel organized for the Standing Group on <i>Law and Courts/<i> at the General Conference of the European Consortium for Political Research (ECPR) Virtual Conference, August 2020 (with <b>Lisa Lechner (Universität Innsbruck)</b>).
+- <b>Text Analysis in Judicial Politics</b>, Panel organized for the Standing Group on <i>Law and Courts</i> at the General Conference of the European Consortium for Political Research (ECPR) Virtual Conference, August 2020 (with <b>Lisa Lechner (Universität Innsbruck)</b>).
   
- - <b>Communicating the Judiciary</b>, Panel organized for the Standing Group on <i>Law and Courts/<i> at the General Conference of the European Consortium for Political Research (ECPR) Virtual Conference, August 2020 (with <b>Josè M. Reis (Universität Hamburg)</b>).
+ - <b>Communicating the Judiciary</b>, Panel organized for the Standing Group on <i>Law and Courts</i> at the General Conference of the European Consortium for Political Research (ECPR) Virtual Conference, August 2020 (with <b>Josè M. Reis (Universität Hamburg)</b>).
   
 <b>2019</b>
 
