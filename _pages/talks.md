@@ -23,7 +23,7 @@ This page provides you with a list of conference presentations I have given per 
 
 - <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Meyer_POLTEXT_CourtAgenda.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Gaining control of the agenda: how judicial public relations enable courts to focus issue attention</b></span></span></a>, Paper presented at 2nd Annual POLTEXT Conference, Panel: CM2 - Communications and Media, Waseda University, Tokyo, September 14-15, 2019 (with Christoph Hönnige, Universität Hannover).
      
-- <b>Leave means leave: The link between MPs Brexit position and newspaper mentions</b>, Paper presented at ECPR Standing Group Conference 2019 (Advances in the Empirical and Theoretical Study of Parliaments), 26–28 September 2019, University of Konstanz (with Christoph Hönnige (Universität Hannover), Dominic Nyhuis (University of North Carolina at Chapel Hill), Philipp Köker (Universität Hannover), Susumu Shikano (Universität Konstanz).
+- <b>Leave means leave: The link between MPs Brexit position and newspaper mentions</b>, Paper presented at ECPR Standing Group Conference 2019 (Advances in the Empirical and Theoretical Study of Parliaments), 26–28 September 2019, University of Konstanz (with Christoph Hönnige (Universität Hannover), Dominic Nyhuis (University of North Carolina at Chapel Hill), Philipp Köker (Universität Hannover), Susumu Shikano (Universität Konstanz)).
 
 <b>2018</b>
 
