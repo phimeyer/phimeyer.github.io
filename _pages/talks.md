@@ -37,7 +37,7 @@ This page provides you with a list of conference presentations I have given per 
 
 <b>2017</b>
 
-- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Building%20Policy%20Images.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda</b></span></span></a>, Paper presented at 10th Annual CAP Conference, Panel: Bureaucratic and Judicial Agendas (A2), University of Glasgow, June 15, 2017.
+- <p style="line-height: 1.5;" align="left"><span style="font-size: big;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/Building%20Policy%20Images.pdf"><span style="color: #333333;"><span style="font-size: medium;"><b>Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda</b></span></span></a>, Paper presented at 10th Annual CAP Conference, Panel: Bureaucratic and Judicial Agendas (A2), University of Edinburgh, June 15, 2017.
 
 - <b>Building Policy Images in the News: The Ability of Constitutional Courts to Shape the Media Agenda</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Media Representation and Salience of Courts (P222), University of Oslo, September 7, 2017.
 
