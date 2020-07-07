@@ -14,11 +14,11 @@ It remains unclear what institutional characteristics determine the publication 
 
 <p><b>Keywords</b><br>constitutional courts, judicial politics, political communication, political public relations, press releases </p>
 
+<p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;">--> Blog post on this study</span></span></a>
+
 <p><b>Data</b><br>
 <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;">Replication data for this study</span></span></a>
 
 <p><b>Status</b><br>
 Published in <i>Politics</i>. <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://journals.sagepub.com/doi/full/10.1177/0263395719885753"><span style="color: #333333;"><span style="font-size: medium;">Access the paper here.</span></span></a></p>
-  
-  
-<p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;">Blog post on this study</span></span></a>
+
