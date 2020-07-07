@@ -14,4 +14,4 @@ Brexit has been the most important issue in British politics in recent years. Wh
 Brexit; newspaper analysis; media bias; visibility
 
 <p><b>Published</b><br>
-Published in <i>Political Research Exchange</i>. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://www.tandfonline.com/doi/full/10.1080/2474736X.2020.1788955"><span style="color: #333333;"><span style="font-size: medium;">Access the paper here</span></span></a></p>
+Published in <i>Political Research Exchange</i>.<span style="font-size: medium;"><a style="line-height: 1.5;" href="https://www.tandfonline.com/doi/full/10.1080/2474736X.2020.1788955"><span style="color: #333333;"><span style="font-size: medium;">Access the paper here</span></span></a</p>
