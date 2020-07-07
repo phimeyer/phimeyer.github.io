@@ -1,6 +1,5 @@
 ---
 title: "Dominating the Debate: Visibility Bias and Mentions of British MPs in Newspaper Reporting on Brexit"
-date: 
 category: published
 permalink: /publication/2019-HoennigeEtAl
 citation: 'Hönnige, Christoph, Dominic Nyhuis, Philipp Meyer, Philipp Köker & Susumu Shikano. 2020. Dominating the Debate: Visibility Bias and Mentions of British MPs in Newspaper Reporting on Brexit. Political Research Exchange 2:1, 1-27. DOI: https://doi.org/10.1080/2474736X.2020.1788955'
