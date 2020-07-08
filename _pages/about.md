@@ -13,8 +13,8 @@ I am a Research and Teaching Fellow Fellow and PhD Student in the research group
 I research politics with particular interest and expertise in:
 - Judicial Politics, Judicial Behaviour, and Judicial Public Relations
 - Political Communication
-- Comparative Policy Agendas
-- Comparative Political Institutions
+- Policy Agenda Dynamics
+- Political Institutions
 
 
 I am also interested in novel developments in political methodology, such as automated text analysis and various applications of big data in political research.
