@@ -26,7 +26,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;">--> Replication data for this study</span></span></a>
         
-    <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <br>--> Blog post on this study<\br></span></span></a>
+    <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>--> Blog post on this study<\b></span></span></a>
 
 - Meyer, Philipp. Accepted. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics. Accepted for publication at <i>Political Communication.</i>
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">--> More about this Project</span></span></a>
