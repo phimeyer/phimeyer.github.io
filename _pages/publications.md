@@ -17,6 +17,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-HoennigeEtAl"><span style="color: #333333;"><span style="font-size: medium;">--> More about this Project</span></span></a>
 
+    <b><p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit/"><span style="color: #333333;"><span style="font-size: medium;">--> Blog post on this study</span></span></a>
 
 -  Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>. [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753)   
     
