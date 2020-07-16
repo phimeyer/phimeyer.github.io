@@ -2,7 +2,7 @@
 title: "Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics"
 category: published
 permalink: /publication/2018a-Meyer
-citation: 'Philipp Meyer (2020) Explaining Media Coverage of Constitutional Court Decisions in Germany: The Role of Case Characteristics, Political Communication, DOI: 10.1080/10584609.2020.1784329'
+citation: 'Meyer, Philipp. OnlineFirst. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics. <i>Political Communication</i>. DOI: 10.1080/10584609.2020.1784329'
 ---
 
 <p><b>Abstract</b><br>
