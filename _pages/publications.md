@@ -29,6 +29,9 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://doi.org/10.17605/OSF.IO/HFY4K"><span style="color: #333333;"><span style="font-size: medium;">--> Replication data for this study</span></span></a>
         
+- Meyer, Philipp. Accepted. Promoted Media Occurrence: When and why Newspapers use Court Press Releases for News Content. <i>Journalism Studies</i>.
+    
+    <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018c-Meyer"><span style="color: #333333;"><span style="font-size: medium;">--> More about this Project</span></span></a>
 
 - Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker, Susuma Shikano. 2020. Dominating the Debate: Visibility Bias and Mentions of British MPs in Newspaper Reporting on Brexit. <i>Political Research Exchange</i> 2:1, 1-27.  [DOI: 10.1080/2474736X.2020.1788955](https://doi.org/10.1080/2474736X.2020.1788955) 
 
