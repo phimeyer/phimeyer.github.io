@@ -7,6 +7,14 @@ author_profile: true
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
+hr { 
+    width: 95%; 
+    height: 5px; 
+    margin: 0 auto;
+    color: blue;
+    background: #dfac20;
+}
+
 You can also find my articles on <u><a href="https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de">my Google Scholar profile</a>.</u>
 
 <b>Journal articles</b>
@@ -20,7 +28,9 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;">--> Replication data for this study</span></span></a>
         
     <b><p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;">--> Blog post on this study</span></span></a>
-
+    
+<hr>
+    
 - Meyer, Philipp. OnlineFirst. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics. <i>Political Communication</i>. [DOI: 10.1080/10584609.2020.1784329](https://doi.org/10.1080/10584609.2020.1784329)
 
     <div class='altmetric-embed' data-badge-type='donut' data-doi="https://doi.org/10.1080/10584609.2020.1784329"></div>
@@ -28,11 +38,15 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018a-Meyer"><span style="color: #333333;"><span style="font-size: medium;">--> More about this Project</span></span></a>
     
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://doi.org/10.17605/OSF.IO/HFY4K"><span style="color: #333333;"><span style="font-size: medium;">--> Replication data for this study</span></span></a>
-        
+            
+<hr>
+    
 - Meyer, Philipp. Accepted. Promoted Media Occurrence: When and why Newspapers use Court Press Releases for News Content. <i>Journalism Studies</i>.
     
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018c-Meyer"><span style="color: #333333;"><span style="font-size: medium;">--> More about this Project</span></span></a>
-
+    
+<hr>
+    
 - Hönnige, Christoph & Dominic Nyhuis, Philipp Meyer, Philipp Köker, Susuma Shikano. 2020. Dominating the Debate: Visibility Bias and Mentions of British MPs in Newspaper Reporting on Brexit. <i>Political Research Exchange</i> 2:1, 1-27.  [DOI: 10.1080/2474736X.2020.1788955](https://doi.org/10.1080/2474736X.2020.1788955) 
 
     <div class='altmetric-embed' data-badge-type='donut' data-doi="https://doi.org/10.1080/2474736X.2020.1788955"></div>
@@ -41,11 +55,12 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 
     <b><p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit/"><span style="color: #333333;"><span style="font-size: medium;">--> Blog post on this study</span></span></a>
 
-
 <b>Chapters in Edited Volumes</b>
 
 - Meyer, Philipp & Christoph Hönnige. 2017.Der Niedersächsische Staatsgerichtshof. In: Reutter, Werner (ed.) <i>Landesverfassungsgerichte: Entwicklung – Aufbau – Funktionen</i>. Wiesbaden: Springer VS, S. 219-241.
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2017-Reutter"><span style="color: #333333;"><span style="font-size: medium;">--> More about this Article</span></span></a>
-
+    
+<hr>
+    
 - Meyer, Philipp & Christoph Hönnige. 2019. Rolle und Einfluss des Bundesverfassungsgerichts in der Amtszeit der Regierung Merkel III. In: Zohlnhöfer, Reimut & Thomas Saalfeld (eds.) <i>Zwischen Stillstand, Politikwandel und Krisenmanagement. Eine Bilanz der Regierung Merkel 2013-2017</i>. Wiesbaden: Springer VS, 317-341.
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-ZohlnhoeferSaalfeld"><span style="color: #333333;"><span style="font-size: medium;">--> More about this Article</span></span></a>
