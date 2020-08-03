@@ -11,4 +11,4 @@ The present study focuses on the effect of court press releases on media gatekee
 <p><b>Keywords</b><br>court communication; court reporting; press releases; open justice; news values; computational text analysis</p>
 
 <p><b>Status</b><br>
-Accpeted for publication at <i>Journalism Studies</i>.</p>
+Accpeted for publication in <i>Journalism Studies</i>.</p>
