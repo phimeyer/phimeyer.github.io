@@ -17,12 +17,18 @@ I am particularly interested in research on Comparative Political Institutions a
   
 <b>Recent Paper Projects</b>
 
-- Meyer, Philipp, Philipp Köker & Christoph Hönnige. De Jure Judicial Independence Measures and the Problem of Validity: A Case Study on Poland (writing).
+- Meyer, Philipp. Judicial Diplomcay. A network analysis of international judicial relations based on mutual court visits.
 
-- Meyer, Philipp. Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions (data gathering).
+- Hönnige, Christoph, Philipp Meyer, Christine Allison Rothmayr & Sylvain Brouard. Institutional Friction in High Court Policy Agendas: Comparing France, Canada and Germany.
+
+- Hönnige, Christoph, Dominic Nyhuis, Susumu Shikano, Philipp Köker & Philipp Meyer. Leave means leave: The link between MPs Brexit position and newspaper mentions. 
+
+- Meyer, Philipp & Christoph Hönnige. The missing link between the legislative and the judicial agenda: Does the German parliament shape the policy agenda of the German Federal Constitutional Court?
+
+- Meyer, Philipp, Philipp Köker & Christoph Hönnige. De Jure Judicial Independence Measures and the Problem of Validity: A Case Study on Poland.
+
+- Meyer, Philipp. Dissemination of Legal Information: Structure and Topics of Online Available Court Decisions.
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2018b-Meyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
-  
-- Meyer, Philipp. International Judicial Relations: A Network Analysis of Court Visits (literature review & data gathering).
 
-- Engst, Benjamin G. & Philipp Meyer. Constitutions without Protection? Judicial Strength in a State of Emergency (pending).
+- Engst, Benjamin G. & Philipp Meyer. Constitutions without Protection? Judicial Strength in a State of Emergency.
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2016-EngstMeyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
