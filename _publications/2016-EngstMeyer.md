@@ -31,6 +31,4 @@ times of crises.</p>
 <p><b>Status</b><br>
 Draft presented.</p>
 
-[Access paper here (Version: 09/2016)](http://phimeyer.github.io/files/c414b2f4-3ad2-46fa-9413-d32ccbdb34b2.pdf)
-
-Recommended citation: Engst, Benjamin G. & Philipp Meyer. 2016. Constitutions Without Protection? Judicial Strength in a State of Emergency. Working Paper.
+<p>[Access paper here (Version: 09/2016)](http://phimeyer.github.io/files/c414b2f4-3ad2-46fa-9413-d32ccbdb34b2.pdf)</p>
