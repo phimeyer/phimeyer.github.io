@@ -31,4 +31,4 @@ times of crises.</p>
 <p><b>Status</b><br>
 Draft presented.</p>
 
-<p>[Access paper here (Version: 09/2016)](http://phimeyer.github.io/files/c414b2f4-3ad2-46fa-9413-d32ccbdb34b2.pdf)</p>
+<span style="font-size: medium;"><a style="line-height: 1.5;" href="http://phimeyer.github.io/files/c414b2f4-3ad2-46fa-9413-d32ccbdb34b2.pdf"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Access paper here (Version: 09/2016)]</b> </span></span> 
