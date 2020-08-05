@@ -22,11 +22,11 @@ author_profile: true
 }
 
 .left {
-  width: 25%;
+  width: 75%;
 }
 
 .right {
-  width: 75%;
+  width: 25%;
 }
 
 /* Clear floats after the columns */
@@ -44,9 +44,6 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 
 
 <body>
-
-<h2>Two Unequal Columns</h2>
-
 <div class="row">
   <div class="column left" style="background-color:#aaa;">
     <h2></h2>
@@ -57,7 +54,6 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     <p>Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>: [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753). <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Replication data]</b> </span></span> <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Blog post]</b> </span></span></p>
   </div>
 </div>
-
 </body>
 
 
