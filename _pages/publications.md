@@ -22,6 +22,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 <hr>
     
 - Meyer, Philipp. OnlineFirst. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics. <i>Political Communication</i>: [DOI: 10.1080/10584609.2020.1784329](https://doi.org/10.1080/10584609.2020.1784329).  
+
     <div data-badge-popover="bottom" data-badge-type="donut" data-doi="https://doi.org/10.1080/10584609.2020.1784329" data-hide-no-mentions="true" class="altmetric-embed"></div>
     
     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://doi.org/10.17605/OSF.IO/HFY4K"><span style="color: #333333;"><span style="font-size: medium;"> Replication data </span></span></a>
@@ -38,7 +39,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     
     <div data-badge-popover="bottom" data-badge-type="donut" data-doi="https://doi.org/10.1080/2474736X.2020.1788955" data-hide-no-mentions="true" class="altmetric-embed"></div>
     
-    <b><p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit/"><span style="color: #333333;"><span style="font-size: medium;"> Blog post </span></span></a>
+     <b><p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit"><span style="color: #333333;"><span style="font-size: medium;"> Blog post </span></span></a>
 
 <b>Chapters in Edited Volumes</b>
 
