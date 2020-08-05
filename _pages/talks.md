@@ -43,9 +43,8 @@ This page provides you with a list of conference presentations I have given per 
 
 <b>2016</b>
 
-- <b>Verfassungen ohne Schutz? Gerichtliche Stärke im Ausnahmezustand</b>, Paper presented at the 6th Conference of the DVPW theme group Politik und Recht, Humboldt University Berlin, September 23, 2016 (with Benjamin G. Engst, Universität Hannover).
+- <b>Verfassungen ohne Schutz? Gerichtliche Stärke im Ausnahmezustand</b>, Paper presented at the 6th Conference of the DVPW theme group Politik und Recht, Humboldt University Berlin, September 23, 2016 (with Benjamin G. Engst, Universität Hannover). <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2016-EngstMeyer"><span style="color: #333333;"><span style="font-size: medium;"> <b>[More about this paper]</b> </span></span> 
 
-- <b>Constitutions Without Any Protection: the limits of judicial structures during the state of emergency</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Data and Methods in Court Research (P079), University of Prague, September 8, 2016 (with Benjamin G. Engst, Universität Hannover).
-     <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2016-EngstMeyer"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>
-
+- <b>Constitutions Without Any Protection: the limits of judicial structures during the state of emergency</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Data and Methods in Court Research (P079), University of Prague, September 8, 2016 (with Benjamin G. Engst, Universität Hannover). <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2016-EngstMeyer"><span style="color: #333333;"><span style="font-size: medium;"> <b>[More about this paper]</b> </span></span> 
+ 
 - <b>Constitutional Review in Europe: Institutional Developments from 1995 to 2015 in the EU-28</b>, Paper presented at General Conference of the European Consortium for Political Research (ECPR), Section: Law and Courts, Panel: Domestic Courts: Decision-making and Policy Implementation (P102), University of Prague, September 9, 2016 (with Christoph Hönnige, Universität Hannover).
