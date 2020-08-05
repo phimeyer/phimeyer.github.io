@@ -7,14 +7,62 @@ author_profile: true
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+
 You can also find my articles on <u><a href="https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de">my Google Scholar profile</a>.</u>
 
 <b>Journal articles</b>
 
+
+<body>
+
+<h2>Two Unequal Columns</h2>
+
 <div class="row">
-  <div class="column"> Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>: [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753). <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Replication data]</b> </span></span> <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Blog post]</b> </span></span> </div>
-  <div class="column"> <div data-badge-popover="bottom" data-badge-type="donut" data-doi="https://doi.org/10.1177/0263395719885753" data-hide-no-mentions="true" class="altmetric-embed"></div> </div>
+  <div class="column left" style="background-color:#aaa;">
+    <h2></h2>
+    <p><div data-badge-popover="bottom" data-badge-type="donut" data-doi="https://doi.org/10.1177/0263395719885753" data-hide-no-mentions="true" class="altmetric-embed"></div></p>
+  </div>
+  <div class="column right" style="background-color:#bbb;">
+    <h2></h2>
+    <p>Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>: [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753). <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Replication data]</b> </span></span> <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Blog post]</b> </span></span></p>
+  </div>
 </div>
+
+</body>
+
+
+
+
 
 - Meyer, Philipp. OnlineFirst. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>: [DOI: 10.1177/0263395719885753](https://doi.org/10.1177/0263395719885753). <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Replication data]</b> </span></span> <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>[Blog post]</b> </span></span>
     
