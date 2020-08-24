@@ -2,7 +2,7 @@
 title: "Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics"
 category: published
 permalink: /publication/2018a-Meyer
-citation: 'Meyer, Philipp. OnlineFirst. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics. <i>Political Communication</i>. DOI: 10.1080/10584609.2020.1784329'
+citation: 'Meyer, Philipp. OnlineFirst. Explaining media coverage of Constitutional Court decisions in Germany: The role of case characteristics. Political Communication. DOI: 10.1080/10584609.2020.1784329'
 ---
 
 <p><b>Abstract</b><br>
@@ -14,7 +14,7 @@ Research on the media coverage of decisions by the U.S. Supreme Court has reveal
 <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://doi.org/10.17605/OSF.IO/HFY4K"><span style="color: #333333;"><span style="font-size: medium;">Replication data and materials for this study</span></span></a></p>
 
 <p><b>Status</b><br>
-Published in <i>Politics</i>.
+Published in <i>Political Communication</i>.
 
   <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://www.tandfonline.com/doi/full/10.1080/10584609.2020.1784329"><span style="color: #333333;"><span style="font-size: medium;">Access the paper here.</span></span></a> 
 
