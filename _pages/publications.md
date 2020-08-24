@@ -23,7 +23,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
             
 <hr>
     
-- Meyer, Philipp. Accepted. Promoted Media Occurrence: When and why Newspapers use Court Press Releases for News Content. <i>Journalism Studies</i>.
+- Meyer, Philipp. Accepted. Promoted media coverage of court decisions: Media gatekeeping of court press releases and the role of news values. <i>Journalism Studies</i>.
     
 <hr>
     
