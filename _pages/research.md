@@ -17,7 +17,7 @@ I am particularly interested in research on Comparative Political Institutions a
   
 <b>Paper Projects</b>
 
-- Meyer, Philipp. Judicial Diplomcay. A network analysis of international judicial relations based on mutual court visits.
+- Meyer, Philipp. Discussing case law and promoting the rule of law: reports on bilateral court meetings as a novel data source to assess transjudicial communication.
 
 - Hönnige, Christoph, Philipp Meyer, Christine Allison Rothmayr and Sylvain Brouard. Institutional Friction in High Court Policy Agendas: Comparing France, Canada and Germany.
 
