@@ -24,5 +24,3 @@ I am particularly interested in research on Comparative Political Institutions a
 - Hönnige, Christoph, Dominic Nyhuis, Susumu Shikano, Philipp Köker and Philipp Meyer. Leave means leave: The link between MPs Brexit position and newspaper mentions. 
 
 - Meyer, Philipp and Christoph Hönnige. The missing link between the legislative and the judicial agenda: Does the German parliament shape the policy agenda of the German Federal Constitutional Court?
-
-- Meyer, Philipp, Philipp Köker and Christoph Hönnige. De Jure Judicial Independence Measures and the Problem of Validity: A Case Study on Poland.
