@@ -11,9 +11,9 @@ Here you can find information on my papers submitted for review and my recent pa
 I am particularly interested in research on Comparative Political Institutions and Quantitative Text Analysis with an emphasis on Judicial Politics, Judicial Public Relations and Political Communication. Currently, I am particularly interested in when and how the German Federal Constitutional Court uses public relations to set frames and influence media coverage and the public.
  
 <b>Under Review</b>
- 
- - Meyer, Philipp. Transparency and strategic promotion: How court press releases facilitate judicial agenda-setting in Germany. Manuscript submitted after revise and resubmit in <i>Journal of Public Policy</i>.
-  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-MeyerHönnige"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
+
+- Meyer, Philipp. Transparency and strategic promotion: How court press releases facilitate judicial agenda-setting in Germany. Manuscript submitted after revise and resubmit in <i>Journal of Public Policy</i>.
+    - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-MeyerHönnige"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
   
 - Meyer, Philipp. Discussing case law and promoting the rule of law: reports on bilateral court meetings as a novel data source to assess transjudicial communication.
   - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_JudicialDiplomacy"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
