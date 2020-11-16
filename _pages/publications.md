@@ -10,9 +10,9 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 
 <b>Journal articles</b>
 
-- Meyer, Philipp. 2020. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>, 40(4), 477-493.
-    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://journals.sagepub.com/doi/full/10.1177/0263395719885753"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Paper here</b> </span></span>
+- Meyer, Philipp. 2020. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>, 40(4), 477-493. <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1177/0263395719885753" data-hide-no-mentions="true" class="altmetric-embed"></div>
     - <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1177/0263395719885753" data-hide-no-mentions="true" class="altmetric-embed"></div>
+    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://journals.sagepub.com/doi/full/10.1177/0263395719885753"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Paper here</b> </span> </span>
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;"> <b>Replication data</b> </span></span> 
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>Blog post</b> </span></span>  
     
