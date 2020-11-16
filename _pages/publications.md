@@ -3,10 +3,8 @@ layout: archive
 title: ""
 permalink: /publications/
 author_profile: true
-
-<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-
 ---
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 You can also find my articles on <u><a href="https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de">my Google Scholar profile</a>.</u>
 
