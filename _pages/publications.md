@@ -3,21 +3,17 @@ layout: archive
 title: ""
 permalink: /publications/
 author_profile: true
----
-
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
-<a href="http://en.m.wikipedia.org/wiki/Altmetrics" target="_blank">Altmetrics</a> of <i>Intersubject consistency of cortical MEG signals during movie viewing</i> via Altmetric.com API rendered as a donut-shaped badge. Hovering over the badge reveals metrics, and clicking the badge leads to the Altmetric landing page.</p>
-<div class='altmetric-embed'data-badge-type="donut" data-badge-popover='right' data-doi='10.1016/j.neuroimage.2014.02.004'></div>
-
+---
 
 You can also find my articles on <u><a href="https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de">my Google Scholar profile</a>.</u>
 
 <b>Journal articles</b>
 
 - Meyer, Philipp. 2020. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>, 40(4), 477-493.
-    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://journals.sagepub.com/doi/full/10.1177/0263395719885753"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Paper here</b> </span></span>
+    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://journals.sagepub.com/doi/full/10.1177/0263395719885753"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Paper here</b> </span></span> <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1177/0263395719885753" data-hide-no-mentions="true" class="altmetric-embed"></div>
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;"> <b>Replication data</b> </span></span> 
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>Blog post</b> </span></span>  
     
