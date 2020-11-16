@@ -15,7 +15,7 @@ I am particularly interested in research on Comparative Political Institutions a
 - Meyer, Philipp. Transparency and strategic promotion: How court press releases facilitate judicial agenda-setting in Germany. Manuscript submitted after revise and resubmit in <i>Journal of Public Policy</i>.
     - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/2019-MeyerHönnige"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
   
-- Meyer, Philipp. Discussing case law and promoting the rule of law: reports on bilateral court meetings as a novel data source to assess transjudicial communication.
+- Meyer, Philipp. Discussing case law and promoting the rule of law: reports on bilateral court meetings as a novel data source to assess transjudicial communication. <i>Under Review</i>.
   - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_JudicialDiplomacy"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a> 
  
 
