@@ -5,6 +5,16 @@ permalink: /publications/
 author_profile: true
 ---
 
+<html>
+<head>
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+</head>
+<body>
+<p>
+<a href="http://en.m.wikipedia.org/wiki/Altmetrics" target="_blank">Altmetrics</a> of <i>Intersubject consistency of cortical MEG signals during movie viewing</i> via Altmetric.com API rendered as a donut-shaped badge. Hovering over the badge reveals metrics, and clicking the badge leads to the Altmetric landing page.</p>
+<div class='altmetric-embed'data-badge-type="donut" data-badge-popover='right' data-doi='10.1016/j.neuroimage.2014.02.004'></div>
+</body>
+</html>
 
 You can also find my articles on <u><a href="https://scholar.google.de/citations?user=mk7kDiQAAAAJ&hl=de">my Google Scholar profile</a>.</u>
 
