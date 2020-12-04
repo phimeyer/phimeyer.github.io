@@ -6,7 +6,7 @@ citation: 'Meyer, Philipp. Open justice at the apex courts.'
 ---
 
 <p><b>Description</b><br>
-This piece will be a chapter contribution to the <i>peer reviewed</i> edited volume <i>Handbook on Law and Political Systems</i> which is edited by Robert M. Howard (Georgia State University), Kirk A. Randazzo (University of South Carolina), and Rebecca A. Reid (University of Texas at El Paso) and which will be published by Elgar Press, expectedly in 2021. 
+This piece will be a chapter contribution to the <i>peer reviewed</i> edited volume <i>Handbook on Law and Political Systems</i> which is edited by Robert M. Howard (Georgia State University), Kirk A. Randazzo (University of South Carolina), and Rebecca A. Reid (University of Texas at El Paso) and which will be published by Elgar Press, expectedly in 2021.</p> 
 
 
 <p><b>Chapter description</b><br>
@@ -21,21 +21,37 @@ In particular, this chapter aims to establish the open justice principle as a ne
 
 <p><b>References</b><br>
 Alemanno, A., & Stefan, O. (2014). Openness at the Court of Justice of the European Union: Toppling a taboo. Common Market Law Review, 51, 97–139.
+  
 Bentham, J. (1843). Draught for the organization of judicial establishments, compared with that of the national assembly, with a commentary on the same. In J. Bowring (Ed.), The works of Jeremy Bentham: Published under the superintendence of his executor, John Bowring (4th ed., pp. 305–406). William Tait.
+
 Bobek, M. (2016). Opinion of Advocate General Bobek delivered on 21 December 2016. European Commission v Patrick Breyer, Case C-213/15 P, ECLI identifier: ECLI:EU:C:2016:9. https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A62015CC0213
+
 Chamberlain, P., Keppel-Palmer, M., Reardon, S., & Smith, T. (2019). It is criminal: The state of magistrates’ court reporting in England and Wales. Journalism, 0(0), 1–17. https://doi.org/10.1177/1464884919868049
+
 Cunliffe, E. (2012). Open Justice: Concepts and Judicial Approaches. Federal Law Review, 40, 385–411.
+
 Davis, R., & Taras, D. (2017). Justices and Journalists: The Global Perspective. CUP.
+
 Elena, S., & van Schalkwyk, F. (2017). Open Data for Open Justice in Seven Latin American Countries. In C. E. Jiménez-Gomez & M. Gascó-Hernández (Eds.), Achieving Open Justice through Citizen Participation and Transparency (pp. 210–231). IGI Global.
+
 Garoupa, N., & Ginsburg, T. (2015). Judicial Reputation: A comparative theory. UCP.
+
 Hess, B., & Harvey, A. K. (Eds.). (2019a). Open Justice: The Role of Courts in a Democratic Society. Nomos.
+
 Hess, B., & Harvey, A. K. (2019b). Open Justice in Modern Societies: What Role for Courts? In B. Hess & A. K. Harvey (Eds.), Open Justice: The Role of Courts in a Democratic Society (pp. 9–45). Nomos.
+
 Johnston, J. (2018). Three phases of courts’ publicity: reconfiguring Bentham’s open justice in the twenty-first century. International Journal of Law in Context, 14(4), 525–538.
+
 Meijer, A. J., Curtin, D., & Hillebrandt, M. (2012). Open government: connecting vision and voice. International Review of Administrative Sciences, 78(1), 10–29.
+
 Meyer, P. (2019). Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. Politics, 0(0), 1–17. https://doi.org/10.1177/0263395719885753
+
 Meyer, P. (2020). Promoted media coverage of court decisions: Media gatekeeping of court press releases and the role of news values. Journalism Studies, 0(0), 1–20. https://doi.org/10.1080/1461670X.2020.1819861
+
 Moran, L. J. (2014). Managing the News Image of the Judiciary: the Role of Judicial Press Officers. Oñati Socio-Legal Series, 4(4), 799–818.
+
 Rodrick, S. (2014). Achieving the Aims of Open Justice - The Relationship between the Courts, the Media and the Public. Deakin Law Review, 19, 123–162.
+
 Voßkuhle, A. (2018). Rechtsstaat unter Druck. DIE ZEIT, Nr. 40, 27.09.2018, 6.</p>
 
 <p><b>Status</b><br>
