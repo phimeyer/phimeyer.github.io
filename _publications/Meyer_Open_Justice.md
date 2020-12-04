@@ -1,7 +1,7 @@
 ---
 title: "Open justice at the apex courts. A new perspective for comparative research on courts."
 category: working_paper
-permalink: /publication/Meyer_Open_justice
+permalink: /publication/Meyer_Open_Justice
 citation: 'Meyer, Philipp. Open justice at the apex courts. A new perspective for comparative research on courts. Working paper.'
 ---
 
