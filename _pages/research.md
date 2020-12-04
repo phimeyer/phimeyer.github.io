@@ -22,7 +22,7 @@ I am particularly interested in research on Comparative Political Institutions a
 <b>Paper Projects</b>
 
 - Meyer, Philipp. Open justice at the apex courts. A new perspective for comparative research on courts.
-    - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_Open_Justice.md"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
+    - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_Open_justice.md"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
  
 - Hönnige, Christoph, Philipp Meyer, Christine Allison Rothmayr and Sylvain Brouard. Institutional Friction in High Court Policy Agendas: Comparing France, Canada and Germany.
 
