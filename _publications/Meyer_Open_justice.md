@@ -1,8 +1,8 @@
 ---
-title: "Open justice at the apex courts"
+title: "Open justice at the apex courts. A new perspective for comparative research on courts."
 category: working_paper
 permalink: /publication/Meyer_Open_justice
-citation: 'Meyer, Philipp. Open justice at the apex courts.'
+citation: 'Meyer, Philipp. Open justice at the apex courts. A new perspective for comparative research on courts. Working paper.'
 ---
 
 <p><b>Description</b><br>
