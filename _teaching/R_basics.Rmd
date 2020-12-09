@@ -1,0 +1,149 @@
+---
+title: "Tutorial zu Einführung in  `R`: Packages, commands, objects, and functions"
+author: "Philipp Meyer"
+date: "2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1. Einleitung
+
+### 1.1. Was ist  `R` und warum sollten wir es lernen? 
+
+ `R` ist eine Open-Source-Programmiersprache, die derzeit zu den beliebtesten Sprachen in den *Data science* gehört. Im Vergleich zu anderen populären Softwarepaketen die für die empirische Forschung in den Sozialwissenschaften genutzt werden, wie SPSS und Stata, hat  `R` bemerkenswerte Vorteile:
+
+*  `R` ist eine Programmier**sprache** und deswegen deutlich vielseitiger als Statistik**programme** wie SPSS oder STATA.  `R` ermöglicht nicht nur die statistische Analyse von empirischen Daten, sondern auch die praktische Implementierung von *Data science*-Werkzeugen (z.B. quantitativen Textanalyse, Cloud computing mit Amazon AWS, Machine Learning Anwendungen (umgangssprachlich: die Nutzung von künstlicher Intelligenz)). 
+
+* Die Palette der Dinge/Anwendungen, die man mit  `R` tun kann, wird ständig aktualisiert und erweitert. `R` ist **open-source**,was bedeutet, dass jeder einzelne zu seiner Entwicklung beitragen kann. Insbesondere die freie Entwicklung von Paketen ist hier zu nennen, die einfach und sicher von `R` aus mit einem einzigen Befehl installiert werden können. Wissenschaftler sowie Fachleute aus der Wirtschaft verwenden  `R` Deswegen sind in den aller meisten Fällen alle innovativen und neuen Methoden, Techniken und Anwendungen bereits zur Verwendung in  `R` verfügbar. Ihr könnt euch `R` als einen App-Store für *Data science*-Anwendungen vorstellen. 
+
+      + Da  `R` im Grunde von den Nutzern selber entwickelt und weiterentwickelt wird, finden sich im Internet zu wohl allen  `R`-bezogenen Fragen die passenden Antworten. Neben der einfachen Suche bei *Google* (am besten immer R als Präfix nutzen und dann erst das gesuchte Thema nennen) sind vor allem <http://www.stackoverflow.com>, <http://www.r-bloggers.com> und <http://www.stackexchange.com> die **zentralen Anlaufstellen**. In deutscher Sprache ist <https://de.wikibooks.org/wiki/GNU_R> zu nennen. Das ist aber weniger eine konkrete Hilfeseite, sondern eher ein R-Lexikon.
+
+*  `R` ist kostenlos.
+
+Das Problem ist, dass das Erlernen von  `R` nicht intuitiv ist. R hat eine steile Lernkurve: schwer am Anfang und mit der Zeit und steigender Erfahrung immer zugänglicher. Dennoch ist das Erlernen von R nicht so schlimm, wie oft befürchtet wird, und dank der steigenden Popularität der *Data science* gibt es jetzt viele Anlaufpunkte, die das Erlernen und die Anwendung von R erleichtern (für eine Liste von Einführungen und Tutorials siehe: <https://www.r-bloggers.com/2015/12/how-to-learn-r-2/>). In diesem Kurs lernen Sie die wichtigsten Grundlagen kennen und erfahren, wie Sie damit sofort Zugang zu den modernsten Techniken erhalten.
+
+### 1.2. Zweck dieses Tutorials
+
+Der Schwerpunkt dieses Tutorials liegt darauf, euch den Einstieg in R zu erleichtern und euch zu zeigen, wie einfach es ist, mit einigen coolen Sachen anzufangen. Hier wird also noch nicht darauf eingegangen, wie  `R` und die  `R`-Syntax funktionieren. Es ist also kein Problem, wenn Ihr den verwendeten Code noch nicht versteht. Heute soll der Fokus vor allem darauf liegen, R zum laufen zu bringen, euch mit der Syntax vertraut zu machen und erste Spielereien anzustellen.
+
+# 2. Erste Schritte mit `R`
+
+Für diesen Kurs müssen zwei Programme installiert werden.
+
+* `R` ist die eigentliche  `R`-Software, die zur Ausführung von  `R`-Code verwendet wird.
+
+* `RStudio` ist eine grafische Benutzeroberfläche (GUI), die die Arbeit mit R wesentlich erleichtert. Obwohl es nicht erforderlich ist, R zu verwenden, und andere GUIs verfügbar sind, wird die Verwendung von `RStudio` dringend empfohlen.
+
+Beide Programme können kostenlos heruntergeladen werden und sind für alle wichtigen Betriebssysteme (Windows, MacOS und Linux) verfügbar.
+
+### 2.1.  `R` installieren
+
+Um  `R` zu installieren, können Sie es von der CRAN (comprehensive R Archive Network) Website herunterladen (siehe: <https://cran.r-project.org/>). Lassen Sie sich nicht von der 90er-Ästhetik der Website irritieren.  `R` ist eine eher trocken präsentierte*non-nonsense* Software. Die Dekoration wird mit `RStudio` geliefert.
+
+### 2.2. `RStudio` installieren
+
+Die `RStudio`-Website enthält Download-Links und Installationsanweisungen (siehe: <https://rstudio.com/>) . Sie müssen die kostenlose Open-Source-Lizenz für `RStudio` Desktop installieren. Beachten Sie, dass die teuren Lizenzen keine besseren Funktionen oder ähnliches bieten, sondern lediglich zusätzlichen Support und eine kommerzielle Lizenz. Sie können die kostenlose Version auch in der kommerziellen Forschung einsetzen, dann allerdings mit einer AGPL-Lizenz.
+
+
+### 2.3. Verwenden von `RStudio`
+
+Nachdem `R` und `RStudio` installiert wurden, kann `RStudio` gestartet werden. Wenn alles korrekt installiert wurde, wird `RStudio` automatisch auch `R` starten.
+
+Wenn `RStudio` zum ersten Mal geöffnet wird, dann werden wahrscheinlich drei separate Fenster zu sehen sein. Der erste Schritt ist jetzt ein `R`-Skript zu öffnen. `R`-Skripte sind die zentralen Arbeitsflächen in der Arbeit mir `R`. Um ein `R`-Skript zu öffnen, müsst ihr mit der Maus die Symbolleiste (oben links) ansteuern und folgendes wählen: 
+              
+**Datei** --> **Neue Datei** --> **R-Skript**
+
+Ihr seht jetzt vier Fenster, die gleichmäßig über die vier Ecken des Bildschirms verteilt sind:
+
+* Oben links ist der Texteditor für die Datei, in der gerade gearbeitet wird. Meistens handelt es sich dabei um ein `R`-Skript (wie das gerade geöffnete) oder eine `RMarkdown`-Datei.
+
+* Oben rechts sind entweder die Datensätze, Variablen, Objekte und Werte zu sehen, mit denen gerade gearbeitet wird (Umgebung / Environment) oder die Eingabenhistorie (Geschichte / History) zeigt alle bis zu diesem Zeitpunkt ausgeführten Kommandos/Funktionen.
+
+* Unten links ist die Konsole, in der Code eingegeben und ausgeführt oder aber die Ausgabe/Ergebnisse von ausgeführten Codes angesehen werden kann. 
+
+* Unten rechts ist ein interaktives Feld, in dem Dateien, die auf dem lokalen Computer gespeichert sind, gesucht und geöffnet werden können, Hilfe zu Funktionen anzeigt oder Visualisierungen angesehen werden können.
+
+Theoretisch kann der Code also direkt in die Konsole eingeben werden (unten links). Das Problem ist jedoch, dass `R` die eingebenen Funktionen/Kommandos direkt wieder "vergisst". Von daher sollte **immer** in einem `R`-Skript gearbeitet werden (oben links). Auf diese Weise kann der Überblick über die Arbeitsschritte behalten werden und natürlich kann der Arbeitsfortschritt gespeichert werden. 
+
+
+### 2.4. Ausführen von Code aus dem `R`-Skript
+
+Kopiert den folgenden Beispielcode und fügt ihn in euer `R`-Skript ein. Ihr müsst die Syntax selbst zu verstehen. Konzentriert euch einfach auf die Ausführung.
+
+```{r eval=FALSE}
+# R kann als over-powered Taschenrechner genutzt werden
+3 + 3
+2 * 5
+6 / 2
+
+# Oder wir schreiben kleine Texte
+"Institut für Politikwissenschaft"
+"Arbeitsbereich Vergleichende Regierungslehre und Politisches System Deutschlands"
+
+# Oder wir nutzen eine der vielen Funktionen. Hier die befehlen wir R die in den Klammern aufgelisteten Werte zu summieren.
+
+sum(1,2,3,4,5)
+```
+
+Ihr könnt des Codes in einem `R`-Skript ausführen, indem ihr Strg + Enter drück (Mac: Command + Enter). Das kann auf zwei Arten geschehen:
+
+* Wenn ihr einen Textteil markiert (so dass er hervorgehoben wird), könnt ihr Strg + Enter (Mac: Command + Enter) drücken, um die Auswahl auszuführen. Markiert jetzt die ersten drei Zeilen (die drei mathematischen Operationen) und drückt Strg + Enter.
+
+* Wenn keine Auswahl getroffen wurde, aber der Textcursor sich im Editor befindet, könnt ihr Strg + Enter (Mac: Command + Enter) drücken, um die Zeile, auf der sich der Cursor befindet, auszuführen. Dadurch bewegt sich der Cursor automatisch in die nächste Zeile, so dass der Code von oben nach unten durchlaufen werden kann, wobei jede Zeile einzeln durchlaufen wird. Beginnt jetzt mit der ersten Zeile und drückt neunmal Strg + Enter  (Mac: Command + Enter), um jede Zeile einzeln auszuführen.
+
+### 2.5. Zuweisen von Werten
+
+Beim Ausführen des Beispiel-Codes habt ihr gesehen, dass `R` die Eingaben automatisch verarbeitet. Aus 3 + 3 wird 6, aus 2 * 5 wird 10 und die Auswertung der Funktion sum(1,2,3,4,5) führt zu dem Ergebnis 15.
+
+```{r}
+# R kann als over-powered Taschenrechner genutzt werden
+3 + 3
+2 * 5
+sum(1,2,3,4,5)
+```
+
+Auf die Verwendung von `R` als Taschenrechner und die Ausführung von Funktionen gehen wir später genauer ein. Eine weitere Sache, die ihr über die `R`-Syntax wissen müsst, ist zunächst, wie Vektoren Werte zugewiesen werden können.
+
+Umgegangssprachlich ausgedrückt ist die Zuordnung von Werten der zentrale Weg, wie man `R` dazu bringt, sich Dinge zu merken und zu speichern (als Werte im Umfeld / Environment, oben rechts). Dies funktioniert für alle Arten von Werten, von einzelnen Zahlen bis hin zu ganzen Datensätzen, auf die gleiche Weise. Für die Zuordnung nutzen wir einen Pfeil (<-). 
+
+Gebt den folgenden Code in euer Skript ein und führt ihn aus: 
+
+```{r eval=T}
+x = 2
+y <- "some text"
+```
+
+Hier haben wir uns die Zahl 2 als x und den Text "some text" als y gemerkt. Wenn ihr in `RStudio` arbeitet, könnt ihr diese Namen und Werte jetzt auch im Fenster oben rechts unter dem Reiter "Umgebung" / "Environment" sehen.
+
+Wir können nun die Namen verwenden, um die Werte abzurufen oder um diese Werte in neuen Befehlen zu verwenden.
+
+```{r}
+x * 5
+```
+
+Hier haben wir `R` den Befehl gegeben den Wert der mit x gespeichert wurde mit 5 zu multiplizieren.
+
+Beachtet bitte, dass ihr die Zeile ## [1] 10 nicht tippen solltet: In diesem Tutorial zeigen Zeilen, die mit ## beginnen, die Ausgabe von Befehlen an (2 * 5 = 10).
+
+### 2.6. Verwenden von `RStudio`-Projekten
+
+Es ist am besten, wir ihr euren Code für dieses Seminar in einem `RStudio`-Projekt verwaltet. Dies ist im Wesentlichen ein Ordner, in dem die `R`-Dateien und Daten für ein Projekt gespeichert werden, an dem gerade gearbeitet wird. Projekte sind nicht unbedingt nötig, um mit `R` zu arbeiten, aber sie sind sehr praktisch, und ich empfehle dringend, sie zu nutzen.
+
+Um ein neues Projekt zu erstellen, müsst ihr mit der Maus die Symbolleiste (oben links) ansteuern und folgendes wählen: 
+              
+**Datei** --> **Neues Projekt**
+
+Folgt den Anweisungen, um ein neues Verzeichnis mit einem neuen Projekt zu erstellen. Findet einen sinnvollen Namen für das Projekt. Wie wäre es zum Beispiel mit "IPW: Quantitative Text Analyse"?
+
+Öffnet jetzt ein neues R-Skript und speichert es sofort (wählt in der Symbolleiste oben links **Datei** --> **Speichern** oder drückt Ctrl + S (Mac: Command + S)). Nennt die Datei r_basics.r. 
+
+In der rechten unteren Ecke, unter dem Reiter "Dateien", seht ihr nun die dem Projekt hinzugefügte Datei. Die Erweiterung .r zeigt an, dass es sich bei der Datei um ein `R`-Skript handelt.
+
+# 3. Erste (gewollte) Überforderung: Textanalyse in R
+
+Um nun einen Vorgeschmack auf einige der interessanteren Dinge zu geben, die wir in diesem Seminar machen werden, werdet ihr jetzt ein Projekt zur Analyse von Texten mit dem **quanteda**-Paket einrichten. Im Moment ist es weniger wichtig zu verstehen, was jede einzelne Codezeile tut. Was jetzt wichtig ist, ist, ein Gefühl für die Arbeit mit `R` zu bekommen.
+
+Außerdem werdet ihr bereits jetzt einige Informationen bekommen, wie man mit Computern Texte analysieren kann. Versucht das Wesentliche zu verstehen und seid nicht beunruhigt, wenn ihr an dieser Stelle nicht alles vollständig versteht.
