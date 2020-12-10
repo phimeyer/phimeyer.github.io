@@ -7,5 +7,5 @@
 1. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_First_Steps"><span style="color: #333333;"><span style="font-size: medium;">Tutorial zu Einführung in R: Erste Schritte</span></span></a></p>
 2. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_Basics_I"><span style="color: #333333;"><span style="font-size: medium;">Tutorial zu Einführung in R: Datentypen und Funktionen</span></span></a></p>
 
-<p>Die Übungen für diese Tutorial, die <b>jeder machen muss</b> findet ihr hier:</p>
+<p>Die Übungen für diese Tutorials, die <b>jeder machen muss</b>, findet ihr hier:</p>
  - 
