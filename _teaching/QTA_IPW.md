@@ -7,5 +7,5 @@ Falls ihr noch keine Erfahrung mit R habt, dann bitte ich euch diese beiden Tuto
 1. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_First_Steps"><span style="color: #333333;"><span style="font-size: medium;">Tutorial zu Einführung in R: Erste Schritte</span></span></a>  
 2. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_Basics_I"><span style="color: #333333;"><span style="font-size: medium;">Tutorial zu Einführung in R: Datentypen und Funktionen</span></span></a>  
 
-Die angesprochenen Übungen, die <b>jeder machen muss</b> findet ihr hier: 
+Die Übungen für diese Tutorial, die <b>jeder machen muss</b> findet ihr hier: 
  - 
