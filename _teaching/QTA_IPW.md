@@ -6,7 +6,9 @@ author_profile: true
 ---
 <p><b>Quantitative Textanalyse</b></p>
 
-<p> Auf dieser Seite findet ihr alle notwendigen Links für meinen Kurs "Quantitative Textanalyse", den ich im Sommersemester 2021 an der Leibniz Unversität Hannover im Rahmen der Methodenmodule VM ME des Instituts für Politikwissenschaft halte.</p>
+<p> Auf dieser Seite findet ihr alle notwendigen Links zu den Tutorien, Übungen, und Anwendungen die in meinem Kurs <b>"Quantitative Textanalyse"</b> als Lehrmaterial verwendet werden.
+
+Die Materialien sind chronologisch nach den Sitzungen des Seminars geordnet.</p>
 
 <p><b>1. Sitzung: Einführung</b></p>
 
