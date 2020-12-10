@@ -2,7 +2,7 @@
 
 <p><b>1. Sitzung: Einführung</b></p>
 
-<p>Falls ihr noch keine Erfahrung mit R habt, dann bitte ich euch diese beiden Tutorial-Dokumente zu lesen und den dort präsentierten Code zu kopieren und in eurem R-Studio auszuprobieren:</p>
+<p>Falls ihr noch keine Erfahrung mit R habt, dann bitte ich euch die beiden folgenden Tutorials zu lesen und den dort präsentierten Code zu kopieren und in einem lokalen R-Skript:</p>
 
 1. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_First_Steps"><span style="color: #333333;"><span style="font-size: medium;">Tutorial zu Einführung in R: Erste Schritte</span></span></a></p>
 2. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_Basics_I"><span style="color: #333333;"><span style="font-size: medium;">Tutorial zu Einführung in R: Datentypen und Funktionen</span></span></a></p>
