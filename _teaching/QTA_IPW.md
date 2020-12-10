@@ -17,4 +17,4 @@ author_profile: true
 
 <p>Die Übungen für diese Tutorials könnt ihr hier herunterladen:</p>
  
- - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/excercises_basicR_commands.R"><span style="color: #333333;"><span style="font-size: medium;">R-Skript für die Übungen</span></span></a>
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_basicR_commands.R"><span style="color: #333333;"><span style="font-size: medium;">R-Skript für die Übungen</span></span></a>
