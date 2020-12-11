@@ -22,7 +22,7 @@ author_profile: true
 
 <p>Aufgaben findet ihr hier:</p>
  
- - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_basicR_commands.R"><span style="color: #333333;"><span style="font-size: medium;">Aufgaben: Grundlagen von `R` </span></span></a>
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_basicR_commands.R"><span style="color: #333333;"><span style="font-size: medium;">Aufgaben: `R`-Grundlagen </span></span></a>
 
 <p><b>2. Sitzung: Grundlagen</b></p>
 
