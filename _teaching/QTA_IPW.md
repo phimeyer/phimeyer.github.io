@@ -10,9 +10,9 @@ author_profile: true
 
 <p> Die Materialien sind chronologisch geordnet. In den ersten Sitzungen finden sich vor allen Tutorials die erste Schritte in `R` und die Grundlagen von `R` erklären. Zum aktiven Lernen und zum Einüben von R-Befehlen, könnt ihr den dort beschriebenen Code kopieren, in einem eigenen `R`-Skript ausführen und vor allem nach euren eignen Vorstellungen verändern.<p>
 
-<p> Viele Inhalte orientieren sich an den Kapiteln des kostenlosen (Online-)Buchs <i>R for Data Science</i>: 
+<p> Viele Inhalte orientieren sich an den Kapiteln des kostenlosen (Online-)Buchs <i>R for Data Science</i> 
  
-  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://r4ds.had.co.nz/workflow-basics.html"><span style="color: #333333;"><span style="font-size: medium;">Link zum Buch</span></span></a>. 
+  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://r4ds.had.co.nz/workflow-basics.html"><span style="color: #333333;"><span style="font-size: medium;">Link zum Buch <i>R for Data Science</i> </span></span></a>. 
  </p>
 
 
