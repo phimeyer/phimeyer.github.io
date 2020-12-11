@@ -15,7 +15,7 @@ author_profile: true
 - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://r4ds.had.co.nz/index.html"><span style="color: #333333;"><span style="font-size: medium;">Link zum Buch: <i>R for Data Science</i></span></span></a>.
 
 
-<p><b>1. Sitzung: Einführung</b></p>
+<p><b>1. Sitzung: Organisation und Einführung</b></p>
 
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_First_Steps"><span style="color: #333333;"><span style="font-size: medium;">Einführung in `R`: Erste Schritte</span></span></a>
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_Basics_I"><span style="color: #333333;"><span style="font-size: medium;">Einführung in `R`: Datentypen und Funktionen</span></span></a>
