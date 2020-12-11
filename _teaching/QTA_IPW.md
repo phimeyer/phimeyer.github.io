@@ -8,7 +8,12 @@ author_profile: true
 
 <p> Auf dieser Seite findet ihr alle notwendigen Links zu den Tutorien, Übungen, und Anwendungen die in meinem Kurs <b>"Quantitative Textanalyse"</b> als Lehrmaterial verwendet werden.</p>
 
-<p> Die Materialien sind chronologisch geordnet. In den ersten Sitzungen finden sich vor allen Tutorials die erste Schritte in `R` und die Grundlagen von `R` erklären. Zum aktiven Lernen und zum Einüben von R-Befehlen, könnt ihr den dort beschriebenen Code kopieren, in einem eigenen `R`-Skript ausführen und vor allem nach euren eignen Vorstellungen verändern.</p>
+<p> Die Materialien sind chronologisch geordnet. In den ersten Sitzungen finden sich vor allen Tutorials die erste Schritte in `R` und die Grundlagen von `R` erklären. Zum aktiven Lernen und zum Einüben von R-Befehlen, könnt ihr den dort beschriebenen Code kopieren, in einem eigenen `R`-Skript ausführen und vor allem nach euren eignen Vorstellungen verändern.<p>
+
+<p> Viele Inhalte orientieren sich an den Kapiteln aus dem kostenlosen (Online-)Buche <i>R for Data Science</i>: 
+ <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://r4ds.had.co.nz/workflow-basics.html"><span style="color: #333333;"><span style="font-size: medium;">Link zum Buch</span></span></a>. 
+ </p>
+
 
 <p><b>1. Sitzung: Einführung</b></p>
 
