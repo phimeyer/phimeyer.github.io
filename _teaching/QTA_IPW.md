@@ -28,4 +28,4 @@ author_profile: true
 
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_Basics_II"><span style="color: #333333;"><span style="font-size: medium;">Einführung in `R`: Wiederholung von Befehlen, Objekten und Funktionen</span></span></a>
  
-  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_TransSumVis_with_tidy"><span style="color: #333333;"><span style="font-size: medium;">*tidy* `R`: Transformation, Zusammenfassen und Visualisieren von Daten mit tidy</span></span></a>
+  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_TransSumVis_with_tidy"><span style="color: #333333;"><span style="font-size: medium;">tidy-`R`: Transformation, Zusammenfassen und Visualisieren von Daten mit tidy</span></span></a>
