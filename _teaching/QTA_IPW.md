@@ -20,9 +20,9 @@ author_profile: true
 1. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_First_Steps"><span style="color: #333333;"><span style="font-size: medium;">Einführung in `R`: Erste Schritte</span></span></a>
 2. <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_Basics_I"><span style="color: #333333;"><span style="font-size: medium;">Einführung in `R`: Datentypen und Funktionen</span></span></a>
 
-<p>Übungsaufgaben findet ihr hier:</p>
+ - <p>Übungen zur Sitzung:</p>
  
- - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_basicR_commands.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: `R`-Grundlagen </span></span></a>
+   * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_basicR_commands.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: `R`-Grundlagen </span></span></a>
 
 <p><b>2. Sitzung: Grundlagen</b></p>
 
