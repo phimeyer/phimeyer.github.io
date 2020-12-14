@@ -267,7 +267,7 @@ z &lt;- as.numeric(z)     # versucht character in numeric zu transformiert</code
 </div>
 <div id="datenstrukturen" class="section level1">
 <h1>3. Datenstrukturen</h1>
-<p>In SPSS oder Excel werden Daten immer in einem rechteckigen Datenrahmen organisiert, wobei die Zellen in Zeilen und Spalten angeordnet sind. Typischerweise stellen die Reihen dann Fälle dar (z.B. Befragte, Teilnehmer, Zeitungsartikel) und die Spalten stellen Variablen dar (z.B. Alter, Geschlecht, Datum, Medium). Für die meisten Analysen mit <code>R</code> ist das auch das empfohlene Datenformat. Hierfür existiert in <code>R</code> die <code>data.frame</code>-Struktur verwendet.</p>
+<p>In SPSS oder Excel werden Daten immer in einem rechteckigen Datenrahmen organisiert, wobei die Zellen in Reihen und Spalten angeordnet sind. Typischerweise stellen die Reihen dann Fälle dar (z.B. Befragte, Teilnehmer, Zeitungsartikel) und die Spalten stellen Variablen dar (z.B. Alter, Geschlecht, Datum, Medium). Für die meisten Analysen mit <code>R</code> ist das auch das empfohlene Datenformat. Hierfür existiert in <code>R</code> die <code>data.frame</code>-Struktur verwendet.</p>
 <p>Ein wichtiger Unterschied besteht jedoch darin, dass es in <code>R</code> möglich und oft auch sinnvoll ist, verschiedene Datenstrukturen/ Datenformate zu kombinieren. Um zu verstehen, wie ein <code>data.frame</code> in <code>R</code> funktioniert, ist es unerlässloch zu verstehen, dass ein <code>data.frame</code> eine Sammlung von Vektoren ist.</p>
 <p>Im folgenden werden wir kurz auf Vektoren eingehen und diese erklären. Anschließend werden wir uns den <code>data.frames</code> zuwenden. Zusätzlich werden wir uns auch mit Matrizen und Listen beschäftigen.</p>
 <div id="vektor" class="section level3">
@@ -361,16 +361,16 @@ d</code></pre>
 ## 8   8         E          M    17     3.2     3.6
 ## 9   9         C          M    26     7.3     7.0
 ## 10 10         C          W    18     6.8     6.5</code></pre>
-<p>Die Datenstruktur zeigt, dass es eine Beziehung zwischen den Elementen in den Spaltenvektoren gibt. Mit anderen Worten: jede Zeile stellt einen Fall dar. In unserem Beispiel sind diese Fälle TeilnehmerInnen, und die Spalten repräsentieren:</p>
+<p>Die Datenstruktur zeigt, dass es eine Beziehung zwischen den Elementen in den Spaltenvektoren gibt. Mit anderen Worten: jede Reihe stellt einen Fall dar. In unserem Beispiel sind diese Fälle TeilnehmerInnen, und die Spalten repräsentieren:</p>
 <ul>
 <li>die Identifikationsnummer für jede_n TeilnehmerIn (<em>id</em>)</li>
 <li>die Versuchsbedingung (<em>bedinung</em>) (E = Versuchsbedingung, C = Kontrollgruppe)</li>
 <li>demographische Variablen: <em>Geschlecht</em> und <em>Alter</em>.</li>
 <li>Testergebnisse zu zwei Zeitpunkten: <em>wert_t1</em> und <em>wert_t2</em></li>
 </ul>
-<div id="auswählen-von-zeilen-spalten-und-elementen" class="section level4">
-<h4>3.2.1. Auswählen von Zeilen, Spalten und Elementen</h4>
-<p>Da <code>data.frames</code> sowohl Zeilen als auch Spalten haben, müssen wir beide zur Datenauswahl verwenden. Ähnlich wie bei der Auswahl in Vektoren verwenden wir eckige Klammern. Der Unterschied besteht darin, dass bei <code>data.frames</code> die eckigen Klammern aus zwei Teilen bestehen, die durch ein Komma getrennt sind.</p>
+<div id="auswählen-von-reihen-spalten-und-elementen" class="section level4">
+<h4>3.2.1. Auswählen von Reihen, Spalten und Elementen</h4>
+<p>Da <code>data.frames</code> sowohl Reihen als auch Spalten haben, müssen wir beide zur Datenauswahl verwenden. Ähnlich wie bei der Auswahl in Vektoren verwenden wir eckige Klammern. Der Unterschied besteht darin, dass bei <code>data.frames</code> die eckigen Klammern aus zwei Teilen bestehen, die durch ein Komma getrennt sind.</p>
 <table>
 <thead>
 <tr class="header">
@@ -381,20 +381,20 @@ d</code></pre>
 <tbody>
 <tr class="odd">
 <td>d[i,j]</td>
-<td>Zeile (i) und Spalten (j) auswählen</td>
+<td>Reihe (i) und Spalten (j) auswählen</td>
 </tr>
 <tr class="even">
 <td>d[i, ]</td>
-<td>nur Zeile (i) auswählen aber alle Spalten nutzen</td>
+<td>nur Reihe (i) auswählen aber alle Spalten nutzen</td>
 </tr>
 <tr class="odd">
 <td>d[ ,j]</td>
-<td>nur Spalte (j) auswählen aber alle Zeilen nutzen</td>
+<td>nur Spalte (j) auswählen aber alle Reihen nutzen</td>
 </tr>
 </tbody>
 </table>
-<p>Die Auswahl für Zeile (i) und Spalten (j) funktioniert genauso wie die Auswahl von Vektoren. Ihr könnt entwender <em>numeric</em> oder <em>logic</em> Vektorentypen verwenden. Entsprechend könnt ihr auch Vergleiche verwenden.</p>
-<p>Darüber hinaus gibt es zwei spezielle Möglichkeiten, Spalten zu selektieren. Die eine ist, dass j ein Zeilennvektor mit Spaltennamen sein kann. Die andere verwendet das Dollarzeichen (`$).</p>
+<p>Die Auswahl für Reihe (i) und Spalten (j) funktioniert genauso wie die Auswahl von Vektoren. Ihr könnt entwender <em>numeric</em> oder <em>logic</em> Vektorentypen verwenden. Entsprechend könnt ihr auch Vergleiche verwenden.</p>
+<p>Darüber hinaus gibt es zwei spezielle Möglichkeiten, Spalten zu selektieren. Die eine ist, dass j ein Reihennvektor mit Spaltennamen sein kann. Die andere verwendet das Dollarzeichen (`$).</p>
 <table>
 <colgroup>
 <col width="40%"></col>
@@ -467,17 +467,17 @@ d[,1:2]           #  die ersten beiden Spalten nach Indizes auswählen</code></p
 ## 10         C          W    18     6.8     6.5</code></pre>
 <p>Wie bereits erwähnt, können wir die Auswahl von Spalten auch mittels eines logischen Vektors durchführen. Aber dazu später mehr!</p>
 </div>
-<div id="die-auswahl-von-zeilen" class="section level4">
-<h4>Die Auswahl von Zeilen</h4>
-<p>Das Auswählen von Zeilen ist praktisch identisch mit dem Auswählen von Elementen aus Vektoren.</p>
-<pre class="r"><code>d[1:5,]    # die ersten fünf Zeilen des Datensatzes</code></pre>
+<div id="die-auswahl-von-reihen" class="section level4">
+<h4>Die Auswahl von Reihen</h4>
+<p>Das Auswählen von Reihen ist praktisch identisch mit dem Auswählen von Elementen aus Vektoren.</p>
+<pre class="r"><code>d[1:5,]    # die ersten fünf Reihen des Datensatzes</code></pre>
 <pre><code>##   id bedingung geschlecht alter wert_t1 wert_t2
 ## 1  1         E          M    17     8.0     8.3
 ## 2  2         E          M    19     6.0     6.4
 ## 3  3         C          W    22     7.5     7.7
 ## 4  4         C          M    18     6.8     6.3
 ## 5  5         C          W    16     8.0     7.5</code></pre>
-<p>Ein sehr nützlicher Trick ist, dass man alle Spalten für Vergleiche verwenden kann. So können wir zum Beispiel in der Spalte &quot;Geschlecht&quot; alle Elemente nachschlagen, die den Wert &quot;M&quot; (männlich) haben, und diese zur Auswahl von Zeilen verwenden.</p>
+<p>Ein sehr nützlicher Trick ist, dass man alle Spalten für Vergleiche verwenden kann. So können wir zum Beispiel in der Spalte &quot;Geschlecht&quot; alle Elemente nachschlagen, die den Wert &quot;M&quot; (männlich) haben, und diese zur Auswahl von Reihen verwenden.</p>
 <pre class="r"><code>d[d$geschlecht == &quot;M&quot;, ]  </code></pre>
 <pre><code>##   id bedingung geschlecht alter wert_t1 wert_t2
 ## 1  1         E          M    17     8.0     8.3
@@ -497,9 +497,9 @@ d[,1:2]           #  die ersten beiden Spalten nach Indizes auswählen</code></p
 ## 7  7         E          W    18     6.0     6.2
 ## 8  8         E          M    17     3.2     3.6</code></pre>
 </div>
-<div id="auswahl-von-zeilen-und-spalten" class="section level4">
-<h4>Auswahl von Zeilen <strong>und</strong> Spalten</h4>
-<p>Wir können die Zeilen- und Spaltenauswahl kombinieren. Gleiches gilt natürlich auch für die verschiedenen Auswahlmethoden.</p>
+<div id="auswahl-von-reihen-und-spalten" class="section level4">
+<h4>Auswahl von Reihen <strong>und</strong> Spalten</h4>
+<p>Wir können die Reihen- und Spaltenauswahl kombinieren. Gleiches gilt natürlich auch für die verschiedenen Auswahlmethoden.</p>
 <pre class="r"><code>d[d$geschlecht == &quot;W&quot;, &quot;wert_t1&quot;]    # Spalte &quot;wert_t1&quot; für weibliche Teilnehmerinnen</code></pre>
 <pre><code>## [1] 7.5 8.0 6.4 6.0 6.8</code></pre>
 <pre class="r"><code>d[d$geschlecht == &quot;W&quot;,]$wert_t1      # identisch, aber hier wird im ersten Schritt der Datensatz unterteilt (subset) und dann wird die Reihe ausgewählt</code></pre>

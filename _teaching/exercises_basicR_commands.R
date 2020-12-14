@@ -96,8 +96,8 @@ sd(x) # Beispiel zum Berechnen der Standardabweichung von x
 
 # Nutze den Datensatz, "iris" genannt, und ...
 
-# zeige die Zeilen in der die "sepal length" (Länge der Kelchblätter) kleiner als 4.5 ist
-# zeige die Zeilen bei denen die Blütenblätter (petals) mindestens 8-mal länger sind als sie breit sind
+# zeige die Reihen in der die "sepal length" (Länge der Kelchblätter) kleiner als 4.5 ist
+# zeige die Reihen bei denen die Blütenblätter (petals) mindestens 8-mal länger sind als sie breit sind
 # zeige die Spalte für die Kelchblattbreite (sepal width) für die Arten "setosa" und "versicolor"
 # Finde die Setosa-Blüten mit einer Kelchblattlänge (sepal length) von höchstens 4,4 und benenne die Art in "sad setosa" um
 
