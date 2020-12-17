@@ -42,4 +42,4 @@ author_profile: true
  
   - <p>Übungen zur Sitzung:</p>
  
-   * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_quanteda.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Überforderung mit quanteda </span></span></a>
+    * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_quanteda.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Überforderung mit quanteda </span></span></a>
