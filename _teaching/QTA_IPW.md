@@ -36,3 +36,7 @@ author_profile: true
    * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_dplyr.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Arbeiten mir dplyr </span></span></a>
    * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/exercises_ggplot2.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Datenvisualisierung </span></span></a>
 
+<p><b>3. Sitzung: Annahmen und Anwendungen</b></p>
+
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_basics"><span style="color: #333333;"><span style="font-size: medium;">Erste Schritte mit quanteda: Textdaten importieren, einen Korpus erstellen und Dokumentenvariablen hinzufügen </span></span></a>
+ 
