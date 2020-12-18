@@ -17,4 +17,6 @@
 # 1. https://manifesto-project.wzb.eu/tutorials/firststepsmanifestoR
 # 2. https://manifesto-project.wzb.eu/down/tutorials/quanteda.html
 
-
+# Aufgaben: 
+# Lest die Beschreibungen auf den zwei Internetseiten.
+# Kopiert die dort präsentierten Codezeilen in dieses Skript, führt sie aus und versucht sie zu verstehen.
