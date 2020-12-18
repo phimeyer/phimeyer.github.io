@@ -8,7 +8,7 @@ author_profile: true
 
 Here you can find information on my papers submitted for review and my recent paper projects.
 
-I am particularly interested in research on Comparative Political Institutions and Quantitative Text Analysis with an emphasis on Judicial Politics, Judicial Public Relations and Political Communication. Currently, I am particularly interested in when and how the German Federal Constitutional Court uses public relations to set frames and influence media coverage and the public.
+I am particularly interested in research on Comparative Political Institutions and Quantitative Text Analysis with an emphasis on Judicial Politics, Judicial Public Relations and Political Communication.
  
 <b>Under Review</b>
 
