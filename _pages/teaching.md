@@ -7,6 +7,24 @@ author_profile: true
 
 I taught first-year undergraduate as well as advanced undergraduate and graduate classes in Comparative Politics in German and English at Leibniz University Hannover with a focus on the logic of science, quantitative methods, text analysis and the comparison of political institutions. This page will provide you with a list of classes I taught as well as the student evaluations of these classes.
 
+<b>Graduate</b>
+- <p><b>Politische Kommunikation</b><br>
+  Leibniz University Hannover<br>
+  Summer Term 2021<br>
+
+- <p><b>Quantitative Text Analysis </b><br>
+  Leibniz University Hannover<br>
+  Summer Term 2021<br>
+    <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/teaching/QTA_IPW"><span style="color: #333333;"><span style="font-size: medium;">See `R`-Tutorials and Exercises for this course</span></span></a>
+
+- <p><b>Praxis der Verfassungsgebung: Ein Planspiel </b><br>
+  Leibniz University Hannover<br>
+  Summer Term 2019<br>
+    <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/SS19-Praxis_der_Verfassungsgebung__Ein_Planspiel.pdf"><span style="color: #333333;"><span style="font-size: medium;">See evaluation</span></span></a>
+      
+- <p><b>The Politics of Attention</b><br>
+  Leibniz University Hannover<br>
+  Summer Term 2017</p>
 
 <b>Undergraduate</b>
 
@@ -54,12 +72,3 @@ I taught first-year undergraduate as well as advanced undergraduate and graduate
   Summer Term 2015<br>
   <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/SS15-Parteien_und_Parteiensystem_Deutschlands_in_vergleichender_Perspektive.pdf"><span style="color: #333333;"><span style="font-size: medium;">See evaluation</span></span></a>
 
-<b>Graduate</b>
-- <p><b>Praxis der Verfassungsgebung: Ein Planspiel </b><br>
-  Leibniz University Hannover<br>
-  Summer Term 2019<br>
-    <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/SS19-Praxis_der_Verfassungsgebung__Ein_Planspiel.pdf"><span style="color: #333333;"><span style="font-size: medium;">See evaluation</span></span></a>
-      
-- <p><b>The Politics of Attention</b><br>
-  Leibniz University Hannover<br>
-  Summer Term 2017</p>
