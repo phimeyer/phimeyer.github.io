@@ -5,12 +5,12 @@ permalink: /teaching/
 author_profile: true
 ---
 
-I taught first-year undergraduate as well as advanced undergraduate and graduate classes in Comparative Politics in German and English at Leibniz University Hannover with a focus on the logic of science, quantitative methods, text analysis and the comparison of political institutions. This page will provide you with a list of classes I taught as well as the student evaluations of these classes.
+I taught first-year undergraduate as well as advanced undergraduate and graduate classes in Comparative Politics in German and English at Leibniz University Hannover with a focus on the logic of science, quantitative methods, text analysis and the comparison of political institutions.
+
+
+This page will provide you with a list of classes I taught as well as the student evaluations of these classes.
 
 <b>Graduate</b>
-- <p><b>Politische Kommunikation</b><br>
-  Leibniz University Hannover<br>
-  Summer Term 2021<br>
 
 - <p><b>Quantitative Text Analysis </b><br>
   Leibniz University Hannover<br>
