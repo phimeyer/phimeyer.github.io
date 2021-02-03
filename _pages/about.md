@@ -8,8 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Research and Teaching Fellow and PhD Student in the research group Comparative Government and German Politics at the Department of Political Science, Gottfried Wilhelm Leibniz University Hannover, Germany. I earned a bachelor degree in Political Science and History from the University of Greifswald and a master degree in Political Science from the University of Bamberg.
-I research politics with particular interest and expertise in:
+I am a Political Scientist and Postdoctoral Research Fellow at Gottfried Wilhelm Leibniz University Hannover, Germany. I research politics with particular interest and expertise in:
 
 - Judicial Politics, Judicial Behaviour, and Judicial Public Relations
 - Political Communication
