@@ -34,3 +34,8 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 <br>
 - Meyer, Philipp and Christoph Hönnige. 2017. Der Niedersächsische Staatsgerichtshof. In: Reutter, Werner (ed.) <i>Landesverfassungsgerichte: Entwicklung – Aufbau – Funktionen</i>. Wiesbaden: Springer VS, S. 219-241.
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://link.springer.com/chapter/10.1007/978-3-658-16094-4_10"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Chapter here</b> </span></span>
+    
+ <b>Dissertation</b>
+
+- Meyer, Philipp. 2021. <i>Communicating judicial decisions: court press releases and their effect on the news media.</i> Hannover: Gottfried Wilhelm Leibniz Universität, Diss.,xiv, 160 S. [DOI: 10.15488/10391](https://doi.org/10.15488/10391).
+<hr>
