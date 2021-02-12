@@ -190,7 +190,7 @@ summary {
 
 <h1 class="title toc-ignore">Erste Schritte mit `quanteda: Textdaten importieren, einen Korpus erstellen und Dokumentenvariablen hinzufügen</h1>
 <h4 class="author">Philipp Meyer, Institut für Politikwissenschaft</h4>
-<h4 class="date">05.05.2021, Seminar: Quantitative Textanalyse</h4>
+<h4 class="date">28.04.2021, Seminar: Quantitative Textanalyse</h4>
 
 </div>
 
@@ -207,12 +207,12 @@ summary {
 install.packages(&quot;quanteda&quot;)
 install.packages(&quot;readtext&quot;)</code></pre>
 <pre class="r"><code>library(tidyverse) </code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-## ✓ tibble  3.0.4     ✓ dplyr   1.0.1
+## ✓ tibble  3.0.4     ✓ dplyr   1.0.2
 ## ✓ tidyr   1.1.1     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(quanteda)</code></pre>
@@ -234,7 +234,7 @@ library(ggplot2)</code></pre>
 <p>Mit <code>readtext</code> lassen sich eine ganze Bandbreite von unterschiedlichen Dateiformaten importieren (u.a. txt, PDF, csv und auch Word-Dateien). Grundsätzlich sind aber Plaintext-Dateien (in der Regel mit der Endung &quot;.txt&quot; versehen) und Daten in Tabellenform (csv Dateien oder auch Excel-Dateien) zu bevorzugen und für <code>readtext</code> auch kein Problem. Bei (Text)Daten aus Tabellen ist es jedoch wichtig genau zu definieren. welche Felder die Primär-(also Text-) und welche die Metadaten beinhalten.</p>
 <p>Für <strong>dieses und alle weiteren Tutorial</strong> lesen wir alle Entscheidungen des Bundesverfassungsgerichts der Jahr 2015-2019 ein. <strong>Die Textdaten könnt ihr hier herunterladen: <a href="https://phimeyer.github.io/teaching/bverfg_15-19.zip" class="uri">https://phimeyer.github.io/teaching/bverfg_15-19.zip</a></strong>.</p>
 <p>Sobald ihr die ZIP-Datei entpackt habt, könnt ihr sehen, dass jede Datei einem Text entspricht. Das macht den Import sehr umkompliziert. Letztlich müssen wir lediglich die Computerpfad kopieren und damit <code>R</code> mitteilen, wo es die zu importierenden Texte findet (&quot;bverfg_15-19&quot; ist der letzte Ordner in dieser Befehlskette. Dort befinden sich die einzelnen txt.Dateien):</p>
-<pre class="r"><code>daten_bverfg &lt;- readtext(&quot;/Users/PhMeyer/Seafile/Seafile/Meine Bibliothek/Lehre/Seminare Uni Hannover/12 SoSe 2021/Quantitative Textanalyse/Daten/bverfg_15-19&quot;)
+<pre class="r"><code>daten_bverfg &lt;- readtext(&quot;/Users/PhMeyer/Seafile/Seafile/Meine Bibliothek/Lehre/Seminare Uni Hannover/12 SoSe 2021/Quantitative Textanalyse/data/bverfg_15-19&quot;)
 head(daten_bverfg)</code></pre>
 <pre><code>## readtext object consisting of 6 documents and 0 docvars.
 ## # Description: df[,2] [6 × 2]
@@ -252,7 +252,7 @@ head(daten_bverfg)</code></pre>
 <h1>3. Dokumentenvariablen bzw. Metavariablen</h1>
 <p>Dieser Datensatz ist noch sehr roh und hat, wie gesagt, nur zwei Variablen: doc_id und text. Die erste der beiden, <code>doc_id</code>, ist lediglich der Name der Dateien. Die zweite Variable beinhaltet die Volltexte aus den Dateien. Die ganzen <code>\n</code> die ihr dort seht machen nicht den textuellen Inhalt aus. Das sind im Grund html-Befehle, die Anzeigen das ein neuer Absatz gemacht wird. Der Grund dafür ist die Herkunft der Dateien, welche direkt von der Internetseite des Bundesverfassungsgerichts heruntergeladen wurden.</p>
 <p>Wie auch immer, diese beiden Variablen sind natürlich nicht annnähernd aussreichend für unsere Bedürfnisse. Zum Glück können wir bereits beim Einlesen der Textdaten zwei weitere Variablen erstellen. Wie ihr in der <code>doc_id</code> Variable seht, bestehen die Dateinamen aus zwei Aspekten die mit einem Unterstrich getrennt wurden: 1) einem Datum und 2) einem Aktenzeichen (das Gericht gibt jeder Entscheidung ein Aktenzeichen), welches den jeweiligen Senat und Verfahrensart angibt (z.B. 2bvr bedeutet, dass der zweite Senat des Gerichts die Entscheidung getroffen hat und das die Entscheidung eine Verfassungsbeschwerde war). Diese beiden Aspekte können wir verwenden um weitere Variablen zu erstellen (kontrolliert bitte <code>?readtext</code> um die Argumente von <code>readtext</code> zu erlernen). Dafür nutzen wir die Argumente <code>docvarsfrom</code> und <code>docvarnames</code>.</p>
-<pre class="r"><code>daten_bverfg &lt;- readtext(&quot;/Users/PhMeyer/Seafile/Seafile/Meine Bibliothek/Lehre/Seminare Uni Hannover/12 SoSe 2021/Quantitative Textanalyse/Daten/bverfg_15-19&quot;,
+<pre class="r"><code>daten_bverfg &lt;- readtext(&quot;/Users/PhMeyer/Seafile/Seafile/Meine Bibliothek/Lehre/Seminare Uni Hannover/12 SoSe 2021/Quantitative Textanalyse/data/bverfg_15-19&quot;,
                          docvarsfrom = &quot;filenames&quot;, docvarnames = c(&quot;date&quot;,&quot;docket_nr&quot;))
 head(daten_bverfg)</code></pre>
 <pre><code>## readtext object consisting of 6 documents and 2 docvars.
@@ -369,8 +369,8 @@ gerichts_saetze[1]</code></pre>
 <pre class="r"><code>zufallsrecht &lt;- corpus_sample(gerichts_saetze, size = 1)
 zufallsrecht[1]</code></pre>
 <pre><code>## Corpus consisting of 1 document and 6 docvars.
-## 20150928_1bvr321714.txt :
-## &quot;Sie regte wegen der möglichen Gefährlichkeit des Beschwerdef...&quot;</code></pre>
+## 20150512_1bvr150113.txt :
+## &quot;2 Die Präsidentin oder der Präsident, in der Gründungsphase ...&quot;</code></pre>
 <p>Schließlich lassen sich Korpora mithilfe von `corpus_segment() auch nach bestimmten Kriterien aufspalten.</p>
 <p>Wir ihr an den ganzen Beispielen sehen könnt, müssen wir an den Texten von vieles verändern, damit wir auch wirklich zu der eigentlichen Inhaltsanalyse kommen. So müssen wir z.B. die ganzen Sonderzeichen entfernen, die Leerzeichen und Absäztze (vor allem die <code>\n</code>) entfernen und so weiter. All diese Dinge und noch viel mehr werden wir kommende Woche machen.</p>
 </div>
