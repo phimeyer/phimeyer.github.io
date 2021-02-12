@@ -31,7 +31,7 @@ This page will provide you with a list of classes I taught as well as the studen
 - <p><b>Einführung in die Politikwissenschaft - Seminar mit Tutorium</b><br>
   Leibniz University Hannover<br>
   Winter Terms: 2016/2017, 2017/2018, 2018/2019 (2x), 2019/2020, 2020/2021<br>
-  <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/WiSe_2019_20-Einführung_in_die_Politikwissenschaft_(mit_Tutorium).pdf"><span style="color: #333333;"><span style="font-size: medium;">See most recent evaluation</span></span></a>
+  <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/Lehrevaluation WiSe 20/21.pdf"><span style="color: #333333;"><span style="font-size: medium;">See most recent evaluation</span></span></a>
 
 - <p><b>Praxis der Verfassungsgebung: Ein Planspiel </b><br>
   Leibniz University Hannover<br>
