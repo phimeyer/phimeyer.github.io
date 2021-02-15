@@ -197,29 +197,30 @@ summary {
 
 <div id="einleitung" class="section level1">
 <h1>1. Einleitung</h1>
-<p>In unserem ersten Tutorial habe ich euch ganz bewusst versucht zu überfordern, indem ihr bereits mit fortgeschrittene Funktionen in <code>R</code> und spezialisierten Paketen zur Durchführung von Textanalysen konfrontiert wurdet. Es gibt unzählige Pakete, die zur Lösung von ebenso unzähligen Problemen oder auch einfach zur Vereinfachung des täglichen <em>work flows</em> programmiert wurden. Die meisten Pakete enhalten auch detallierte Anleitungen, so genannte Vignetten (siehe z.B. die Vignette zu quanteda: <a href="https://cran.r-project.org/web/packages/quanteda/vignettes/quickstart.html" class="uri">https://cran.r-project.org/web/packages/quanteda/vignettes/quickstart.html</a>. Oder auch die drei Vignetten zu ggplot2: <a href="https://cran.r-project.org/web/packages/ggplot2/vignettes/" class="uri">https://cran.r-project.org/web/packages/ggplot2/vignettes/</a>), die euch Schritt für Schritt zeigen, wie die Pakete zu benutzen sind.</p>
-<p>Oft genug passiert es aber, dass keines der existierenden Pakete eine geeignete Lösung für ein spezielles Problem liefern kann. Oder aber ihr müsst euren Daten für eure anstehenden Analysen und bestimmte Pakete bereinigen und aufbereiten. Es ist daher wichtig, dass ihr die Grundlagen von <code>R</code> kennenlernt.</p>
-<p>In diesem zweiten Teil unserer Einführung in <code>R</code> lernt ihr die grundlegenden <code>R</code>-Datentypen, Datenstrukturen und die Logik von Funktionen kennen. Das sind die notwendigen Grundlagen für die Arbeit mit <code>R</code>. Zur praktischen Übung der hier diskutierten Aspekte findet ihr ein <code>R</code>-Skript mit Aufgaben in den Seminardateien.</p>
+<p>Im ersten Tutorial solltet ihr ganz bewusst überfordert werden. Ihr habt dort bereits erste Einblicke in fortgeschrittene Funktionen und spezialisierten Pakete zur Durchführung von Textanalysen bekommen.</p>
+<p>Es gibt unzählige Pakete, die zur Lösung von ebenso unzähligen Problemen oder auch einfach zur Vereinfachung des täglichen <em>work flows</em> programmiert wurden. Die meisten Pakete enhalten detallierte Anleitungen, so genannte Vignetten (siehe z.B. die Vignette zu quanteda: <a href="https://cran.r-project.org/web/packages/quanteda/vignettes/quickstart.html" class="uri">https://cran.r-project.org/web/packages/quanteda/vignettes/quickstart.html</a>. Oder auch die drei Vignetten zu ggplot2: <a href="https://cran.r-project.org/web/packages/ggplot2/vignettes/" class="uri">https://cran.r-project.org/web/packages/ggplot2/vignettes/</a>), die euch Schritt für Schritt zeigen, wie die Pakete zu benutzen sind.</p>
+<p>Oft genug bietet aber keines der existierenden Pakete eine geeignete Lösung für ein spezielles Problem. Oder aber ihr müsst eure Daten für eure Analysen bereinigen und aufbereiten. Es ist daher wichtig, dass ihr die Grundlagen von <code>R</code> kennenlernt.</p>
+<p>In diesem zweiten Teil unserer Einführung in <code>R</code> lernt ihr die grundlegenden <code>R</code>-Datentypen, Datenstrukturen und die Logik von Funktionen kennen. Zur praktischen Übung der hier diskutierten Aspekte findet ihr ein <code>R</code>-Skript mit Aufgaben.</p>
 </div>
 <div id="datentypen" class="section level1">
 <h1>2. Datentypen</h1>
-<p>Datentypen betreffen die verschiedenen Typen, die Einzelwerte in Daten haben können. Die grundlegendsten Datentypen in <code>R</code> sind:</p>
+<p>Einzelwerte in <code>R</code> können verschiedene Datentypen einnehmen. Die grundlegendsten Datentypen in <code>R</code> sind:</p>
 <ul>
 <li>numerisch - <em>numeric</em> (Zahlen)</li>
 <li>Buchstaben - <em>character</em> (Text)</li>
 <li>Faktoren - <em>factors</em> (kategorische Daten, die die Einteilung in mehrere Klassen ermöglichen)</li>
 <li>logisch - <em>logic</em> (Wahr oder Falsch, Größer oder Kleiner, Gleich oder Ungleich)</li>
 </ul>
-<p>Darüber hinaus gibt es spezielle Typen für Daten wie Datums-/Uhrzeitwerte.</p>
+<p>Darüber hinaus gibt es spezielle Typen z.B. für Datums-/Uhrzeitwerte:</p>
 <ul>
 <li>Datum (Kalenderdaten) oder POSIXlt (Kalenderdaten und Uhrzeiten)</li>
 </ul>
 <p><strong>Achtung</strong>: Im folgenden werde ich die englischen Begriffe verwenden. Das wird euch die Suche nach Problemlösungen im Internet deutlich erleichtern, da die <code>R</code>-Alltagssprache Englisch ist.</p>
 <div id="numeric" class="section level3">
 <h3>2.1. Numeric</h3>
-<p>Zahlen. Nicht mehr und nicht weniger. Zahlen sind natürlich vor allem für mathematische Prozesse notwendig.</p>
+<p>Zahlen. Nicht mehr und nicht weniger. Zahlen sind vor allem für mathematische Prozesse notwendig.</p>
 <pre class="r"><code>x &lt;- 51       # ordne eine Nummer dem Namen x zu
-class(x)     # kontrolliere den Datentyp/die Klasse von x</code></pre>
+class(x)     # kontrolliere den Datentyp von x</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre class="r"><code>x + 3        </code></pre>
 <pre><code>## [1] 54</code></pre>
@@ -232,20 +233,21 @@ class(x)     # kontrolliere den Datentyp/die Klasse von x</code></pre>
 </div>
 <div id="character" class="section level3">
 <h3>2.2. Character</h3>
-<p>Texte als Daten, entweder als einzelne Buchstaben, ganze Wörter oder sogar ganze Texte (Bücher, Aufsätze, Gerichtsurteile, Pressemitteilungen, Gesetzestexte, Parteiprogramme you name it).</p>
-<pre class="r"><code>x &lt;- &quot;Politikwissenschaft in Hannover&quot;  # Ordne Wörte dem Namen x zu
+<p>Der Character-Datentyp umfasst einzelne Buchstaben, Wörter oder sogar ganze Texte (Bücher, Aufsätze, Gerichtsurteile, Pressemitteilungen, Gesetzestexte, Parteiprogramme you name it).</p>
+<pre class="r"><code>x &lt;- &quot;Politikwissenschaft in Hannover&quot;  # Ordne Wörter dem Namen x zu
 class(x)         #  kontrolliere den Datentyp/die Klasse von x</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<p>Es ist wichtig, den Unterschied zwischen Namen und Zeichenwerten zu erkennen. Im obigen Beispiel ist x der Name, dem der Text &quot;Politikwissenschaft in Hannover&quot; zugeordnet wurde. Ob ein Wort ein Name oder ein Zeichenwert ist, wird mit Anführungszeichen angegeben.</p>
+<p>Es ist wichtig, den Unterschied zwischen character und numeric zu erkennen. Im Allgemeinen ist es von großer Bedeutung, dass ihr die Datentypen mit denen ihr arbeitet immer kontrolliert. Falsch zugeordnete Datentypen haben schon die Arbeit an der ein oder anderen Analyse um Stunden verlängert.Im obigen Beispiel ist x der Name, dem der Text &quot;Politikwissenschaft in Hannover&quot; zugeordnet wurde. Ob ein Wort ein Name oder ein Zeichenwert ist, wird mit Anführungszeichen angegeben.</p>
 <pre class="r"><code>x       # der Wert der dem Namen x zugeordnet wurde</code></pre>
 <pre><code>## [1] &quot;Politikwissenschaft in Hannover&quot;</code></pre>
 <pre class="r"><code>&quot;x&quot;     # der Text/der Buchstabe &quot;x&quot;</code></pre>
 <pre><code>## [1] &quot;x&quot;</code></pre>
-<p>Mit Text-as-Data kann man natürlich keine mathematischen Formlen berechnen. Die Kombination eines falschen Datentyps mit einer Funktion führt im Allgemeinen zu einer Fehlermeldung. Spoiler alert: Fehlermeldungen gehört zu <code>R</code> und glaub mir, ihr werdet Momente der Verzweiflung deswegen erleben. Aber keine Angst! <code>R</code> ist <strong>open-source</strong> und deswegen hat die <code>R</code>-Community eigentlich für alle Probleme eine Antwort, ihr müsst nur im Internet danach suchen.</p>
+<p>Mit Textdaten kann man natürlich keine mathematischen Formlen berechnen. Die Kombination eines falschen Datentyps mit einer Funktion führt im Allgemeinen zu einer Fehlermeldung:</p>
 <pre class="r"><code>sum(x)       # berechne die Summe von x</code></pre>
 <p><code>## [1] Error in sum(x): invalid 'type' (character) of argument</code></p>
-<p>Es ist wichtig, diese Art von Fehlern zu erkennen, denn, wie gesagt, Fehlermeldungen werden euch euer ganzes <code>R</code>-Leben lang begleiten. Möglicherweise wurden Daten importiert, in denen eine Spalte ein Wort enthält, die eigentlich eine Zahl enthalten soll. In diesem Fall betrachtet <code>R</code> die Spalte als Spalte mit <em>character</em> Daten.</p>
-<p>Achtung: Ihr könnt auch Zahlen als <em>character</em> ausdrücken! Dafür verwendet ihr lediglich Anführungszeichen, z.B. &quot;23&quot;. Andererseits könnt ihr <em>numerics</em> also Zahlen nicht als <em>character</em> als Buchstaben ausdrücken! Das Umwandeln von einem Datentyp in einen anderen geschieht mit der as.-Methode:</p>
+<p>Spoiler alert: Fehlermeldungen gehören zum &quot;<code>R</code>-Feeling&quot;! Ihr werdet Momente der Verzweiflung deswegen erleben. Aber keine Angst! <code>R</code> ist <strong>open-source</strong> und deswegen hat die <code>R</code>-Community eigentlich für alle Probleme eine Antwort, ihr müsst nur im Internet danach suchen.</p>
+<p>Es ist wichtig, diese Art von Fehlern zu erkennen, denn, wie gesagt, Fehlermeldungen werden euch euer ganzes <code>R</code>-Leben lang begleiten. Möglicherweise wurden Daten importiert, in denen eine Spalte ein Wort enthält, die eigentlich eine Zahl enthalten soll. In diesem Fall betrachtet <code>R</code> die Spalte als Spalte mit <em>character</em>.</p>
+<p>Achtung: Ihr könnt auch Zahlen als <em>character</em> ausdrücken! Dafür verwendet ihr lediglich Anführungszeichen, z.B. &quot;23&quot;. Andererseits könnt ihr <em>numerics</em> also Zahlen nicht als <em>character</em>ausdrücken! Das Umwandeln von einem Datentyp in einen anderen geschieht mit der as.-Methode:</p>
 <pre class="r"><code>x &lt;- &quot;999&quot;
 x &lt;- as.numeric(x)     # transformiert character in numeric
 x</code></pre>
@@ -267,13 +269,13 @@ z &lt;- as.numeric(z)     # versucht character in numeric zu transformiert</code
 </div>
 <div id="datenstrukturen" class="section level1">
 <h1>3. Datenstrukturen</h1>
-<p>In SPSS oder Excel werden Daten immer in einem rechteckigen Datenrahmen organisiert, wobei die Zellen in Reihen und Spalten angeordnet sind. Typischerweise stellen die Reihen dann Fälle dar (z.B. Befragte, Teilnehmer, Zeitungsartikel) und die Spalten stellen Variablen dar (z.B. Alter, Geschlecht, Datum, Medium). Für die meisten Analysen mit <code>R</code> ist das auch das empfohlene Datenformat. Hierfür existiert in <code>R</code> die <code>data.frame</code>-Struktur verwendet.</p>
+<p>In SPSS oder Excel werden Daten immer in einem Datensatz organisiert, wobei die Zellen in Reihen und Spalten angeordnet sind. Typischerweise stellen die Reihen dann Fälle dar (z.B. Befragte, Teilnehmer, Zeitungsartikel) und die Spalten stellen Variablen dar (z.B. Alter, Geschlecht, Datum, Medium). Für die meisten Analysen mit <code>R</code> ist das auch das empfohlene Datenformat. Hierfür existiert in <code>R</code> die <code>data.frame</code>-Struktur.</p>
 <p>Ein wichtiger Unterschied besteht jedoch darin, dass es in <code>R</code> möglich und oft auch sinnvoll ist, verschiedene Datenstrukturen/ Datenformate zu kombinieren. Um zu verstehen, wie ein <code>data.frame</code> in <code>R</code> funktioniert, ist es unerlässloch zu verstehen, dass ein <code>data.frame</code> eine Sammlung von Vektoren ist.</p>
 <p>Im folgenden werden wir kurz auf Vektoren eingehen und diese erklären. Anschließend werden wir uns den <code>data.frames</code> zuwenden. Zusätzlich werden wir uns auch mit Matrizen und Listen beschäftigen.</p>
 <div id="vektor" class="section level3">
 <h3>3.1. Vektor</h3>
 <p>Ein Vektor in <code>R</code> ist eine Folge von einem oder mehreren Werten desselben Datentyps. Aus sozialwissenschaftlicher Sicht ist als ein Vektor dem, was wir als Variable bezeichnen, sehr ähnlich.</p>
-<p>Ihr könnt einen Vektor in <code>R</code> mit c(...) benennen, wobei zwischen den Klammern die Werte, durch Kommata getrennt, eingegeben werden. Die Anzahl der Werte bestimmt die Länge des Vektors. Ein Vektor kann jeden der oben besprochenen Datentypen haben (<em>numeric</em>, <em>character</em>, <em>factor</em>, <em>logic</em>, <em>date</em>).</p>
+<p>Ihr könnt einen Vektor in <code>R</code> mit c(...) benennen, wobei zwischen den Klammern die Werte, durch Kommata getrennt werden. Die Anzahl der Werte bestimmt die Länge des Vektors. Ein Vektor kann jeden der oben besprochenen Datentypen haben (<em>numeric</em>, <em>character</em>, <em>factor</em>, <em>logic</em>, <em>date</em>).</p>
 <pre class="r"><code>v1 &lt;- c(1, 2, 10, 15)   # ein numericher Vektor mit einer Länge von 4 
 v2 &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;b&quot;)   # character Vektor mit einer Länge von 3
 v3 &lt;- 1:10               ## ein numericher Vektor mit einer Länge von 10 mit den Werten von 1 bis 10 (der Doppelpunkt gibt R den Befehl Zahlen im von euch definierten Bereich von X bis zu X verwenden.)</code></pre>
@@ -283,7 +285,7 @@ v3 &lt;- 1:10               ## ein numericher Vektor mit einer Länge von 10 mit
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;b&quot;</code></pre>
 <pre class="r"><code>v3</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>Kombiniert ihr verschiedene Datentypen in einem Vektor, verwendet <code>R</code> immer den Typen mit dem kleinsten gemeinsamen Nenner. Das wird als impliziter Zwang/Nötigung (implicit coercion) bezeichnet und <code>R</code> folgt grundsätzlich dabei der folgenden Reihenfolge:</p>
+<p>Kombiniert ihr verschiedene Datentypen in einem Vektor, verwendet <code>R</code> immer den Typen mit dem kleinsten gemeinsamen Nenner. Das wird als impliziter Zwang (implicit coercion) bezeichnet und <code>R</code> folgt grundsätzlich der folgenden Reihenfolge:</p>
 <ul>
 <li>logical <code>-&gt;</code> integer <code>-&gt;</code> numeric <code>-&gt;</code> complex <code>-&gt;</code> character</li>
 </ul>
@@ -301,14 +303,14 @@ x + y     # für 2 Vektoren mit der selben Länge berechnet R paarweise (1 + 10,
 <div id="auswählen-von-elementen-aus-vektoren" class="section level4">
 <h4>3.1.1. Auswählen von Elementen aus Vektoren</h4>
 <p>Es gibt zwei gängige Methoden, um ein bestimmtes Element oder einen Bereich von Elementen aus einem Vektor auszuwählen. Die eine besteht darin, die Indizes (Positionen) der Elemente in eckigen Klammern hinter dem Vektornamen anzugeben. Beachtet bitte, dass die Indizes selbst als numerischer Vektor angegeben werden.</p>
-<pre class="r"><code>x &lt;- c('a','b','c','d','e','f','g')  # ein Vektor mit einer Länge von 7
+<pre class="r"><code>x &lt;- c('a','b','c','d','e','f','g')  # ein character Vektor mit einer Länge von 7
 x[5]            # das fünfte Element auswählen</code></pre>
 <pre><code>## [1] &quot;e&quot;</code></pre>
 <pre class="r"><code>x[c(1,3)]       # das erste und dritte Element auswählen </code></pre>
 <pre><code>## [1] &quot;a&quot; &quot;c&quot;</code></pre>
 <pre class="r"><code>x[2:5]          # die Elemente zwei bis fünf auswählen</code></pre>
 <pre><code>## [1] &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
-<p>Ihr bestimmt die Reihenfolge in der ihr eure Indizes auswählt. Natürlich könnt ihr die Auswahl von Indizes auch wiederholen, was z.B. zum Sortieren von Daten nützlich sein kann.</p>
+<p>Ihr bestimmt die Reihenfolge in der ihr eure Indizes auswählt. Natürlich könnt ihr die Auswahl von Indizes auch wiederholen, was z.B. zum sortieren von Daten nützlich sein kann.</p>
 <pre class="r"><code>x[5:1]          #  Elemente in den Positionen 5 bis 1 auswählen</code></pre>
 <pre><code>## [1] &quot;e&quot; &quot;d&quot; &quot;c&quot; &quot;b&quot; &quot;a&quot;</code></pre>
 <pre class="r"><code>x[c(5,5,5)]     # das fünfte Elemnt mehrmals auswählen</code></pre>
@@ -318,31 +320,33 @@ x[5]            # das fünfte Element auswählen</code></pre>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;f&quot; &quot;g&quot;</code></pre>
 <pre class="r"><code>x[-c(1,3)]       # jedes Element mit Ausnahme des ersten und dritten auswählen</code></pre>
 <pre><code>## [1] &quot;b&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot;</code></pre>
-<p>Die zweite Möglichkeit, Werte auszuwählen, ist die Verwendung eines logischen Vektors. Weitere Informationen über logische Vektoren findt ihr am Ende dieses Dokuments. Hier geht es vor allem darum, zu verstehen, dass ein logischer Vektor nur die Werte FALSE und TRUE hat.</p>
+<p>Die zweite Möglichkeit ist die Verwendung eines logischen Vektors. Weitere Informationen über logische Vektoren findet ihr am Ende dieses Dokuments. Hier geht es vor allem darum, zu verstehen, dass ein logischer Vektor nur die Werte FALSE und TRUE hat.</p>
 <p>Verwenden wir einen logischen Vektor um Werte auszuwählen, dann müssen beide die gleiche Länge haben. Alle Werte, für die der logische Vektor WAHR ist, werden dann ausgewählt. In diesem Beispiel sind die ersten drei Werte WAHR, und so werden die ersten drei Werte aus dem Vektor x ausgewählt</p>
 <pre class="r"><code>x[c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE)]</code></pre>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <p>Warum ist das nützlich? Diese spezielle Art Elemente auszwählen werdet ihr wahrscheinlich <strong>nie</strong> nutzen. <strong>Aber</strong> dieses Beispiel soll euch dabei helfen zu verstehen, wie ihr Vergleiche nutzen könnt. Ihr könnt Werte vergleichen, um einen logischen Vektor zu erstellen (mehr zu Vergleichen am Ende dieses Dokuments).</p>
-<p>Beispielsweise können wir alle Werte in einem Vektor mit einem einzigen Wert vergleichen. Hier erstellen wir einen Vektor namens Jahre, und wir vergleichen die Werte dieses Vektors mit dem Wert 2018. Wir verwenden == also logischen Operator.</p>
+<p>Beispielsweise können wir alle Werte in einem Vektor mit einem einzigen Wert vergleichen. Hier erstellen wir einen Vektor mit dem Namen &quot;jahre&quot; und vergleichen die Werte dieses Vektors mit dem Wert 2018. Wir verwenden <code>==</code> also logischen Operator.</p>
 <pre class="r"><code>jahre &lt;- c(2017,2034,2018,2020,2012,2025,2030,2014,2033)
 jahre == 2018</code></pre>
 <pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <p>Wir können auch &gt; für einen Größer-als-Vergleich oder &gt;= für einen Größer-Gleich-Vergleich verwenden.</p>
+<pre class="r"><code>jahre &gt; 2018</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
 <pre class="r"><code>jahre &gt;= 2018</code></pre>
 <pre><code>## [1] FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
 <p>Jetzt können wir den logischen Vektor (TRUE / FALSE) zur Auswahl von Werten verwenden.</p>
 <pre class="r"><code>auswahl &lt;- jahre &gt;= 2018   # der Vergleich generiert einen logischen Vektor (Größer-Gleich)
-jahre[auswahl]          # wählt Werte mit Hilfe eines logischen Vektors aus</code></pre>
+jahre[auswahl]          # wählt Werte mit Hilfe des logischen Vektors in &quot;auswahl&quot; aus</code></pre>
 <pre><code>## [1] 2034 2018 2020 2025 2030 2033</code></pre>
-<p>Es ist nicht notwendig, dem logischen Vektor zunächst einen Namen zu geben, wie wir es hier getan haben. Wir können den Vergleich direkt zur Wertauswahl verwenden.</p>
+<p>Es ist nicht notwendig dem logischen Vektor zunächst einen Namen zu geben (im Beispiel war es der Name &quot;auswahl&quot;). Wir können den Vergleich direkt zur Wertauswahl verwenden.</p>
 <pre class="r"><code>jahre[jahre &gt;= 2018]          # selber Effekt, aber effektiver da weniger Code </code></pre>
 <pre><code>## [1] 2034 2018 2020 2025 2030 2033</code></pre>
 </div>
 </div>
 <div id="data.frame-datensätze" class="section level3">
 <h3>3.2. Data.frame / Datensätze</h3>
-<p>Ein <code>data.frame</code> ist im Wesentlichen eine Sammlung von Vektoren mit <strong>gleicher Länge</strong> (!!), die als Spalten miteinander verbunden sind.</p>
-<p>Um einen <code>data.frame</code> zu erstellen, verwenden wir die Funktion <code>data.frame()</code>. Wir geben die Vektoren im folgenden Format ein: <code>column_name = Vektor</code> <strong>,</strong> <code>column_name = Vektor</code> <strong>,</strong> <code>column_name = Vektor</code> (die Kommata sind für eine erfolgreiche Erstellung eines Datensatzes in <code>R</code> zentral!). Hier erstellen wir einen `data.frame für Daten aus einem fiktiven Experiment.</p>
+<p>Ein <code>data.frame</code> isteine Sammlung von Vektoren mit <strong>gleicher Länge</strong> (!!), die als Spalten miteinander verbunden sind.</p>
+<p>Um einen <code>data.frame</code> zu erstellen, verwenden wir die Funktion <code>data.frame()</code>. Wir geben die Vektoren im folgenden Format ein: <code>column_name = Vektor</code> <strong>,</strong> <code>column_name = Vektor</code> <strong>,</strong> <code>column_name = Vektor</code> (die Kommata sind für eine erfolgreiche Erstellung eines Datensatzes in <code>R</code> zentral!). Hier erstellen wir einen <code>data.frame</code> für Daten aus einem fiktiven Experiment.</p>
 <pre class="r"><code>d &lt;- data.frame(id =        1:10,
                bedingung = c(&quot;E&quot;, &quot;E&quot;, &quot;C&quot;, &quot;C&quot;, &quot;C&quot;, &quot;E&quot;, &quot;E&quot;, &quot;E&quot;, &quot;C&quot;, &quot;C&quot;),
                geschlecht =    c(&quot;M&quot;, &quot;M&quot;, &quot;W&quot;, &quot;M&quot;, &quot;W&quot;, &quot;W&quot;, &quot;W&quot;, &quot;M&quot;, &quot;M&quot;, &quot;W&quot;),
@@ -370,7 +374,7 @@ d</code></pre>
 </ul>
 <div id="auswählen-von-reihen-spalten-und-elementen" class="section level4">
 <h4>3.2.1. Auswählen von Reihen, Spalten und Elementen</h4>
-<p>Da <code>data.frames</code> sowohl Reihen als auch Spalten haben, müssen wir beide zur Datenauswahl verwenden. Ähnlich wie bei der Auswahl in Vektoren verwenden wir eckige Klammern. Der Unterschied besteht darin, dass bei <code>data.frames</code> die eckigen Klammern aus zwei Teilen bestehen, die durch ein Komma getrennt sind.</p>
+<p>Da <code>data.frames</code> sowohl Reihen als auch Spalten haben, können wir beide zur Datenauswahl verwenden. Ähnlich wie bei der Auswahl in Vektoren verwenden wir eckige Klammern. Der Unterschied besteht darin, dass bei <code>data.frames</code> die eckigen Klammern aus zwei Teilen bestehen, die durch ein Komma getrennt sind.</p>
 <table>
 <thead>
 <tr class="header">
@@ -394,7 +398,7 @@ d</code></pre>
 </tbody>
 </table>
 <p>Die Auswahl für Reihe (i) und Spalten (j) funktioniert genauso wie die Auswahl von Vektoren. Ihr könnt entwender <em>numeric</em> oder <em>logic</em> Vektorentypen verwenden. Entsprechend könnt ihr auch Vergleiche verwenden.</p>
-<p>Darüber hinaus gibt es zwei spezielle Möglichkeiten, Spalten zu selektieren. Die eine ist, dass j ein Reihennvektor mit Spaltennamen sein kann. Die andere verwendet das Dollarzeichen (`$).</p>
+<p>Darüber hinaus gibt es zwei spezielle Möglichkeiten, Spalten zu selektieren. Die eine ist, dass j ein Reihennvektor mit Spaltennamen sein kann. Die andere verwendet das Dollarzeichen (<code>$</code>).</p>
 <table>
 <colgroup>
 <col width="40%"></col>
@@ -477,7 +481,7 @@ d[,1:2]           #  die ersten beiden Spalten nach Indizes auswählen</code></p
 ## 3  3         C          W    22     7.5     7.7
 ## 4  4         C          M    18     6.8     6.3
 ## 5  5         C          W    16     8.0     7.5</code></pre>
-<p>Ein sehr nützlicher Trick ist, dass man alle Spalten für Vergleiche verwenden kann. So können wir zum Beispiel in der Spalte &quot;Geschlecht&quot; alle Elemente nachschlagen, die den Wert &quot;M&quot; (männlich) haben, und diese zur Auswahl von Reihen verwenden.</p>
+<p>Ein sehr nützlicher Trick ist, dass man alle Spalten für Vergleiche verwenden kann. So können wir zum Beispiel in der Spalte &quot;Geschlecht&quot; alle Elemente nachschlagen, die den Wert &quot;M&quot; (männlich) haben und diese zur Auswahl von Reihen verwenden.</p>
 <pre class="r"><code>d[d$geschlecht == &quot;M&quot;, ]  </code></pre>
 <pre><code>##   id bedingung geschlecht alter wert_t1 wert_t2
 ## 1  1         E          M    17     8.0     8.3
@@ -511,7 +515,7 @@ d[,1:2]           #  die ersten beiden Spalten nach Indizes auswählen</code></p
 <div id="subsettingunterteilen-hinzufügen-und-ändern-von-daten" class="section level3">
 <h3>3.3. Subsetting/Unterteilen, Hinzufügen und Ändern von Daten</h3>
 <p>Mit den Auswahltechniken haben wir jetzt gelernt, wie wir eine Teilmenge der Daten auswählen können (subsetting). Dieser Teilmenge können wir natürlich auch eigene Namen zuweisen.</p>
-<pre class="r"><code>experimentelle_gruppe &lt;- d[d$bedingung == &quot;E&quot;,]
+<pre class="r"><code>experimentelle_gruppe &lt;- d[d$bedingung == &quot;E&quot;,] # wir wählen nur die Beobachtungen aus, welche die Versuchsbedingung E aufweisen
 experimentelle_gruppe</code></pre>
 <pre><code>##   id bedingung geschlecht alter wert_t1 wert_t2
 ## 1  1         E          M    17     8.0     8.3
@@ -519,7 +523,7 @@ experimentelle_gruppe</code></pre>
 ## 6  6         E          W    21     6.4     6.4
 ## 7  7         E          W    18     6.0     6.2
 ## 8  8         E          M    17     3.2     3.6</code></pre>
-<pre class="r"><code>demographie &lt;- d[, c('id','geschlecht','alter')]
+<pre class="r"><code>demographie &lt;- d[, c('id','geschlecht','alter')] # wir schauen uns nur die demographischen Variablen in unserem Datensatz an
 demographie</code></pre>
 <pre><code>##    id geschlecht alter
 ## 1   1          M    17
@@ -560,7 +564,7 @@ d</code></pre>
 ## 8   8         E          M    17     3.2     3.6        1
 ## 9   9         C          M    26     7.3     7.0        1
 ## 10 10         C          W    18     6.8     6.5        0</code></pre>
-<p>Wir auch Berechnungen mit den Spalten eines Datensatzes durchführen und so die vorhandenen Spalten überschreiben. Nehmen wir zum Beispiel an, dass wir die Werte für die zweit Zeitpunkte auf einer Skala von 1 bis 100 haben wollen. Wir können die Spalten einfach mit 10 multiplizieren.</p>
+<p>Wir können Berechnungen mit den Spalten eines Datensatzes durchführen und so die vorhandenen Spalten überschreiben. Nehmen wir zum Beispiel an, dass wir die Werte für die zweit Untersuchungszeitpunkte auf einer Skala von 1 bis 100 haben wollen. Wir können die Spalten einfach mit 10 multiplizieren.</p>
 <pre class="r"><code>d$wert_t1 &lt;- d$wert_t1 * 10 # beachtet bei diesem Befehl, dass wir den Datensatz (d) nennen und die gewünschte Variable (wert_t1 bzw. wert_t2) mittels des Dollarzeichen ansteuern
 d$wert_t2 &lt;- d$wert_t2 * 10
 d</code></pre>
@@ -612,7 +616,7 @@ d</code></pre>
 </div>
 <div id="funktionen" class="section level1">
 <h1>4. Funktionen</h1>
-<p>Machen wir jetzt den nächsten Schritt und gehen zu Funktionen mit mehreren Argumenten über. Schauen wir uns als Beispiel die bereits bekannte Funktion <code>dfm()</code>aus dem quanteda-Paket an. Damit wir auf diese Funktion zugreifen können, müssen wir zunächst <code>library(quanteda)</code> ausführen. Damit teilen wir <code>R</code> mit, dass das Paket und die dort programmierten Funktionen jetzt nutzen möchten. <strong>Achtung</strong>: Ihr müsst das Paket natürlich vorher installiert haben. Falls das noch nicht geschehen ist oder ihr inzwischen den Computer gewechselt habt, dann müsst ihr zuerst <code>install.packages(&quot;quanteda&quot;)</code> ausführen.</p>
+<p>Machen wir jetzt den nächsten Schritt und gehen zu Funktionen mit mehreren Argumenten über. Schauen wir uns als Beispiel die euch bereits bekannte Funktion <code>dfm()</code> aus dem quanteda-Paket an. Damit wir auf diese Funktion zugreifen können, müssen wir zunächst <code>library(quanteda)</code> ausführen. Damit teilen wir <code>R</code> mit, dass das Paket und die dort programmierten Funktionen jetzt nutzen möchten. <strong>Achtung</strong>: Ihr müsst das Paket natürlich vorher installiert haben. Falls das noch nicht geschehen ist oder ihr inzwischen den Computer gewechselt habt, dann müsst ihr zuerst <code>install.packages(&quot;quanteda&quot;)</code> ausführen.</p>
 <p>Führt jetzt bitte den folgenden Code in eurem <code>R</code>-Skript aus. Dann wird sich automatisch unten rechts eine Hilfestellung mit Beschreibungen der Funktion öffnen.</p>
 <pre class="r"><code>library(quanteda)</code></pre>
 <pre><code>## Package version: 2.1.1</code></pre>
@@ -629,8 +633,7 @@ d</code></pre>
 <p>Description</p>
 <p>Construct a sparse document-feature matrix, from a character, corpus, tokens, or even other dfm object.&quot;</p>
 <p>Sehen wir uns jetzt den Abschnitt &quot;Usage&quot; an. Hier sehen wir, dass zwischen den Klammern mehrere Argumente angegeben werden. Diese Argumente werden im Abschnitt &quot;Arguments&quot; detalliert erklärt. Diese Beschreibungen findet ihr auch im Internet, zum Beispiel hier: <a href="https://www.rdocumentation.org/packages/quanteda/versions/2.1.2/topics/dfm" class="uri">https://www.rdocumentation.org/packages/quanteda/versions/2.1.2/topics/dfm</a>.</p>
-<p>Beachtet bitte, dass allen Argumenten (mit Ausnahme der Variable x, die euer Input in die Funktion darstellt) ein Wert in der Form <code>argument = value</code> zugewiesen ist. Das Argument <code>tolower</code> hat den Wert TRUE, <code>stem</code> hat den Wert FALSE, usw.</p>
-<p>Dies sind die Standardwerte für diese Argumente, die verwendet werden, wenn der Benutzer sie nicht angibt. Auf diese Weise können wir die Funktion <code>dfm()</code> mit den Standardeinstellungen verwenden, indem wir nur das Argument x eingeben.</p>
+<p>Beachtet bitte, dass allen Argumenten (mit Ausnahme der Variable x, die euer Input in die Funktion darstellt) ein Wert in der Form <code>argument = value</code> zugewiesen ist. Das Argument <code>tolower</code> hat den Wert TRUE, <code>stem</code> hat den Wert FALSE, usw. Das sind die Standardwerte für diese Argumente, die verwendet werden, wenn der Benutzer sie nicht angibt. Auf diese Weise können wir die Funktion <code>dfm()</code> mit den Standardeinstellungen verwenden, indem wir nur das Argument x eingeben.</p>
 <pre class="r"><code>beispiel_text = c(&quot;Ich studiere&quot;, &quot;PoWi in Hannover&quot;)
 dfm(x = beispiel_text)</code></pre>
 <pre><code>## Document-feature matrix of: 2 documents, 5 features (50.0% sparse).
@@ -638,12 +641,12 @@ dfm(x = beispiel_text)</code></pre>
 ## docs    ich studiere powi in hannover
 ##   text1   1        1    0  0        0
 ##   text2   0        0    1  1        1</code></pre>
-<p>Wenn wir diese zwei Zeilen Code ausführen, gibt sie eine Matrix mit den Häufigkeiten der einzelnen Wörter für jeden Text zurück. Beachtet bitte zwei Sachen. Erstens, <code>c(&quot;Ich studiere&quot;, &quot;PoWi in Hannover&quot;)</code> kreiert zwei <em>character</em> Vektoren, die quanteda dann als zwei Texte ansieht, Zweitens. Die Wörter &quot;Ich&quot;, &quot;PoWi&quot; und &quot;Hannover&quot; werden in der Document-Feature-Matrix kleingeschrieben. Das ist der weil, weil das Argument <code>tolower</code> (dessen Aufgabe mit &quot;convert all features to lowercase&quot; beschrieben wird) standardmäßig TRUE ist.</p>
+<p>Wenn wir diese zwei Zeilen Code ausführen, gibt sie eine Matrix mit den Häufigkeiten der einzelnen Wörter für jeden Text zurück. Beachtet bitte zwei Sachen. Erstens, <code>c(&quot;Ich studiere&quot;, &quot;PoWi in Hannover&quot;)</code> kreiert zwei <em>character</em> Vektoren, die quanteda dann als zwei Texte ansieht, Zweitens. Die Wörter &quot;Ich&quot;, &quot;PoWi&quot; und &quot;Hannover&quot; werden in der Document-Feature-Matrix kleingeschrieben. Das ist der Fall, weil das Argument <code>tolower</code> (dessen Aufgabe mit &quot;convert all features to lowercase&quot; beschrieben wird) standardmäßig TRUE ist.</p>
 <p>Argumente, die keinen Standardwert haben, wie z. B. x in der Funktion <code>dfm()</code>, sind obligatorisch. Wenn ihr jetzt die folgende Codezeile ausführt, dann erhaltet ihr die Fehlermeldung, dass das Argument &quot;x&quot; fehlt und keinen Standardwert hat.</p>
 <pre class="r"><code>dfm()</code></pre>
 <p>In den meisten Fällen werdet ihr zusätzlich zu den obligatorischen Argumenten noch bestimmte Argumente verändern bzw. angeben um ein gewünschtes Ergebniss zu erzielen. Hierfür gibt es zwei Möglichkeiten:</p>
 <ul>
-<li>Ihr verwendet die gleiche Reihenfolge, wie sie auf der Help-Seite angegeben ist</li>
+<li>Ihr verwendet die gleiche Reihenfolge, wie sie auf der Help-Seite (?dfm) angegeben ist</li>
 <li><p>Ihr nutzt die Eigennamen der Argumente (hierbei ist die Reihenfolge egal, mit Ausnahme von x das immer am Anfang stehen muss)</p></li>
 <li><p>Möglichkeit 1:</p></li>
 </ul>
@@ -653,9 +656,9 @@ dfm(x = beispiel_text)</code></pre>
 ## docs    Ich studier PoWi in Hannov
 ##   text1   1       1    0  0      0
 ##   text2   0       0    1  1      1</code></pre>
-<p>In der Ausgabe sehen wir die Wörter &quot;Ich&quot;, &quot;studier&quot;, &quot;PoWi&quot;, &quot;in&quot; und &quot;Hannov&quot;. &quot;studier&quot; und &quot;Hannov&quot; sehen deswegen so komisch aus, weil wir das Argument <code>stem</code> mit einem TRUE versehen haben. Stemming bricht die Wörter auf seine Wortstämme runter, um so die Anzahl der möglichen Wortvarienten mit gleicher Bedeutung zu reduzieren. Was sehen wir noch? Wir sehen das die Wörter Großbuchstaben haben. Das rührt daher, dass wir das <code>tolower</code> Argument auf FALSE gesetzt haben. Die Großbuchstaben wurden also nicht in Kleinbuchstaben umgewandelt.</p>
+<p>In der Ausgabe sehen wir die Wörter &quot;Ich&quot;, &quot;studier&quot;, &quot;PoWi&quot;, &quot;in&quot; und &quot;Hannov&quot;. &quot;studier&quot; und &quot;Hannov&quot; sehen deswegen so komisch aus, weil wir das Argument <code>stem</code> mit einem TRUE versehen haben. Stemming bricht die Wörter auf seine Wortstämme runter, um so die Anzahl der möglichen Wortvarienten mit gleicher Bedeutung zu reduzieren. Was sehen wir noch? Wir sehen das die Wörter Großbuchstaben haben. Das rührt daher, dass wir das <code>tolower</code> Argument auf FALSE gesetzt haben. Die Großbuchstaben wurden also nicht mehr in Kleinbuchstaben umgewandelt.</p>
 <p>Dieser Weg ist erstens, anfällig für Fehler und zweitens, verringert er die Chance zur Replizierbarkeit eures Codes durch Dritte. Wer merkt sich schon die Reihenfolge von Funktions-Argumenten?</p>
-<p>Daher ist es empfehlenswert, Befehle namentlich an die Argumente zu geben.</p>
+<p>Daher ist es empfehlenswert, dass ihr Befehle namentlich an die Argumente gebt.</p>
 <ul>
 <li>Möglichkeit 2:</li>
 </ul>
@@ -665,14 +668,14 @@ dfm(x = beispiel_text)</code></pre>
 ## docs    Ich studier PoWi in Hannov
 ##   text1   1       1    0  0      0
 ##   text2   0       0    1  1      1</code></pre>
-<p>Diese Weg - namentliche Nennung der Argumente - ist expliziter und sicherer. Andererseits kann es aber auch unnötig langatmig sein, alle Argumente anzugeben. Zum Beispiel <code>x = beispiel_text</code>. Daher können wir beide Ansätze kombinieren, indem wir die Argumente auf der linken Seite (d. h. die ersten und oft obligatorischen Argumente) der Reihe nach übergeben und die Argumente auf der rechten Seite namentlich benennen.</p>
+<p>Dieser Weg - namentliche Nennung der Argumente - ist expliziter und sicherer. Andererseits kann es aber auch unnötig langatmig sein, alle Argumente anzugeben. Zum Beispiel <code>x = beispiel_text</code>. Daher können wir beide Ansätze kombinieren, indem wir die Argumente auf der linken Seite (d. h. die ersten und oft obligatorischen Argumente) der Reihe nach übergeben und die Argumente auf der rechten Seite namentlich benennen.</p>
 <pre class="r"><code>dfm(beispiel_text, tolower = FALSE, stem= TRUE)</code></pre>
 <pre><code>## Document-feature matrix of: 2 documents, 5 features (50.0% sparse).
 ##        features
 ## docs    Ich studier PoWi in Hannov
 ##   text1   1       1    0  0      0
 ##   text2   0       0    1  1      1</code></pre>
-<p>Welchen Weg ihr auch geht geht, es ist wichtig das ihr eine gewisse Konsistenz in eurem Code habt. Ich müsst auch immer im Hinterkopf haben, dass euer Code von anderen gelesen und verstanden werden muss. Eine gute allgemeine Regel ist, obligatorische Argumente (wie x in der dfm-Funktion) ohne Namen zu übergeben, aber alle optionalen Argumente (die eine Voreinstellung haben, wie <code>tolower</code> und <code>stem</code>) namentlich anzusteuern. Ein zweiter grundsätzlicher Hinweis, der das Verständis eures Codes erheblich vereinfacht, ist, dass ihr alle eure Schritte kurz und bündig kommentiert. Das macht ihr mit dem <code>#-Zeichen (</code>R<code>erkennt alles nach einem</code>#` nicht als Code bzw. Befehl an):</p>
+<p>Welchen Ansatz ihr auch folgt, es ist wichtig das ihr eine gewisse Konsistenz in eurem Code habt. Ich müsst auch immer im Hinterkopf haben, dass euer Code von anderen gelesen und verstanden werden muss. Eine gute allgemeine Regel ist, obligatorische Argumente (wie x in der dfm-Funktion) ohne Namen zu übergeben, aber alle optionalen Argumente (die eine Voreinstellung haben, wie <code>tolower</code> und <code>stem</code>) namentlich anzusteuern. Ein zweiter grundsätzlicher Hinweis, der das Verständis eures Codes erheblich vereinfacht, ist, dass ihr alle eure Schritte kurz und bündig kommentiert. Das macht ihr mit dem <code>#-Zeichen (</code>R<code>erkennt alles nach einem</code>#` nicht als Code bzw. Befehl an):</p>
 <pre class="r"><code>dfm(beispiel_text, tolower = TRUE, stem= FALSE) # dfm mit bespiel_text bilden; alle buchstaben in kleinbuchstaben verwandeln, kein stemming </code></pre>
 <pre><code>## Document-feature matrix of: 2 documents, 5 features (50.0% sparse).
 ##        features
@@ -682,12 +685,12 @@ dfm(x = beispiel_text)</code></pre>
 </div>
 <div id="zusätzliche-anweisungen" class="section level1">
 <h1>4. Zusätzliche Anweisungen</h1>
-<p>Jetzt wenden wir uns noch einigen zusätzlichen Datentypen, Strukturen und Funktionen zu. Hier wird es jetzt auch etwas komplizierter. Ihr solltet daher vor allem den ersten Teil dieses Tutoriums wirklich gut verstehen. Alles was jetzt kommt, ist eine klassische <em>good to know</em> Zugabe.</p>
+<p>Jetzt wenden wir uns noch einigen zusätzlichen Datentypen, Strukturen und Funktionen zu. Hier wird es jetzt auch etwas komplizierter. Ihr solltet daher vor allem den ersten Teil dieses Tutoriums wirklich gut verstehen.</p>
 <div id="zusätzliche-datentypen-1" class="section level3">
 <h3>4.1. Zusätzliche Datentypen</h3>
 <div id="faktoren" class="section level4">
 <h4>Faktoren</h4>
-<p>Ein Faktor in R ist eine Reihe von beschrifteten Zahlen. Das ist vor allem für kategoriale Variablen nützlich, wie z.B. den Bildungsgrad (Fachhochschulreife, Hochschulreife) oder den Medientyp (Wochenzeitung, Tageszeitung).</p>
+<p>Ein Faktor in <code>R</code> ist eine Reihe von beschrifteten Zahlen. Das ist vor allem für kategoriale Variablen nützlich, wie z.B. den Bildungsgrad (Fachhochschulreife, Hochschulreife) oder den Medientyp (Wochenzeitung, Tageszeitung).</p>
 <pre class="r"><code>x &lt;- c(&quot;Die Zeit&quot;, &quot;Die Welt&quot;, &quot;die tageszeitung&quot;, &quot;Süddeutsche Zeitung&quot;
        ,&quot;die tageszeitung&quot;, &quot;Die Zeit&quot;,  &quot;Süddeutsche Zeitung&quot;)
 x</code></pre>
@@ -695,29 +698,33 @@ x</code></pre>
 ## [4] &quot;Süddeutsche Zeitung&quot; &quot;die tageszeitung&quot;    &quot;Die Zeit&quot;           
 ## [7] &quot;Süddeutsche Zeitung&quot;</code></pre>
 <p>Wir haben nun eine Folge von <em>character</em> Werten. Das Besondere ist, dass sich einige Werte wiederholen. In diesem Fall ist es am besten, wenn ihr euch die einzelnen Werte (&quot;Die Zeit&quot;, &quot;Die Welt&quot; etc.) als Etikett vorstellt. Das wird klarer, wenn wir x in einen <em>factor</em> Wert transformieren.</p>
-<pre class="r"><code>x &lt;-factor(x)
+<pre class="r"><code>x &lt;- factor(x)
 x</code></pre>
 <pre><code>## [1] Die Zeit            Die Welt            die tageszeitung   
 ## [4] Süddeutsche Zeitung die tageszeitung    Die Zeit           
 ## [7] Süddeutsche Zeitung
 ## Levels: die tageszeitung Die Welt Die Zeit Süddeutsche Zeitung</code></pre>
 <p>Zwei Dinge haben sich geändert. Erstens sehen wir, dass es jetzt eine Zeile gibt, auf der &quot;Levels: ...&quot; steht, in der die eindeutige Bezeichnungen angezeigt werden. Zweitens, die Anführungszeichen sind verschwunden. Das liegt daran, dass es sich nicht mehr um <em>character</em> sondern um <em>factor</em> Werte handelt.</p>
-<p>Das bedeutet, dass x jetzt eine Folge von Zahlen geworden ist, wobei jede Zahl eine auf eine Beschriftung verweist.</p>
-<pre class="r"><code>as.numeric(x) # Anzeige der Nummerb</code></pre>
+<p>Das bedeutet: x ist jetzt eine Folge von Zahlen geworden und jede Zahl verweist auf eine Beschriftung.</p>
+<pre class="r"><code>as.numeric(x) # Anzeige der Nummer</code></pre>
 <pre><code>## [1] 3 2 1 4 1 3 4</code></pre>
-<pre class="r"><code>levels(x)     # Anzeige der Level / Lable</code></pre>
+<pre class="r"><code>levels(x)     # Anzeige der Level / Label</code></pre>
 <pre><code>## [1] &quot;die tageszeitung&quot;    &quot;Die Welt&quot;            &quot;Die Zeit&quot;           
 ## [4] &quot;Süddeutsche Zeitung&quot;</code></pre>
-<p>Wenn euch das verwirrt, dann ist das ganz normal!</p>
+<p>Wenn euch das verwirrt, dann ist das zum jetzigen Zeitpunkt ganz normal!</p>
 <p>Die Vorteile von Faktoren werden später deutlicher. Vor allem wenn ihr damit anfangt, mit bestimmten Arten von Analysen und Visualisierungen zu arbeiten, und wenn ihr sehr große Daten verwendet (numerische Werte benötigen weniger Speicher als Zeichenwerte, was der Vorteil von <em>factor</em> Werten ist).</p>
-<p>Es ist auch vollkommen legitim, wenn ihr zu dem Schluss gekommen seid, dass ihr Faktoren lästig findet und zukünftig einfach bei <em>character</em> Werten bleiben werden. Das Problem ist aber, dass <code>R</code> die Neigung hat seinen Benutzern <em>factor</em> Werte aufzuzwingen. Zum Beispiel denkt <code>R</code> beim importieren von externen Datensätzen, dass klassische <em>character</em> Spalten mit Volltexten von Gerichtsurteilen besser als <em>factor</em> geeinigt ist.</p>
-<p>Solltet ihr dennoch einmal Probleme mit Faktoren haben und wirklich lieber <em>character</em> Werte verwenden, könnt ihr einfach `as.character() verwenden.</p>
-<pre class="r"><code>x &lt;- as.character(x)</code></pre>
+<p>Es ist auch vollkommen legitim, wenn ihr zu dem Schluss gekommen seid, dass ihr Faktoren lästig findet und zukünftig einfach bei <em>character</em> Werten bleiben werdet. Das Problem ist aber, dass <code>R</code> die Neigung hat seinen Benutzern <em>factor</em> Werte aufzuzwingen. Zum Beispiel denkt <code>R</code> beim importieren von externen Datensätzen, dass klassische <em>character</em> Spalten mit Volltexten von Gerichtsurteilen besser als <em>factor</em> geeinigt ist.</p>
+<p>Solltet ihr dennoch einmal Probleme mit Faktoren haben und wirklich lieber <em>character</em> Werte verwenden, könnt ihr einfach <code>as.character()</code> verwenden.</p>
+<pre class="r"><code>x &lt;- as.character(x)
+x</code></pre>
+<pre><code>## [1] &quot;Die Zeit&quot;            &quot;Die Welt&quot;            &quot;die tageszeitung&quot;   
+## [4] &quot;Süddeutsche Zeitung&quot; &quot;die tageszeitung&quot;    &quot;Die Zeit&quot;           
+## [7] &quot;Süddeutsche Zeitung&quot;</code></pre>
 </div>
 <div id="logische-daten" class="section level4">
 <h4>Logische Daten</h4>
-<p>Logische Datentypen hat nur zwei Werte: TRUE und FALSE (die mit T und F abgekürzt werden können). Ihr werdet in euren Daten selten auf logische Werte stoßen, aber ihr werdet logischer Operatoren nutzen um eure Daten zu unterteilen und zu transformieren. Wir werden im laufe des Seminars noch mehrmals darauf zurückkommen.</p>
-<p>Ich empfehle ich aber, dass ihr die folgende Seite besucht, durchlest und mit eigenen Code nachverfolgt:</p>
+<p>Logische Datentypen haben nur zwei Werte: TRUE und FALSE (die mit T und F abgekürzt werden können). Ihr werdet in euren Daten selten auf logische Werte stoßen, aber ihr werdet logischer Operatoren nutzen um eure Daten zu unterteilen und zu transformieren.</p>
+<p>Ich empfehle euch, dass ihr die folgende Seite besucht, durchlest und mit eigenen Code nachverfolgt:</p>
 <ul>
 <li><a href="https://towardsdatascience.com/the-complete-guide-to-logical-operators-in-r-9eacb5fd9abd" class="uri">https://towardsdatascience.com/the-complete-guide-to-logical-operators-in-r-9eacb5fd9abd</a></li>
 </ul>
@@ -725,13 +732,13 @@ x</code></pre>
 <div id="datumuhrzeit" class="section level4">
 <h4>Datum/Uhrzeit</h4>
 <p>Daten gehören nicht zu den grundlegenden Datentypen in <code>R</code>, aber in der sozialwissenschaftlichen Forschung arbeiten wir natürlich oft mit Kalenderdaten und Uhrzeiten. Dies erfordert einen speziellen Datentyp, denn es gibt viele Einschränkungen und Probleme, wenn wir versuchen, Datums- und Zeitangaben als Zeichen- oder numerische Werte auszudrücken. Zwei der gebräuchlichsten Datumsklassen in <code>basic R</code> (d. h. ohne zusätzliche Pakete) sind <code>Date</code>, das nur Kalenderdaten verarbeitet, und <code>POSIXlt</code>, das sowohl Kalenderdaten als auch Uhrzeiten verarbeitet.</p>
-<p>Da sich der grundlegende Umgang mit den unterschiedlichen Daten- und Zeittypen in <code>R</code> ähnelt, fokussieren wir uns im Folgenden nur auf <code>POSIXlt</code>.</p>
+<p>Da sich der grundlegende Umgang mit den unterschiedlichen Daten- und Zeittypen in <code>R</code> ähnelt, fokussieren wir uns im Folgenden auf <code>POSIXlt</code>.</p>
 <p>Generall brauchen wir nur zwei Funktionen um die meisten Daten/Zeit-Aufgaben zu bewältigen (two functions to rule them all): <code>strptime()</code> und <code>strftime()</code>.</p>
 <ul>
 <li>strptime (string parse time) erzeugt einen Datums-/Zeitwert aus einem Zeichenwert</li>
 <li>strftime (string format time) extrahiert Teile eines Datums/einer Uhrzeit aus einem Datums-/Zeitwert</li>
 </ul>
-<p>Für beide Funktionen müsst ihr wissen, wie das Format angeben wird. Im Wesentlichen handelt es sich um einen String (<em>character</em> Werte), die das Datumsformat enthält, wobei spezielle Platzhalter verwendet werden, um bestimmte Teile des Datums anzugeben. Diese Platzhalter sind immer ein Prozentzeichen %, gefolgt von einem Buchstaben. Die am häufigsten verwendeten Platzhalter sind:</p>
+<p>Im Wesentlichen handelt es sich um einen String (<em>character</em> Werte). Dieser String enthält das Datumsformat, wobei spezielle Platzhalter verwendet werden, um bestimmte Teile des Datums anzugeben. Diese Platzhalter sind immer ein Prozentzeichen <code>%</code>, gefolgt von einem Buchstaben. Die am häufigsten verwendeten Platzhalter sind:</p>
 <table>
 <thead>
 <tr class="header">
@@ -767,14 +774,14 @@ x</code></pre>
 </tbody>
 </table>
 <p>Mit diesen Platzhaltern können wir verschiedene Datumsformate beschreiben.</p>
-<p>Zum Beispiel können wir mit der Funktion <code>strptime</code> ein Datum in einen Datumstyp (POSIXlt) zu transformieren (<em>parsen</em>).</p>
+<p>Zum Beispiel können wir mit der Funktion <code>strptime</code> ein Datum in einen Datumstyp (POSIXlt) transformieren (<em>parsen</em>).</p>
 <pre class="r"><code>strptime('2010-01-01 20:00:00', format = '%Y-%m-%d %H:%M:%S')</code></pre>
 <pre><code>## [1] &quot;2010-01-01 20:00:00 CET&quot;</code></pre>
 <pre class="r"><code>strptime('01/01/2010', format = '%m/%d/%Y')</code></pre>
 <pre><code>## [1] &quot;2010-01-01 CET&quot;</code></pre>
 <pre class="r"><code>strptime('2010 any 01 format 01 goes', format = '%Y any %m format %d goes')</code></pre>
 <pre><code>## [1] &quot;2010-01-01 CET&quot;</code></pre>
-<p>Mit der Funktion <code>strftime()</code> können wir dieselben Formatstrings verwenden, um bestimmte Teile aus einem Datums-/Zeitwert zu extrahieren. Hier erstellen wir zuerst ein POSIXlt-Datum mit <code>strptime</code> und verwenden dann <code>strftime</code>, um Teile zu extrahieren. Beachtet das alle Teile als <em>character</em> zurückgegeben werden, auch wenn es sich um einzelne Zahlen handelt.</p>
+<p>Mit der Funktion <code>strftime()</code> können wir dieselben Formatstrings verwenden, um bestimmte Teile aus einem Datums-/Zeitwert extrahieren. Hier erstellen wir zuerst ein POSIXlt-Datum mit <code>strptime</code> und verwenden dann <code>strftime</code>, um Teile zu extrahieren. Beachtet das alle Teile als <em>character</em> zurückgegeben werden, auch wenn es sich um einzelne Zahlen handelt.</p>
 <pre class="r"><code>x &lt;-  strptime('2010-06-01 20:00:00', format = '%Y-%m-%d %H:%M:%S')
 strftime(x, '%Y')</code></pre>
 <pre><code>## [1] &quot;2010&quot;</code></pre>
@@ -788,11 +795,11 @@ strftime(x, '%Y')</code></pre>
 <p>Probiert auch mal zwei Fragezeichen aus. Dann gibt R eine Liste aller denkbaren Funktionen, die es in allen von euch installierten Paketen finden kann (momentan werden das noch nicht viele sein):</p>
 <pre class="r"><code>??strptime
 ??strftime</code></pre>
-<p>Wenn ihr weiter mit Datums- und Zeitoperationen rumspielen wollt, dann empfehle ich euch das Paket <code>lubridate</code>. Die Verwendung wird in diesem (kostenlosen Online-) Kapitel aus &quot;R for Data Science&quot; ausführlich erklärt: <a href="https://r4ds.had.co.nz/dates-and-times.html" class="uri">https://r4ds.had.co.nz/dates-and-times.html</a>. Und natürlich gibt es auch ein Cheat Sheet (wie für sehr viele andere Pakete, ihr müsst nur danach suchen): <a href="https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf</a></p>
+<p>Wenn ihr weiter mit Datums- und Zeitoperationen rumspielen wollt, dann empfehle ich euch das Paket <code>lubridate</code>. Die Verwendung wird in diesem (Online-) Kapitel in &quot;R for Data Science&quot; ausführlich erklärt: <a href="https://r4ds.had.co.nz/dates-and-times.html" class="uri">https://r4ds.had.co.nz/dates-and-times.html</a>. Und natürlich gibt es auch ein Cheat Sheet (wie für sehr viele andere Pakete, ihr müsst nur danach suchen): <a href="https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf</a></p>
 </div>
 <div id="vergleiche" class="section level4">
 <h4>Vergleiche</h4>
-<p>Am häufigsten werdet ihr in <code>R</code> mit logischen Werten konfrontiert, wenn ihr einen Vergleich zwischen zwei Werten oder Vektoren anstellt. Es gibt 6 Arten von Vergleichen, die Operatoren verwenden:</p>
+<p>Am häufigsten werdet ihr in <code>R</code> mit logischen Werten konfrontiert, wenn ihr einen Vergleich zwischen zwei Werten oder Vektoren anstellt. Es gibt 6 Arten von operator-basierenden Vergleichen:</p>
 <table>
 <thead>
 <tr class="header">
@@ -837,7 +844,7 @@ strftime(x, '%Y')</code></pre>
 note_jahr_2 &lt;-  c(5,6,8,7,6)
 note_jahr_1 &gt; note_jahr_2 </code></pre>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
-<p>Wenn wir einen Vektor mit einem einzelnen Wert vergleichen, wird jeder Wert des Vektors mit diesem Wert verglichen. Das ist dies eine Kernmechanik hinter der Auswahl und Unterteilung von Daten. Im folgenden Beispiel werden wir nachschlagen, welche TeilnehmerInnen in unserer hypothetischen Studie mindestens 18 Jahre alt sind.</p>
+<p>Wenn wir einen Vektor mit einem einzelnen Wert vergleichen, wird jeder Wert des Vektors mit diesem Wert verglichen. Das ist eine Kernmechanik hinter der Auswahl und Unterteilung von Daten. Im folgenden Beispiel werden wir nachschlagen, welche TeilnehmerInnen mindestens 18 Jahre alt sind.</p>
 <pre class="r"><code>jahr &lt;-  c(17,34,12,20,12,25,30,14,33)
 jahr &gt;= 18</code></pre>
 <pre><code>## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
@@ -886,7 +893,7 @@ name %in% c(&quot;Philipp&quot;, &quot;Christoph&quot;)</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Ihr konnt mit dem folgenden Code spielen, um es auszuprobieren (Ergebnisse werden in diesem Dokument nicht gezeigt).</p>
+<p>Bitte kopiert euch den folgenden Code und schaut welches Ergebnis <code>R</code> nach der Ausführung ausgibt:</p>
 <pre class="r"><code>TRUE &amp; TRUE        
 TRUE &amp; FALSE       
 FALSE &amp; FALSE      
@@ -912,10 +919,10 @@ a &amp; b              </code></pre>
 <div id="ein-hinweis-zu-methoden-und-generischen-funktionen" class="section level3">
 <h3>Ein Hinweis zu 'Methoden' und 'generischen Funktionen'</h3>
 <p>Einige Funktionen sind generische Funktionen, die abhängig von der Eingabe, mit der sie verwendet werden, unterschiedliche Methoden nutzen. Abgesehen von den technischen Details gibt es eine zentrale Sache, die ihr mit eurem aktuellen Wissensstand wissen solltet.</p>
-<p>Eine Methode ist eine Funktion, die mit einem bestimmten Objekt verbunden ist. Zum Beispiel funktioniert das <em>subsetting</em> (Unterteilen/Einteilen) eines Vektors anders als das <em>subsetting</em> eines <code>data.frame</code> oder einer Matrice. Trotzdem braucht ihr nur eine Funktion namens <code>subset()</code>, damit ihr auf alle Datentypen <em>subsetten</em> könnt. In <code>R</code> ist die Funktion <code>subset()</code> daher eine generische Funktion, die sich je nach Art der Eingabe unterschiedlich verhält.</p>
+<p>Eine Methode ist eine Funktion, die mit einem bestimmten Objekt verbunden ist. Zum Beispiel funktioniert das <em>subsetting</em> (Unterteilen/Einteilen) eines Vektors anders als das <em>subsetting</em> eines <code>data.frame</code> oder einer Matrice. Trotzdem braucht ihr nur eine Funktion namens <code>subset()</code>, damit ihr alle Datentypen <em>subsetten</em> könnt. In <code>R</code> ist die Funktion <code>subset()</code> daher eine generische Funktion, die sich je nach Art der Eingabe unterschiedlich verhält.</p>
 <p>Die Art der Eingabe an die subset()-Funktion bestimmt also auch, welche Art von Argumenten verwendet werden kann. Mehr dazu verrät die Dokumentation.</p>
 <pre class="r"><code>?subset</code></pre>
-<p>In der Beschreibung sehen wir, dass <code>subset()</code> auf Vektoren, Matrizen oder <code>data.frames</code> angewendet werden kann. Der Abschnitt Usage enthält daher verschiedene Versionen, für verschiedene S3-Methoden (ignoriert &quot;S3&quot; vorerst), die mit verschiedenen Arten von Eingaben verbunden sind. Die allgemeine Form ist <code>subset(x, ...)</code>, was zeigt, dass subset immer ein Argument x benötigt, und bei den Argumenten sehen wir, dass x das &quot;object to be subsetted&quot; ist. Wir sehen dann drei Methoden: default, 'matrix' und 'data.frame'.</p>
+<p>In der Beschreibung sehen wir, dass <code>subset()</code> auf Vektoren, Matrizen oder <code>data.frames</code> angewendet werden kann. Der Abschnitt &quot;Usage&quot; enthält daher verschiedene Versionen, für verschiedene S3-Methoden (ignoriert &quot;S3&quot; vorerst), die mit verschiedenen Arten von Eingaben verbunden sind. Die allgemeine Form ist <code>subset(x, ...)</code>, was zeigt, dass subset immer ein Argument x benötigt, und bei den Argumenten sehen wir, dass x das &quot;object to be subsetted&quot; ist. Wir sehen dann drei Methoden: default, 'matrix' und 'data.frame'.</p>
 <ul>
 <li><p>Default wird verwendet, wenn x weder eine Matrice noch ein <code>data.frame</code> ist (z. B. ein Vektor). In diesem Fall ist das einzige Argument die Teilmenge, also der Ausdruck (z. B. x &gt; 10), mit dem eine Auswahl getroffen wird.</p></li>
 <li><p>Wenn die Eingabe eine &quot;matrice&quot; ist, gibt es zwei zusätzliche Argumente: select und drop. Es macht Sinn, dass diese für Vektoren nicht zur Verfügung stehen, da beide nur relevant sind, wenn es mehrere Spalten gibt. Das heißt, select wird für die Auswahl von Spalten verwendet, und drop kann verwendet werden, damit <code>subset()</code> einen Vektor (statt einer Matrice) zurückgibt, wenn nach dem subsetting nur eine Zeile oder Spalte übrig bleibt.</p></li>
@@ -925,12 +932,12 @@ a &amp; b              </code></pre>
 </div>
 <div id="weitere-lektüre" class="section level1">
 <h1>6. Weitere Lektüre</h1>
-<p>Wenn ihr mehr über die Grundlagen von R erfahren wollt, dann empfehle ich:</p>
+<p>Wenn ihr mehr über die Grundlagen von <code>R</code> erfahren wollt, dann empfehle ich:</p>
 <ul>
 <li>Das (kostenlose Online-)Buch R for Data Science: <a href="https://r4ds.had.co.nz/index.html" class="uri">https://r4ds.had.co.nz/index.html</a></li>
 <li>Die Teilnahme an einer der vielen (kostenlosen) Online-Einführungen, wie sie z. B. von DataCamp (<a href="https://www.datacamp.com/courses/free-introduction-to-r" class="uri">https://www.datacamp.com/courses/free-introduction-to-r</a>) oder Code School (<a href="https://www.pluralsight.com/search?q=R" class="uri">https://www.pluralsight.com/search?q=R</a>) angeboten werden.</li>
 </ul>
-<p>Außerdem kann es sinnvoll sein, sich einige der Cheat Sheets zu besorgen, die auf der RStudio-Website gesammelt sind. Für die Grundlagen von R ist das Cheat Sheet Base R besonders nützlich (<a href="https://rstudio.com/resources/cheatsheets/" class="uri">https://rstudio.com/resources/cheatsheets/</a>).</p>
+<p>Außerdem kann es sinnvoll sein, sich einige der Cheat Sheets zu besorgen, die auf der RStudio-Website gesammelt sind. Für die Grundlagen von <code>R</code> ist das Cheat Sheet zu <code>Base R</code> besonders nützlich (<a href="https://rstudio.com/resources/cheatsheets/" class="uri">https://rstudio.com/resources/cheatsheets/</a>).</p>
 </div>
 <div id="hinweis" class="section level1">
 <h1>7. Hinweis</h1>
