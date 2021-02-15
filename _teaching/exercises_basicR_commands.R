@@ -1,5 +1,7 @@
 # Aufgaben und Übungen zum Erlernen der grundlegenden Aspekte von R
 
+# Hinweis: Wenn ihr die Lösungen nicht direkt habt, dann nutzt gerne die google-Suche. 
+# Um erfolgreich mit R zu arbeiten ist die Internetsuche unverzichtbar! 
 
 # Aufgabe 1: Data types
 
@@ -8,9 +10,8 @@
 # Weise die Zahl "30" dem Namen "y" zu
 # Addiere `x` mit `y` 
 
-
 ### 1.B
-# Die folgende Code-Zeile weist dem Namen "x" die Zahl "100" als character Wert zu. Jetzt ...
+# Die folgende Code-Zeile weist dem Namen "x" die Zahl "100" als character-Wert zu. Jetzt ...
 
 # ... wandel x in einen numerischen Wert um und ...
 # ... multipliziere x mit 2 
@@ -20,7 +21,7 @@ x <- "100"
 ### 1.C
 # Der character Vektor "name" ist gegeben. Jetzt ... 
   
-# transformiere "name" in einen Faktor und ...
+# ... transformiere "name" in einen Faktor und ...
 # ... lasse dir die Level/Labels von "name" anzeigen.  
 
 name <-  c('Alice','Alice','Alice','Bob','Bob','Carol')
@@ -41,9 +42,10 @@ alter <-  c(15,16,17,18,19,20,21,22,23,24)
 ### 1.E
 # Füge die richtigen Formate in die folgenden `strptime()` Funktionen ein um die Daten richtig angezeigt zu bekommen. 
 
-strptime('1961-12-24', format='%Y-%m-%d')   ## Beispiel
+## Beispiel:
+strptime('1961-12-24', format='%Y-%m-%d')  
 
-
+## Aufgabe:
 strptime('25 12, 1961', format='')
 
 strptime('1961-12-26T19:00:00', format='')
@@ -64,18 +66,15 @@ strftime(x, format='')
 strftime(x, format='')
 strftime(x, format='')
 
-
 # Aufgabe 2: Datenstrukturen
-
 
 ### 2.A
 
-# Gebe den character Vektor "x" an und verwende die Auswahl, um die folgenden Teilmengen zu erhalten:
+# Gebe den character Vektor "x" an und verwende die Auswahl um die folgenden Teilmengen zu erhalten:
 
 # Alle Elemente an den Positionen drei bis zwanzig
 # Alle Elemente außer denen an den Positionen drei bis zwanzig
 # Die Elemente in umgekehrter Reihenfolge
-
 
 x <-  letters   # "letters" ist ein in base-R enthaltener Vektor der alle Buchstaben des Alphabets enthält
 x[1:5]        # Beispiel
@@ -92,7 +91,7 @@ sd(x) # Beispiel zum Berechnen der Standardabweichung von x
 
 # Base-R hat einige grundlegenden Datensätze bereits standardmäßig eingebaut. 
 # Einer davon ist der berühmte iris-Datensatz (https://en.wikipedia.org/wiki/Iris_flower_data_set). 
-# Der Iris-Datensatz beinhaltet Daten über über die Länge und Breite der Kelch- und Blütenblätter von drei Schwertlilien-Arten.
+# Der Iris-Datensatz beinhaltet Daten über die Länge und Breite der Kelch- und Blütenblätter von drei Schwertlilien-Arten.
 
 # Nutze den Datensatz, "iris" genannt, und ...
 
@@ -109,7 +108,6 @@ iris$Species <-  as.character(iris$Species)
 
 
 # Aufgabe 3: Funktionen
-
 
 ### 3.A
 
@@ -133,7 +131,6 @@ V2 <-  sample(c("Männlich","Weiblich"), 10, replace=T)      ## zufällige gesch
 
 head(iris)         # zeigt die ersten 6 reihen des iris Datensatzes
 ## Erinnerung: Verwende iris$..., um eine Variable aus dem Datensatz zu nutzen
-
 
 ### 3.C
 
