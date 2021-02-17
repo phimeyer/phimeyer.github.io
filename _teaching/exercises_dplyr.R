@@ -1,7 +1,6 @@
 # Aufgaben und Übungen zum Umgang mit dplyr
 
-
-# Aufgabe 1: Arbeiten mit dplyr
+# Aufgabe: Arbeiten mit dplyr
 
 # Für diesen kurzen Aufgabenblock müsst ihr als erstes Daten herunterladen und ein tibble erstellen. 
 # Führt zuerst den folgenden Code aus: 
@@ -17,7 +16,7 @@ daily <-  as.data.frame(daily)
 # Der unten aufgeführte Codeblock spiegelt klassische Analyseschritte in base R wieder. 
 # Deine Aufgaben sind folgende: 
 
-# 1) Schreibe den Code neu und dazu dafür Pipes ("%>%")
+# 1) Schreibe den Code neu und nutze dafür Pipes ("%>%")
 # 2) Interpretiere die Ergebnisse und schreibe deine Interpretation unter den Codeblock. 
 # Schreibe den Text so, das R keine Fehlermeldung produziert.
   

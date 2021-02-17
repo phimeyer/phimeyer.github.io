@@ -19,9 +19,6 @@ schedule  <-  read_csv(paste(csv_folder_url, "primary_schedule.csv", sep="/"))
 # und Visualisieren von Daten mit tidy" erstellt wurden. 
 # Kommentiere deinen Code und stelle damit sicher, dass ein neutraler Dritter deine Schritte versteht. 
 
-
-
-
 # Aufgabe 2: 
 
 # Jetzt nutzen wir neue Daten. Das euch jetzt bereits bekannte Analyseblog "fivethirtyeight" hat auch ein
@@ -50,7 +47,6 @@ ggplot(bechdel) +
 ggplot(bechdel) + geom_point(aes(x = clean_test, y = budget))
 
 # Aufgabe 2.3: Erstelle ein Histogramm mit der "budget" Variable aus dem bechdel Datensatz und finde eine passende "bindwidth" für die Variable.
-
 
 # Aufgabe 2.4: Erstelle einen "density plot" mit der "budget" Variable aus dem bechdel Datensatz. 
 # Aufgabe 2.4.1: Füge dem Plot unter der Verwendung der Variable "clean_test" Farben hinzu. 

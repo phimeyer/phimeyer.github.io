@@ -190,38 +190,40 @@ summary {
 
 <h1 class="title toc-ignore">Einführung in <code>R</code>: Wiederholung von Befehlen, Objekten und Funktionen</h1>
 <h4 class="author">Philipp Meyer, Institut für Politikwissenschaft</h4>
-<h4 class="date">21.04.2021, Seminar: Quantitative Textanalyse</h4>
+<h4 class="date">21.04.2021, Grundlagen, Seminar: Quantitative Textanalyse</h4>
 
 </div>
 
 
 <div id="einleitung" class="section level1">
 <h1>1. Einleitung</h1>
-<p>Dieses Tutorial gibt nochmal einen sehr kurzen Überblick über die <code>R</code>-Grundlagen. Hier wird, gewollt, einiges aus der letzten Woche wiederholt. Ihr könnt die einzelnen Schritte in Kapitel 4 des kostenlosen (Online-)Buches <em>R for Data Science</em> nachlesen: <a href="https://r4ds.had.co.nz/workflow-basics.html" class="uri">https://r4ds.had.co.nz/workflow-basics.html</a>.</p>
+<p>Dieses Tutorial wiederholt die <code>R</code>-Grundlagen aus der letzten Sitzung. Ihr könnt die einzelnen Schritte in Kapitel 4 des kostenlosen (Online-)Buches <em>R for Data Science</em> nachlesen: <a href="https://r4ds.had.co.nz/workflow-basics.html" class="uri">https://r4ds.had.co.nz/workflow-basics.html</a>.</p>
 </div>
 <div id="befehle" class="section level1">
 <h1>2. Befehle</h1>
-<p>In R enthält jede Codezeile im Allgemeinen einen Befehl an den Computer. Diese Befehle beinhalten Anweisungen an den PC etwas zu tun oder zu berechnen. Die einfachste Form eines Befehls ist eine mathematische Operation:</p>
+<p>In <code>R</code> ist jede Codezeile ein Befehl an euren Computer etwas zu tun oder zu berechnen. Die einfachste Form eines Befehls ist eine mathematische Operation:</p>
 <pre class="r"><code>2 + 2</code></pre>
 <pre><code>## [1] 4</code></pre>
-<p>(die Zeile ## [1] 4 ist die Ausgabe des Befehls: ein einzelner Wert 4)</p>
-<p>Ihr könnt Befehle direkt in die Konsole eingeben (der linke untere Fensterbereich in <code>RStudio</code>) und ausführen. Oder aber ihr nutzt ein <code>R</code>-Skript, in welchem ihr mehrere Befehle kombinieren und gemeinsam oder einzeln ausführen könnt. Ihr könnt ein Skript ganz einfach mittels des Drop-down Menüs von <code>RStudio</code> öffnen [Datei <code>-&gt;</code> neue Datei <code>-&gt;</code> <code>R</code>-Skirpt]. In einem Skript werden Befehle ausgeführt, indem man den Cursor auf die jeweilige Zeile setzt und Strg+Enter (Mac user: Command + Enter) drückt. Natürlich ist es auch möglich mehrere Befehle gleichzeitig auszuführen. Hierfür wählt ihr den gewünschten Code mit der Maus aus (rechte Maustaste + die Maus in die gewünschte Richtung ziehen) und drückt Strg+Enter (Mac user: Command + Enter).</p>
+<p>(die Zeile ## [1] 4 ist die Ausgabe des Befehls: der einzelne Wert 4)</p>
+<p>Ihr könnt Befehle direkt in die Konsole eingeben (der linke untere Fensterbereich in <code>RStudio</code>) und ausführen. Oder aber ihr nutzt ein <code>R</code>-Skript, in welchem ihr mehrere Befehle kombinieren und gemeinsam oder einzeln ausführen könnt. Ihr könnt ein Skript ganz einfach mittels des Drop-down Menüs von <code>RStudio</code> öffnen [Datei <code>-&gt;</code> neue Datei <code>-&gt;</code> <code>R</code>-Skirpt].</p>
+<p>In einem Skript werden Befehle ausgeführt, indem man den Cursor auf die jeweilige Zeile setzt und Strg+Enter (Mac user: Command + Enter) drückt. Natürlich ist es auch möglich mehrere Befehle gleichzeitig auszuführen. Hierfür wählt ihr den gewünschten Code mit der Maus aus (rechte Maustaste + die Maus in die gewünschte Richtung ziehen) und drückt Strg+Enter (Mac user: Command + Enter).</p>
 </div>
 <div id="werte-daten-und-objekte" class="section level1">
 <h1>3. Werte, Daten und Objekte</h1>
 <p>Alle Daten und Werte in R werden in sogenannten Objekten gespeichert. Im Grunde ist ein Objekt ein Informationsträger, der von euch mit einen spezifischen Namen versehen wird. Kurz gesagt: Ihr weißt einem Objekt einen Wert zu.</p>
 <pre class="r"><code>x &lt;- 2+3</code></pre>
-<p>In diesem Beispiel speichern wir in dem Objekt &quot;<strong>x</strong>&quot; den Wert &quot;<strong>2+3</strong>&quot;&quot;. Ihr könnt euch den aktuellen Wert von x anzeigen lassen, indem ihr x als Code-Zeile ausführt:</p>
+<p>In diesem Beispiel speichern wir in dem Objekt &quot;<strong>x</strong>&quot; den Wert &quot;<strong>2+3</strong>&quot;&quot;. Ihr könnt euch den aktuellen Wert von x anzeigen lassen, indem ihr x als einzelne Code-Zeile im Skript ausführt:</p>
 <pre class="r"><code>x</code></pre>
 <pre><code>## [1] 5</code></pre>
-<p>In diesem Fall ist x eine einfache Zahl, aber ein Objekt kann auch ein Datensatz mit mehreren Millionen Zeilen oder das Ergebnis eines statistischen Modells sein. Tatsächlich werden alle Daten, die in <code>R</code> verwendet werden, als Objekte gespeichert. Dem entsprechend ist die Vergabe von Namen an Objekte eine der zentralen Aufgaben in <code>R</code>. Die Namensvergabe liegt komplett in eurer Hand. <code>R</code> ist es egal ob ein Objext <em>x</em>, <em>hannover96</em> oder <em>court_decisions_2010</em> heißt. Damit ihr und andere auch im Nachhinein ein Skript und dessen Befehle verstehen könnt, ist es enorm wichtig, dass ihr Namen verwendet, die beschreibend aber nicht zu lang sind. Natürlich könnt ihr auch mehrer Wörter verwenden, die solltet ihr dann mit Unterstichen trennen. Zum Beispiel der Name <em>brd_kanzler</em> gibt Auskunft darüber, dass die gespeicherte Information aller vorraussicht nach die BundeskanzlerInnen der BRD beinhaltet.</p>
+<p>In diesem Fall ist x eine einfache Zahl, aber ein Objekt kann auch ein großer Datensatz oder das Ergebnis eines statistischen Modells sein. Tatsächlich werden alle Daten, die in <code>R</code> verwendet werden, als Objekte gespeichert. Deswegen ist die Vergabe von Namen an Objekte eine der zentralen Aufgaben in <code>R</code>!</p>
+<p>Die Namensvergabe liegt komplett in eurer Hand. <code>R</code> ist es egal ob ein Objext <em>x</em>, <em>hannover96</em> oder <em>court_decisions_2010</em> heißt. Ein <code>R</code>-Skript muss nachvollziehbar sein. Ihr müsst es zu einem späteren Zeitpunkt nachvollziehen und andere müssen es nachvollziehen können, wenn sie eure Ergebnisse reproduzieren wollen. Deswegen solltet ihr immer Namen verwenden, welche einen klaren kontextuellen Bezug haben und nicht zu lang sind (in <code>R</code> will man den Schreibaufwand so gut es geht verringern). Natürlich könnt ihr auch mehrer Wörter verwenden, die solltet ihr dann mit Unterstichen trennen. Zum Beispiel der Name <em>brd_kanzler_49_20</em> gibt Auskunft darüber, dass die gespeicherten Information wohl die BundeskanzlerInnen der BRD umfasst.</p>
 </div>
 <div id="funktionen" class="section level1">
 <h1>4. Funktionen</h1>
-<p>99% von allem, was ihr in <code>R</code> machen werdet, wird Funktionen beinhalten. Funktionen sind Befehle, die <code>R</code> anweisen, etwas zu tun. In den meisten Fällen benötigt eine Funktion bestimmte Parameter oder Argumente, die angeben, was sie machen soll.</p>
-<p>Abstrakt kann stellt man das aufrufen von Funktionen wie folgt dar:</p>
+<p>99% von allem, was ihr in <code>R</code> machen werdet, wird Funktionen beinhalten. Funktionen sind Befehle, die <code>R</code> anweisen, etwas zu tun. In den meisten Fällen benötigt eine Funktion bestimmte Parameter oder Argumente, die angeben, was gemacht werden soll.</p>
+<p>Abstrakt stellt man das Aufrufen von Funktionen wie folgt dar:</p>
 <pre class="r"><code>result &lt;-  function(argument1, argument2, ...)</code></pre>
-<p>Eine Funktion wird immer durch den Namen der Funktion, gefolgt von den Argumenten zwischen Klammern, aufgerufen. In den meisten Fällen wird das Ergebnis des Funktionsaufrufs dann in einem Objekt (in diesem Fall result) gespeichert</p>
+<p>Eine Funktion wird immer durch den Namen der Funktion aufgerufen. In den meisten Fällen wird das Ergebnis des Funktionsaufrufs dann in einem Objekt (in diesem Fall result) gespeichert</p>
 <p>Die Funktion c fasst z. B. mehrere Werte zu einem einzigen Objekt zusammen:</p>
 <pre class="r"><code>x &lt;-  c(1,3,5)
 x</code></pre>
@@ -230,12 +232,12 @@ x</code></pre>
 <pre class="r"><code>m &lt;-  mean(x)
 m</code></pre>
 <pre><code>## [1] 3</code></pre>
-<p>In unserem Beispiel haben wir das neue Objekt m erstellt um den Mittelwert von x zu speichern, ohne das wir dabei die Originalinformationen von x zu verlieren. Wenn ihr mehr über die Funktion <code>mean()</code> erfahren wollt, oder über eine andere Funktion, dann könnt ihr ganz einfach die <code>?function</code> nutzen:</p>
+<p>Wir haben hier das neue Objekt m erstellt, um den Mittelwert von x zu speichern. Dabei verlieren wir die die Originalinformationen von x nicht. Wenn ihr mehr über die Funktion <code>mean()</code> erfahren wollt, oder über eine andere Funktion, dann könnt ihr ganz einfach die <code>?function</code> nutzen:</p>
 <pre class="r"><code>?mean</code></pre>
 </div>
 <div id="weitere-argumente" class="section level1">
 <h1>5. Weitere Argumente</h1>
-<p>Die meisten Funktionen haben optionale Argumente, die die Funktionsweise der Funktionen beeinflussen. Nehmen wir zum Beispiel an, wir haben einen Zahlenbereich, der auch einen fehlenden Wert (NA in <code>R</code>, für &quot;nicht verfügbar&quot;) enthält:</p>
+<p>Die meisten Funktionen haben optionale Argumente. Diese beeinflussen die Funktionsweise der Funktionen. Nehmen wir zum Beispiel an, wir haben einen Zahlenbereich, der auch einen fehlenden Wert (NA in <code>R</code>, für &quot;nicht verfügbar&quot;) enthält:</p>
 <pre class="r"><code>x &lt;-  c(1, 3, NA, 5)</code></pre>
 <p>Wollen wir jetzt den Mittelwert ausrechnen, dann wird uns <code>R</code> mitteilen, dass der Mittelwert unbekannt ist. Er kann also nicht ausgerchnet werden, da der dritte Wert des Objekt x unbekannt (NA) ist.</p>
 <pre class="r"><code>mean(x)</code></pre>
