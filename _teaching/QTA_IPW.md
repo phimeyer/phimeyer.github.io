@@ -20,7 +20,7 @@ author_profile: true
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_First_Steps"><span style="color: #333333;"><span style="font-size: medium;">Einführung in `R`: Erste Schritte</span></span></a>
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_Basics_I.md"><span style="color: #333333;"><span style="font-size: medium;">Einführung in `R`: Datentypen und Funktionen</span></span></a>
 
-[Einführung in `R`: Datentypen und Funktionen](teaching/R_Basics_I.md)
+[Einführung in `R`: Datentypen und Funktionen](https://phimeyer.github.io/teaching/teaching/R_Basics_I.md)
 
  - <p>Übungen zur Sitzung:</p>
  
