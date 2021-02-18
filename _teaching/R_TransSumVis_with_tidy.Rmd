@@ -2,11 +2,20 @@
 title: "*tidy* `R`: Transformation, Zusammenfassen und Visualisieren von Daten mit tidy"
 author: "Philipp Meyer, Institut für Politikwissenschaft"
 date: "21.04.2021, Grundlagen, Seminar: Quantitative Textanalyse"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+## include this at top of your RMarkdown file for pretty output
+## make sure to have the printr package installed: install.packages('printr')
+knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FALSE)
+#library(printr)
 ```
 
 # 1. Einleitung
