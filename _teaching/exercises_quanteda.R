@@ -1,6 +1,5 @@
 # Aufgaben und Übungen zum Umgang mit quanteda
 
-
 # Aufgabe: Arbeiten mit quanteda
 
 # Die Aufgaben in dieser Woche sind etwas anders geartet. Ich möchte hier die Möglichkeit nutzen
