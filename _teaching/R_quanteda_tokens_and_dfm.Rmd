@@ -20,12 +20,12 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 # 1. Einleitung
 
-In der letzten Wochen haben das Einlesen von Textdokumenten, das Erstellen von Metavariablen bzw. Dokumentenvariablen und das Erstellen eines Textkorpus besprochen. Diese Woche setzen wir nahtlos daran an und gehen über zu Tokens und Document-Feature-Matricen. 
+Im letzten Tutorial haben wir das Einlesen von Textdokumenten, Dokumentenvariablen und das Erstellen eines Textkorpus besprochen. In diesem Tuorial besprechen wir zwei zentrale Aspekte der Quamtitativen Textanalyse: Tokens und Document-Feature-Matricen.
 
-Bevor wir uns diesen Dingen zuwenden, müssen wir natürlich die notwenigen Pakete laden, unsere Gerichtsentscheidungen einlesen und einen Korpus erstellen. Hierfür kopieren wir einfach die besprochenen Schritte der letzten Woche. 
+Damit wir dort beginnen wo das letzte Tutorium aufgehört hat, geht der folgende Code alle Schritte von letzter Woche im Schnelldurchlauf durch: 
 
 ```{r eval=T}
-# Notwendige Pakete laden
+# Die notwendigen Pakete laden
 library(tidyverse) 
 library(quanteda)
 library(readtext)
@@ -62,24 +62,25 @@ daten_bverfg$sentences <- korpus_stats$Sentences
 rm(korpus_stats)
 ```
 
-Die Funktion `rm()` haben wir bisher noch nicht besprochen. Ihre einzige Funktion ist das Entfernen von Werten, Funktionen oder Datensätzen aus eurem Environment (bei `RStudio` das Fenster oben rechts). Wie immer: falls ihr mehr erfahren wollt, dann nutzt `?rm`. 
+Die Funktion `rm()` haben wir bisher noch nicht besprochen. Ihre einzige Funktion ist das Entfernen von Werten, Funktionen oder Datensätzen aus dem Environment (bei `RStudio` das Fenster oben rechts). Wie immer: falls ihr mehr erfahren wollt, dann nutzt `?rm` oder googelt die Funktion.
 
 # 2. Tokens und Tokenisierung
 
-Bei einem Satz, Absatz (character sequence) oder einem ganzen Textdokument besteht die Aufgabe der Tokenisierung darin, diese Sequenzen in Stücke zu zerlegen, die Token genannt werden, und dabei eventuell bestimmte Zeichen, wie z. B. Satzzeichen, oder Füllwörter zu entfernen. Wir können diese Sequenzen entweder in einzelne Wörter, in Wortpaare, in dreier Gruppen oder auch in ganze Sätze zerlegen. Trotzdem werden unter Token meistens einfach die einzelnen Wörter eines Satzes verstanden. Aus diesem Grund ist es wichtig, eine Unterscheidung zwischen **Typ** und **Token** zu treffen. Ein **Token** ist eine Sequenze eines bestimmten Dokument, die als sinnvolle semantische Einheit für die Verarbeitung gruppiert wird. Ein **Typ** ist die Klasse aller Token, die die gleiche Zeichenfolge enthalten.
+Bei einem Satz, Absatz oder einem ganzen Textdokument besteht die Aufgabe der Tokenisierung darin, die Textsequenzen zu zerlegen und dabei Aspekte wie z. B. Satzzeichen oder Füllwörter zu entfernen. Wir können diese Sequenzen entweder in einzelne Wörter, in Wortpaare, in dreier Gruppen (n-grams) oder auch in ganze Sätze zerlegen.
 
-Der Prozess der Tokenisierung beschreibt also die Aufspaltung eines Textes in von uns definierte Sequenzen von Wörtern. In der Textanalyse werden diese Sequenzen auch `N-Gram` genannt (N ist hier ganz klassisch als Platzhalte für eine Zahl gemeint). In `quanteda` können wir mit der `tokens`-Funktion einen Korpus tokenisieren. Weiterhin beinhaltet die Funktion mehrer Argumente um bestimmte nicht brauchbare Textaspekte (wie Interpunktion, Leerzeichen (*whitespace*) oder Füllwörter) zu entfernen.  
+Mit der Tokenisierung wird also der Prozess beschrieben, bei dem wir Texte in von uns definierte Sequenzen von Wörtern aufspalten. Sequenzen mit mehr als einem Wort werden in der Textanalyse werden auch `N-Gram` genannt (N ist hier ganz klassisch der Platzhalter für eine Zahl). In `quanteda` können wir mit der `tokens`-Funktion einen Korpus tokenisieren. Die Funktion beinhaltet weitere Argumente um bestimmte nicht brauchbare Textaspekte (wie Interpunktion, Leerzeichen (*whitespace*) oder Füllwörter) zu entfernen.  
 
-Wenden wir also die `tokens`-Funktion auf unseren Gerichtskorpus und schauen uns danach die Tokens einer Entscheidung an:
+Wenden die `tokens`-Funktion auf unseren Gerichtskorpus an und schauen uns danach die Tokens einer speziellen Entscheidung an:
 
 ```{r eval=T}
 entscheidungs_tokens <- tokens(gerichts_korpus)
+
 head(entscheidungs_tokens[["20150108_2bvr241913.txt"]])
 ```
 
-Wir sehen hier, dass die ersten Worte diese speziellen Entscheidung noch wenig aussagekräftig sind. Das können wir natürlich ändern... aber dazu später mehr. 
+Das ist alles noch wenig aussagekräftig sind. Das können wir natürlich ändern... aber dazu später mehr. 
 
-In seiner Grundeinstellung splittet die `tokens`-Funktion die Texte in einzelne Wörter auf. In den meisten Fälle brauchen wir jedoch mehr als ein Wort um eine aussagekräftige Analyse zu realisieren. Über die Funktion `tokens_ngrams` `lassen sich Texte in N-Grams aufspalten. In den folgenden zwei Beispiele werden wir 1) Bigramme produzieren (zwei Wörter) und 2) alle Sequenzen von einem, zwei oder drei Begriffen extrahieren.
+In der Grundeinstellung splittet die `tokens`-Funktion die Texte in einzelne Wörter auf. In den meisten Fälle brauchen wir jedoch mehr als ein Wort um eine aussagekräftige Analyse zu realisieren. Über die Funktion `tokens_ngrams` `lassen sich Texte in N-Grams aufspalten. In den folgenden zwei Beispiele werden wir 1) Bigramme produzieren (zwei Wörter) und 2) alle Sequenzen von einem, zwei oder drei Begriffen extrahieren.
 
 ```{r eval=T}
 entscheidungs_tokens_ngrams <- tokens_ngrams(entscheidungs_tokens, n = 2)
@@ -98,63 +99,72 @@ entscheidungs_tokens <- tokens_remove(entscheidungs_tokens, c("BUNDESVERFASSUNGS
 head(entscheidungs_tokens[["20150108_2bvr241913.txt"]])
 ```
 
-Wir haben jetzt einzelne Wörter nach der Tokenisierung entfernt. Deutlich einfacher und auch üblicher ist es aber, bestimmte Wörter, Satzzeichen, Zahlen, Symbole während der Tokinisierung zu entfernen. Wir schließen jetzt im kommenden Schritt alle Zahlen, Interpunktion und Extrazeichen aus. Danach werden wir mittels `tokens_tolower` alle Wörter in Kleinschreibung umwandeln und dann die Wörter "Bundesverfassungsgericht", "Richter", "Entscheidung" und "Karlsruhe", sowie alle weiteren gängigen deutschen Stopp-/Füllwörter (der, die, das, wer, wie, was...) entfernen.
+Wir haben jetzt einzelne Wörter nach der Tokenisierung entfernt. Deutlich einfacher und auch üblicher ist es aber, bestimmte Wörter, Satzzeichen, Zahlen und Sonderzeichen während der Tokinisierung zu entfernen. Das Entfernen dieser Elemente ist ein zentraler Bestandteil einer jeden quantitativen Textanalyse. Durch dieses sogenannte **preprocessing** entfernen wir unnötige oder sinnlose Textelemente, ermitteln die Worthäufigkeit und brechen so die Syntax auf. Dadurch erstellen wir einen sogenannten "**Bag of Words**", mit welchem aussagekräftige Analysen durchzuführen.
+
+Im folgenden Code entfernen wir alle Zahlen (remove_numbers = TRUE), Sonderzeichen (remove_symbols = TRUE) Leerzeichen (removeSeparators = TRUE) und die Interpunktion (remove_punct = TRUE). Danach transformieren wir mittels `tokens_tolower` alles Großbuchstaben in Kleinbuchstaben. In einem letzten Schritt nutzen wir `tokens_remove` und entfernen die Wörter "bundesverfassungsgericht", "richter", "bvr","herrn","Entscheidung","art" (Art für Gesetzesartikel),"gg" (Grundgesetz), "karlsruhe" und noch weitere sowie alle weiteren gängigen deutschen Stopp-/Füllwörter (der, die, das, wer, wie, was...). 
 
 ```{r eval=T}
-entscheidungs_tokens <- tokens(gerichts_korpus, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE)
+entscheidungs_tokens <- tokens(gerichts_korpus, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, removeSeparators = TRUE)
 entscheidungs_tokens <- tokens_tolower(entscheidungs_tokens)
-entscheidungs_tokens <- tokens_remove(entscheidungs_tokens, c(stopwords("german"), "bundesverfassungsgericht", "richter", "rntscheidung", "karlsruhe"))
+entscheidungs_tokens <- tokens_remove(entscheidungs_tokens, stopwords("german"))
+entscheidungs_tokens <- tokens_remove(entscheidungs_tokens, c("bundesverfassungsgericht", "richter", "bvr","herrn","Entscheidung","art","gg", "karlsruhe", "dass", "beschluss", "rn","satz","sei"))
+
 head(entscheidungs_tokens[["20150108_2bvr241913.txt"]])
 ```
-
-Tokens sind für mehrere Methoden der quantitative Textanalyse wie z.B. Wörterbuch/Lexika-Anwendungen oder überwachtes und unüberachtes maschinelles Lernen. Weiterhin sind Tokens der Aussgangspunkt für den, für den Textanalyse, so zentralen **Bag of Words**-Ansatz, da durch die Stoppwortentfernung, die Zahlenentfernen usw. syntaktische Informationen verloren gehen. Obwohl viele relevante Informationen in der Reihenfolge der Wörter und der Syntax ignoriert werden, hat sich dieser Ansatz als sehr leistungsfähig und effizient erwiesen.
 
 Obwohl Tokens für einige Methoden wichtig sind, werden wir in den meisten Fällen mit Dokument-Feature-Matrizen arbeiten. Die Tokenisierung wird implizit angewandt, sobald wir eine Dokument-Feature-Matrize (DFM, s.u.) erstellen. 
 
 # 3. Dokument-Feature-Matrizen
 
-Das Standardformat für die Darstellung eines Bag-of-Words ist eine Dokument-Feature-Matrix. DFMs werden praktisch in jedem Textanalyseprojekt verwendet. Meist ist das Erstellen einer DFM der zweite Schritt, gleich nach dem Anlegen eines Korpus. DFMs sind Matrizen, deren Zeilen die Texte und deren Spalten die Worthäufigkeiten enhalten. Wir verwenden die `dfm`-Funktion von `quanteda` um eine DFM zu erstellen:
+Das Standardformat für die Darstellung eines Bag-of-Words ist eine Dokument-Feature-Matrix (DFM). DFMs werden praktisch in jedem Textanalyseprojekt verwendet. Meist ist das Erstellen einer DFM der zweite Schritt, gleich nach dem Anlegen eines Korpus. DFMs sind Matrizen, deren Zeilen die Texte und deren Spalten die Worthäufigkeiten enhalten. Wir verwenden die `dfm`-Funktion von `quanteda` um eine DFM von unserem Gerichtskorpus zu erstellen. Dabei verwenden wir die selben Argumente, welche wir bereits bei der `tokens`-Funktion genutzt haben:
 
 ```{r eval=T}
-entscheidungs_dfm <- dfm(gerichts_korpus, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, tolower = TRUE, remove = c(stopwords("german"), "bundesverfassungsgericht", "richter", "rntscheidung", "karlsruhe"))
+court_stopswords <- c("bundesverfassungsgericht", "richter", "bvr","herrn","Entscheidung"
+                      ,"art","gg", "karlsruhe", "dass", "beschluss", "rn","satz","sei"
+                      , "bverfge","verfassungsbeschwerde", "beschwerdeführer","beschwerdeführerin") # hier legen wir eine list von wörter an, welche wir von vornherein entfernt haben wollen
+
+entscheidungs_dfm <- dfm(gerichts_korpus, remove_numbers = TRUE, remove_punct = TRUE
+                         , remove_symbols = TRUE, tolower = TRUE
+                         , removeSeparators = TRUE
+                         , remove = c(court_stopswords,stopwords("german"))
+                         )
 entscheidungs_dfm
 ```
 
-Wie ihr seht sind die Argument analog zu denen aus der `tokens`-Funktion. Weiterhin funktioniert bei DFMs einiges analog zur Erstellung des Textkorpus. So können wir natürlich auch die Funktionen `ndoc` oder `nfeat` anwenden. 
+Bei DFMs funktioniert einiges analog zu einem Textkorpus. Wir können die Funktionen `ndoc` oder `nfeat` anwenden:
 
 ```{r eval=T}
 ndoc(entscheidungs_dfm)
 nfeat(entscheidungs_dfm)
 ```
 
-
-Wir können uns auch die Namen der Dokumente und Features angeben lassen (hier nur die ersten (`head`) bzw. die letzten (`tail`)):
+Wir können die Namen der Dokumente und Features auslesen (hier nur die ersten (`head`) bzw. die letzten (`tail`) zehn Dokumente):
 
 ```{r eval=T}
 head(docnames(entscheidungs_dfm)) # Dokumentennamen 
 tail(featnames(entscheidungs_dfm)) # Features 
 ```
 
-Wollen wir aber den Inhalt einer DFM wirklich verstehen, dann sollten wir eine Tabelle erstellen. Hierbei wird uns auch direkt die "Spärlichkeit" (*sparsity*) unserer DFM angezeigt. Die sparsity beschreibt den Anteil der Wörter die nur in wenigen Texten vorkommen. 
+Wollen wir einen Überblick über unsere DFM haben, dann können wir eine Tabelle erstellen. Hierbei wird uns auch direkt die *sparsity* unserer DFM angezeigt. Die sparsity beschreibt den Anteil der Nullen in einer DFM (Eine DFM misst die Haufigkeit eines Worts in den Korpusdokumenten). Anders gesagt, eine hohe sparsity bedeutet, die Texte genuine Wörter benützen, sodass dass viele der in den Texten vorkommenden Wörter nur in einigen wenigen gleichzeitig Texten vorkommen. 
 
 ```{r eval=T}
-entscheidungs_dfm # hier sehen wir, dass unsere DFM 1,616 Dokumente und 92,572 Features hat und 99.4% sparse ist
+entscheidungs_dfm # hier sehen wir, dass unsere DFM 1,616 Dokumente und 92,572 Features (i.d.R. Wörter, aber meist auch Sonderzeichen die quanteda nicht erkannt hat) hat und 99.4% sparse ist
 
 # Für unsere Tabelle können wir z.B. nur 8 Dokumente und 20 Features auswählen und anzeigen lassen: 
 
 head(entscheidungs_dfm, n = 8, nf = 20) 
 ```
 
-Glücklicherweise sind viele dieser 92,572 Features nicht sehr informativ. Für viele Bag-of-Words-Analysen ist es vorteilhaft, diese Wörter zu entfernen. Das wird in den meisten Fällen die die Ergebnisse sogar verbessern.
+Viele der 92,572 Features in der DFM nicht sehr informativ. Für viele Bag-of-Words-Analysen ist es vorteilhaft, diese Wörter zu entfernen. Das wird in den meisten Fällen die die Ergebnisse verbessern.
 
-Wir können die Funktion `dfm_trim verwenden, um Spalten basierend auf den in den Argumenten angegebenen Kriterien zu entfernen. Hier sagen wir, dass wir alle Terme entfernen wollen, für die die Häufigkeit (d. h. der Summenwert der Spalte in der DFM) unter 30 liegt. Wir entfernen also alle Wörter die in weniger als 30% aller Texte auftauchen.
+Wir können die Funktion `dfm_trim` verwenden um viele der uninformativen Features zu entfernen. Im Beispiel unten entfernen wir alle Terme die eine Häufigkeit (d. h. der Summenwert der Spalte in der DFM) von unter 30% haben. Wir entfernen also alle Wörter die in weniger als 30% aller Texte auftauchen.
 
 ```{r eval=T}
 entscheidungs_dfm  <- dfm_trim(entscheidungs_dfm, min_termfreq = 30) # mit "max_termfreq" könnten wir auch eine Obergrenze festlegen, aber das findet ihr am besten mit ?dfm_trim selber heraus
 entscheidungs_dfm
 ```
 
-`quanteda` beinhaltet noch einige weitere Funktionen, um ein umfassendes Bild unsere DFMs zu erhalten. `topfeatures` zählt Features in der gesamten DFM und gibt uns die Top-10 Features. `textstat_frequency` gibt uns die Worthäufigkeiten und ranked die Features danach wie oft sie vorkommen (grundsätzlich ist `textstat_frequency` zu bevorzugen).
+`quanteda` beinhaltet noch einige weitere Funktionen, um ein umfassendes Bild unsere DFMs zu erhalten. `topfeatures` zählt Features in der gesamten DFM und gibt uns die Top-10 Features. `textstat_frequency` gibt uns die Worthäufigkeiten und ordnet die Features danach wie oft sie vorkommen (grundsätzlich ist `textstat_frequency` zu bevorzugen).
 
 ```{r eval=T}
 topfeatures(entscheidungs_dfm)
@@ -162,7 +172,7 @@ frequency <- textstat_frequency(entscheidungs_dfm)
 head(frequency)
 ```
 
-Wie wir sehen, sind Texte von Verfassungsgerichten vielleicht nicht das beste Anschauungsmaterial ;) (sie benötigen noch so viel mehr Aufarbeitung und vor allem so viel mehr Stoppwort-Entferung (gg, abs und alle weiteren juristitischen Abkürzungen)... aber naja, jetzt müssen wir das gemeinsam durchstehen). 
+Wie wir sehen, sind Texte von Verfassungsgerichten vielleicht nicht das beste Anschauungsmaterial ;) (sie benötigen noch viel mehr Aufarbeitung und vor allem viel mehr Stoppwort-Entferung (z.b. die juristischen Abkürzungen)). 
 
 ### 3.1 Weitere Anwendungen mit DFMs
 
@@ -172,29 +182,33 @@ Mit `dfm_sort` können wir DFMs nach Dokument- und Feature-Frequenzen sortieren:
 head(dfm_sort(entscheidungs_dfm, decreasing = TRUE, margin = "both"), n = 12, nf = 10) 
 ```
 
-Mit `dfm_select` lassen sich Wörter zielt auswählen:
+Mit `dfm_select` lassen sich Wörter gezielt auswählen:
+
 ```{r eval=T}
-dfm_select(entscheidungs_dfm, pattern = "euro*") # der * gibt an, dass wir alle Wörter mit euro als Anfangssequenz suchen
+dfm_select(entscheidungs_dfm, pattern = "euro*") # * gibt an, dass wir alle Wörter mit euro als Anfangssequenz suchen
 dfm_select(entscheidungs_dfm, pattern = "bund*") 
 ```
 
-Die Funktion `dfm_wordstem` reduziert alle Wörter auf ihre Wortstämme (was besonders für maschninelles Lernen wichtig wird):
+Die Funktion `dfm_wordstem` reduziert alle Wörter auf ihre Wortstämme:
+
 ```{r eval=T}
 dfm_wordstem(entscheidungs_dfm, language = "german")
 ```
 
-Wir können DFMs auch nach relativen Worthäufigkeiten gewichten. Die TF-IDF (term frequency - inverse document frequency) zum Beispiel ist ein statistisches Maß, das bewertet, wie relevant ein Wort für ein Dokument in einer Sammlung von Dokumenten ist. Das geschieht durch die Multiplikation zweier Metriken: wie oft ein Wort in einem Dokument vorkommt und die inverse Dokumenthäufigkeit des Wortes über alle Dokumente hinweg.
+Das Stemming ist im Allgemeinen eine tolle Möglichkeit zur weiteren Informationsreduktion. Für die deutsche Sprache ist es jedoch weniger wirkungsvoll, hier bieten sich andere Verfahren wie zum Beispiel **lemmatization** an.  
+
+Wir können DFMs auch nach relativen Worthäufigkeiten gewichten. Die TF-IDF (term frequency - inverse document frequency) zum Beispiel ist ein statistisches Maß, das bewertet, wie relevant ein Wort für ein Dokument in einer Sammlung von Dokumenten ist. Das geschieht durch die Multiplikation zweier Metriken: 1) wie oft ein Wort in einem Dokument vorkommt und 2) die inverse Dokumenthäufigkeit des Wortes über alle Dokumente hinweg.
 
 ```{r eval=T}
 entscheidungs_dfm_weighted <- dfm_tfidf(entscheidungs_dfm)
 topfeatures(entscheidungs_dfm_weighted)
 ```
 
-Wie ihr seht bringt die Gewichtung der Wörter bereits deutlich besser interpretierbare Ergebnisse für unsere Verfassungsgerichtsentscheidungen hervor.  
+Wie ihr seht, erzeugt die Gewichtung aussagekräftigere Resultate  
 
 ### 3.2. Visualisierungen
 
-Natürlich lassen sich DFMs auch visualisieren. Die wohl bekannteste Version sind word clouds (die habt ihr ja bereits kennengelernt):
+Natürlich lassen sich DFMs auch visualisieren. Am wohl bekanntesten sind word clouds, die ihr ja bereits kurz kennengelernt habt:
 
 ```{r eval=T}
 textplot_wordcloud(entscheidungs_dfm, max_words = 100, scale = c(5,1))
@@ -209,3 +223,5 @@ library(RColorBrewer)
 ```{r eval=T, warning=FALSE}
 textplot_wordcloud(entscheidungs_dfm[1:4,], color = brewer.pal(4, "Set1"), comparison = T)
 ```
+
+Nachdem ihr jetzt die Grundlagen der QTA, also Corpus, Tokens und DFM kennengelernt habt, werden ab der nächsten Woche mit der eigentlichen Textanalyse beginnen und den dictionary-approach behandeln. 
