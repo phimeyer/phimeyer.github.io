@@ -1,5 +1,5 @@
 ---
-title: "Textanalyse mit Wörterbüchern und Sentiments mit quanteda"
+title: "Textanalyse mit Wörterbüchern und Sentiments mit `quanteda`"
 author: "Philipp Meyer, Institut für Politikwissenschaft"
 date: "12.05.2021, Dictionaries und Sentiment Analysis, Seminar: Quantitative Textanalyse"
 output:
@@ -247,4 +247,3 @@ head(freqs_pos)
 ```
 
 Die Überprüfung der Top-25-Wörter kann die Gültigkeit eines Wörterbuchs bereits gut abbilden, da diese Wörter oft einen großen Teil der Ergebnisse bestimmen.
-
