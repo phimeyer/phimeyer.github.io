@@ -1,0 +1,250 @@
+---
+title: "Textanalyse mit Wörterbüchern und Sentiments mit quanteda"
+author: "Philipp Meyer, Institut für Politikwissenschaft"
+date: "12.05.2021, Dictionaries und Sentiment Analysis, Seminar: Quantitative Textanalyse"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+## include this at top of your RMarkdown file for pretty output
+## make sure to have the printr package installed: install.packages('printr')
+knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FALSE)
+#library(printr)
+```
+
+# 1. Einleitung
+
+Viele interessante Textanalysen analysieren den "Ton" bzw. *Sentiment*  eines Textes: Ist ein Text positiv oder negativ in Bezug auf ein bestimmtes/zu interessierendes Thema (z.B. Pro- oder Anti-Brexit)? Werden PolitikerInnen als sympathisch oder als unsympatisch beschrieben? Ist ein Akteur für oder gegen einen bestimmten politischen Vorschlag?
+
+In diesem Tutorial werdet ihr die Wörterbuchmethode (**Dictionary approach**) verwenden, um Sentiment-Analysen durchzuführen. Diese Methode hat sich als sehr effizient herausgestellt, z.B. um zu entscheiden, ob eine Rezension positiv oder negativ ist. In anderen Fällen sollte man jedoch vorsichtiger mit der Annahme sein, dass Wörterbuchanalysen valide sind. Auch Sentiment-Analysen sind nicht für jedes Forschungsproblem geeignet. Zeitungsartikel z.B. können verschiedene und sich wiedersprechende Aussagen/Werten zu einem Thema beinhalten. Die Wahl der Methode ist also auch innerhalb der Textanalyse immer kontextabhängig zu treffen. 
+
+Ein wichtiger Teil dieses Tutorials wird sich mit der Validierung unseres Wörterbuches befassen. Damit möchte ich euch zeigen, wie wichtig es ist, die verwendeten Methoden und gefunden Ergebnisse auf ihre Gültigkeit hin zu überprüfen. Lexika bzw. Wörterbücher zum Beispiel sollten immer an die jeweilige Domäne/Aufgabe angepasst werden, indem der Kontext der zu interessierenden Kernkonzepte/-wörter untersucht wird. 
+
+# 2. Eine Dokument-Feature-Matrix (DFM) erstellen
+
+Die Grundlage für eine dictionary-Analyse ist die Dokument-Feature-Matrix (DFM) bzw. Dokument-Term-Matrix (DTM). 
+
+Für dieses Tutorial werden wir nicht den Gerichtskorpus verwenden, da es noch kein etabliertes Wörterbuch für Verfassungsgerichtstexte gibt (**Wink mit dem Zaunpfahl**: Vielleicht ein gutes Thema für eine Hausarbeit?). Als Alternative werden wir die euch bereits bekannten Antrittsreden der US Präsidenten aus dem `quanteda`-Paket verwenden (für eine Liste aller in `quanteda` gespeicherten Korpora: [quanteda.corpora](https://github.com/quanteda/quanteda.corpora)). 
+
+
+```{r eval=T}
+library(quanteda)
+
+inaug_speeches <- data_corpus_inaugural 
+```
+
+Jetzt erstellen wir eine DTM mittels einer Pipeline:
+
+```{r eval=T}
+library(tidyverse) 
+
+dtm_speeches <-  inaug_speeches %>% dfm(remove=stopwords("english"), remove_punct=T) # wir entfernen alle Füllwörter und die Interpunktion, außerdem entfernen wir alle D
+dtm_speeches
+```
+
+Mittels einer einfachen Word cloud können wir unsere DTM inspizieren:
+
+```{r eval=T}
+textplot_wordcloud(dtm_speeches, max_words=100)
+```
+
+# 3. Sentimentanalyse mit dem Dictionary-Approach
+
+### 3.1 Das Wörtbuch
+
+Um eine Sentimentanalyse mit einem Wörterbuch durchzuführen, können wir die `dfm_lookup`-Funktion von `quanteda` verwenden. Aber in einem ersten Schritt brauchen wir ein Wörterbuch. Entweder ihr erstell ein eigenes Lexika, mit eigenen Kategorien und Themen. Der Vorteil ist, dass ihr ein Werkzeug kreieren könnt, welches passgenau auf euer spezielles Forschungsinteresse und Theoriekonzept passt. Der Nachteil ist aber, dass das Erstellen eines validen *und* reliablen Wörterbuches sehr arbeitsintensiv ist. 
+
+Es gibt viele bestehende Wörterbücher, die ihr aus dem Internet heruntergeladen werden könnt (zum Beispiel stellt Johann Gründl im Kontext seines Papers [Populist ideas on social media: A dictionary-based measurement of populist communication](https://journals.sagepub.com/doi/full/10.1177/1461444820976970) ein eigenes Wörterbuch vor und zum herunterladen bereit oder ihr ladet euch das Wörterbuch für Sentimentanalysen in deutscher Sprache von [Haselmayer/Jenny (2020)](https://data.aussda.at/dataset.xhtml?persistentId=doi:10.11587/EOPCOB) herunter). Alternativ gibt es auch viele `R`-Pakete mit interessantennWörterbüchern. 
+
+Zum Beispiel enthält das Paket `SentimentAnalysis` 3 Wörterbücher: `DictionaryGI` ist ein allgemeines Sentiment-Wörterbuch, das auf **The General Inquirer** basiert, und `DictionaryHE` und `DictionaryLM` sind Wörterbücher mit finanzspezifischen Wörtern, die von Henry (2008) bzw. Loughran & McDonald (2011) vorgestellt wurden. Das Paket `qdapDictionaries` enthält auch eine Reihe von interessanten Wörterbüchern, darunter eine Liste von `positive.words` und `negative.words` aus dem Sentiment-Wörterbuch von Hu & Liu (2004), und spezifische Listen für `strong.words`, `weak.words`, `power.words` und `submit.words` aus dem Harvard IV-Wörterbuch.
+
+Ihr könnt die Wörterbücher von jedem Paket überprüfen, indem ihr sie installiert, in `R` ladet und die help-Page nutzt: 
+
+```{r eval=T}
+library(SentimentAnalysis)
+?DictionaryGI
+names(DictionaryGI)
+head(DictionaryGI$negative)
+
+library(qdapDictionaries)
+?positive.words
+head(positive.words)
+```
+
+Natürlich könnt ihr auch viele Wörterbücher als CSV herunterladen. Zum Beispiel gibt es das [**VADER lexicon**](https://github.com/cjhutto/vaderSentiment), welches speziell für die Analyse von Social Media erstellt wurde und damit auch spezielle Wörter wie "lol", "rofl" und "meh" enthält. Das Lexikon könnt ihr auf der Github-Seite von C.J. Hutto herunterladen. Dafür nutzen wir die Schritte, die ihr bereits aus dem `tidyR` Tutorial kennt:
+
+
+```{r eval=T}
+url <-  "https://raw.githubusercontent.com/cjhutto/vaderSentiment/master/vaderSentiment/vader_lexicon.txt" # Die Warnungen von R können hier übersehen werden. 
+vader <-  read_delim(url, col_names=c("word","sentiment", "details"),  col_types="cdc",  delim="\t") # delim = "\t" definiert wie wir die informationen aus der internettablle separieren wollen (da die datei eine tabelle ist, müssen wir \t nutzen)
+head(vader)
+```
+
+Die Auswahl des Wörterbuchs hängt immer von der eigenen Forschungsfrage ab. Zum Beispiel benötigt eine Analyse von bestimmten Politikfeldern in den Pressemitteilungen von politischen Parteien ein politikfeldspezifisches Wörterbuch wie es [Langer/Sagarzazu (2017)](https://onlinelibrary.wiley.com/doi/abs/10.1111/psj.12119) für ihre Analyse zur britischen Finanzpolitik entwickelt haben. Egal für welches Wörterbuch ihr euch entscheidet, oder ob ihr theoriegeleitet ein eigenes Wörterbuch entwickelt, die zentrale Aufgabe bei dictionary-Ansätzen ist die Kontrolle, ob das Wörterbuch tatsächlich das misst, was es messen soll!
+
+### 3.2 Ein Wörterbuch in `quanteda` erstellen
+
+
+Ihr könnt die oben aufgeführten Wörterbücher mit der `dfm_lookup`-Funktion anwenden. Etwas einfach gestaltet es sich mit den Wörterbüchern aus dem `SentimentAnalysis`-Paket, die ihr direkt in ein Quanteda-Wörterbuch umgewandeln könnt:
+
+```{r eval=T}
+GI_dict <- dictionary(DictionaryGI)
+GI_dict
+```
+
+Für die Wortlisten könnt ihr z. B. ein Wörterbuch mit positiven und negativen Begriffen zusammenstellen: (und ähnlich z. B. für schwache und starke Wörter, oder eine beliebige Liste von Wörtern, die ihr online finden könnt)
+
+```{r eval=T}
+HL_dict <-  dictionary(list(positive=positive.words, negative=negation.words))
+HL_dict
+```
+
+Eine weitere Möglichkeit für das Erstelles eines Wörterbuchs ist die Nutzung eines Sentiment-Wertes. Zum Beispiel der Sentiment-Wert des  [**VADER lexicon**](https://github.com/cjhutto/vaderSentiment) misst wie positiv oder negativ ein Wort bzw. Emojicon zu bewerten ist. Werte über 0.05 gelten als positiv und unter -0,05 als negativ. Mit diesem Wissen können wir unter zu Hilfe nahme von logischen Operatoren ein eigenes Wörterbuch erstellen:
+
+```{r eval=T}
+vader_pos <-  vader$word[vader$sentiment >= 0.05] # alle Wörter die einen Sentiment score über 0.05 haben werden in dem neuen Objekt "vader_pos" gespeichert
+vader_neut <-  vader$word[vader$sentiment > -0.05 & vader$sentiment < 0.05]
+vader_neg <-  vader$word[vader$sentiment <= -0.05]
+Vader_dict <-  dictionary(list(positive=vader_pos, neutral=vader_neut, negative=vader_neg))
+
+Vader_dict
+```
+
+Die letzte Möglichkeit eine Analyse mit einem Wörterbuch durchzuführen ist das Erstellen eines eigenen Wörterbuchs. Hierbei müsst ihr theoriegeleitet vorgehen und die Reliabilität und Validität eures Wörterbuches stetig prüfen. 
+
+Nehmen wir an, dass wir beispielsweise untersuchen wollen wie Kongressabgeordnete der republikanischen und der demokratischen Partei in Pressemitteilungen die Diskussion um die Einführung eines Mindestlohns framen. Dabei gehen wir davon aus, dass republikanische Abgeordnete eher wirtschaftsfreundlich argumentieren und demokratische Abgeordnete eher wohlfahrtsstaatlich. Einfachhalbshalber legen wir im Beispiel keinen Werte für die Wörter fest (kontextabhängig müsst ihr die (theoriegeleitete!!!) Entscheidung treffen, ob manche Wörter ein größeres Gewicht haben als andere!). Wir erstellen unser eigenes Wörterbuch wie folgt: 
+
+```{r eval=T}
+# Definition der Wörter die wir durch die bestehende Forschung als relevant für das Thema Mindeslohn identifiziert haben
+wordsReps <- c("tax relief", "small business*","job*","creat*","cost*","grow*") # der * erlaubt uns alle Wörter zu inkludieren, welche mit "job", "creat" etc, beginnen
+wordsDems <- c("poverty", "fair*","famil*","hard work*","low income","protect*")
+
+MinWage_dict <-  dictionary(list(Republicans=wordsReps, Democrats=wordsDems))
+
+MinWage_dict
+```
+
+Nochmals: Wörterbücher müssen stets auf Reliabilität und Validität geprüft werden.
+
+### 3.2 Anwendung des Wörterbuchs
+
+Zu Beginn dieses Tutorials haben wir eine DTM der Antrittsreden der US Präsidenten erstellt. In einem zweiten Schritt haben wir mehrere Wörterbücher heruntergeladen, von denen wir das `GI_dict` für unsere Sentiment-Analyse der Antrittsreden verwenden. Die Anwendung des Wörterbuchs ist einfach: 1) wir nutzen die Funktion `dfm_lookup` um das Wörterbuch auf die DTM anzuwenden, 2) wir konvertieren das Ergebnis sofort in einen `tibble`-Datensatz mit dem Namen "result". Beide Schritte verbinden wir in einer Pipeline. Der zweite Schritt ist rein optional, aber er erleichtert uns die nachfolgenden Schritte. 
+
+```{r eval=T}
+result <-  dtm_speeches %>% dfm_lookup(GI_dict) %>% convert(to = "data.frame") %>% as_tibble
+result
+```
+
+Wir können auch die Textlänge hinzufügen, wenn wir die Ergebnisse für die Länge der Dokumente normalisieren wollen. Hierfür verwenden die Funktion `ntoken`:
+
+```{r eval=T}
+result <-  result %>% mutate(length=ntoken(dtm_speeches))
+```
+
+Anschließend können wir einen Gesamt-Sentiment-Score errechnen, um nicht mit zwei Werten hantieren zu müssen. Für diese Aufgabe gibt es verschiedene Möglichkeiten:die Anzahl der negativen Sentiments mit der Anzahl der positiven Sentiments zu substrahieren und entweder 1) durch die Gesamtzahl der Sentiments oder 2) durch die Textlänge zu dividieren. Wir können auch 3) ein Maß für die Subjektivität berechnen, um eine Vorstellung von dem generellen Stimmung der Texte zu bekommen:
+
+```{r eval=T}
+result <-  result %>% mutate(sentiment1=(positive - negative) / (positive + negative)) # 1. Möglichkeit
+result <- result %>% mutate(sentiment2=(positive - negative) / length) #  2. Möglichkeit
+result <-  result %>% mutate(subjectivity=(positive + negative) / length) # Subjektivität
+result
+```
+
+Diese drei Scores können als ein Maßzahlen für die Stimmung/Subjektivität pro Dokument definiert werden. Für eine substanzielle Analyse können wir jetzt die Scores mit den Metadaten/Docvars der DTM verknüpfen und z. B. die Stimmung pro Präsident oder über die Zeit berechnen.
+
+# 4. Validierung 
+
+Um ein Maß für die Validität eines Wörterbuches zu erhalten, müssen wir eine Zufallstichprobe von Dokumenten manuell kodieren und die Kodierung mit den Eregbnissen des Wörterbuchs vergleichen. Manuelle Kodierungen gelten als Goldstandard an dem sich automatische Kodierungen messen lassen müssen. Die Validierung einer jeden Textanalysemethode muss im Methodenabschnitt einer Hausarbeit berichtet und diskutiert werden. Wie groß eine Zufallsstichprobe für eine Validierung sein sollte ist in der Wissenschaft umstritten. Hier gilt jedoch: je größer, desto genauer die Validierung. Das größte Problem bei manueller Kodierung ist die generell große Ressourcenknappheit, weshalb kontextspezifisch ein gutes und realisierbares Maß gefunden (und in der Arbeit auch stichhaltig verargumentiert) werden muss. 
+
+Um eine Zufallsstichprobe aus der ursprünglichen DTM zu ziehen, können wir die Funktion `sample` anwenden:  
+
+```{r eval=T}
+sample_speeches = sample(docnames(dtm_speeches), size=20) # wir wählen zufällig 20 Reden aus
+```
+
+Jetzt transformieren wir unseren Ausgangskorpus in einen Datensatz, fügen die Volltexte und Dokumentennamen hinzu. Danach filtern wir unsere zufällig ausgewählten Antrittsreden und kreieren eine csv.Datei. Diese Datei können wir anschließend für die manuelle Kodierung nutzen:
+
+```{r eval=F}
+# Korpus in Datensatz umwandeln
+docs <- docvars(inaug_speeches) # Dokumentenvariablen 
+docs$doc_id <-  docnames(inaug_speeches) # Textnamen
+docs$text <-  texts(inaug_speeches) # Volltexte der Reden
+
+# Wir filtern unsere Zufallsstichprobe, kreieren die neue Variable "manual_coding" und schreiben dann eine csv.Datei (diese finden sich dann in dem Ordner von eure R-Projekt oder dort wo ihr euer Skript abgespeichert habt)
+docs %>% filter(document %in% sample_speeches) %>% mutate(manual_coding="") %>% write_csv("to_code.csv")
+```
+
+Jetzt können wir die csv.Datei in Excel öffnen und die 20 zufällig ausgewählten Dokumente manuell kodieren. Anschließend müssen wir das Ergebnis wieder in `R` einlesen und mit den automatisch generierten Ergebnissen unserer Wörterbuchanalyse konbinieren:
+
+```{r eval=T}
+validation <-  read_csv("to_code.csv") %>% mutate(doc_id=as.character(document)) %>% inner_join(result)
+```
+
+Nun wollen wir sehen, ob meine (zugegebenermaßen **völlig zufällige**) manuelle Kodierung mit dem automatischen Sentiment-Score übereinstimmt. Zum testen berechnen wir eine Korrelation :
+
+```{r eval=T}
+cor.test(validation$manual_coding, validation$sentiment1)
+
+cor.test(validation$manual_coding, validation$sentiment2)
+```
+
+Die Korrelationen zeigen keinen signifikanten Zusammenhang zwischen meiner manuellen Kodierung und der automatischen Kodierung. Hätte ich die Dokumente ernsthaft kodiert, dann wäre das ein schlechtes Zeichen für meine Wörterbuchanalyse und würde bedeuten, dass ich mein Wörterbuch nochmals deutlich verbessern müsste. 
+
+Wir können auch eine 'Konfusionsmatrix' berechnen, wenn wir mit der Funktion `cut` einen Nominalwert aus dem Sentiment erzeugen:
+
+```{r eval=T}
+validation <-  validation %>% 
+  mutate(sent_nom = cut(sentiment1, breaks=c(0, 0.49, 0.51, 1), labels=c("-", "0", "+")))
+cm <-  table(manual = validation$manual_coding, dictionary = validation$sent_nom)
+cm
+```
+
+Die Konfusionsmatrix zeigt die Anzahl der Fehler in jeder Kategorie. Zum Beispiel wurden 9 Dokumente als negativ ("-") klassifiziert, aber manuell als positiv kodiert. Die Gesamtgenauigkeit ist die Summe der Diagonalen der Matrix (1+0+0) geteilt durch den gesamten Stichprobenumfang (20), also sehr niedrige 0.05%.
+
+```{r eval=T}
+sum(diag(cm)) / sum(cm)
+```
+
+Die Ergebnisse würden bedeuten, dass unser Wörterbuch für die zu analysierenden Texxte nicht funktioniert und das eine erhebliche Verbesserung des Wörterbüches notwendig ist. Da ich die manuelle Kodierung jedoch vollkommen zufällig gemacht habe, sind die gefunden Validierungsergebnisse nicht aussagekräftig und dienen lediglich als Anschauungsmaterial. 
+
+# 4. Optimierung
+
+Um ein Sentiment-Wörterbuch zu optimieren, ist es wichtig die Wörter im Wörterbuch zu identifizieren, die den größten Einfluss auf die Ergebnisse haben. Für diese Aufgabe eignet sich die `textstat_frequency`-Funktion aus `quanteda` in Verbindung mit `filter`-Funktion. 
+
+
+```{r eval=T}
+freqs <-  textstat_frequency(dtm_speeches)
+freqs %>% as_tibble() %>% filter(feature %in% HL_dict$positive)
+```
+
+Es zeigt sich, dass die am häufigsten auftretenden "positiven" Wörter "great" und "peace" sind. Natürlich ist es möglich, dass diese Wörter tatsächlich in einem positiven Sinne verwendet wurden ("this great country"), aber es ist ebenso möglich, dass sie neutral oder aber auch negativ verwendet wurden. 
+
+Um das zu kontrollieren bietet sich vor allem die "Key-Word-in-Context"-Methode an. Bei dieser Methode definieren wir ein Zielwort und lassen uns eine gewisse Textsequenze vor und nach diesem Wort anzeigen:
+
+```{r eval=T}
+head(kwic(inaug_speeches, "great"))
+head(kwic(inaug_speeches, "peace"))
+```
+
+Daraus geht hervor, dass das Wort "peace" eher als neutraler Begriff verwendet wird. Das bedeutet, dass es vermutlich unsere Positive/Negative-zentrierte Sentimentanalyse verzerrt. Um es aus der Liste der positiven Wörter zu entfernen, können wir die Funktion `setdiff` (Differenz zwischen zwei Mengen) verwenden: 
+
+```{r eval=T}
+positive.cleaned <- setdiff(positive.words, c("peace"))
+HL_dict2 <-  dictionary(list(positive=positive.cleaned, negative=negation.words))
+```
+
+Schauen wir uns jetzt die nochmal die wichtigsten positiven Wörter an:
+
+```{r eval=T}
+freqs_pos <- freqs %>% filter(feature %in% HL_dict2$positive)
+head(freqs_pos)
+```
+
+Die Überprüfung der Top-25-Wörter kann die Gültigkeit eines Wörterbuchs bereits gut abbilden, da diese Wörter oft einen großen Teil der Ergebnisse bestimmen.
+
