@@ -50,3 +50,11 @@ author_profile: true
  - <p>Übungen zur Sitzung:</p>
  
     * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/excercises_tokens_dfm.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: DFM, Tokens, Füllwörter </span></span></a>
+
+ <p><b>5. Sitzung: Dictionaries und Sentimentanalysen</b></p>
+
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_dictionaries_sentiments"><span style="color: #333333;"><span style="font-size: medium;">Textanalyse mit Wörterbüchern und Sentiments mit `quanteda`</span></span></a>
+
+ - <p>Übungen zur Sitzung:</p>
+ 
+    * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_excercises_dictionary.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Wörterbücher </span></span></a>
