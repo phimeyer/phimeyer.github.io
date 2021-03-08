@@ -24,10 +24,12 @@ I am particularly interested in research on Comparative Political Institutions a
 - Meyer, Philipp. Open justice at apex courts. A new perspective for comparative research on courts.
     - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_Open_Justice"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
  
-- Hönnige, Christoph, Philipp Meyer, Christine Allison Rothmayr and Sylvain Brouard. Institutional Friction in High Court Policy Agendas: Comparing France, Canada and Germany.
+ - Meisel, Frank, Catherine Cleophas, Christoph Hönnige, and Philipp Meyer. Detecting and preventing collaborative patterns in online open-book exams.
+ 
+ - Meyer, Philipp, Thomas Gschwend, Benjamin Engst and David Gundermanns. Institutional determinants of court deadlines.
 
 - Hönnige, Christoph, Dominic Nyhuis, Susumu Shikano, Philipp Köker and Philipp Meyer. Leave means leave: The link between MPs Brexit position and newspaper mentions. 
 
-- Meyer, Philipp and Christoph Hönnige. The missing link between the legislative and the judicial agenda: Does the German parliament shape the policy agenda of the German Federal Constitutional Court?
+- Hönnige, Christoph, Philipp Meyer, Christine Allison Rothmayr and Sylvain Brouard. Institutional Friction in High Court Policy Agendas: Comparing France, Canada and Germany.
 
-- Meyer, Philipp, Thomas Gschwend, Benjamin Engst and David Gundermanns. Institutional determinants of court deadlines.
+- Meyer, Philipp and Christoph Hönnige. The missing link between the legislative and the judicial agenda: Does the German parliament shape the policy agenda of the German Federal Constitutional Court?
