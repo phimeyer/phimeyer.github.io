@@ -140,24 +140,54 @@ result <-  dtm_speeches %>% dfm_lookup(GI_dict) %>% convert(to = "data.frame") %
 result
 ```
 
-Wir können auch die Textlänge hinzufügen, wenn wir die Ergebnisse für die Länge der Dokumente normalisieren wollen. Hierfür verwenden die Funktion `ntoken` und legen damit eine neue Variable mit dem Namen "length" an:
+Jetzt fügen wir die Textlänge hinzu, damit wir die Ergebnisse für die Länge der Dokumente normalisieren können. Hierfür verwenden die Funktion `ntoken` und legen damit eine neue Variable mit dem Namen "length" an:
 
 ```{r eval=T}
 result <-  result %>% mutate(length=ntoken(dtm_speeches))
 ```
 
-Anschließend können wir einen Gesamt-Sentiment-Score errechnen. Dadurch brauchen wir nicht mit zwei Werten hantieren. Für diese Aufgabe gibt es verschiedene Möglichkeiten: die Anzahl der negativen Sentiments mit der Anzahl der positiven Sentiments zu substrahieren und entweder 1) durch die Gesamtzahl der Sentiments oder 2) durch die Textlänge zu dividieren. Wir können auch 3) ein Maß für die Subjektivität berechnen, um eine Vorstellung von dem generellen Stimmung in den Texten zu bekommen:
+Anschließend können wir einen Gesamt-Sentiment-Score errechnen. Dadurch brauchen wir nicht mit zwei Werten hantieren. Für diese Aufgabe gibt es verschiedene Möglichkeiten: die Anzahl der negativen Sentiments mit der Anzahl der positiven Sentiments zu substrahieren und entweder 1) durch die Gesamtzahl der Sentiments oder 2) durch die Textlänge zu dividieren:
 
 ```{r eval=T}
 result <-  result %>% mutate(sentiment1=(positive - negative) / (positive + negative)) # 1. Möglichkeit
 
 result <- result %>% mutate(sentiment2=(positive - negative) / length) #  2. Möglichkeit
 
-result <-  result %>% mutate(subjectivity=(positive + negative) / length) # Subjektivität
 result
 ```
 
-Diese drei Scores können als Maßzahlen für die Stimmung/Subjektivität pro Dokument definiert werden. Für eine substanzielle Analyse können wir jetzt die Scores mit den Metadaten/Docvars der DTM verknüpfen und z. B. die Stimmung pro Antrittsrede oder über Zeit berechnen.
+Diese zwei Scores können als Maßzahlen für die Stimmung pro Dokument definiert werden. Für eine substanzielle Analyse können wir jetzt die Scores mit den Metadaten/Docvars der DTM verknüpfen und z. B. die Stimmung pro Antrittsrede oder über Zeit berechnen. 
+
+### 3.3 Visualisierung 
+
+Natürlich können wir auch eine schnelle Visualisierung eines der errechneten Sentiment-Scores in den Antrittsreden der US-Präsidenten realisieren. Hierfür nutzen wir das `ggplot2`-Paket:
+
+```{r eval=T}
+library(ggplot2)
+
+ggplot(result, aes(doc_id, sentiment1, group = 1)) + # Die Reden bilden die x-Achse und der Subjektivitätsmaß bildet die y-Achse
+  geom_line(size = 1) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +  # Hier definieren wir das Aussehen der Lables 
+  ggtitle("Sentiment/Ton in den Antrittsreden der US-Präsidenten") # Titel
+```
+
+Wollen wir die positiven und negativen Wörter getrennt visualisieren (also wie viele positive und wie viele negative Wörter eine Antrittsrede enthält), dann können wir beispielhaft wie folgt vorgehen:
+
+```{r eval=T}
+dtm_speeches <- dfm_lookup(dtm_speeches,GI_dict) # Hier wiederholen wir die Anwendung des Wörterbuchs
+
+sentiment <- convert(dtm_speeches, "data.frame") %>%
+  gather(positive, negative, key = "Polarität", value = "Wörter") %>% 
+  mutate(doc_id = as_factor(doc_id)) %>% 
+  rename(Reden = doc_id)  # Wir erstellen einen eigenen Datensatz mit dem Namen "Sentiment" und generieren neue Variablen (Polarität, Wörter) bzw. benennen Variablen um (doc_id wird zu "Reden")
+head(sentiment)
+
+ggplot(sentiment, aes(Reden, Wörter, colour = Polarität, group = Polarität)) + 
+  geom_line(size = 1) + 
+  scale_colour_brewer(palette = "Set1") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + 
+  ggtitle("Sentiment-Scores in den Antrittsreden der US-Präsidenten")
+```
 
 # 4. Validierung 
 
@@ -251,3 +281,6 @@ head(freqs_pos)
 ```
 
 Die Überprüfung der Top-25-Wörter kann die Gültigkeit eines Wörterbuchs bereits gut abbilden, da diese Wörter oft einen großen Teil der Ergebnisse bestimmen.
+
+
+Für weitere nützliche Hinweise und Beispiele empfehle ich euch die Internetseite von Cornelius Puschmann: <http://inhaltsanalyse-mit-r.de/sentiment.html>
