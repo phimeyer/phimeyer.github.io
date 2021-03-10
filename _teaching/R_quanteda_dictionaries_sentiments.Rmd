@@ -213,7 +213,7 @@ con_matrix
 Die Konfusionsmatrix zeigt die Anzahl der Fehler in jeder Kategorie. Zum Beispiel wurden 9 Dokumente durch den Computer als negativ ("-") klassifiziert, aber manuell von mir als positiv kodiert. Die Gesamtgenauigkeit ist die Summe der Diagonalen der Matrix (1+0+0) geteilt durch den gesamten Stichprobenumfang (20), also sehr niedrige 0.05%.
 
 ```{r eval=T}
-sum(diag(cm)) / sum(cm)
+sum(diag(con_matrix)) / sum(con_matrix)
 ```
 
 Die Ergebnisse würden bedeuten, dass unser Wörterbuch für die zu analysierenden Texte nicht funktioniert und das eine Verbesserung des Wörterbüches notwendig ist. Da ich die manuelle Kodierung jedoch vollkommen zufällig gemacht habe, sind die gefunden Validierungsergebnisse nicht aussagekräftig. Sie dienen lediglich als Anschauungsmaterial. **Bitte kodiert eure 20 Texte selber und schaut dann inwiefern sich die Validationsmaße verändern!**
