@@ -51,9 +51,9 @@ author_profile: true
  
     * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/excercises_tokens_dfm.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: DFM, Tokens, Füllwörter </span></span></a>
 
-<p><b>5. Sitzung: Textstatistiken und Textähnlichkeitens</b></p>
+<p><b>5. Sitzung: Textstatistiken und Textähnlichkeiten</b></p>
 
- - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_textstatistics"><span style="color: #333333;"><span style="font-size: medium;">Textstatistiken und Textähnlichkeitens</span></span></a>
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_textstatistics"><span style="color: #333333;"><span style="font-size: medium;">Textstatistiken und Textähnlichkeiten</span></span></a>
 
  <p><b>6. Sitzung: Dictionaries und Sentimentanalysen</b></p>
 
