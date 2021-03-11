@@ -1,0 +1,358 @@
+---
+title: "Textstatistiken und Textähnlichkeiten mit `quanteda`"
+author: "Philipp Meyer, Institut für Politikwissenschaft"
+date: "12.05.2021, Textstatistiken und Textähnlichkeiten, Seminar: Quantitative Textanalyse"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+## include this at top of your RMarkdown file for pretty output
+## make sure to have the printr package installed: install.packages('printr')
+knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FALSE)
+#library(printr)
+```
+
+# 1. Einleitung
+
+In diesem Tutorial wird es um generelle Textmetriken und Textvergleiche gehen. Da [Cornelius Puschmann](http://inhaltsanalyse-mit-r.de/metriken.html) zu diesem Thema bereits eine sehr gute Übersicht geliefert hat, werde ich seine Erklärungen, seinen Code und seine Darstellungen zu großen Teilen übernehmen und mit eigenen Daten wiederholen. 
+
+Umgangssprachlich beschrieben, werdet ihr in diesem Tutorial lernen eure Texte kennenzulernen. Dafür werden wir uns Worthäufigkeiten und auch die Ähnlichkeit von Texten anschauen. Diese grundlegenden Statistiken sind relevant für die weiterführenden Methoden, die wir im Laufe des Seminars noch näher kennenlernen, und sie helfen uns bereits bei der Beantwortung unserer Fragestellungen. So habe ich in [meiner eigenen Arbeit](https://doi.org/10.1080/10584609.2020.1784329) zum Beispiel die Textähnlichkeit von Pressemitteilungen des Bundesverfassungsgericht und Zeitungsartikeln als abhängige Variable verwendet, um die Berichterstattung über Gerichtsentscheidungen zu analysieren.
+
+# 2. Eine Dokument-Feature-Matrix (DFM) erstellen
+
+Die Grundlage für unsere weiteren Schritte bildet die Dokument-Feature-Matrix (DFM) bzw. Dokument-Term-Matrix (DTM). 
+
+Hierfür werden wir die Antrittsreden der US Präsidenten aus dem `quanteda`-Paket verwenden (für eine Liste aller in `quanteda` gespeicherten Korpora: [quanteda.corpora](https://github.com/quanteda/quanteda.corpora)). 
+
+
+```{r eval=T}
+library(quanteda)
+
+inaug_speeches <- data_corpus_inaugural 
+inaug_speeches
+speeches.stats <- summary(inaug_speeches) # Die einzelnen deskriptiven Metriken des Korpus werden wir später noch gebrauchen können
+```
+
+Jetzt erstellen wir eine DTM mittels einer Pipeline:
+
+```{r eval=T}
+library(tidyverse) 
+
+dtm_speeches <-  inaug_speeches %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) # wir entfernen alle Füllwörter, die Interpunktion, Symbole, Zahlen
+dtm_speeches
+```
+
+# 3. Textmetriken
+
+### 3.1 Key-word-in-context
+
+Neben der klassischen Wordcloud lassen sich mit `quanteda` auch relativ einfach weitere noch genauere Einblicke in unsere Texte realisieren. Als erstes ist die die KWIC-Methde (Key-Word-In-Context) zu nennen. Hierbei werden der Satzkontext von von euch definierter Suchbegriffe extrahiert und dargestellt. 
+
+Mit `quanteda` ist es möglich den Kontext einzeler Wörter oder auch auch ganze Sätze darzustellen. 
+
+```{r}
+kwic(inaug_speeches, "war", window = 2) # der window befehl definiert die anzahl der kontextwörter die angezeigt werden
+```
+
+Beachtet bitte das der KWIC-Befehl auf den Korpus und nicht auf die zuvor erstellte DTM angewendet wurde.
+
+Mittels dieser einfachen Methode lassen sich jetzt weitere Analyseschritte realisieren. So können wir zum Beispiel die Häufigkeit und Verteilung von Tokens/Sequenzen berechnen, die die Begriffe "freedom" und "war".
+
+```{r eval = T}
+library(dplyr)
+term1 <- kwic(inaug_speeches, "freedom") %>%  # KWIC mit dem Wort "freedom"
+  as.data.frame() %>%  # Transformation in einen Datensatz
+  group_by(docname, keyword) %>% # Gruppierung
+  mutate(count = n()) %>% # Berechnung wie oft das Wort "Freedom" vorkommt
+  mutate(percentage = count/sum(speeches.stats$Tokens/100), search_term = "freedom") %>% 
+  arrange(desc(percentage))
+
+
+term2 <- kwic(inaug_speeches, "war") %>%  # KWIC mit dem Wort "freedom"
+  as.data.frame() %>%  # Transformation in einen Datensatz
+  group_by(docname, keyword) %>% # Gruppierung
+  mutate(count = n()) %>% # Berechnung wie oft das Wort "Freedom" vorkommt
+  mutate(percentage = count/sum(speeches.stats$Tokens/100), search_term = "war") %>% 
+  arrange(desc(percentage))
+term1
+```
+
+```{r eval = T}
+term2
+```
+
+Jetzt können wir die zum Beispiel die absolute Häufigkeit der beiden Begriffe visualisieren:
+
+```{r eval = T}
+kwic_terms <- bind_rows(term1, term2) # Wir verbinden beide Datensätze miteinander
+
+ggplot(kwic_terms, aes(docname, count, group = search_term, col = search_term)) + 
+  geom_line(size = 1) + 
+  scale_colour_brewer(palette = "Set1") + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + 
+  ggtitle("Absolute Häufigkeit der Wörter \"freedom\" und \"war\" pro Antrittsrede") + 
+  xlab("Antrittsrede") + ylab("Wörter (absolut)")
+```
+
+Neben den Häufigkeiten eines Wortes können wir auch die Position des Wortes in dem jeweiligen Text untersuchen. Das `quanteda`-Paket sellt hiervor die Funktion `textplot_xray` zur Verfügung: 
+
+```{r eval = TRUE}
+textplot_xray(kwic(inaug_speeches, "freedom")) + 
+  ggtitle("Position des Bergiffs \"freedom\" in den Antrittsreden der US-Präsidenten")
+```
+
+Die x-Achse repräsentiert die Position des jeweiligen Wortes innhalb des Textes. Wie wir sehen hat Georg W. Bush im Jahr 2005 das Wort nicht nur am Häufigsten von allen Präsidenten verwendet (siehe Plot zur Häufigkeit), sondern auch über seine gesamte Rede hinweg immer mal wieder verwendet. Dieses erste deskriptive Ergebniss könnten wir jetzt im Kontext der 2005 vorherrschenden politischen Entwicklungen (Irakkrieg, großflächige Abhörungen von US-Bürgern etc.) analysieren. 
+
+### 3.2 Worthäufigkeiten 
+
+Mittels KWIC können wir, sehr umständlich, Worthäufigkeiten für spezielle Wörter zu untersuchen. Zum Glück bietet `quanteda` mit der `textstat_frequency`-Funktion einen deutlich einfachere Weg. Anstelle einer umständlichen eigenen Berechnung der verschiedenen Metriken, gibt uns `textstat_frequency` die Metadaten, die Anzahl der Dokumente, in denen das Wort vorkommt und vieles mehr aus.
+
+```{r eval = T}
+word_freq <- textstat_frequency(dtm_speeches) # hier nutzen wir die dtm!
+head(word_freq)
+```
+
+Da unser Antrittsredenkropus die Parteien der Präsidenten enthält, können wir mit `textstat_frequency` die Häufigkeiten nach Parteien gruppieren und mittels `arrange` ordnen:
+
+```{r eval = T}
+party_freq <- textstat_frequency(dtm_speeches, groups = "Party") %>% arrange(rank, group)
+head(party_freq, 35) # schauen wir uns die ersten 35 Beobachtungen an
+```
+
+Die häufigsten Begriffe können wir natürlich auch pro Partei einzeln visualisieren. Der Einfachheit halber werden wir nur die Republikaner und die Demokratien plotten.
+
+Zu erst visualisieren wir die populärsten Begriffe in den Reden republikanischer Präsidenten (+ die Frequenz bei jedem Begriff für die jeweils andere ‘Seite’):
+
+```{r eval=T}
+freqs_rep <- filter(party_freq, group == "Republican") %>% as.data.frame() %>% select(feature, frequency)
+
+freqs_dems <- filter(party_freq, group == "Democratic") %>% as.data.frame() %>% select(feature, frequency)
+
+freqs <- left_join(freqs_rep, freqs_dems, by = "feature") %>% head(25) %>% arrange(frequency.x) %>% mutate(feature = factor(feature, feature))
+
+ggplot(freqs) +
+  geom_segment(aes(x=feature, xend=feature, y=frequency.x, yend=frequency.y), color="grey") +
+  geom_point(aes(x=feature, y=frequency.x), color = "red", size = 3 ) +
+  geom_point(aes(x=feature, y=frequency.y), color = "lightblue", size = 2 ) +
+  ggtitle("Häufige Begriffe in Reden \nrepublikanischer und demokratischer Präsidenten") + 
+  xlab("") + ylab("Wortfrequenz") + 
+  coord_flip()
+```
+
+Jetzt visualisieren wir die populärsten Begriffe in den Reden demokratischer Präsidenten (+ die Frequenz bei jedem Begriff für die jeweils andere ‘Seite’):
+
+```{r eval=T}
+freqs <- left_join(freqs_rep, freqs_dems, by = "feature") %>% head(25) %>% arrange(frequency.y) %>% mutate(feature = factor(feature, feature))
+
+ggplot(freqs) +
+  geom_segment(aes(x=feature, xend=feature, y=frequency.y, yend=frequency.x), color="grey") +
+  geom_point(aes(x=feature, y=frequency.y), color = "blue", size = 3 ) +
+  geom_point(aes(x=feature, y=frequency.x), color = "lightcoral", size = 2 ) +
+  ggtitle("Häufige Begriffe in Reden \ndemokratischer und republikanischer Präsidenten") + 
+  xlab("") + ylab("Wortfrequenz") + 
+  coord_flip()
+```
+
+Natürlich haben wir im Vorhinein nicht sehr viel Arbeit in das Identifizieren von weiteren Stoppwörtern und andere hochfrequente aber eher bedeutungslose Wörter investiert. Wäre das der Fall gewesen, dann hätten wir hier sicherlich noch deutlich aussagekräftigere Ergebnisse gefunden.
+
+# 4. Textähnlichkeiten
+
+### 4.1 Gemeinsam auftretende Wörter 
+
+Welche Wörter treten häufig gemeinsam auf? Welche linguistische Nähe oder Distanz haben Texte zueinander? Um diese und weitere Fragen zu beantworten, schauen wir uns jetzt Textähnlichkeiten und weitere Textmetriken an. Hierbei handelt es sich zum Teil um Methoden, welche der Plagiatsprüfung sehr nahe kommen, und auch auch bereits in der Forschung angewendet wurden. Zum Beispiel analysieren [Kaspar Welbers et al.](https://doi.org/10.1080/1461670X.2016.1190663) den Einfluss von Nachrichtenagenturen mittels Textähnlichkeiten.
+
+
+Schauen wir uns in einem ersten Schritt die Begriffe an, welche häufig gemeinsam auftreten. `quanteda` bietet hierfür die `textstat_collocations`-Funktion, welche wir im folgenden auf unseren Antrittsredenkorpus anwenden. 
+
+```{r eval=T}
+speeches_collocations <- textstat_collocations(inaug_speeches, min_count = 10) # wir werden unseren korpus (nicht die dtm an!) und definieren das die Begriffs-Nachbarn mindest 10x vorhanden sein müssen
+head(arrange(speeches_collocations, desc(count))) # Absteigend nach Aufkommen sortiert
+head(arrange(speeches_collocations, desc(lambda))) # Absteigend nach Lambda sortiert
+```
+
+Der Lambda- und z-Wert (z-standardisiertes Lambda) geben die Assoziationsstärke der Begriffspaare an. Je höher der Lambdawert, desto höher ist die Wahrscheinlichkeit das die zwei Begriffe auf einander folgen. 
+
+Inwiefern ist dieser Wert von der absoluten Häufigkeit eines Wortes (siehe die erste Tabelle) zu differenzieren?
+
+### 4.2 Wortähnlichkeiten
+
+Im Gegensatz zu Textähnlichkeiten (welche wir später behandeln werden), müssen wir bei Wortähnlichkeiten Sätze bzw. Wörter als einzelne Dokumente behandeln. Dadurch können wir auch bei einer geringen Anzahl an Dokumenten zuverlässige Ähnlichkeitsmaße berechnen. Als Methode wählen wir die **Cosine similarity**, die von [Kaspar Welbers et al.](https://doi.org/10.1080/1461670X.2016.1190663) als der aktuelle Standart in den Computational Social Science bezeichnet wird. Cosine similarity hat einen kontinuierlichen Wertebereich von 1 (perfekte Ähnlichkeit/Übereinstimmung) bis 0 (pefekte Ungleichheit/Unähnlichkeit).
+
+Die Berechnung der Wortähnlichkeiten wird durch die `textstat_simil`-Funktion realisiert. Nutzt bitte die help-Funktion (`?textstat_simil` um die weiteren Methoden zur Berechnung vo Wort-/Textähnlichkeit kennenzulernen). Als Input für die Funktion erstellen wir eine DFM, in der jeder Satz einer Beobachtung (bzw. "einem Dokument") entspricht. Für unser Beispiel berechnen wir die Wortähnlichkeit zu den Begriffen "freedom" und "war".
+
+```{r eval=T}
+sentences_corpus <- corpus_reshape(inaug_speeches, to = "sentences") # wir formen unserem corpus basierend auf den einzelnen Reden in einen corpus basierend auf den einzelnen Sätzen um
+
+sentences_dfm <- dfm(sentences_corpus, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english"))
+
+
+similarity_freedom <- textstat_simil(sentences_dfm, sentences_dfm[,"freedom"], margin = "features", method = "cosine")
+
+head(similarity_freedom[order(similarity_freedom[,1], decreasing = T),], 10)
+
+similarity_war <- textstat_simil(sentences_dfm, sentences_dfm[,"war"], margin = "features", method = "cosine")
+
+head(similarity_war[order(similarity_war[,1], decreasing = T),], 10)
+```
+
+Was sehen wir hier? Das Wort mit der höchsten Ähnlichkeit zur "Freedom" ist "bulwarks" also Bollwerke (womöglich interpretierbar mit: "Amerika als Bollwerk des Friedens in der Welt") und das Wort mit der höchstens Ähnlichkeit zu "War" ist "retained" also einbehalten oder Rücklage. Letzteres macht weniger Sinn, als zum Beispiel das Wort mit zweithöchsten Ähnlichkeit "calamaties" also Katastrophen. Man muss jedoch sagen, dass wir in Punkt 3.1 dieses Tutorials gesehen haben, dass beide Wörter nicht in jeder Rede ähnlich oft vorkommen. 
+
+Wie dem auch sei, auch hier zeigt sich, dass wir zumindest etwas mehr Arbeit in die Identifizierung und Entfernung weiterer eher unbrauchbarer Wörter hätten stecken müssen. Weiterhin sieht man hier auch, dass Ähnlichkeitsmaße immer eine solide und große Datenbasis brauchen und das das Zielwort möglichst häufig (gleichverteilt) vorkommen sollte. 
+
+Das Gegenteil zur `textstat_simil`-Funktion ist die `textstat_dist`-Funktion, mit der man die Distanz zwischen Wörtern berechnen kann. Hier hier lässt sich zwischen verschiedenen Distanzmaßen wählen (für mehr Infos wie immer: `?textstat_dist`). In unserem Beispiel nehmen wir die etablierte [euklidische Distanz](https://de.wikipedia.org/wiki/Euklidischer_Abstand) und schauen uns die Ergebnisse für das Wort "freedom" an:
+
+```{r eval=T}
+distance_freedom <- textstat_dist(sentences_dfm, sentences_dfm[,"freedom"], margin = "features", method = "euclidean") # wir berechnen die euklidische Distanz
+
+head(distance_freedom[order(distance_freedom[,1], decreasing = T),], 10)
+```
+
+Der Begriff "Government" ist nach diesem Eregbnis am weitestens von dem Begriff "freedom" entfernt, gefolgt von "people" and "US". Da wir aber von Kapitel 3.2 wissen, dass diese Begriffe auch die häufigsten Begriffe in unserem Korpus (und vermutlich auch über alle Reden gleich verteilt häufig auftreten) sind, ist dieses Ergebnis nicht verwunderlich. In einer Forschungsarbeit müssten wir diese Eregbnisse nutzen und unsere Preprocessing-Schritte verbessern und um damit unsere Eregbnisse zu verbessen. 
+
+### 4.3 Textähnlichkeiten
+
+In unseren Beispielen zur Wortähnlichkeit haben wir in den Funktionen den `margins`-Befehl mit "features" also Wörten spezifiziert. Eine weitere Möglichkeit ist die Spezifikation auf "documents", also ganze Dokumente/Texte. Auf diese Weise werden nicht die Ähnlichkeiten von Wörtern oder Sätze verglichen, sondern die Ähnlichkeiten von Dokumenten. 
+
+Im folgenden Beispiel inspizieren wir die Ähnlichkeit der 2005er Antrittsrede von Georg W. Bush mit allen anderen Antrittsreden. Dafür erstellen wir in einem ersten Schritt einen Datensatz mit den Ähnlichkeitsmaßen und im zweiten Schritt visualisieren wir die Maße: 
+
+```{r eval=TRUE}
+bush_2005_similarity <- data.frame(Text = factor(speeches.stats$Text, levels = rev(speeches.stats$Text)), as.matrix(textstat_simil(dtm_speeches, dtm_speeches["2005-Bush",], margin = "documents", method = "cosine")))
+
+ggplot(bush_2005_similarity, aes(X2005.Bush, Text)) + # Der Variablenname "X2005.Bush" wurde durch unsere Datensatzkreation automatisch gewählt.
+  geom_point(size = 2.5) + 
+  ggtitle("Textähnlichkeit der 2005er Antrittsrede von G.W. Bush") + 
+  xlab("Cosine similarity") + ylab("")
+```
+
+Die "größte" Ähnlichkeit weisen die Reden von Reagan 1985, Bush 2001 und Obama 2013 auf. 
+
+Schauen wir uns jetzt beispielhaft die Antrittsrede von Trump aus dem Jahr 2017 an: 
+
+```{r eval=TRUE}
+trump_2017_similarity <- data.frame(Text = factor(speeches.stats$Text, levels = rev(speeches.stats$Text)), as.matrix(textstat_simil(dtm_speeches, dtm_speeches["2017-Trump",], margin = "documents", method = "cosine")))
+
+ggplot(trump_2017_similarity, aes(X2017.Trump, Text)) + 
+  geom_point(size = 2.5) + 
+  ggtitle("Textähnlichkeit der 2017er Antrittsrede von Donald Trump") + 
+  xlab("Cosine similarity") + ylab("")
+```
+
+Wie ihr sehen könnt, lässt sich mit dieser Art der Darstellung gezielt die Ähnlichkeiten und Unterschiede für einzelne Text visualisieren. Natürlich gibt es noch viele weitere Wege der Visualisierung, wie z.B. Dendogramme oder Heatmaps. 
+
+Eine interaktive Heatmap z.B. lässt sich sehr schnell mit der Hilfe der Pakete `heatR` und `d3heatmap` erstellen: 
+
+```{r eval=T}
+
+library(d3heatmap)
+library(heatR)
+
+textstat_simil(dtm_speeches, margin = "documents", method = "cosine") %>%
+  as.matrix() %>% 
+  heatR::corrheat() 
+```
+
+Am besten ihr probiert selber mal etwas rum und sucht nach eigenen Wegen der Visualisierung von Textähnlichkeiten (ihr könntet euch zum Beispiel das [`RNewsflow`-Paket von Kaspar Welbers](https://cran.r-project.org/web/packages/RNewsflow/vignettes/RNewsflow.html) anschauen). 
+
+### 4.4 Keyness
+
+Ähnlich der Clusteranalyse beschreibt das Konzept der Keyness wie stark oder schwar ein Begriff in einem Text im Vergleich zum gesamten Korpus vertreten ist. Postive Keynesswerte entsprechen einer über- und negative Werte einer unterrepräsentation eines Begriffs in einem Text im Vergleich zum Gesamtkorpus. Die Keyness untersucht also nicht die Position eines Begriffs in einem Text (wie es bei den Ähnlichkeitsmaßen der Fall ist), sondern die Verteilung von Begriffen in Texten. 
+
+Mittels der `textstat_keyness`-Funktion untersuchen wir die Keyness-Werte für die 2017er Antrittsrede von Donald Trump und visualisieren sie mit der `textplot_keyness`-Funktion:
+
+```{r eval=T}
+keyness_trump <- textstat_keyness(dtm_speeches, target = "2017-Trump")
+textplot_keyness(keyness_trump)
+```
+
+Im Vergleich dazu die 2013er Rede von Barack Obama:
+
+```{r eval=T}
+keyness_obama <- textstat_keyness(dtm_speeches, target = "2013-Obama")
+textplot_keyness(keyness_obama)
+```
+
+Bei diesen beiden Beispielen wird schnell klar, dass sich Trump vor allem an seinem Vorgänger Präsident Obama abgearbeitet hat und das der Name auch sehr zentral in dieser Rede ist. Während für die Rede von Obama die Begriffe "creed" und "journey" sehr zentral sind. In einer Analyse z.B. wie unterschiedlich die US Präsidenten ihre Antrittsreden framen, wäre ein solches erstes deskriptive Einsicht sicherlich sehr hilfreich. Die graue Referenzkategorie zeigt Begriffe an, welche in den anderen Reden auftreten, aber nicht in der von uns untersuchten Rede. 
+
+# 5. Lesbarkeit/Komplexität von Texten
+
+### 5.1 Diversität von Texten
+
+Wie lässt sich die Diversität von Texten messen und vergleichen? Haben einige Präsidenten eine geringere Vielfalt an Wörtern genutzt als andere? Stimmt die Annahme, das Donald Trump eine einfacherer Sprache nutzt als seine Amtsvorgänger?
+
+Um diese und andere Fragen zu beantworten, nutzen wir die `textstat_lexdiv`-Funktion von `quanteda`:
+
+```{r eval=T}
+speeches_diversity <- textstat_lexdiv(dtm_speeches, measure = "all")
+tail(speeches_diversity)
+```
+
+Die `textstat_lexdiv`-Funktion gibt uns eine Vielzahl unterschiedlicher Diversitäts-Metriken aus (`?textstat_lexdiv`). Auf den ersten Blick finden sich auch bereits Unterschiede zwischen den Antrittsreden. 
+
+Wollen wir einen etwas genaueren Blick auf die Reden werfen, dann bietet sich eine zum Beispiel Visualisierung anhand der Parteilinien an. Der Einfachheit halber nutzen wir nur eine der viele Metriken.
+
+```{r eval=T}
+speeches_diversity <- textstat_lexdiv(dtm_speeches, measure = "U")
+speeches.U <- left_join(speeches_diversity, speeches.stats, by = c("document" = "Text")) %>% 
+  group_by(Party, Year) %>% 
+  summarise(meanU = mean(U))
+
+ggplot(speeches.U, aes(Year, meanU, color = Party)) +
+  geom_line() +
+  scale_colour_brewer(name = "Typ", palette = "Set1") + 
+  ggtitle("Textdiversität der Antrittsreden der U.S. Präsidenten über die Zeit") + 
+  xlab("Tag") + ylab("U-Mittelwert")
+```
+
+Wir sehen das vor allem die Reden der ersten Präsidenten eine hohe lexikalische Vielfalt aufgewiesen haben. Gerade die beiden Reden von Georg Washington 1789 und 1793 und die Reden von Madison 1809 und 1813 stechen hevor. Wichtig hierbei ist zu wissen, dass die Verwendung von Eigennamen, von Jargon und auch die Textlänge einen Einfluss auf die Textdiversität haben. Umso erstaunlicher ist der Befund für die Reden von Washington, ist doch seine 1789er die kürzteste Rede im gesamten Korpus mit 147 Wörtern und vier Sätzen. 
+
+### 5.2 Textkomplexität
+
+Wie schwierig ist ein Text zu verstehen? Sind Reden von bestimmten Präsidenten einfacher zu verstehen als von anderen? Wie verständlich sind Gerichtsentscheidungen für Rechtslaien?
+
+Diese Fragen lassen sich mit bestimmten Metriken beantworten, welche textuelle Eigenschaften untersuchen. In `quanteda` lassen diese sich recht einfach mit der Funktion `textstat_readability` berechnen. Schauen wir uns die Komplexität der Antrittsreden im Vergleich an: 
+
+```{r eval=T}
+speeches_readability <- textstat_readability(inaug_speeches, measure = "all")
+head(speeches_readability)
+```
+
+Ähnlich der Diversitätsmetriken gibt uns die Funktion wieder eine Vielzahl an unterschiedlichen Messmethoden aus. Schauen wir uns das etwas genauer an und analysieren nur die Antrittsreden von Carter bis Trump. Der Einfachhalb halber nutzen wir auch hier nur Messmethode: 
+
+```{r eval=T}
+corp_subset <- corpus_subset(inaug_speeches, President %in% c("Obama", "Bush", "Trump", "Clinton","Reagan","Carter")) # Wir subsetten unseren Corpus mittels der Nachnamen
+ndoc(corp_subset)
+
+readability <- textstat_readability(corp_subset, measure = "Flesch.Kincaid")
+speeches_readability <- left_join(readability, speeches.stats, by = c("document" = "Text"))
+
+ggplot(speeches_readability, aes(document, Flesch.Kincaid)) + 
+  geom_boxplot() + 
+  scale_colour_brewer(name = "Typ", palette = "Set1") + 
+  geom_jitter(aes(document, Flesch.Kincaid, colour = Party), position = position_jitter(width = 0.4, height = 0), alpha = 0.2, size = 0.3, show.legend = F) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + 
+  xlab("") + ylab("Flesch-Kincaid-Index") + 
+  ggtitle("Lesbarkeit/Komplexität von Antrittsreden ausgewähler U.S. Präsidenten")
+```
+
+Wir sehen hier, dass die Reden von Carter und Obama 2013 im Vergleich zu den Reden von Bush senior und Donald Trump eher schwerer verständlich waren. Dieses Bild verhärtet sich, wenn wir uns die Reden aller Präsidenten, visualisiert nach Parteien anschauen: 
+
+```{r eval=T}
+readability <- textstat_readability(inaug_speeches, measure = "Flesch.Kincaid") # wir nutzen hier den gesamten corpus
+speeches_readability <- left_join(readability, speeches.stats, by = c("document" = "Text"))
+
+ggplot(speeches_readability, aes(Party, Flesch.Kincaid)) + 
+  geom_boxplot() + 
+  scale_colour_brewer(name = "Typ", palette = "Set1") + 
+  geom_jitter(aes(Party, Flesch.Kincaid, colour = Party), position = position_jitter(width = 0.4, height = 0), alpha = 0.2, size = 0.3, show.legend = F) + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + 
+  xlab("") + ylab("Flesch-Kincaid-Index") + 
+  ggtitle("Lesbarkeit/Komplexität von Antrittsreden der U.S. Präsidenten nach Parteien")
+```
+
+Wir sehen hier sehr deutlich, dass die Vertreter der modernen U.S. Parteien (Demokratien, Republikaner) deutlich weniger komplexe Reden gehalten haben, also ihre historischen Counterparts. Damit steht dieses Ergebnis im Einklang mit der aktuellen Forschung z.B. von [Benoit et al.](https://onlinelibrary.wiley.com/doi/full/10.1111/ajps.12423). Die Autoren haben anschaulich zeigen können, dass die Wahrscheinlichkeit über Zeit steigt, dass eine "State of the Union Address" eines U.S. Präsidenten einfacher zu verstehen ist als ein grundlegender Text für SchülerInnen in der fünften Klasse. 
