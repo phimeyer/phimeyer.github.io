@@ -68,4 +68,8 @@ author_profile: true
 
  <p><b>7. Sitzung: Manuelle Kodierung und Dokumentenklassifizierung</b></p>
 
- - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_NaiveBayes"><span style="color: #333333;"><span style="font-size: medium;">Naïve Bayes Klassifikation mit `quanteda</span></span></a>
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_NaiveBayes"><span style="color: #333333;"><span style="font-size: medium;">Naïve Bayes Klassifikation mit `quanteda'</span></span></a>
+
+ - <p>Übungen zur Sitzung:</p>
+ 
+    * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_excercises_NaiveBayes.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Naïve Bayes</span></span></a>
