@@ -65,3 +65,7 @@ author_profile: true
  - <p>Übungen zur Sitzung:</p>
  
     * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_excercises_dictionary.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Wörterbücher </span></span></a>
+
+ <p><b>7. Sitzung: Manuelle Kodierung und Dokumentenklassifizierung</b></p>
+
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_NaiveBayes"><span style="color: #333333;"><span style="font-size: medium;">Naïve Bayes Klassifikation mit `quanteda</span></span></a>
