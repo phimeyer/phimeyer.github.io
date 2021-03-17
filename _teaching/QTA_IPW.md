@@ -75,7 +75,11 @@ author_profile: true
     * <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_excercises_NaiveBayes.R"><span style="color: #333333;"><span style="font-size: medium;">Übungen: Naïve Bayes</span></span></a>
 
 
- <p><b>8. Sitzung: Supervised classification</b></p>
+ <p><b>8. Sitzung: Supervised (text) classification</b></p>
 
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_supervisedclassification"><span style="color: #333333;"><span style="font-size: medium;">Überwachtes maschinelles Klassifizieren von Texten</span></span></a>
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_Wordscores"><span style="color: #333333;"><span style="font-size: medium;">Wordscores mit `quanteda` (offizielles Quanteda-Tutorial in Englisch)</span></span></a>
+
+ <p><b>9. Sitzung: Unupervised (text) classification</b></p>
+
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_Wordfish"><span style="color: #333333;"><span style="font-size: medium;">Wordfish mit `quanteda` (offizielles Quanteda-Tutorial in Englisch)</span></span></a>
