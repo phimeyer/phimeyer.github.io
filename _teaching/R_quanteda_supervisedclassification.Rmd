@@ -1,0 +1,148 @@
+---
+title: "Überwachtes maschinelles Klassifizieren von Texten" 
+author: "Philipp Meyer, Institut für Politikwissenschaft"
+date: "09.06.2021, Supervised classification, Seminar: Quantitative Textanalyse"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# 1. Einleitung
+
+Dieses Tutorial enthält eine sehr kurze Einführung in die Verwendung von überwachtem maschinellem Lernen für die Textklassifizierung in R. 
+
+Weitere Tutorials findet ihr zum Beispiel hier: 
+- [Klassifikation mit dem Caret-Paket](https://cran.r-project.org/web/packages/caret/vignettes/caret.html) 
+- [Cornelius Puschmann, Überwachtes maschinelles Lernen](http://inhaltsanalyse-mit-r.de/maschinelles_lernen.html)
+
+# 2. Pakete
+
+Wir werden `quanteda` für die Textverarbeitung, `quanteda.textmodels` für einige Methoden des maschinelles Lernen und `tidyverse` für die allgemeine Datenbereinigung verwenden:
+
+```{r eval=T}
+library(quanteda)
+library(quanteda.textmodels)
+library(tidyverse)
+```
+
+Weiterhin werden wir das `Caret`-Paket für alternative Optionen zum maschinellen Lernen verwenden.
+
+```{r eval = T}
+#install.packages(c("caret", "e1071", "LiblineaR")) # Falls noch nicht geschehen, dann bitte diese Pakete installieren
+library(caret)
+```
+
+# 3. Daten
+
+Wie ihr bereits von letzter Woch wisst, benötigen wir für das maschinelle Lernen bereits codierte Trainingsdaten. Für dieses Beispiel nutzen wir Daten zu Filmkritiken, welche eine Sentiment-Variable aufweisen: 
+
+```{r eval = T}
+download.file("http://i.amcat.nl/data_corpus_movies.rda", "data_corpus_movies.rda")
+load("data_corpus_movies.rda") 
+reviews <- data_corpus_movies
+```
+
+# 4. Training- und Testdaten
+
+Wie üblich erstellen wir ein Training- und ein Testset (wir definieren set.seed für die Reproduzierbarkeit):
+
+```{r eval = T}
+set.seed(1)
+testset <-  sample(docnames(reviews), 500) # wir wählen eine zufällige auswahl von 500 Kritiken aus
+
+reviews_test <-   reviews %>% corpus_subset(docnames(reviews) %in% testset) # Testset mit Kritiken die in unserer zufälligen Auswahl vorhanden sind
+
+reviews_train <-  reviews %>% corpus_subset(!docnames(reviews) %in% testset) # Trainingsset mit Kritiken die NICHT (!docnames(reviews) %in% testset) in unserer zufälligen Auswahl vorhanden sind
+
+actual_train <-  as.factor(docvars(reviews_train, "Sentiment")) 
+actual_test <-  as.factor(docvars(reviews_test, "Sentiment"))
+```
+
+# 5. Das Modell trainieren
+
+Nachdem wir jetzt ein Test- und ein Trainingsset erstellt haben, generieren wir für beide Datensätze eine DTM:
+
+```{r eval=T}
+dfm_train <-  reviews_train %>%  dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english"))
+
+dfm_test <- reviews_test %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) %>% 
+  dfm_match(featnames(dfm_train)) # Die Testdaten müssen die gleichen Merkmale (Wörter) verwenden wie die Trainingsdaten
+```
+
+Jetzt trainieren wir das Modell (in diesem Fall mit Naïve Bayse):
+
+```{r eval = T}
+reviews_nb <- textmodel_nb(dfm_train, actual_train) # wir wenden unsere DTM auf unseren Korpus an
+summary(reviews_nb)
+```
+
+# 6. Das Modell testen 
+
+Um zu sehen, wie gut unser Modell funktioniert, testen wir es mit unseren Testdaten. 
+
+```{r eval=T}
+nb_pred <- predict(reviews_nb, newdata = dfm_test)
+head(nb_pred)
+
+mean(nb_pred == actual_test) # Hier vergleichen wir das vorhergesagte Sentiment mit dem tatsächlichen Sentiment
+```
+
+81% Genauigkeit, das ist wirklich gut. Natürlich müssen wir bedenken, dass Filmkritiken eher einfache Texte sind. Ganz im Gegensatz natürlich zu politischen Texten. 
+
+Wir können den regulären Tabellenbefehl verwenden, um eine Kreuztabelle zu erstellen. Kreuztabellen werden oft als 'Konfusionsmatrix' bezeichnet (da sie anzeigen, welche Art von Fehlern unsere Modelle machen):
+
+```{r eval=T}
+confusion_matrix <-  table(actual_test, nb_pred)
+confusion_matrix
+```
+
+Wir können also sehen, dass unser Modell insgesamt 94 Kritiken falsch klassifiziert hat (neg-pos und pos-neg).
+
+Das `caret`-Paket verfügt über eine Funktion, mit der wir alle "regulären" supervised learning Metriken in Tabellenform darstellen können:
+
+```{r eval=T}
+confusionMatrix(nb_pred, actual_test, mode = "everything")
+```
+
+Was bedeutet Sensitivity, Specificity, Precision, Recall und F1? Schlag diese Begriffe unbedingt nach! 
+
+# 7. Klassifizierungen außerhalb von `quanteda`
+
+### 7.1 Caret
+
+Natürlich können wir auch außerhalb von `quanteda` eine supervised classification durchführen. Zum Beispiel beinhaltet das `caret`-Paket einige Methoden, um Modelle trainieren und testen zu können. Im folgenden konvertieren wir unsere Trainings- und Testsets von oben in ein für `caret` lesbares Format: 
+
+```{r eval=T}
+trctrl <-  trainControl(method = "none")
+dtm_train <-  convert(dfm_train, to='matrix')
+dtm_test <-  convert(dfm_test, to='matrix')
+```
+
+Im folgenden zeigen wir lediglich einen Algorithmus (SVM). Das `caret`-Paket beinhaltet aber natürlich noch weitere Algorithmen. Für weitere Informationen [schaut ihr hier](https://topepo.github.io/caret/train-models-by-tag.html). 
+
+### 7.2 SVM
+
+Wir trainieren jetzt einen einfachen SVM (Support Vector Machine) Algorithmus mit dem  `LiblineaR`-Paket:
+
+```{r eval=T}
+set.seed(1)
+svm_model <-  train(x = dtm_train, y = actual_train, method = "svmLinearWeights2",
+              trControl = trctrl, tuneGrid = data.frame(cost = 1, Loss = 0, weight = 1))
+svm_pred <-  predict(svm_model, newdata = dtm_test)
+confusionMatrix(svm_pred, actual_test)
+```
+
+Für weitere Informationen über den Algorithmus, einschließlich der Bedeutung der Parameter und deren Abstimmung, müsst ihr die Dokumentation des Pakets konsultieren. Die oben verlinkte Caret-Dokumentation sagt euch, welches Paket verwendet wird (in diesem Fall: `LiblineaR`), und dieses Paket enthält eine technischere Erklärung des Algorithmus, im Allgemeinen einschließlich Beispielen und Referenzen.
+
+### 7.3 Definition der Parameter
+
+Die meisten Algorithmen haben (Hyper-)Parameter, die definiert werden müssen, z. B. die Fehlklassifizierungskosten in SVM (in unserem Beispiel "cost = 1"). Meistens existieren keine wirklich fundierten theoretischen Grundlagen für die Definition der Parameter. Das bedeutet im Umkehrschluss, das wir als ForscherInnen meist in einem Trail-and-Error-Verfahren testen und ausprobieren und erst nach einigen Testläufen zu einem guten Eregbnis kommen.
+
+Das `caret`-Paket verfügt aber auch über Funktionen, um die Parameter maschinell zu definieren bzw. um diese Definition zu vereinfachen. Für weitere Informationen schaut euch bitte die folgenden Seiten an:
+
+1. https://topepo.github.io/caret/random-hyperparameter-search.html
+2. https://cran.r-project.org/web/packages/caret/vignettes/caret.html 

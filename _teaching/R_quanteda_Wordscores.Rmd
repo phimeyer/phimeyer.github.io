@@ -1,0 +1,59 @@
+---
+title: "Wordscores mit `quanteda`" 
+author: "Philipp Meyer, Institut für Politikwissenschaft"
+date: "09.06.2021, Wordscores mit `quanteda` (offizielles Quanteda-Tutorial in Englisch), Seminar: Quantitative Textanalyse"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# 1. Einleitung
+
+Dieses Tutorial soll euch die Wordscores-Methode näherbringen. Hierbei handelt es sich, ähnlich wie bei Naïve Bayse um eine supervised classification. Wordscores wurde maßgeblich von Ken Benoit entwickelt und vor allem auch in `quanteda` implementiert. Aus diesem Grund werde ich hier das offizielle Tutorial von der `quanteda` bereitstellen. Die Originalquelle findet ihr [hier](https://tutorials.quanteda.io/machine-learning/wordscores/).
+
+# 2. Offizielles WORDSCORES-Tutorial
+
+Wordscores is a scaling model for estimating the positions (mostly of political actors) for dimensions that are specified a priori. Wordscores was introduced in Laver, Benoit and Garry (2003) and is widely used among political scientists.
+
+```{r eval = T}
+library(quanteda)
+library(quanteda.textmodels)
+library(quanteda.corpora) # Die Anleitung zur Installierung findet ihr hier: https://github.com/quanteda/quanteda.corpora
+library(quanteda.textplots) # Für mehr Infos siehe: https://quanteda.io/articles/pkgdown/examples/plotting.html
+```
+
+Training a Wordscores model requires reference scores for texts whose policy positions on well-defined a priori dimensions are “known”. Afterwards, Wordscores estimates the positions for the remaining “virgin” texts.
+
+We use manifestos of the 2013 and 2017 German federal elections. For the 2013 elections we assign the average expert evaluations from the 2014 [Chapel Hill Expert Survey](https://www.chesdata.eu/) for the five major parties, and predict the party positions for the 2017 manifestos.
+
+```{r eval = T}
+corp_ger <- download(url = "https://www.dropbox.com/s/uysdoep4unfz3zp/data_corpus_germanifestos.rds?dl=1")
+summary(corp_ger)
+```
+
+Now we can apply the Wordscores algorithm to a document-feature matrix.
+
+```{r eval = T}
+# create a document-feature matrix
+dfmat_ger <- dfm(corp_ger, remove = stopwords("de"), remove_punct = TRUE)
+
+# apply Wordscores algorithm to document-feature matrix
+tmod_ws <- textmodel_wordscores(dfmat_ger, y = corp_ger$ref_score, smooth = 1)
+summary(tmod_ws)
+```
+
+Next, we predict the Wordscores for the unknown virgin texts.
+
+```{r eval = T}
+pred_ws <- predict(tmod_ws, se.fit = TRUE, newdata = dfmat_ger)
+```
+
+Finally, we can plot the fitted scaling model using quanteda‘s `textplot_scale1d` function.
+
+```{r eval = T}
+textplot_scale1d(pred_ws)
+```
