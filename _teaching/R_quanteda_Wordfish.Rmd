@@ -1,0 +1,60 @@
+---
+title: "Wordfish mit `quanteda` (offizielles Quanteda-Tutorial in Englisch)" 
+author: "Philipp Meyer, Institut für Politikwissenschaft"
+date: "16.06.2021, Unsupervised (text) classification, Seminar: Quantitative Textanalyse"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# 1. Einleitung
+
+Dieses Tutorial soll euch die Wordfish-Methode näherbringen. Im Unterschied zur Wordscore-Methode basiert **Wordfish** auf einem unsupervised learning Ansatz. 
+
+Ähnlich wie bei Wordscore hat sich vor allem das `quanteda`-Team darum bemüht, eine sehr gute Implementierung der Wordfish-Methode zu realisieren. Aus diesem Grund werde ich hier das offizielle Tutorial von der `quanteda` bereitstellen. Die Originalquelle findet ihr [hier](https://tutorials.quanteda.io/machine-learning/wordfish/).
+
+# 2. Offizielles WORDFISH-Tutorial 
+
+Wordfish is a Poisson scaling model of one-dimensional document positions (Slapin and Proksch 2008). Wordfish also allows for scaling documents, but compared to Wordscores reference scores/texts are not required. Wordfish is an unsupervised one-dimensional text scaling method, meaning that it estimates the positions of documents solely based on the observed word frequencies.
+
+```{r eval = T}
+library(quanteda)
+library(quanteda.textmodels)
+library(quanteda.corpora) # Die Anleitung zur Installierung findet ihr hier: https://github.com/quanteda/quanteda.corpora
+library(quanteda.textplots) # Für mehr Infos siehe: https://quanteda.io/articles/pkgdown/examples/plotting.html
+```
+
+In this example, we show how to apply Wordfish to the Irish budget speeches from 2010. First, we create a document-feature matrix. Afterwards, we run Wordfish.
+
+```{r eval = T}
+dfmat_irish <- dfm(data_corpus_irishbudget2010, remove_punct = TRUE)
+tmod_wf <- textmodel_wordfish(dfmat_irish, dir = c(6, 5))
+summary(tmod_wf)
+```
+
+
+We can plot the results of a fitted scaling model using textplot_scale1d().
+
+```{r eval = T}
+textplot_scale1d(tmod_wf)
+```
+
+
+The function also allows to plot scores by a grouping variable, in this case the party affiliation of the speakers.
+
+```{r eval = T}
+textplot_scale1d(tmod_wf, groups = dfmat_irish$party)
+```
+
+Finally, we can plot the estimated word positions and highlight certain features.
+
+```{r eval = T}
+textplot_scale1d(tmod_wf, margin = "features", 
+                 highlighted = c("government", "global", "children", 
+                                 "bank", "economy", "the", "citizenship",
+                                 "productivity", "deficit"))
+```
