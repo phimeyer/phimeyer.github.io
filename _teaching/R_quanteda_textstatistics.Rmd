@@ -44,7 +44,7 @@ Jetzt erstellen wir eine DTM mittels einer Pipeline:
 ```{r eval=T}
 library(tidyverse) 
 
-dtm_speeches <-  inaug_speeches %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) # wir entfernen alle Füllwörter, die Interpunktion, Symbole, Zahlen
+dtm_speeches <-  inaug_speeches %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) # wir entfernen alle Füllwörter, Interpunktion, Symbole, Zahlen
 dtm_speeches
 ```
 
@@ -52,7 +52,7 @@ dtm_speeches
 
 ### 3.1 Key-word-in-context
 
-Neben der klassischen Wordcloud lassen sich mit `quanteda` auch relativ einfach weitere noch genauere Einblicke in unsere Texte realisieren. Als erstes ist die die KWIC-Methde (Key-Word-In-Context) zu nennen. Hierbei werden der Satzkontext von von euch definierter Suchbegriffe extrahiert und dargestellt. 
+Neben der klassischen Wordcloud lassen sich mit `quanteda` natürlich noch genauere Einblicke in unsere Texte realisieren. Als erstes ist die die KWIC-Methde (Key-Word-In-Context) zu nennen. Hierbei werden der Satzkontext von von euch definierter Suchbegriffe extrahiert und dargestellt. 
 
 Mit `quanteda` ist es möglich den Kontext einzeler Wörter oder auch auch ganze Sätze darzustellen. 
 
@@ -62,7 +62,7 @@ kwic(inaug_speeches, "war", window = 2) # der window befehl definiert die anzahl
 
 Beachtet bitte das der KWIC-Befehl auf den Korpus und nicht auf die zuvor erstellte DTM angewendet wurde.
 
-Mittels dieser einfachen Methode lassen sich jetzt weitere Analyseschritte realisieren. So können wir zum Beispiel die Häufigkeit und Verteilung von Tokens/Sequenzen berechnen, die die Begriffe "freedom" und "war".
+Mittels dieser einfachen Methode lassen sich jetzt weitere Analyseschritte realisieren. So können wir zum Beispiel die Häufigkeit und Verteilung von Tokens/Sequenzen berechnen, wie zum Beispiel für die Begriffe "freedom" und "war".
 
 ```{r eval = T}
 library(dplyr)
@@ -100,32 +100,32 @@ ggplot(kwic_terms, aes(docname, count, group = search_term, col = search_term)) 
   xlab("Antrittsrede") + ylab("Wörter (absolut)")
 ```
 
-Neben den Häufigkeiten eines Wortes können wir auch die Position des Wortes in dem jeweiligen Text untersuchen. Das `quanteda`-Paket sellt hiervor die Funktion `textplot_xray` zur Verfügung: 
+Neben den Häufigkeiten eines Wortes können wir auch die Position des Wortes in dem jeweiligen Text untersuchen. Das `quanteda`-Paket sellt die Funktion `textplot_xray` zur Verfügung: 
 
 ```{r eval = TRUE}
 textplot_xray(kwic(inaug_speeches, "freedom")) + 
   ggtitle("Position des Bergiffs \"freedom\" in den Antrittsreden der US-Präsidenten")
 ```
 
-Die x-Achse repräsentiert die Position des jeweiligen Wortes innhalb des Textes. Wie wir sehen hat Georg W. Bush im Jahr 2005 das Wort nicht nur am Häufigsten von allen Präsidenten verwendet (siehe Plot zur Häufigkeit), sondern auch über seine gesamte Rede hinweg immer mal wieder verwendet. Dieses erste deskriptive Ergebniss könnten wir jetzt im Kontext der 2005 vorherrschenden politischen Entwicklungen (Irakkrieg, großflächige Abhörungen von US-Bürgern etc.) analysieren. 
+Die x-Achse repräsentiert die Position des jeweiligen Wortes innhalb des Textes. Wie wir sehen hat George W. Bush im Jahr 2005 das Wort nicht nur am Häufigsten von allen Präsidenten verwendet (siehe Plot zur Häufigkeit), sondern auch über seine gesamte Rede hinweg immer mal wieder verwendet. Dieses erste deskriptive Ergebnisse könnten wir jetzt im Kontext der 2005 vorherrschenden politischen Entwicklungen (Irakkrieg, großflächige Abhörungen von US-Bürgern etc.) analysieren. 
 
 ### 3.2 Worthäufigkeiten 
 
-Mittels KWIC können wir, sehr umständlich, Worthäufigkeiten für spezielle Wörter zu untersuchen. Zum Glück bietet `quanteda` mit der `textstat_frequency`-Funktion einen deutlich einfachere Weg. Anstelle einer umständlichen eigenen Berechnung der verschiedenen Metriken, gibt uns `textstat_frequency` die Metadaten, die Anzahl der Dokumente, in denen das Wort vorkommt und vieles mehr aus.
+Mittels KWIC können wir, sehr umständlich, Worthäufigkeiten für spezielle Wörter untersuchen. Zum Glück bietet `quanteda` mit der `textstat_frequency`-Funktion einen deutlich einfachere Weg. Anstelle einer umständlichen eigenen Berechnung der verschiedenen Metriken, gibt uns `textstat_frequency` die Metadaten, die Anzahl der Dokumente, in denen das Wort vorkommt und vieles mehr aus.
 
 ```{r eval = T}
 word_freq <- textstat_frequency(dtm_speeches) # hier nutzen wir die dtm!
 head(word_freq)
 ```
 
-Da unser Antrittsredenkropus die Parteien der Präsidenten enthält, können wir mit `textstat_frequency` die Häufigkeiten nach Parteien gruppieren und mittels `arrange` ordnen:
+Da unser Antrittsredenkorpus die Parteien der Präsidenten enthält, können wir mit `textstat_frequency` die Häufigkeiten nach Parteien gruppieren und mittels `arrange` ordnen:
 
 ```{r eval = T}
 party_freq <- textstat_frequency(dtm_speeches, groups = "Party") %>% arrange(rank, group)
 head(party_freq, 35) # schauen wir uns die ersten 35 Beobachtungen an
 ```
 
-Die häufigsten Begriffe können wir natürlich auch pro Partei einzeln visualisieren. Der Einfachheit halber werden wir nur die Republikaner und die Demokratien plotten.
+Die häufigsten Begriffe können wir natürlich auch pro Partei einzeln visualisieren. Der Einfachheit halber werden wir nur die Republikaner und die Demokraten plotten.
 
 Zu erst visualisieren wir die populärsten Begriffe in den Reden republikanischer Präsidenten (+ die Frequenz bei jedem Begriff für die jeweils andere ‘Seite’):
 
@@ -176,7 +176,7 @@ head(arrange(speeches_collocations, desc(count))) # Absteigend nach Aufkommen so
 head(arrange(speeches_collocations, desc(lambda))) # Absteigend nach Lambda sortiert
 ```
 
-Der Lambda- und z-Wert (z-standardisiertes Lambda) geben die Assoziationsstärke der Begriffspaare an. Je höher der Lambdawert, desto höher ist die Wahrscheinlichkeit das die zwei Begriffe auf einander folgen. 
+Der Lambda- und z-Wert (z-standardisiertes Lambda) geben die Assoziationsstärke der Begriffspaare an. Je höher der Lambdawert, desto höher ist die Wahrscheinlichkeit, dass die zwei Begriffe auf einander folgen. 
 
 Inwiefern ist dieser Wert von der absoluten Häufigkeit eines Wortes (siehe die erste Tabelle) zu differenzieren?
 
@@ -219,7 +219,7 @@ Der Begriff "Government" ist nach diesem Eregbnis am weitestens von dem Begriff 
 
 In unseren Beispielen zur Wortähnlichkeit haben wir in den Funktionen den `margins`-Befehl mit "features" also Wörten spezifiziert. Eine weitere Möglichkeit ist die Spezifikation auf "documents", also ganze Dokumente/Texte. Auf diese Weise werden nicht die Ähnlichkeiten von Wörtern oder Sätze verglichen, sondern die Ähnlichkeiten von Dokumenten. 
 
-Im folgenden Beispiel inspizieren wir die Ähnlichkeit der 2005er Antrittsrede von Georg W. Bush mit allen anderen Antrittsreden. Dafür erstellen wir in einem ersten Schritt einen Datensatz mit den Ähnlichkeitsmaßen und im zweiten Schritt visualisieren wir die Maße: 
+Im folgenden Beispiel inspizieren wir die Ähnlichkeit der 2005er Antrittsrede von George W. Bush mit allen anderen Antrittsreden. Dafür erstellen wir in einem ersten Schritt einen Datensatz mit den Ähnlichkeitsmaßen und im zweiten Schritt visualisieren wir die Maße: 
 
 ```{r eval=TRUE}
 bush_2005_similarity <- data.frame(Text = factor(speeches.stats$Text, levels = rev(speeches.stats$Text)), as.matrix(textstat_simil(dtm_speeches, dtm_speeches["2005-Bush",], margin = "documents", method = "cosine")))
@@ -261,7 +261,7 @@ Am besten ihr probiert selber mal etwas rum und sucht nach eigenen Wegen der Vis
 
 ### 4.4 Keyness
 
-Ähnlich der Clusteranalyse beschreibt das Konzept der Keyness wie stark oder schwar ein Begriff in einem Text im Vergleich zum gesamten Korpus vertreten ist. Postive Keynesswerte entsprechen einer über- und negative Werte einer unterrepräsentation eines Begriffs in einem Text im Vergleich zum Gesamtkorpus. Die Keyness untersucht also nicht die Position eines Begriffs in einem Text (wie es bei den Ähnlichkeitsmaßen der Fall ist), sondern die Verteilung von Begriffen in Texten. 
+Ähnlich der Clusteranalyse beschreibt das Konzept der Keyness wie stark oder schwach ein Begriff in einem Text im Vergleich zum gesamten Korpus vertreten ist. Postive Keynesswerte entsprechen einer Über- und negative Werte einer Unterrepräsentation eines Begriffs in einem Text im Vergleich zum Gesamtkorpus. Die Keyness untersucht also nicht die Position eines Begriffs in einem Text (wie es bei den Ähnlichkeitsmaßen der Fall ist), sondern die Verteilung von Begriffen in Texten. 
 
 Mittels der `textstat_keyness`-Funktion untersuchen wir die Keyness-Werte für die 2017er Antrittsrede von Donald Trump und visualisieren sie mit der `textplot_keyness`-Funktion:
 
@@ -277,13 +277,13 @@ keyness_obama <- textstat_keyness(dtm_speeches, target = "2013-Obama")
 textplot_keyness(keyness_obama)
 ```
 
-Bei diesen beiden Beispielen wird schnell klar, dass sich Trump vor allem an seinem Vorgänger Präsident Obama abgearbeitet hat und das der Name auch sehr zentral in dieser Rede ist. Während für die Rede von Obama die Begriffe "creed" und "journey" sehr zentral sind. In einer Analyse z.B. wie unterschiedlich die US Präsidenten ihre Antrittsreden framen, wäre ein solches erstes deskriptive Einsicht sicherlich sehr hilfreich. Die graue Referenzkategorie zeigt Begriffe an, welche in den anderen Reden auftreten, aber nicht in der von uns untersuchten Rede. 
+Bei diesen beiden Beispielen wird schnell klar, dass sich Trump vor allem an seinem Vorgänger Präsident Obama abgearbeitet hat und dass der Name auch sehr zentral in dieser Rede ist. Während für die Rede von Obama die Begriffe "creed" und "journey" sehr zentral sind. In einer Analyse z.B. wie unterschiedlich die US Präsidenten ihre Antrittsreden framen, wäre eine solche erste deskriptive Einsicht sicherlich sehr hilfreich. Die graue Referenzkategorie zeigt Begriffe an, welche in den anderen Reden auftreten, aber nicht in der von uns untersuchten Rede. 
 
 # 5. Lesbarkeit/Komplexität von Texten
 
 ### 5.1 Diversität von Texten
 
-Wie lässt sich die Diversität von Texten messen und vergleichen? Haben einige Präsidenten eine geringere Vielfalt an Wörtern genutzt als andere? Stimmt die Annahme, das Donald Trump eine einfacherer Sprache nutzt als seine Amtsvorgänger?
+Wie lässt sich die Diversität von Texten messen und vergleichen? Haben einige Präsidenten eine geringere Vielfalt an Wörtern genutzt als andere? Stimmt die Annahme, dass Donald Trump eine einfachere Sprache nutzt als seine Amtsvorgänger?
 
 Um diese und andere Fragen zu beantworten, nutzen wir die `textstat_lexdiv`-Funktion von `quanteda`:
 
@@ -309,7 +309,7 @@ ggplot(speeches.U, aes(Year, meanU, color = Party)) +
   xlab("Tag") + ylab("U-Mittelwert")
 ```
 
-Wir sehen das vor allem die Reden der ersten Präsidenten eine hohe lexikalische Vielfalt aufgewiesen haben. Gerade die beiden Reden von Georg Washington 1789 und 1793 und die Reden von Madison 1809 und 1813 stechen hevor. Wichtig hierbei ist zu wissen, dass die Verwendung von Eigennamen, von Jargon und auch die Textlänge einen Einfluss auf die Textdiversität haben. Umso erstaunlicher ist der Befund für die Reden von Washington, ist doch seine 1789er die kürzteste Rede im gesamten Korpus mit 147 Wörtern und vier Sätzen. 
+Wir sehen das vor allem die Reden der ersten Präsidenten eine hohe lexikalische Vielfalt aufgewiesen haben. Gerade die beiden Reden von Georg Washington 1789 und 1793 und die Reden von Madison 1809 und 1813 stechen hervor. Wichtig hierbei ist zu wissen, dass die Verwendung von Eigennamen, von Jargon und auch die Textlänge einen Einfluss auf die Textdiversität haben. Umso erstaunlicher ist der Befund für die Reden von Washington, ist doch seine 1789er die kürzeste Rede im gesamten Korpus mit 147 Wörtern und vier Sätzen. 
 
 ### 5.2 Textkomplexität
 
