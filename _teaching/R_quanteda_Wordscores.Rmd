@@ -1,7 +1,7 @@
 ---
-title: "Wordscores mit `quanteda`" 
+title: "Wordscores mit `quanteda` (offizielles Quanteda-Tutorial in Englisch)" 
 author: "Philipp Meyer, Institut für Politikwissenschaft"
-date: "09.06.2021, Wordscores mit `quanteda` (offizielles Quanteda-Tutorial in Englisch), Seminar: Quantitative Textanalyse"
+date: "09.06.2021, Supervised (text) classification, Seminar: Quantitative Textanalyse"
 output:
   html_document:
     toc: true

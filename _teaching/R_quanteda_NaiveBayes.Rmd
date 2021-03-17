@@ -1,7 +1,7 @@
 ---
 title: "Naïve Bayes Klassifikation mit `quanteda`" 
 author: "Philipp Meyer, Institut für Politikwissenschaft"
-date: "02.06.2021, NaïveBayes Klassifikation mit `quanteda`, Seminar: Quantitative Textanalyse"
+date: "02.06.2021, Manuelle Kodierung und Dokumentenklassifizierung, Seminar: Quantitative Textanalyse"
 output:
   html_document:
     toc: true
