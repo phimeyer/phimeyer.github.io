@@ -84,3 +84,7 @@ author_profile: true
  <p><b>9. Sitzung: Unupervised (text) classification</b></p>
 
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_Wordfish"><span style="color: #333333;"><span style="font-size: medium;">Wordfish mit `quanteda` (offizielles Quanteda-Tutorial in Englisch)</span></span></a>
+
+ <p><b>10. Sitzung: Topic models</b></p>
+
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_LDAandSTM"><span style="color: #333333;"><span style="font-size: medium;">Topic Models: LDA und STM</span></span></a>
