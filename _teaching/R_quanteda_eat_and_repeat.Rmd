@@ -254,7 +254,7 @@ sotus_dict_df <-  convert(sotus_dict_dtm, to="data.frame")
 head(sotus_dict_df)
 ```
 
-#### 3.3.5 Erstellen von guten Wörterbüchern
+#### 3.3.5 Die Gültigkeit von Wörterbüchern testen
 
 Ein gutes Wörterbuch bedeutet, dass alle Dokumente, die mit dem Wörterbuch übereinstimmen, tatsächlich von dem gewünschten Konzept handeln oder dieses enthalten.
 
