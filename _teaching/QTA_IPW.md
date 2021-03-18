@@ -37,6 +37,7 @@ author_profile: true
 <p><b>3. Sitzung: Annahmen und Anwendungen</b></p>
 
  - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_basics"><span style="color: #333333;"><span style="font-size: medium;">Erste Schritte mit quanteda: Textdaten importieren, einen Korpus erstellen und Dokumentenvariablen hinzufügen </span></span></a>
+ - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/teaching/R_quanteda_eat_and_repeat"><span style="color: #333333;"><span style="font-size: medium;">Textanalyse mit `quanteda`: Wiederholungen und Vorgriff</span></span></a>
  
   - <p>Übungen zur Sitzung:</p>
  
