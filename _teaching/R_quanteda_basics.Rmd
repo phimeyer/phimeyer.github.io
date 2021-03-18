@@ -1,5 +1,5 @@
 ---
-title: "Erste Schritte mit `quanteda: Textdaten importieren, einen Korpus erstellen und Dokumentenvariablen hinzufügen"
+title: "Erste Schritte mit `quanteda`: Textdaten importieren, einen Korpus erstellen und Dokumentenvariablen hinzufügen"
 author: "Philipp Meyer, Institut für Politikwissenschaft"
 date: "28.04.2021, QTA Annahmen und Anwendungen, Seminar: Quantitative Textanalyse"
 output:
@@ -50,7 +50,7 @@ Mit `readtext` lassen sich unterschiedliche Dateiformaten importieren (u.a. txt,
 
 Für dieses Tutorial lesen wir alle Entscheidungen des Bundesverfassungsgerichts der Jahr 2015-2019 ein. **Die Textdaten könnt ihr hier herunterladen: <https://phimeyer.github.io/teaching/bverfg_15-19.zip>**. 
 
-Sobald ihr die ZIP-Datei entpackt habt, könnt ihr sehen, dass jede Datei einem Text entspricht. Das macht den Import sehr umkompliziert. Wir lediglich die Computerpfad kopieren und damit `R` mitteilen, wo es die zu importierenden Texte findet ("bverfg_15-19" ist der letzte Ordner in dieser Befehlskette. Dort befinden sich die einzelnen txt.Dateien): 
+Sobald ihr die ZIP-Datei entpackt habt, könnt ihr sehen, dass jede Datei einem Text entspricht. Das macht den Import sehr umkompliziert. Wir müssen lediglich den Computerpfad kopieren und damit `R` mitteilen, wo es die zu importierenden Texte findet ("bverfg_15-19" ist der letzte Ordner in dieser Befehlskette. Dort befinden sich die einzelnen txt.Dateien): 
 
 ```{r eval=T}
 daten_bverfg <- readtext("/Users/PhMeyer/Seafile/Seafile/Meine Bibliothek/Lehre/Seminare Uni Hannover/12 SoSe 2021/Quantitative Textanalyse/data/bverfg_15-19")

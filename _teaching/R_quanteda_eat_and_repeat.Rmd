@@ -1,0 +1,267 @@
+---
+title: "Textanalyse mit `quanteda`: Wiederholungen und Vorgriff"
+author: "Philipp Meyer, Institut für Politikwissenschaft"
+date: "05.05.2021, Tokens und DFM, Seminar: Quantitative Textanalyse"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+  
+```{r setup, include=FALSE}
+## include this at top of your RMarkdown file for pretty output
+## make sure to have the printr package installed: install.packages('printr')
+knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FALSE)
+#library(printr)
+```
+
+# 1. Einleitung
+
+Dieses Tutorial ist zum großen Teil eine Wiederholung von den bisherigen Tutorials und zu einem kleinen Teil ein Vorgriff auf noch kommende Tutorials. 
+
+In den folgenden Abschnitten werden wir alle nötigen Schritte einer Textanalyse durchgehen. Dafür verwenden wir natürlich das `quanteda`-Paket. In den vorherigen Tutorials wurden euch bereits einige der Techniken aus diesem Tutorial vorgestellt. Das Ziel dieses Tutorials ist es, euch ein sicheres Verständnis zu vermitteln, welche Schritte bei einer Textanalyse tatsächlich gemacht werden müssen. Außerdem dienen die gewollten Wiederholen dazu, dass ihr sicherer und geübter im Umgang mit `quanteda` und der Textanalyse werdet.
+
+# 2. `quanteda`
+
+Das [quanteda-Paket](https://quanteda.io/) ist ein Textanalyse-Paket für `R`. Es deckt nahezu alles ab, was nötig ist, um eine Textanalyse durchzuführen. Natürlich bietet `quanteda` auch eine klare und umfangreiche Dokumentation und eine Vielzahl an Tutorials (welche wir im Laufe des Seminars auch nutzen werden). 
+
+Wir werden uns in diesem Tutorial auf die wichtigsten Schritte zur Vorbereitung einer Textanalyse konzentrieren und lernen, wie man die [quanteda-Dokumentation](https://quanteda.io/reference/index.html) für die einzelnen Funktionen nutzt. 
+
+Die Pflichttext für diese Sitzung von [Welbers, van Atteveldt und Benoit, 2017](https://www.tandfonline.com/doi/abs/10.1080/19312458.2017.1387238) bietet eine detailliertere Erklärung aller Schritte, welche wir jetzt besprechen werden.  
+
+Zur Erinnerung: das `quanteda`-Paket müsst ihr beide jeder `R`-Sitzung laden, jedoch nur einmal vorher installieren:
+
+```{r eval=T}
+# install.packages("quanteda") # Falls noch nicht geschehen, dann bitte installiert das Paket bitte. 
+
+library(quanteda)
+```
+
+# 3. Textanalyse mit `quanteda`
+
+Im folgenden werden wir die klassischen ersten Schritte für eine Textanalyse durchsprechen: 
+
+1. Texte importieren und Korpus erstellen
+
+2. Dokumentenmatrix erstellen, bereinigen und filtern (Der wichtigste Teilschritt! Hier entscheidt sich die Güte der nachfolgenden Analyse)
+
+3. Analyse (Dieser Schritt wird nur kurz besprochen, da wir im Verlauf des Seminars einzelne Analysemethoden im Detail besprechen werden.)
+
+### 3.1 Schritt 1: Text importieren und einen Quanteda-Korpus erstellen
+
+Der erste Schritt einer Textanalyse ist immer die zu analysierenden Texte in `R` einzulesen. Textdateien werden in einer Vielzahl von Formaten gespeichert: einfache txt-Files, csv-Dateien, html-Dateien und natürlich PDF. Erfahrungsgemäß machen einfache txt-Dateien die wenigsten Probleme. Eine Anleitung wie ihr txt-Dateien einlest findet ihr dem zweiten Tutorial zu dieser Sitzung (Titel: "Erste Schritte mit `quanteda`"). Das Einlesen von Textdaten mit `quanteda` funktioniert am effizientesten mit dem `readtext`-Paket und dem `readr`-Paket. 
+
+```{r eval=T}
+# install.packages("readtext") # Falls noch nicht geschehen, dann bitte installiert das Paket bitte. 
+# install.packages("readr")
+
+library(readtext)
+library(readr)
+```
+
+#### 3.1.1 Texte aus CSV Dateien importieren
+
+Der Einfachheit halber verwenden wir eine csv-Datei, die online verfügbar ist. Der Prozess des Einlesens der Daten ist identisch zu dem des Einlesens einer csv-Datei die ihr auf eurem Computer gespeichert habt (hier müsst ihr dann euren Computerpfad verwenden). 
+
+Die Datei die wir jetzt importieren beinhaltet die State of the Union-Reden der US-Präsidenten, wobei jedes Dokument (d.h. jede Zeile in der csv-Datei) ein Absatz einer Rede ist. Die Daten werden als ein data.frame importiert.
+
+```{r eval=T}
+sotu_url <-  "https://bit.ly/2QoqUQS"
+sotu_data <-  read_csv(sotu_url)
+head(sotu_data)   ## view first 6 rows
+```
+
+Jetzt können wir einen `quanteda`-Corpus mit der `corpus`-Funktion erstellen. Wie immer gilt: wenn ihr mehr über die Funktion und ihre Möglichkeiten erfahren wollt, dann nutzt die help-Page --> `?corpus`. 
+
+Für unser Beispiel müssen wir `quanteda` informieren, dass wir einen data.frame verwenden und welche Spalte des Datensatzes das Textfeld enthält: 
+
+```{r eval=T}
+sotu_corpus <-  corpus(sotu_data, text_field = "text")  ## create the corpus
+sotu_corpus
+```
+
+#### 3.1.2 Texte aus Word und PDF-Dateien importieren
+
+Anstelle einer csv-Datei ist es natürlich auch möglich weitere Dateiformate zu importieren.  Zum Beispiel txt-, .pdf- oder .docx-Dateien.
+
+```{r eval=T}
+url <-  "https://github.com/phimeyer/phimeyer.github.io/raw/master/_teaching/files.zip"
+texts <-  readtext(url)
+texts
+```
+
+Wie ihr steht, wurden die Dateien automatisch heruntergeladen, entpackt und in einfachen Text umgewandelt.
+
+Wir können Texte natürlich auch von den lokalen Festplatten lesen (das ist in den meisten Fällen auch der "normale" Weg, da wir ja zu erst die Dokumente herunterladen). Hierfür müssen wir lediglich den Pfad angeben:
+
+```{r eval=F}
+texts <-  readtext("c:/pfad/zu/unseren/dateien")
+texts <-  readtext("/Benutzer/ich/Dokumente/dateien")
+```
+
+### 3.2 Schritt 2: Erstellen einer DTM (oder DFM)
+
+Die meisten Textanalyseverfahren basieren nur auf den Häufigkeiten von Wörtern in Dokumenten. Dieses Vorgehen wird als **Bag-of-Words**-Annahme bezeichnet: die Texte sind die Säcke in denen einzelne Wörter stecken. Interpunktion, Wortreihenfolge, Füllwörter und einzelne häufig vorkommende Wörter werden in diesem Vorgehen bereits in den ersten Schritten gelöscht. Obwohl dadurch viele relevante Informationen über die Reihenfolge der Wörter und die Syntax ignoriert werden, hat sich dieser Ansatz als sehr leistungsfähig und effizient erwiesen.
+
+Das Standardformat für die Darstellung eines Bag-of-Words ist eine Dokument-Term-Matrix (DTM). Hierbei handelt es sich um eine Matrix, in der Zeilen Dokumente sind und die Spalten Wörter repräsentieren. Wir werden zunächst eine kleine Beispiel-DTM aus ein paar Zeilen Text erstellen. Hier verwenden wir die `dfm`-Funktion von `quanteda`. dfm steht für *Document-Feature-Matrix*:
+
+```{r eval=T}
+text <-  c(d1 = "Die Leibniz Universität Hannover macht gute Lehre.",
+           d2 = "Mit mehr Katzen wäre die Lehre noch besser!",
+           d3 = "Warum denn eine Katze? Ein Hund ist viel zutraulicher.",
+           d4 = "Wir wollen viele Katzen!")
+
+dtm <- dfm(text, tolower=F)
+dtm
+```
+
+In diesem Matrixformat können wir jetzt Analysen mit unseren Texten durchführen, wie z. B. die Analyse verschiedener Frames in Bezug auf Katzen, oder die Berechnung der Ähnlichkeit zwischen dem dritten Satz und den ersten beiden Sätzen.
+
+#### 3.2.1 Das sogenannte pre-processing: die DFM aufarbeiten und bereinigen
+
+Die direkte Umwandlung eines Textes in einen DFM ist sehr vereinfachend. Beachtet z. B., dass die Wörter "Katzen" und "Katze" unterschiedliche Spalten erhalten. Außerdem sind "Hannover" und "Lehre" genauso unterschiedlich wie "Katzen" und "Katze". Das ist ein Problem, vor allem da wir eher an der Tatsache interessiert sind, dass es in den Sätzen um Katzen geht und weniger um das spezifische Wort an sich. Wir wollen also den Inhalt analysieren. Weiteren sind Textanalysen vor allem dann aussagekräftig, wenn weniger interessante Wörter wie "die" oder selte Wörter wie "Unviersität" ignoriert werden. 
+
+Um das zu erreichen, müssen wir zusätzliche Verarbeitungsschritte einfügen. Im nächsten Bespiel erstellen wir eine DFM, konvertieren dabei aber alle Buchstaben zu Kleinbuchstaben, ignorieren Füllwörter und die Interpunktion. 
+
+Zusätzlich erstellen wir eine zweite DFM mit unseren State-of-the-Union-Reden (siehe oben) und führen dort zusätzlich ein Stemming durch (stemming fünktioniert mit der deutschen Sprache weniger gut, weshalb unsere Beispielsätze hierfür nicht geeignet sind). Einfach ausgedrückt, werden beim Stemming Wörter auf ihren Wortstamm reduziert. Dadurch werden einige Teile an den Wortenden entfernt und damit verschiedene Formen desselben Wortes ignoriert. Zum Beispiel Singular versus Plural ("gun" oder "gun-s") und verschiedene Verbformen ("walk", "walk-ing", "walk-s"). 
+
+```{r eval=T}
+# Beispiel 1: Unsere drei Sätze  
+sätze_dtm <-  dfm(text, tolower=T, remove = stopwords('de'), remove_punct=T)
+sätze_dtm
+
+# Beispiel 2: SOTU
+sotu_dfm <-  dfm(sotu_corpus, tolower=T, remove = stopwords('en'), remove_punct=T, stem = T)
+sotu_dfm
+```
+
+Das `tolower`-Argument bestimmt, ob Texte in Kleinbuchstaben umgewandelt werden (TRUE) oder nicht (FALSE). `stem` bestimmt, ob Stemming verwendet wird (TRUE) oder nicht (FALSE). Das `remove`-Argument ist etwas kniffliger. Wenn ihr einen Blick in die Dokumentation der dfm-Funktion (`?dfm`) werft, werdet ihr sehen, dass remove verwendet werden kann, um bestimmte benutzerinnendefinierte Merkmale bzw. Muster zu ignorieren. In diesem Fall haben wir tatsächlich eine andere Funktion, `stopwords()`, verwendet, um eine Liste von Füllwörtern zu entfernen. 
+
+```{r eval=T}
+stopwords('de')
+stopwords('en')
+```
+
+Diese Wortliste wird an das `remove`-Argument in dfm() übergeben, um so diese Wörter zu ignorieren.
+
+Es gibt weitere Techniken zum pre-processing. Für weitere Details lest bitte den Text von [Welbers, van Atteveldt und Benoit, 2017](https://www.tandfonline.com/doi/abs/10.1080/19312458.2017.1387238).
+
+#### 3.2.2 Eine DFM filtern
+
+Unsere DFM mit den Reden zur Lage der Nation hat 23.469 Dokumente und 20.429 Merkmale (d. h. Terme/Wörter). Abhängig von der Art der Analyse, die wir durchführen wollen, benötigen wir vielleicht nicht so viele Wörter. Glücklicherweise sind viele dieser 20.000-Merkmale nicht so informativ. Das Entfernen der nicht informativen Wörter wird unsere Ergebnisse verbessern.
+
+Wir können die Funktion `dfm_trim` verwenden, um bestimmte Wörter zu entfernen. Im Beispiel definieren wir, dass wir alle Wörter entfernen wollen, für die die Häufigkeit (d. h. der Summenwert der Spalte im DFM) unter 10 liegt.
+
+```{r eval=T}
+dtm  = dfm_trim(sotu_dfm, min_termfreq = 10)
+dtm
+```
+
+Jetzt haben wir also nur noch rund 5.000 Wörter übrig. Schat euch `?dfm_trim` für mehr Infos und Optionen zum filtern an!
+
+### 3.3 Analyse
+
+Ein paar Analysemethoden habt ihr bereits kennengelernt. Zur Wiederholung werde ich diese und weitere noch einmal kurz vorstellen. 
+
+#### 3.3.1 Worthäufigkeiten und Wordclouds
+
+Schauen wir uns die häufigsten Wörter im Korpus mittels einer wordcloud an: 
+
+```{r eval=T}
+textplot_wordcloud(sotu_dfm, max_words = 50)     # top 50 wörter
+textplot_wordcloud(sotu_dfm, max_words = 50, color = c('blue','red')) # farben verändern
+textstat_frequency(sotu_dfm, n = 10)             # häufigkeiten
+```
+
+Sie können auch nur Teile von unserem Korpus untersuchen. Zum Beispiel, indem man nur die Obama-Reden betrachtet. Um eine DFM zu subsetten/zu zerteilen, nutzen wir die `dtm_subset`-Funktion.
+
+Mit `docvars(dtm)` erhalten wir einen data.frame mit den Dokumentvariablen. Mit `docvars(dtm)$Präsident` erhalten wir den Zeichenvektor mit den Namen der Präsidenten. Mit `docvars(dtm)$Präsident == 'Barack Obama'` suchen wir nach allen Dokumenten, in denen der Präsident Obama war. Um dies zu verdeutlichen, speichern wir den logischen Vektor, der anzeigt, welche Dokumente 'TRUE' sind, als `is_obama`. Diesen verwenden wir dann, um diese Zeilen aus dem DFM auszuwählen.
+
+```{r eval=T}
+is_obama <-  docvars(sotu_dfm)$President == 'Barack Obama' 
+obama_dtm <-  sotu_dfm[is_obama,]
+textplot_wordcloud(obama_dtm) # diesmal ohne eine max_words einschränkung
+```
+
+#### 3.3.2 Korpora vergleichen
+
+Hier verwenden wir (wieder) einen Vergleich, um den `is_obama`-Vektor zu erhalten. Diesen verwenden wir dann in der Funktion `textstat_keyness`, um anzugeben, dass wir die Obama-Dokumente (bei denen `is_obama` TRUE ist) mit allen anderen Dokumenten (bei denen `is_obama` FALSE ist) vergleichen wollen.
+
+```{r eval=T}
+is_obama <-  docvars(sotu_dfm)$President == 'Barack Obama' 
+sotus_obama_all <-  textstat_keyness(sotu_dfm, is_obama)
+head(sotus_obama_all, 20)    ## view first 20 results
+```
+
+Unsere Ergebnisse können wir mit der Funktion `textplot_keyness` visualisieren:
+
+```{r eval=T}
+textplot_keyness(sotus_obama_all)
+```
+
+#### 3.3.3 Key-word-in-Context
+
+Ein Keyword-in-Context-Listing zeigt ein bestimmtes Keyword im Kontext seiner Verwendung. Generell ist das eine gute Methode einen Korpus kennenzulernen. Da ein DFM nur Worthäufigkeiten kennt, benötigen wir für die `kwic`-Funktion das Korpusobjekt.
+
+```{r eval=T}
+sotus_kwic <- kwic(sotu_corpus, 'freedom', window = 7)
+head(sotu_corpus, 10)    ## only view first 10 results
+```
+
+Die `kwic`Funktion kann auch verwendet werden, um eine Analyse auf einen bestimmten Suchbegriff zu fokussieren. Wir können die Ausgabe der Funktion kwic verwenden, um eine neue DFM zu erstellen, bei dem nur die Wörter innerhalb des angezeigten Fensters in die Matrix aufgenommen werden. Mit dem folgenden Code wird ein DFM erstellt, die nur die Wörter enthält, die innerhalb von 10 Wörtern vor oder nach dem Begriff terror* (terrorism, terrorist, terror, etc.) vorkommen.
+
+```{r eval=T}
+sotus_terror <-  kwic(sotu_corpus, 'terror*')
+sotus_terror_corp <-  corpus(sotus_terror)
+sotus_terror_dtm <-  dfm(sotus_terror_corp, tolower=T, remove=stopwords('en'), stem=T, remove_punct=T)
+
+textplot_wordcloud(sotus_terror_dtm)   
+```
+
+Wie würder diese Kette von Befehlen in einer Pipeline aussehen? Probiert es mal aus!
+
+#### 3.3.4 Wörterbücher 
+
+Wir können mit `quanteda` ganz einfach eine Wörterbuchsuche/-analyse durchführen. In Sitzung 6 werden wir noch genauer darauf eingehen. Aus diesem Grund werde ich euch im folgenden Beispiel zeigen, wie man bereits bei der Erstellung einer DFM Wörterbuchbegriffe einbaut. Vergesst bitte nicht, dass Wörterbücher nur dann aussagekräftig sind, wenn sie theoriegeleitet erstellt und auf ihre Validität hin überprüft wurden.
+
+```{r eval=T}
+sotu_dfm <-  dfm(sotu_corpus, tolower=T, remove = stopwords('en'), remove_punct=T) # zu Präsentationszwecken ohne Stemming
+
+sotus_dict <-  dictionary(list(terrorism = 'terror*',
+                       economy = c('econom*', 'tax*', 'job*'),
+                       military = c('army','navy','military','airforce','soldier'),
+                       freedom = c('freedom','liberty')))
+sotus_dict_dtm = dfm_lookup(sotu_dfm, sotus_dict, exclusive=TRUE)
+sotus_dict_dtm 
+```
+
+Auf dieser Grundlage können wir jetzt unsere Analysen durchführen. 
+
+```{r eval=T}
+textplot_wordcloud(sotus_dict_dtm)
+
+keyness_obama <-  textstat_keyness(sotus_dict_dtm, docvars(sotus_dict_dtm)$President == 'Barack Obama')
+textplot_keyness(keyness_obama)
+```
+
+Wir können die DFM auch in einen Datensatz konvertieren, und erhalten dann die Anzahl der einzelnen Konzepte pro Dokument (die man dann z. B. mit Umfragedaten abgleichen könnte).
+
+```{r eval=T}
+sotus_dict_df <-  convert(sotus_dict_dtm, to="data.frame")
+head(sotus_dict_df)
+```
+
+#### 3.3.5 Erstellen von guten Wörterbüchern
+
+Ein gutes Wörterbuch bedeutet, dass alle Dokumente, die mit dem Wörterbuch übereinstimmen, tatsächlich von dem gewünschten Konzept handeln oder dieses enthalten.
+
+Um das zu überprüfen, können wir eine Stichprobe von Dokumenten manuell kodieren und die Ergebnisse mit den Treffern im Wörterbuch vergleichen. Dazu mehr in Sitzung 6!
+
+Wir können aber auch die Keyword-in-Context-Funktion auf ein Wörterbuch anwenden, um so schnell eine Reihe von Übereinstimmungen zu prüfen und zu sehen, ob sie sinnvoll sind:
+
+```{r eval=T}
+kwic(sotu_corpus, sotus_dict$terrorism)
+```
