@@ -1,7 +1,7 @@
 ---
 title: "Einführung in `R`: Datentypen und Funktionen"
 author: "Philipp Meyer, Institut für Politikwissenschaft"
-date: "14.04.2021, Seminar: Quantitative Textanalyse"
+date: "14.04.2021, Einführung, Seminar: Quantitative Textanalyse"
 output:
   html_document:
     toc: true

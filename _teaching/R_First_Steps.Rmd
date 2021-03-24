@@ -27,17 +27,17 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 *  `R` ist eine Programmier**sprache**. Von daher ist `R` deutlich vielseitiger als Statistik**programme** wie SPSS oder STATA. `R` ermöglicht nicht nur die statistische Analyse von empirischen Daten, sondern auch die praktische Implementierung von *Data science*-Werkzeugen (z.B. quantitativen Textanalyse, Cloud computing mit Amazon AWS, Machine Learning Anwendungen (umgangssprachlich: die Nutzung von künstlicher Intelligenz)). 
 
-* Die Anwendungsbereiche von `R` wird ständig aktualisiert und erweitert. `R` ist **open-source**, weshalb jeder einzelne zur stetigen Entwicklung einen Beitrag leisten kann. Insbesondere die Entwicklung von Paketen ist hier zu nennen (dazu später mehr). WissenschaftlerInnen sowie Fachleute aus der Wirtschaft verwenden  `R`, weshalb in den aller meisten Fällen alle neuen Methoden, Techniken und Anwendungen bereits zur Verwendung in  `R` verfügbar. Ihr könnt euch `R` also als einen App-Store für *Data science*-Anwendungen vorstellen. 
+* Die Anwendungsbereiche von `R` wird ständig aktualisiert und erweitert. `R` ist **open-source**, weshalb jede und jeder zur stetigen Entwicklung einen Beitrag leisten kann. Insbesondere die Entwicklung von Paketen ist hier zu nennen (dazu später mehr). WissenschaftlerInnen sowie Fachleute aus der Wirtschaft verwenden  `R`, weshalb in den aller meisten Fällen alle neuen Methoden, Techniken und Anwendungen bereits zur Verwendung in  `R` verfügbar. Ihr könnt euch `R` also als einen App-Store für *Data science*-Anwendungen vorstellen. 
 
-      + Da `R` von den NutzerInnen stetig weiterentwickelt wird, finden sich im Internet allen `R`-bezogenen Fragen die passenden Antworten. Neben der einfachen Suche bei *Google* (am besten immer R als Präfix nutzen und dann erst das gesuchte Thema nennen) sind vor allem <http://www.stackoverflow.com>, <http://www.r-bloggers.com> und <http://www.stackexchange.com> die **zentralen Anlaufstellen**. In deutscher Sprache ist <https://de.wikibooks.org/wiki/GNU_R> zu nennen. Das ist aber weniger eine konkrete Hilfeseite, sondern eher ein R-Lexikon.
+      + Da `R` von den NutzerInnen stetig weiterentwickelt wird, finden sich im Internet zu allen `R`-bezogenen Fragen die passenden Antworten. Neben der einfachen Suche bei *Google* (am besten immer R als Präfix nutzen und dann erst das gesuchte Thema nennen) sind vor allem <http://www.stackoverflow.com>, <http://www.r-bloggers.com> und <http://www.stackexchange.com> die **zentralen Anlaufstellen**. In deutscher Sprache ist <https://de.wikibooks.org/wiki/GNU_R> zu nennen. Das ist aber weniger eine konkrete Hilfeseite, sondern eher ein R-Lexikon.
 
 *  `R` ist kostenlos.
 
-Das Problem ist, dass das Erlernen von  `R` nicht intuitiv ist. R hat eine steile Lernkurve: schwer am Anfang und mit der Zeit und steigender Erfahrung immer zugänglicher. Dennoch ist das Erlernen von R nicht so schlimm, wie oft befürchtet wird, und dank der steigenden Popularität der *Data science* gibt es jetzt viele Anlaufpunkte, die das Erlernen und die Anwendung von R erleichtern (für eine Liste von Einführungen und Tutorials siehe: <https://www.r-bloggers.com/2015/12/how-to-learn-r-2/>). In diesem Kurs lernen Sie die wichtigsten Grundlagen kennen und erfahren, wie Sie damit sofort Zugang zu den modernsten Techniken erhalten.
+Das Problem ist, dass das Erlernen von `R` nicht intuitiv ist. `R` hat eine steile Lernkurve: schwer am Anfang und mit der Zeit und steigender Erfahrung immer zugänglicher. Dennoch ist das Erlernen von `R` nicht so schlimm, wie oft befürchtet wird, und dank der steigenden Popularität der *Data science* gibt es jetzt viele Anlaufpunkte, die das Erlernen und die Anwendung von R erleichtern (für eine Liste von Einführungen und Tutorials siehe: <https://www.r-bloggers.com/2015/12/how-to-learn-r-2/>). 
 
 ### 1.2. Zweck dieses Tutorials
 
-Der Schwerpunkt dieses Tutorials liegt darauf, euch den Einstieg in `R` zu erleichtern. Hier wird also noch nicht darauf eingegangen, wie  `R` und die  `R`-Syntax funktionieren. Es ist also kein Problem, wenn Ihr den verwendeten Code noch nicht versteht. Hier soll der Fokus vor allem darauf liegen, `R` zum laufen zu bringen, euch mit der Syntax vertraut zu machen und erste Spielereien anzustellen.
+Der Schwerpunkt dieses Tutorials liegt darauf, euch den Einstieg in `R` zu erleichtern. Hier wird also noch nicht darauf eingegangen, wie `R` und die  `R`-Syntax funktionieren. Es ist also kein Problem, wenn Ihr den verwendeten Code noch nicht versteht. Hier soll der Fokus vor allem darauf liegen, `R` zum laufen zu bringen, euch mit der Syntax vertraut zu machen und erste Spielereien anzustellen.
 
 # 2. Erste Schritte mit `R`
 
@@ -45,11 +45,11 @@ Ihr müsst zwei Programme installiert haben, damit ihr den hier präsentierten C
 
 * 1) `R` ist die Software, die zur Ausführung des Code verwendet wird.
 
-* 2) `RStudio` ist eine grafische Benutzeroberfläche (GUI), die die Arbeit mit `R` wesentlich erleichtert. `RStudio` funktioniert nicht ohne eine Installation von `R`. 
+* 2) `RStudio` ist eine grafische Benutzeroberfläche (GUI), die die Arbeit mit `R` wesentlich erleichtert. `RStudio` funktioniert nicht ohne eine vorherige Installation von `R`. 
 
-Beide Programme können kostenlos heruntergeladen werden und sind für alle wichtigen Betriebssysteme (Windows, MacOS und Linux) verfügbar.
+Beide Programme können kostenlos heruntergeladen werden und sind für alle relevanten Betriebssysteme (Windows, MacOS und Linux) verfügbar.
 
-### 2.1.  `R` installieren
+### 2.1. `R` installieren
 
 `R` könnt ihr von der CRAN (comprehensive R Archive Network) Website herunterladen (siehe: <https://cran.r-project.org/>). 
 
@@ -96,9 +96,9 @@ Kopiert den folgenden Beispielcode und fügt ihn in euer `R`-Skript ein. Ihr mü
 sum(1,2,3,4,5)
 ```
 
-Ihr könnt des Codes in einem `R`-Skript ausführen, indem ihr Strg + Enter drück (Mac: Command + Enter). Das kann auf zwei Arten geschehen:
+Ihr könnt Codes in einem `R`-Skript ausführen, indem ihr Strg + Enter drück (Mac: Command + Enter). Das kann auf zwei Arten geschehen:
 
-* Wenn ihr einen Textteil markiert (so dass er hervorgehoben wird), könnt ihr Strg + Enter (Mac: Command + Enter) drücken, um die Auswahl auszuführen. Markiert jetzt die ersten drei Zeilen (die drei mathematischen Operationen) und drückt Strg + Enter (Mac: Command + Enter).
+* Wenn ihr einen Codeteil markiert (so dass er hervorgehoben wird), könnt ihr Strg + Enter (Mac: Command + Enter) drücken, um die Auswahl auszuführen. Markiert jetzt die ersten drei Zeilen (die drei mathematischen Operationen) und drückt Strg + Enter (Mac: Command + Enter).
 
 * Wenn keine Auswahl getroffen wurde, aber der Textcursor sich im Editor befindet, könnt ihr Strg + Enter (Mac: Command + Enter) drücken, um die Zeile, auf der sich der Cursor befindet, auszuführen. Dadurch bewegt sich der Cursor automatisch in die nächste Zeile, so dass der Code von oben nach unten durchlaufen werden kann, wobei jede Zeile einzeln durchlaufen werden kann, Beginnt jetzt mit der ersten Zeile und drückt neunmal Strg + Enter  (Mac: Command + Enter), um jede Zeile einzeln auszuführen.
 
@@ -139,7 +139,7 @@ Beachtet bitte, dass ihr die Zeile ## [1] 10 nicht tippen solltet: In diesem Tut
 
 ### 2.6. Verwenden von `RStudio`-Projekten
 
-Es ist am besten, wir ihr alle Skripte die ihr in diesem Seminar anfertigt in einem `RStudio`-Projekt verwaltet. Im wesentlichen handelt es sich hierbei um einen Ordner, in dem die `R`-Dateien und Daten für das Projekt gespeichert werden, an dem gerade gearbeitet wird. Projekte sind nicht unbedingt nötig, um mit `R` zu arbeiten, aber sie sind praktisch, und ich empfehle euch dringend diese Funktion von `RStudio` zu nutzen.
+Es ist am besten, wir ihr alle Skripte die ihr in diesem Seminar anfertigt in einem `RStudio`-Projekt verwaltet. Im wesentlichen handelt es sich hierbei um einen Ordner, in dem die `R`-Dateien und Daten für das Projekt gespeichert werden, an dem gerade gearbeitet wird. Projekte sind nicht unbedingt nötig, aber sie sind praktisch.
 
 Um ein neues Projekt zu erstellen, müsst ihr mit der Maus die Symbolleiste (oben links) ansteuern und folgendes wählen: 
               
@@ -155,7 +155,7 @@ In der rechten unteren Ecke, unter dem Reiter "Dateien", seht ihr nun die dem Pr
 
 Um euch einen Vorgeschmack auf einige der interessanteren Dinge zu geben, die wir in diesem Seminar machen werden, werdet ihr jetzt ein Projekt zur Analyse von Texten mit dem **quanteda**-Paket einrichten. 
 
-Im Moment ist es weniger wichtig zu verstehen, was jede einzelne Codezeile tut, sondern das ihr ein Gefühl für die Arbeit mit `R` bekommt. Außerdem sollt ihr erste Einblicke bekommen, wie man mit Computern Texte analysieren kann.
+Im Moment ist es weniger wichtig zu verstehen, was jede einzelne Codezeile genau macht, sondern das ihr ein Gefühl für die Arbeit mit `R` bekommt. Außerdem sollt ihr erste Einblicke bekommen, wie man Texte analysieren kann.
 
 ### 3.1. Installieren und Laden des Quanteda-Pakets
 
@@ -196,9 +196,9 @@ corp <- data_corpus_inaugural # Da ihr das quanteda-Paket geladen habt (mit libr
 corp
 ```
 
-Nach der Ausführung des Codes lässt uns quanteda wissen, dass der Korpus 58 Dokumente und 3 Variablen (soegannte Docvars, Dokumentenvariablen) enthält. Die Docvars sind Variablen über die Dokumente, in diesem Fall der Vor- und Nachname des Präsidenten, das Jahr der Rede und die Partei die der jeweilige Präsident angehörte. 
+Nach der Ausführung des Codes lässt uns quanteda wissen, dass der Korpus 58 Dokumente und 3 Variablen (so genannte Docvars, Dokumentenvariablen) enthält. Die Docvars sind Variablen über die Dokumente, in diesem Fall der Vor- und Nachname des Präsidenten, das Jahr der Rede und die Partei die der jeweilige Präsident angehörte. 
 
-Diese Variablen können wir mit der Funktion `docvars()` einsehen (hier in diesem Tutorial-Dokument sind nur die ersten Zeilen des Outputs zu sehen. Auf eurem eigenen Computer werdet ihr einen deutlich detalliertern Output in der Console angezeigt bekommen.)
+Diese Variablen können wir mit der Funktion `docvars()` einsehen (hier in diesem Tutorial-Dokument sind nur die ersten Zeilen des Outputs zu sehen.)
 
 ```{r eval=T}
 docvars(corp) 
@@ -208,9 +208,9 @@ docvars(corp)
 
 Damit wir Texte mit unserem Computer analysieren zu können, müssen wir die Textdaten so transformieren, dass wir Berechnungen durchführen können. Die Transformation von Texten in eine **Document-Term-Matrix** (DTM) nimmt hier eine zentrale Position ein. Dabei handelt es sich um eine Matrix, in der die Dokumente in den Zeilen dargestellt werden. Die Begriffe/Wörter werden den Spalten zugeordnet, die somit angeben wie oft jeder Begriff/jedes Wort in jedem Dokument vorkommt.
 
-Dies wird auch als **"Bag-of-Words"**-Darstellung von Texten bezeichnet (mehr dazu in den kommenden Sitzungen), da Dokumente nur auf Worthäufigkeiten reduziert wurden (die Matrix zeigt nur an, wie oft ein Wort in einem Text vorkommt). Während dieses Format viele wichtige Informationen bezüglich der Wortstellung und der Syntax ignoriert, hat die Forschung gezeigt, dass viele interessante Elemente von Texten allein durch die Betrachtung der Worthäufigkeiten gemessen werden können.
+Dies wird auch als **"Bag-of-Words"**-Darstellung von Texten bezeichnet (mehr dazu in den kommenden Sitzungen), da Dokumente auf Worthäufigkeiten reduziert werden (die Matrix zeigt nur an, wie oft ein Wort in einem Text vorkommt). Während dieses Format viele wichtige Informationen bezüglich der Wortstellung und der Syntax ignoriert, hat die Forschung gezeigt, dass viele interessante Elemente von Texten allein durch die Betrachtung der Worthäufigkeiten gemessen werden können.
 
-Wenn wir eine DTM erstellen, gibt es einige Standardtechniken zur Vorverarbeitung der Daten. Konkret wollen wir Wörter herausfiltern, die nicht interessant sind, wie z.B. Stoppwörter (z.B. der, die, das, wer, wie, was). Außerdem wollen wir zum Beispiel alle Großbuchstaben zu Kleinbuchstaben transformieren, Sonderzeichen (z.B. @ oder #), Interpunktion und Zahlen entfernen und vieles mehr (mehr dazu in den kommenden Sitzungen).
+Wenn wir eine DTM erstellen, gibt es einige Standardtechniken zur Vorverarbeitung der Daten. Konkret wollen wir Wörter herausfiltern, die nicht interessant sind, wie z.B. Füll-/Stoppwörter (z.B. der, die, das, wer, wie, was). Außerdem wollen wir zum Beispiel alle Großbuchstaben zu Kleinbuchstaben transformieren, Sonderzeichen (z.B. @ oder #), Interpunktion und Zahlen entfernen und vieles mehr (mehr dazu in den kommenden Sitzungen).
 
 Für dieses Tutorial werden wir alle Buchstaben in Kleinbuchstaben transformieren (*tolower*), englische Stoppwörter (*remove = stopwords('english')*) und die Interpunktion entfernen (*remove_punct = TRUE*). Wir werden die `dfm`-Funktion aus dem quanteda-Paket verwenden. DFM steht für **Document Feature Matrix**, was eine allgemeinere Form einer Document-Term-Matrix ist (ein Merkmal kann ein Begriff sein, aber auch andere Dinge). Wir ordnen der Matrix den namen `speeches` zu: 
 
@@ -257,10 +257,9 @@ Nutzt jetzt die verschiedenen DTMs und versucht euch eigenständig an die Erstel
 
 Die Word cloud stellt die Wörter dar, die am häufigsten vorkommen. Es fehlt aber natürlich der Textkontext. Um eine Vorstellung von dem Kontext zu erhalten, in dem die Wörter verwendet werden, kann die **Keyword in context** (kwic) Methode hilfreich sein. 
 
-In quanteda könnt ihr die `kwic()`-Funktion ganz einfach auf das Korpusobjekt `corp` anwenden (für den Textkontext hilt die DTM nicht weiter, da hier jedliche Satzstruktur aufgebrochen wurde). 
+In quanteda könnt ihr die `kwic()`-Funktion ganz einfach auf das Korpusobjekt `corp` anwenden (für den Textkontext hilt die DTM nicht weiter, da hier jegliche Satzstruktur aufgebrochen wurde). 
 
 Hierfür müssen wir lediglich ein Wort das uns interessiert einfügen. Nehmen wir als Beispiel das Wort "Terror". Der angezeigte Output zeigt die Textstellen vor und nach dem definierten Keyword an. Wie viele Wörter vor und nach dem Keyword angezeigt werden definieren wir mit dem Argument `window = `.
-
 
 ```{r eval=T}
 kwic(corp, pattern ="terror", window = 10) # "pattern =" definiert das Wort und "window =" die Anzahl der "Kontextwörter" die vor und nach dem Wort angezeigt werden sollen.
