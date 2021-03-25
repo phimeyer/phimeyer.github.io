@@ -19,3 +19,5 @@
 # Aufgaben: 
 # Lest die Beschreibungen auf den zwei Internetseiten.
 # Kopiert die dort präsentierten Codezeilen in dieses Skript, führt sie aus und versucht sie zu verstehen.
+
+

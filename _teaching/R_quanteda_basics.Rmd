@@ -1,7 +1,7 @@
 ---
 title: "Erste Schritte mit `quanteda`: Textdaten importieren, einen Korpus erstellen und Dokumentenvariablen hinzufügen"
 author: "Philipp Meyer, Institut für Politikwissenschaft"
-date: "28.04.2021, QTA Annahmen und Anwendungen, Seminar: Quantitative Textanalyse"
+date: "28.04.2021, Annahmen und Anwendungen, Seminar: Quantitative Textanalyse"
 output:
   html_document:
     toc: true
@@ -20,11 +20,11 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 # 1. Einleitung
 
-In diesem Tutorial werden wir die ersten Schritte in der Quantitativen Textanalyse machen.  Unser Fokus dabei wird auf der Arbeit mit dem quanteda-Paket liegen. Wir werden vor allem drei Aspekte besprechen: das Einlesen von Textdaten in `R`, das Erstellen eines Korpus und das Hinzufügen von Variablen. 
+In diesem Tutorial werden wir die ersten Schritte in der quantitativen Textanalyse machen. Wir werden hauptsächlich das `quanteda`-Paket nutzen und vor allem drei Aspekte besprechen: das Einlesen von Textdaten in `R`, das Erstellen eines Korpus und das Hinzufügen von Variablen. 
 
 # 2. Installation und Laden der relevanten R-Pakete
 
-Für dieses Tutorial benötigen wir vor allem [`quanteda`](https://quanteda.io/), [`readtext`](https://www.rdocumentation.org/packages/readtext/versions/0.50/topics/readtext) und [`tidyverse`](https://www.tidyverse.org/)
+Für dieses Tutorial benötigen wir vor allem [`quanteda`](https://quanteda.io/), [`readtext`](https://www.rdocumentation.org/packages/readtext/versions/0.50/topics/readtext), [`tidyverse`](https://www.tidyverse.org/) und [`ggplot2`](https://ggplot2.tidyverse.org/). Zu allen Paketen gibt es auch sehr hilfreiche [CheatSheets](https://rstudio.com/resources/cheatsheets/).
 
 ```{r eval=F}
 install.packages("tidyverse") 
@@ -43,12 +43,11 @@ Andere Pakete, die im Laufe dieses Seminars noch eine wichtige Rolle spielen wer
 
 # 3. Einlesen von Textdaten
 
+Für die Arbeit mit `quanteda` werden Textdaten mit der Funktion `readtext()` aus dem gleichnamigen Paket eingelesen. Eine ausführliche Einführung zu den Funktionalitäten und der Anwendung von `readtext` findet ihr in der offiziellen Vignette des Paktes: [`readtext` vignette]<https://cran.r-project.org/web/packages/readtext/vignettes/readtext_vignette.html>. 
 
-Für die Arbeit mit `quanteda` werden Textdaten mit der Funktion `readtext()` aus dem gleichnamigen Paket eingelesen. Eine sehr ausführliche Einführung zu den Funktionalitäten und der Anwendung von `readtext` findet ihr in der offiziellen Vignette des Paktes: [`readtext` vignette]<https://cran.r-project.org/web/packages/readtext/vignettes/readtext_vignette.html>. 
+Mit `readtext` lassen sich unterschiedliche Dateiformate importieren (u.a. txt, PDF, csv und auch Word-Dateien). Grundsätzlich sind aber Plaintext-Dateien (in der Regel mit der Endung ".txt" versehen) und Daten in Tabellenform (csv Dateien) zu bevorzugen. Bei (Text)Daten aus Tabellen ist es jedoch wichtig genau zu definieren welche Felder die Primär-(also Text-) und welche die Metadaten beinhalten.
 
-Mit `readtext` lassen sich unterschiedliche Dateiformaten importieren (u.a. txt, PDF, csv und auch Word-Dateien). Grundsätzlich sind aber Plaintext-Dateien (in der Regel mit der Endung ".txt" versehen) und Daten in Tabellenform (csv Dateien) zu bevorzugen. Bei (Text)Daten aus Tabellen ist es jedoch wichtig genau zu definieren. welche Felder die Primär-(also Text-) und welche die Metadaten beinhalten.
-
-Für dieses Tutorial lesen wir alle Entscheidungen des Bundesverfassungsgerichts der Jahr 2015-2019 ein. **Die Textdaten könnt ihr hier herunterladen: <https://phimeyer.github.io/teaching/bverfg_15-19.zip>**. 
+Für dieses Tutorial lesen wir alle Entscheidungen des Bundesverfassungsgerichts der Jahre 2015-2019 ein. **Die Textdaten könnt ihr als ZIP-Datei hier herunterladen: <https://phimeyer.github.io/teaching/bverfg_15-19.zip>**. 
 
 Sobald ihr die ZIP-Datei entpackt habt, könnt ihr sehen, dass jede Datei einem Text entspricht. Das macht den Import sehr umkompliziert. Wir müssen lediglich den Computerpfad kopieren und damit `R` mitteilen, wo es die zu importierenden Texte findet ("bverfg_15-19" ist der letzte Ordner in dieser Befehlskette. Dort befinden sich die einzelnen txt.Dateien): 
 
@@ -57,17 +56,17 @@ daten_bverfg <- readtext("/Users/PhMeyer/Seafile/Seafile/Meine Bibliothek/Lehre/
 head(daten_bverfg)
 ```
 
-Wenn alles geklappt hat, solltet ihr jetzt den Datensatz `daten_bverfg` rechts oben in eurem Environment finden und sehen, dass er 1616 Beobachtungen und zwei Variablen aufweist. 
+Wenn alles geklappt hat, solltet ihr den Datensatz `daten_bverfg` rechts oben in eurem Environment finden und sehen, dass er 1616 Beobachtungen und zwei Variablen aufweist. 
 
 # 3. Dokumentenvariablen bzw. Metavariablen
 
 Dieser Datensatz ist noch sehr roh und hat, wie gesagt, nur zwei Variablen: doc_id und text. Die erste der beiden, `doc_id`, ist lediglich der Name der Dateien. Die zweite Variable beinhaltet die Volltexte (Entscheidungen des Bundesverfassungsgericht). Die `\n` die ihr dort seht machen nicht den textuellen Inhalt aus. Das ist der html-Befehl für das Generieren eines neuen Absatzes. Die Dateien wurden direkt von der Internetseite des Bundesverfassungsgerichts heruntergeladen. 
 
-Wie auch immer, zwei Variablen sind natürlich nicht annnähernd aussreichend für unsere Bedürfnisse. Zum Glück können wir bereits beim Einlesen der Textdaten zwei weitere Variablen erstellen. Wie ihr in der `doc_id` Variable seht, bestehen die Dateinamen aus zwei Teilen die mit einem Unterstrich getrennt sind: 1) einem Datum und 2) einem Aktenzeichen (das Gericht gibt jeder Entscheidung ein Aktenzeichen), welches den jeweiligen Senat und Verfahrensart angibt (z.B. 2bvr bedeutet, dass der zweite Senat des Gerichts die Entscheidung getroffen hat und das die Entscheidung eine Verfassungsbeschwerde (bvr) behandelt hat). Diese beiden Bestandteile können wir verwenden um weitere Variablen zu erstellen (kontrolliert bitte `?readtext` um die Argumente von `readtext` zu erlernen). Dafür nutzen wir die Argumente `docvarsfrom` und `docvarnames`.
+Wie auch immer, zwei Variablen sind natürlich nicht genug für unsere Bedürfnisse. Zum Glück können wir bereits beim Einlesen der Textdaten zwei weitere Variablen erstellen. Wie ihr in der `doc_id` Variable seht, bestehen die Dateinamen aus zwei Teilen die mit einem Unterstrich getrennt sind: 1) einem Datum und 2) einem Aktenzeichen (das Gericht gibt jeder Entscheidung ein Aktenzeichen), welches den jeweiligen Senat und Verfahrensart angibt (z.B. 2bvr bedeutet, dass der zweite Senat des Gerichts die Entscheidung getroffen hat und das die Entscheidung eine Verfassungsbeschwerde (bvr) behandelt hat). Diese beiden Bestandteile können wir verwenden um weitere Variablen zu erstellen (kontrolliert bitte `?readtext` um die Argumente von `readtext` zu erlernen). Dafür nutzen wir die Argumente `docvarsfrom` und `docvarnames`.
 
 ```{r eval=T}
 daten_bverfg <- readtext("/Users/PhMeyer/Seafile/Seafile/Meine Bibliothek/Lehre/Seminare Uni Hannover/12 SoSe 2021/Quantitative Textanalyse/data/bverfg_15-19"
-                         , docvarsfrom = "filenames" 
+                         , docvarsfrom = "filenames"  # Hier sagen wir R wo es nach den Namen für den Befehl (docvarnames) suchen soll
                          , docvarnames = c("date","docket_nr")
                          )
 head(daten_bverfg)
@@ -75,19 +74,19 @@ head(daten_bverfg)
 
 Wie ihr seht erkennt `readtext` durch diese Argumente die Struktur der Dateiennamen und parst sie dementsprechend. Unsere Aufgabe war es im Grunde nur, passende Variablennamen (`docvarnames`) zu definieren. 
 
-**Hinweis**: Dieses Beispiel zeigt, wie wichtig es ist, den Textdateien funkionale Dateinamen zu geben. 
+**Hinweis**: Dieses Beispiel zeigt, wie wichtig es ist Textdateien funkionale Dateinamen zu geben. 
 
-So weit so gut! Aber wir können natürlich noch weitere inhaltliche Metadaten erstellen. Zum Beispiel können wir die `date`-Variable weiter aufspalten um das Jahr und Monat als einzelne Variable zu haben. Weiterhin können wir den jeweiligen Senat und den Verfahrenstyp extrahieren. Für diese Aufgabe verwenden wir die `base R`-Funktion [`substr`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/substr) (wie immer: checkt die Dokumentation der Funktion mit `?`!): 
+So weit so gut! Aber wir können natürlich noch weitere Metavariablen erstellen. Zum Beispiel können wir die `date`-Variable weiter aufspalten um das Jahr und Monat als einzelne Variable zu erhalten. Weiterhin können wir den jeweiligen Senat und den Verfahrenstyp extrahieren. Für diese Aufgabe verwenden wir die `base R`-Funktion [`substr`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/substr) (wie immer: checkt die Dokumentation der Funktion mit `?`!): 
 
 ```{r eval=T}
-daten_bverfg$year <-  substr(daten_bverfg$date, 1,4) # Ich sage R, dass esdie ersten vier Elemente von "date" (1,4) in die neue Variable "year" einfügen soll
+daten_bverfg$year <-  substr(daten_bverfg$date, 1,4) # Ich sage R, dass es die ersten vier Elemente von "date" (1,4) in die neue Variable "year" einfügen soll
 
 daten_bverfg$year <-  as.numeric(daten_bverfg$year) # Da "str_extract" eine character Variable erstellt, sagen wir R das die Variable in eine numerische Varibale transformieren soll
 
 daten_bverfg$month <-  substr(daten_bverfg$date, 5,6) 
 daten_bverfg$month <-  as.numeric(daten_bverfg$month) 
 
-daten_bverfg$senat <- substr(daten_bverfg$docket_nr, 1,1) # substr brauch einen Anfangswert und einen Endwert. Da wir hier lediglich die erste Ziffer aus "docket_nr" brauchen, sagen wir der Funktion  das sie auf Position 1 starten und enden soll
+daten_bverfg$senat <- substr(daten_bverfg$docket_nr, 1,1) # substr brauch einen Anfangswert und einen Endwert. Da wir hier lediglich die erste Ziffer aus "docket_nr" brauchen, sagen wir der Funktion das sie an Position 1 starten und enden soll
 
 daten_bverfg$senat  <-  as.numeric(daten_bverfg$senat)
 
@@ -102,17 +101,17 @@ head(daten_bverfg)
 
 # 4. Einen Korpus erstellen
 
-Jetzt haben wir einen Datensatz mit insgeamt sieben Variablen, wovon mindestens drei auch für weitere inhaltlische Analysen verwendet werden können. Um jedoch eine Textanalyse durchführen zu können, müssen wir einen [Textkorpus](https://tutorials.quanteda.io/basic-operations/corpus/corpus/) erstellen. Hierfür verwenden wir die `quanteda`-Funktion `corpus`:
+Jetzt haben wir einen Datensatz mit insgeamt sieben Variablen, wovon mindestens drei auch für weitere inhaltlische Analysen verwendet werden können. Um eine Textanalyse durchführen zu können müssen wir einen [Textkorpus](https://tutorials.quanteda.io/basic-operations/corpus/corpus/) erstellen. Hierfür verwenden wir die `quanteda`-Funktion `corpus`:
 
 ```{r eval=T}
 gerichts_korpus <- corpus(daten_bverfg,docid_field = "doc_id") # mit docid_field definieren wir die Identifikationsnummer eines jeden Texts
 gerichts_korpus
 ```
 
-Mit den `quanteda`-Funktionen `ndoc`, `ntoken`, `ntype` und `nsentence` können wir die Anzahl der Dokumente, Tokens, Types und Sätze identifizieren. Da wir als `R`-NutzerInnen aber eher faul sind, nutzen wir die `summary`-Funktion um diese Statistiken mit nur einem Befehl zu erstellen. 
+Mit den `quanteda`-Funktionen `ndoc`, `ntoken`, `ntype` und `nsentence` können wir die Anzahl der Dokumente, Tokens, Types und Sätze identifizieren. Da wir als `R`-Nutzerinnen aber faul sind, nutzen wir die `summary`-Funktion um diese Statistiken mit nur einem Befehl zu erstellen. 
 
 ```{r eval=T}
-korpus_stats <- summary(gerichts_korpus, n = 1000000) # Das Funktionsargument n = 1000000 wird hier nur deshalb verwendet, weil die Funktion summary ansonsten nur maximal 100 Texte zusammenfasst.
+korpus_stats <- summary(gerichts_korpus, n = 1000000) # Das Funktionsargument n = 1000000 wird hier nur deshalb verwendet, weil die Funktion summary per default nur maximal 100 Texte zusammenfasst.
 head(korpus_stats)
 ```
 
@@ -128,10 +127,9 @@ daten_bverfg$sentences <- korpus_stats$Sentences
 
 ### 4.1. Allgemeine Statistiken zum Korpus
 
-Die oben gespeicherten Korpusstatistiken lassen sich natürlich auch visualisieren. So bekommt man relativ schnell einen guten Einblick in dessen Beschaffenheit. Im folgenden werden wir die Anzahl der Tokens, der Typen und die Sätze pro Gerichtsentscheidungen visualiseren. Am Ende plotten wir noch das Verhältnis von Typen zu Tokens. 
+Die oben gespeicherten Korpusstatistiken lassen sich natürlich auch visualisieren. So bekommt man relativ schnell einen guten Einblick in dessen Beschaffenheit. Im folgenden werden wir die Anzahl der Token, der Typen und die Sätze pro Gerichtsentscheidungen visualiseren. Am Ende plotten wir noch das Verhältnis von Typen zu Tokens. 
 
 Die Basis aller jetzt folgenden Plots ist unser Datensatz `daten_bverfg`. Um die Plots übersichtlicher zu gestalten, werden wir nur Entscheidungen vom Juni 2019 plotten (das subsetting mit `filter()` haben wir ja bereits gelernt). Natürlich nutzen wir wieder `ggplot2`. 
-
 
 ```{r eval=T}
 bverfg_19_06 <- filter(daten_bverfg, year == 2019 & month == 6)
@@ -154,39 +152,46 @@ ggplot(bverfg_19_06, aes(doc_id, types, group = 1)) +
 ```
 
 ```{r eval=T}
-ggplot(bverfg_19_06, aes(doc_id, sentences, group = 1)) + geom_line() + geom_point() + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + ggtitle("Sätze pro Entscheidung")
+ggplot(bverfg_19_06, aes(doc_id, sentences, group = 1)) + 
+  geom_line() + 
+  geom_point() + 
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) + 
+  ggtitle("Sätze pro Entscheidung")
 ```
 
 ```{r eval=T}
-ggplot(bverfg_19_06, aes(doc_id, types, group = 1, label = docket_nr)) + geom_smooth(method = "lm", se = FALSE) + geom_text(check_overlap = T) + ggtitle("Typ-Token-Relation pro Entscheidung")
+ggplot(bverfg_19_06, aes(doc_id, types, group = 1, label = docket_nr)) + 
+  geom_smooth(method = "lm", se = FALSE) + 
+  geom_text(check_overlap = T) + 
+  ggtitle("Typ-Token-Relation pro Entscheidung")
 ```
 
-Diese Graphen sind nicht wirklich informativ. Wir sehen lediglich, dass der Entscheidungstext zu 1 BvR 587/17 deutlich länger ist als die anderen Entscheidungstexte. Natürlicherweise schlägt sich das auf allen drei Ebenen (Tokens, Types, Sätze) nieder. Auch die Typ-Token-Relation ist wenig Aussagekräftig. Über die Typ-Token-Relation lassen sich Rückschlüssen über die Informationsdichte ziehen.
+Diese Graphen sind nicht wirklich informativ. Wir sehen lediglich, dass der Entscheidungstext zu 1 BvR 587/17 deutlich länger ist als die anderen Entscheidungstexte. Natürlich hat das Einfluss auf alle drei Ebenen (Tokens, Types, Sätze). Auch die Typ-Token-Relation ist wenig Aussagekräftig (Über die Typ-Token-Relation lassen sich Rückschlüsse auf die Informationsdichte von Texten ziehen).
 
 ### 4.2. Arbeiten mit dem Korpus
 
-In `quanteda` lassen sich Korpora leicht samplen und umformen. Auch lassen sich leicht wichtige Einblicke in die Texte gewinnen. Der folgenden Aufruf zeigt die ersten 1000 Zeichen der ersten Entscheidung in unserem Korpus:
+In `quanteda` lassen sich Korpora leicht samplen und umformen. Auch lassen sich wichtige Einblicke in die Texte gewinnen. Der folgenden Aufruf zeigt die ersten 1000 Zeichen der ersten Entscheidung in unserem Korpus:
 
 ```{r eval=T}
 str_sub(gerichts_korpus[1], start = 1, end = 1000)
 ```
 
-**Hinweis**: Jeder Text lässt sich mittels seiner Indizierung identifizieren (gerichts_korpus[1]). Der Nachteil ist aber, dass ihr, sobald ihr einen speziellen Text sehen wollt genau wissen müsst an welcher Stelle diese steht.
+**Hinweis**: Jeder Text lässt sich mittels seiner Indizierung identifizieren (gerichts_korpus[1]). Der Nachteil ist aber, dass ihr, sobald ihr einen speziellen Text sehen wollt genau wissen müsst an welcher Stelle dieser im Korpus zu finden ist.
 
 Mit der Funktion `corpus_reshape` könnt ihr euren Korpus umformen. Im Beispiel unten werden wir aus jedem Satz ein Dokument machen (optional kann man auch Absätze auswählen). Solche Satz-Korpora sind z.B. bei Sentimentanalysen wichtig.
 
 ```{r eval=T}
 gerichts_saetze <- corpus_reshape(gerichts_korpus, to = "sentences") # welche Argumente ihr mit "to =" definieren könnt findet ihr mit ?corpus_reshape heraus
-gerichts_saetze[1]
+gerichts_saetze[15]
 ```
 
 Mit der Funktion `corpus_sample()` könnt ihr ein zufälliges Sample aus eurem Korpus ziehen:
 
 ```{r eval=T}
-zufallsrecht <- corpus_sample(gerichts_saetze, size = 1)
-zufallsrecht[1]
+zufallssatz <- corpus_sample(gerichts_saetze, size = 1)
+zufallssatz
 ```
 
 Schließlich lassen sich Korpora mithilfe von `corpus_segment()` nach bestimmten Kriterien aufspalten. Probiert es mal aus!
 
-Bis hierher habt ihr jetzt gelernt, wie man Texte einliest, relevante Variablen erstellt und einen Korpus erstellt. An den gezeigten Beispielen wird aber auch deutlich, dass wir an den Entscheidungstexten noch vieles verändern müssen, damit wir eine gute Grundlage für unsere Textanalyse haben. Zum Beispiel müssen wir die Sonderzeichen, die Leerzeichen und Absätze (und damit vor allem die `\n`!) und die nummerischen Elemente entfernen. Diese Aspekte werden im kommenden Tutorial besprochen.
+Bis hierher habt ihr jetzt gelernt, wie man Texte einliest, relevante Variablen und einen Korpus erstellt. An den gezeigten Beispielen wird aber auch deutlich, dass wir an den Entscheidungstexten noch vieles verändern müssen, damit wir eine gute Grundlage für unsere Textanalyse haben. Zum Beispiel müssen wir die Sonderzeichen, die Leerzeichen und Absätze (und damit vor allem die `\n`!) und die nummerischen Elemente entfernen. Diese Aspekte werden im kommenden Tutorial besprochen.

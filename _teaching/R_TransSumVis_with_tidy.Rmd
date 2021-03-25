@@ -22,22 +22,22 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 Das Ziel dieses Tutorials ist euch mit dem *Tidyverse* vertraut zu machen. Außerdem soll das Tutorial euch eine Einführung in die Arbeit mit Daten, deren Verarbeitung und Visualisierung geben. 
 
-Das *Tidyverse* ist eine Sammlung von Paketen, die auf der Basis von klar definierten Prinzipien entwickelt wurden. *Tidy* propagiert klare Vorstellungen wie Daten aussehen sollten und wie wir mit ihnen arbeiten sollten. 
+Das *Tidyverse* ist eine Sammlung von Paketen, die auf der Basis von klar definierten Prinzipien entwickelt wurden. *Tidy* propagiert klare Vorstellungen davon, wie Daten aussehen sollten und wie wir mit Daten arbeiten sollten. 
 
-Das *tidyverse* wird in dem kostenlosen (Online-) Buch *R for Data Science* vorgestellt. Dieses Tutorial behandelt vor allem die Inhalte aus den Kapitel 3, 5 und 7:
+Das *tidyverse* wird in dem kostenlosen (Online-) Buch *R for Data Science* vorgestellt. Dieses Tutorial behandelt die Inhalte aus den Kapitel 3, 5 und 7:
 
   * [Kapitel 3](https://r4ds.had.co.nz/data-visualisation.html)
   * [Kapitel 5](https://r4ds.had.co.nz/transform.html)
   * [Kapitel 7](https://r4ds.had.co.nz/exploratory-data-analysis.html)
 
 
-In diesem Teil des Tutorials konzentrieren wir uns auf die Arbeit mit dem Paket `tidyverse`. Ein wichtiger Teil ist das Paket `dplyr` (data-pliers), das die meisten der Funktionen enthält, die wir im Folgenden verwenden. Weitere Inhalte von `dplyr` sind Funktionen zum Lesen, Analysieren und Visualisieren von Daten, auf die wir am Ende des Tutorial eingehen werden.
+Ein zentraler Aspekt des `tidyverse` ist das Paket `dplyr` (data-pliers), das die meisten der Funktionen enthält, die wir im Folgenden verwenden. 
 
 # 2. Installieren von tidyverse
 
 Wie zuvor verwenden wir `install.packages()`, um das Paket herunterzuladen und zu installieren. Anschließend nutzen wir `library()`, damit wir die Funktionen aus dem Paket auch nutzen können. 
 
-**Tipp**: schreibt die `library()`-Funktion für die Pakete, die ihr in eurem `R`-Skript verwendet, untereinander an den Anfang eures jeweiligen Skripts. Mit mehr Erfahrungen in `R` werdet ihr Anfangen für jede Aufgabe bzw. jeden Analyseschritt für eine Hausarbeit (z.B. deskriptive Statistik, Visualisierung, multivariate Analyse) ein einzelnes Skript zu verwenden. Das hat seinen Grund darin, dass jeder dieser Schritte unterschiedliche Datenformate, Pakete etc. benötigt. Im Gegensatz zu `install.packages()`, das ich pro Computer und pro Paket nur einmal ausführen müsst, ist die `library()`-Funktion bei jedem Start von `R` notwendig. 
+**Tipp**: schreibt die `library()`-Funktion für die Pakete, die ihr in eurem `R`-Skript verwendet, untereinander an den Anfang eures jeweiligen Skripts. Mit mehr Erfahrungen in `R` werdet ihr Anfangen für jede Aufgabe bzw. jeden Analyseschritt für eine Hausarbeit (z.B. deskriptive Statistik, Visualisierung, multivariate Analyse) ein einzelnes Skript zu verwenden. Jeder dieser Schritte benötigt meistens unterschiedliche Datenformate, Pakete etc. Im Gegensatz zu `install.packages()`, das ich pro Computer und pro Paket nur einmal ausführen müsst, ist die `library()`-Funktion bei jedem Start von `R` notwendig. 
 
 ```{r eval=F}
 install.packages("tidyverse") # nur einmal notwendig. Beachtet: beim Installieren von Paketen müsst ihr Anführungszeichen verwenden. R ist case-sensitive und die Pakete müssen spezifisch angesprochen werden.
@@ -47,7 +47,7 @@ install.packages("tidyverse") # nur einmal notwendig. Beachtet: beim Installiere
 library(tidyverse) # bei jedem Start von R notwendig
 ```
 
-**Hinweis**: Erschrecket nicht, wenn nach dem Aufruf der *tidyverse* oder jeder anderen Paket-Bibliothek eine rote Meldung zu sehen ist. `RStudio` unterscheidet nicht zwischen Meldungen, Warnungen und Fehlern und zeigt daher alle drei in Rot an. Eine Operation ist dann fehlerhaft, wenn in der Meldung auch wirklich das Wort "Fehler" auftaucht. Das passiert zum Beispiel bei einem falsch geschriebenen Paket (`R` ist case-sensitive und nimmt Groß- und Kleinschreibung sehr, wirklich sehr, ernst.)
+**Hinweis**: Nach dem Aufruf des *tidyverse* oder anderen Paket-Bibliotheken sind manchmal eine rote Meldung zu sehen. Das ist nicht weiter schlimm und kann in den meisten Fällen ignoriert werden. Eine Operation ist dann fehlerhaft, wenn in der Meldung auch wirklich das Wort "Fehler" auftaucht. Das passiert zum Beispiel bei einem falsch geschriebenen Paket (`R` ist case-sensitive und nimmt Groß- und Kleinschreibung sehr, wirklich sehr, ernst.)
 
 ```{r eval=F}
 library(tidyvers) 
@@ -59,9 +59,9 @@ library(tidyvers)
 
 Die Funktionalität von `R`-Paketen definiert sich durch die Funktionen die sie beinhalten. Umgangssprachlich ausgedrück ist eine Funktion ein Befehl an den Computer, eine Handlung durchzuführen und und das Ergebnis dieser Handlung zu berichten/zurückzugeben. Die Funktionalität von `dyplyr` basiert vor allem auf den Umgang mit Datensätzen, wie zum Beispiel das Filtern und Sortieren von Variablen. 
 
-Datensätze bestehen aus Reihen (die Fälle bzw. Beobachtungen wie Länder, ProbantInnen, Parteiprogramme, Gerichtsurteile) und Spalten (die Variablen, wie z.B. welcher Senat des Bundesverfassungsgerichts eine Entscheidung zu verantworten hat oder von welcher Partei ein Programm verfasst wurde und wann). In den ersten Tutorials habt ihr `data.frames` als `R`-Objekte für Datensätze kennengelernt. Das *tidyverse* verwendet einen eigenen Datensatztyp den/das(?) `tibble`. 
+Datensätze bestehen aus Reihen (die Fälle bzw. Beobachtungen wie Länder, Probantinnen, Parteiprogramme, Gerichtsurteile) und Spalten (die Variablen, wie z.B. welcher Senat des Bundesverfassungsgerichts eine Entscheidung zu verantworten hat oder von welcher Partei ein Programm verfasst wurde und wann). Ihr habt ja bereits `data.frames` als `R`-Objekte für Datensätze kennengelernt. Das *tidyverse* verwendet einen eigenen Datensatztyp: `tibble`
 
-`tibble` sind funktional äquivalent zu `data.frame`, aber deutlich effizienter und einfacher zu verwenden. Im Beispiel erstellen wir beispielsweise einen Datensatz über Verfassungsgerichte (drei Gerichte, deren rechtlichte Tradition und ob sie die Kompetenz zur abstrakten Normenkontrolle haben): 
+`tibble` sind funktional äquivalent zu `data.frame`, aber deutlich effizienter und einfacher zu verwenden. Im Beispiel erstellen wir einen Datensatz über Verfassungsgerichte (drei Gerichte, deren rechtlichte Tradition und ob sie die Kompetenz zur abstrakten Normenkontrolle haben): 
 
 ```{r eval=T}
 courts <- tibble(id=c(1,2,3),
@@ -72,13 +72,13 @@ courts <- tibble(id=c(1,2,3),
 courts
 ```
 
-Die Struktur und die Erstellung verläuft analog zur Struktur und Erstellun mit der `data.frame`-Funktion. Wir definieren den Namen das Datensatzes ("courts"), verwenden die `tibble`-Funktion und definieren innerhalb dieser Funktion die einzelnen Variablen (id = Identifikationsnummer, gericht = Namen der drei Gerichte, rechtstradition = die Tradition in welcher das jeweilige Rechtssystem steht, abstrakte_NK=hat das jeweilige Gerichte die Kompetenz für abstrakte Normenkontrolle). Im weiteren Verlauf des Tutorials gehen wir noch etwas mehr auf die Arbeit mit Datensätzen ein. 
+Die Struktur und die Erstellung verläuft analog zur Struktur und Erstellung mit der `data.frame`-Funktion. Wir definieren den Namen das Datensatzes ("courts"), verwenden die `tibble`-Funktion und definieren innerhalb dieser Funktion die einzelnen Variablen (id = Identifikationsnummer, gericht = Namen der drei Gerichte, rechtstradition = die Tradition in welcher das jeweilige Rechtssystem steht, abstrakte_NK=hat das jeweilige Gerichte die Kompetenz für abstrakte Normenkontrolle). Im weiteren Verlauf des Tutorials gehen wir noch etwas mehr auf die Arbeit mit Datensätzen ein. 
 
 ### 3.1. Daten lesen: `read_csv`
 
-In dem Beispiel oben haben wir einen Datensatz manuell erstellt. In den allermeisten Fällen werdet ihr aber externe Datensätze nutzen, wie zum Beispiel die Datensätze von [V-Dem](https://www.v-dem.net/en/data/data/) oder vom [Comparatives Agendas Project](https://www.comparativeagendas.net). Solche externen Datensätze sind meistens als csv-Datei erhältlich (natürlich finden sich auch Excel-, SPSS-, Stata-, oder auch `R` eigene RDat-Datensätze, aber csv ist zu bevorzugen und wir werden hier auch vor allem mit csv-Dateien arbeiten).
+In dem Beispiel oben haben wir einen Datensatz manuell erstellt. In den allermeisten Fällen werdet ihr aber externe Datensätze nutzen, wie zum Beispiel die Datensätze von [V-Dem](https://www.v-dem.net/en/data/data/) oder vom [Comparatives Agendas Project](https://www.comparativeagendas.net). Solche externen Datensätze sind meistens als csv-Datei erhältlich (natürlich finden sich auch Excel-, SPSS-, Stata-, oder auch `R` eigene RDat-Datensätze).
 
-Tidyverse enthält die Funktion `read_csv`, mit der ihr eine csv-Datei direkt als Datensatz einlesen könnt. Dafür gebt ihr den Speicherort der Datei an, also entweder mittels eures lokalen Datenpfads um auf euer Laufwerk zuzugreifen oder aus dem Internet.
+Tidyverse enthält die Funktion `read_csv`, mit der ihr eine csv-Datei direkt als Datensatz einlesen könnt. Dafür gebt ihr den Speicherort der Datei an,  entweder mittels eures lokalen Datenpfads um auf euer Laufwerk zuzugreifen oder aus dem Internet.
 
 Im folgenden Beipsiel laden wir zwei Datensätze herunter. Zum einen meinen eigenen, den ich für meine Dissertation erstellt habe. Er enthält Senatsentscheidungen des Bundesverfassungsgerichts für die Jahre 2015 - 2020. Er beinhaltet vielfältige Meta-Daten wie den Volltext der Entscheidungen, den Verfahrenstyp etc. Zum anderen laden wir einen Datensatz von [fivethirtyeight](https://fivethirtyeight.com/) herunter. Dieser Datensatz enhält Umfragedaten über die private Nutzung von Feuerwaffen in den USA. 
 
@@ -86,9 +86,9 @@ Beide Datensätze stammen aus dem Internet. Aber ihr könnt die URL meines Daten
 
 ```{r eval=T}
 
-# Schritt 1: Lest die URL in R ein (die Internetseiten verweisen direkt auf die hochgeladenen csv.Dateien. Das ist nicht überall der Fall, weshalb der hier präsentierte nur ein möglicher Weg von vielen ist)
-url_courts = "https://phimeyer.github.io/teaching/FCC_senate_decisions.csv" 
-url_weapons = "https://raw.githubusercontent.com/fivethirtyeight/data/master/poll-quiz-guns/guns-polls.csv"
+# Schritt 1: Lest die URL in R ein (die Internetseiten verweisen direkt auf die hochgeladenen csv.Dateien. Das ist nicht überall der Fall, weshalb der hier präsentierte nur einer von vielen ist)
+url_courts <-  "https://phimeyer.github.io/teaching/FCC_senate_decisions.csv" 
+url_weapons <-  "https://raw.githubusercontent.com/fivethirtyeight/data/master/poll-quiz-guns/guns-polls.csv"
 
 # Schritt 2: Mittels der Funktion read_csv wird nun der im Web gespeicherte csv.Datensatz eingelesen
 court <- read_csv(url_courts)
@@ -116,7 +116,7 @@ verfb
 
 Das erste Argument sind die zu verwendenden Daten (z.B. weapons), und das/die verbleibende(n) Argument(e) definieren was genau mit den Daten geschehen soll.
 
-Beachtet hier bitte die Verwendung von ==. Andere Möglichkeiten wäre hier > (größer als), <= (kleiner als oder gleich) und != (nicht gleich). Ihr könnt auch mehrere Bedingungen mit logischen (booleschen) Operatoren kombinieren: & (und), I (oder), und ! (nicht), und ihr könnt Klammern verwenden, um `R` zu sagen welche Befehle wann ausgeführt werden sollen (also ähnlich der Funktion von Klammern in der Mathematik).
+Beachtet hier bitte die Verwendung von ==. Andere Möglichkeiten wären > (größer als), <= (kleiner als oder gleich) und != (nicht gleich). Ihr könnt auch mehrere Bedingungen mit logischen (booleschen) Operatoren kombinieren: & (und), I (oder), und ! (nicht), und ihr könnt Klammern verwenden, um `R` zu sagen welche Befehle wann ausgeführt werden sollen (also ähnlich der Funktion von Klammern in der Mathematik).
 
 So können wir alle Umfragen finden, bei denen die Unterstützung für die Anhebung des Waffenalters bei mindestens 80 % lag:
 
@@ -133,7 +133,6 @@ Wie bereits erklärt, könnt ihr bei Fragen über eine bestimmte Funktion die `?
 Wenn ihr euch die Hilfeseite anseht, dann findet ihr, wie immer, zuerst die allgemeine Beschreibung. Danach folgt die Verwendung, die zeigt, wie die Funktion aufgerufen werden soll. Der Rest gibt zusätzliche Informationen darüber, was genau die Funktion macht, die Ausgabe, die sie erzeugt (Value), und Links zu anderen nützlichen Paketen, Funktionen und schließlich eine Reihe von Beispielen.
 
 Auch wenn es anfangs einschüchternd erscheinen mag, ist es wichtig, sich an den Stil der R-Dokumentation zu gewöhnen. Das ist der erste Anlaufpunkt für Fragen über Funktionen und Pakete! 
-
 **Aber vergesst nicht**: ihr könnt für jedes Problem in `R` eine Lösung im Internet finden (z.B. indem ihr einfach die Fehlermeldung die `R` ausgibt kopiert und als Suchanfrage eingebt)! 
 
 ### 3.4. Auswählen bestimmter Spalten
@@ -232,9 +231,9 @@ age21 <- read_csv(url_weapons) %>% filter(Question == 'age-21') %>%
 age21    # Hier haben wir lediglich einmal einen Namen zugewiesen (age21) und den Datensatznamen sonst nicht mehr verwendet (z.B. select(Question,...))
 ```
 
-Das Elegante an Pipes ist, dass eindeutig zeigen welche Schritte ihr durchführt. Außerdem müssen nicht viele Zwischenobjekte erstellt werden. Wenn es richtig angewendet wird, stellen Pipes schön abgegrenzte Codestücke dar. Damit können dann bestimmte Teile der Analyse von der Roheingabe bis zu den Ergebnissen durchgeführt werden, einschließlich statistischer Modellierung oder Visualisierung.
+Das Elegante an Pipes ist, dass sie eindeutig zeigen welche Schritte durchführt werden. Außerdem müssen nicht viele Zwischenobjekte erstellt werden. Damit können dann bestimmte Teile der Analyse von der Roheingabe bis zu den Ergebnissen durchgeführt werden, einschließlich statistischer Modellierung oder Visualisierung.
 
-Natürlich werdet ihr nicht eure ganzes Skript durch eine einzige Pipe ersetzen. Oft ist es auch hilfreich die Zwischenschritte einzeln auszuführen, um die Zwischenwerte speichern zu können. Zum Beispiel könnt ihr einen Datensatz herunterladen, bereinigen und untergliedern, bevor ihr die gewünschten Analysen durchführt. In diesem Fall wollt ihr wahrscheinlich die Ergebnisse des Bereinigens und Subsettings als einzelne Variable speichern und diese dann in euren Analysen (die ihr als Pipes organisieren könnt) verwenden.
+Natürlich werdet ihr nicht euer ganzes Skript durch eine einzige Pipe ersetzen. Oft ist es hilfreich die Zwischenschritte einzeln auszuführen, um die Zwischenwerte speichern zu können. Zum Beispiel könnt ihr einen Datensatz herunterladen, bereinigen und untergliedern, bevor ihr die gewünschten Analysen durchführt. In diesem Fall wollt ihr wahrscheinlich die Ergebnisse des Bereinigens und Subsettings als einzelne Variable speichern und diese dann in euren Analysen (die ihr als Pipes organisieren könnt) verwenden.
 
 # 4. Aggregation von Daten und Datensätzen
 
@@ -275,7 +274,7 @@ weapons_sum <- weapons %>% group_by(Question) %>% summarize(Support=mean(Support
 weapons_sum
 ```
 
-Wie ihr sehen können, ändert `summarize()` die Daten. Die Reihen enstprechen jetzt der der Anzahl der unterschiedlichen Fragen in den Umfragen (8), und die einzigen Spalten, die übrig geblieben sind, sind die Gruppierungsvariablen und die zusammengefassten Werte.
+Wie ihr sehen können, ändert `summarize()` die Daten. Die Reihen enstprechen jetzt der Anzahl der unterschiedlichen Fragen in den Umfragen (8), und die einzigen Spalten, die übrig geblieben sind, sind die Gruppierungsvariablen und die zusammengefassten Werte.
 
 Natürlich können wir auch Zusammenfassungen von mehreren Werten berechnen und auch weiterführende Berechnungen durchführen: 
 
@@ -293,7 +292,7 @@ Die obigen Beispiele reduzieren die Anzahl der Beobachtungen/Fälle auf die Anza
 Nehmen wir zum Beispiel an, wir möchten sehen, ob eine bestimmte Frage eine andere gesellschaftliche Unterstützung besitzt als der Durchschnitt. Wir können `group_by()` und dann `mutate()` verwenden und berechnen so die durchschnittliche Unterstützung:
 
 ```{r eval=T}
-weapons_avgSup <-  weapons %>% group_by(Question) %>% mutate(avg_support=mean(Support), diff=Support - avg_support) # hier erstellen wir die neue Variable "avg_support", also die durchschnittliche Unterstützung
+weapons_avgSup <-  weapons %>% group_by(Question) %>% mutate(avg_support=mean(Support), diff=Support - avg_support) # hier erstellen wir die neue Variable "avg_support", also die durchschnittliche Unterstützung und die neue Variable "diff" für die wir die Unterstützung (Support) mit der durchschnittlichen Unterstützung (avg_support) substrahieren
 weapons_avgSup
 ```
 
@@ -315,7 +314,7 @@ Wie (und warum) würde das Ergebnis aussehen, wenn wir die Gruppierung **nicht**
 
 ### 4.2. Multiple Aggregation/Zusammenfassen
 
-Die obigen Beispiele verwendeten alle eine einzelne Gruppierungsvariable. Natürlich können wir auch nach mehreren Spalten gruppieren. Zum Beispiel könnten wir die durchschnittliche Unterstützung pro Frage und pro Population berechnen:
+Die Beispiele verwendeten alle eine einzelne Gruppierungsvariable. Wir können auch nach mehreren Spalten gruppieren. Zum Beispiel könnten wir die durchschnittliche Unterstützung pro Frage und pro Population berechnen:
 
 ```{r eval=T}
 weapons %>% group_by(Question, Population) %>% summarize(Support=mean(Support))
@@ -370,11 +369,13 @@ weapons2 %>% group_by(Question) %>% summarize(Support=mean(Support,  na.rm=T))
 weapons2
 ```
 
-# 5. Die Grundlagen der Datenvisualisierung
+# 5. Grundlagen der Datenvisualisierung
 
-In diesem fünften Teil dieses Tutorials arbeiten wir mit dem Paket `ggplot2`. Hier noch ein paar generelle Hinweise zu diesem Paket:
+In fünften Teil des Tutorials arbeiten wir mit dem Paket `ggplot2`. Hier noch ein paar generelle Hinweise zu diesem Paket:
 
- * Ihr findet ein paar sehr schöne Visualisierungsbeispiele mit `ggplot2` in der [R Graph Gallery](https://www.r-graph-gallery.com/ggplot2-package.html). Dort findet ihr auch den zugehörigen Code. Damit könnt ihr dann die Beispiele mit euren eigenen Daten nachbauen. Keinen Code, aber etwas Inspiration für eure eigenen Visualisierungen findet ihr [hier](https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/). Abschließen noch der Hinweis auf einen interessanten Artikel der `ggplot2` Entwickler über die ["Grammatik von Graphiken"](http://vita.had.co.nz/papers/layered-grammar.html).
+ * Ihr findet ein paar sehr schöne Visualisierungsbeispiele mit `ggplot2` in der [R Graph Gallery](https://www.r-graph-gallery.com/ggplot2-package.html). Dort findet ihr auch den zugehörigen Code. Damit könnt ihr dann die Beispiele mit euren eigenen Daten nachbauen. 
+ * Keinen Code, aber etwas Inspiration für eure eigenen Visualisierungen findet ihr [hier](https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/). 
+ * Abschließen noch der Hinweis auf einen interessanten Artikel der `ggplot2` Entwickler über die ["Grammatik von Graphiken"](http://vita.had.co.nz/papers/layered-grammar.html).
  
 ### 5.1. `ggplot2`  
 
@@ -391,24 +392,26 @@ csv_folder_url <- "https://raw.githubusercontent.com/houstondatavis/data-jam-aug
 
 facts <-  read_csv(paste(csv_folder_url, "county_facts.csv", sep = "/"))  # read_csv ist eine Funktion im tidyverse-Paket. Das Argument sep = "/" gibt R den Befehl einen Backslah zwischen der in  "csv_folder_url" gespeicherten URL und dem gesuchten Datensatz mit dem Namen "county_facts.csv" zu setzen. 
 
-facts_subset <- facts %>% select(fips, area_name, state_abbreviation, population=Pop_2014_count, pop_change=Pop_change_pct, 
-                                over65=Age_over_65_pct, female=Sex_female_pct, anglo_americans=Race_white_pct, 
-                                college=Pop_college_grad_pct, income=Income_per_capita) # hier nehmen wir den Datensatz und wählen nur ein paar Variablen aus und benennen einige Variablen um (z.B. die Variable "Pop_college_grad_pct" heißt in unserem facts_subset-Datensatz jetzt "college")
+facts_subset <- facts %>% select(fips, area_name, state_abbreviation
+                                 , population=Pop_2014_count, pop_change=Pop_change_pct
+                                 , over65=Age_over_65_pct, female=Sex_female_pct
+                                 , anglo_americans=Race_white_pct, college=Pop_college_grad_pct
+                                 , income=Income_per_capita) # hier nehmen wir den Datensatz (facts) und wählen nur ein paar Variablen aus (mittels select) und benennen einige Variablen um (z.B. die Variable "Pop_college_grad_pct" heißt in unserem facts_subset-Datensatz jetzt "college")
 
-facts_state <- facts_subset %>% filter(is.na(state_abbreviation) & fips != 0) %>% select(-state_abbreviation)
+facts_state <- facts_subset %>% filter(is.na(state_abbreviation) & fips != 0) %>% select(-state_abbreviation) 
 facts_state
 ```
 
-Gut! Jetzt haben wir einen Datensatz. Machen wir uns jetzt daran eine der am meisten genutzten Visualisierungen überhaupt zu gestalten: ein Steudiagramm! Für selbiges soll der Prozentsatz der HochschulabsolventInnen auf der x-Achse und das Medianeinkommen auf der y-Achse dargestellt werden.
+Gut! Jetzt haben wir einen Datensatz. Machen wir uns jetzt daran eine der am meisten genutzten Visualisierungen überhaupt zu gestalten: ein Steudiagramm! Für selbiges soll der Prozentsatz der Hochschulabsolventinnen auf der x-Achse und das Medianeinkommen auf der y-Achse dargestellt werden.
 
 ```{r eval=T}
 library(ggplot2) # bei jedem Durchlauf eures Skripts (im Gegensatz zu install.packages())
 ggplot(data=facts_state) + geom_point(mapping=aes(x=college, y=income))
 ```
 
-Wie ihr seht besteht der Befehl aus zwei Teilen. Im ersten Schritt erstellt `ggplot` eine *leere Leinwand*, die mit dem Datensatz `fact_state` verknüpft ist. Im zweiten Schritt nutzen wir `geom_point` um die uns interessierenden Informationen (Datensatzvariablen) auf diese leere Leinwand zu projezieren. Ihr könnt euch die `ggplot`-Befehle als Schichten vorstellen: 1) die "Leinwand", verknüpft mit dem Datensatz; 2) die geometische Form, hier Punkte (`geom_**point**`); 3) Aspekte um die Datenpunkte abzubilden (hier x=college und y=income). 
+Wie ihr seht besteht der Befehl aus zwei Teilen. Im ersten Schritt erstellt `ggplot` eine *leere Leinwand*, die mit dem Datensatz `fact_state` verknüpft ist (`ggplot(data=facts_state)`). Im zweiten Schritt nutzen wir `geom_point` um die uns interessierenden Informationen (Datensatzvariablen) auf diese leere Leinwand zu projezieren. Ihr könnt euch die `ggplot`-Befehle als Schichten vorstellen: 1) die "Leinwand", verknüpft mit dem Datensatz; 2) die geometische Form, hier Punkte (`geom_**point**`); 3) Aspekte um die Datenpunkte abzubilden (hier x=college und y=income). 
 
-Unser Beispiel ist die einfachste Form einer Visualisierung. Das `gglot`-Paket hat unendlich viele Möglichkeiten, die ihr mit der Zeit und mit euren eigenen Daten und Ideen selber herausfinden werdet. 
+Unser Beispiel ist die einfachste Form einer Visualisierung. Das `gglot2`-Paket hat unendlich viele Möglichkeiten, die ihr mit der Zeit und mit euren eigenen Daten und Ideen selber herausfinden werdet. 
 
 Unsere Beispiel-Graphik ist ein Streudiagramm, in dem jeder Punkt einen US Staat repräsentiert. Zusätzlich sehen wir eine klare Korrelation zwischen Bildungsniveau und Einkommen. Es gibt aber auch einen klaren Ausreißer oben rechts. Welcher Staat ist das? 
 
@@ -448,13 +451,15 @@ ggplot(data=facts_state) + geom_point(mapping=aes(x=college, y=income, size=popu
 Da es schwierig ist, überlappende Punkte zu sehen, wollen wir alle Punkte etwas transparenter machen. Hinweis: Da wir das Alpha aller Punkte auf einen einzigen Wert setzen wollen, ist dies kein Mapping (da es nicht auf eine Spalte aus dem Datenrahmen abgebildet wird), sondern eine Konstante. Diese wird deshlab außerhalb des Mapping-Arguments gesetzt:
 
 ```{r eval=T}
-ggplot(data=facts_state) + geom_point(mapping=aes(x=college, y=income, size=population), alpha=.5, colour="red")
+ggplot(data=facts_state) + 
+  geom_point(mapping=aes(x=college, y=income, size=population), alpha=.5, colour="red")
 ```
 
 Anstatt die Farbe auf einen konstanten Wert zu setzen, können wir sie auch mit den Daten variieren lassen. Zum Beispiel können wir die Staaten nach dem Prozentsatz der Bevölkerung über 65 einfärben:
 
 ```{r eval=T}
-ggplot(data=facts_state) + geom_point(mapping=aes(x=college, y=income, size=population, colour=over65), alpha=.9)
+ggplot(data=facts_state) + 
+  geom_point(mapping=aes(x=college, y=income, size=population, colour=over65), alpha=.9)
 ```
 
 Schließlich können wir auch eine kategoriale Variable abbilden. Hierfür müssen wir zuerst die Kategorien bilden, z.B. ob die Bevölkerungen in einem Staat wächst (mindestens um 1%) oder stabil bleibt. Um diese Kategorie zu erstellen, benutzen wir die Funktion `if_else()`, die den Wert "if true" zuweist, wenn die definierte Bedingung wahr ist (anderenfalls ist es falsch).
@@ -469,7 +474,7 @@ Jetzt können wir eine "Kategorien-Farbe" zu der Graphik hinzufügen:
 ggplot(data=facts_state) + geom_point(mapping=aes(x=college, y=income, size=population, colour=growth), alpha=.9) 
 ```
 
-Wie ihr in diesen Beispielen sehen können, versucht `ggplot`, die von euch verlangte Zuordnung intelligent zu gestalten. Es setzt die x- und y-Bereiche automatisch auf die Werte der verwendeten Daten. Für die Farbe z.B. erstellt `ggplot` bei Intervallvariablen eine Farbskala, während es bei einer kategorialen Variable jeder Gruppe automatisch eine Farbe zuordnete.
+Wie ihr in diesen Beispielen sehen können, versucht `ggplot`, die von euch verlangte Zuordnung intelligent zu gestalten. Es setzt die x- und y-Bereiche automatisch auf die Werte der verwendeten Daten. Für die Farbe z.B. erstellt `ggplot` bei Intervallvariablen eine Farbskala, während es bei einer kategorialen Variable jeder Gruppe automatisch eine Farbe zuordnet.
 
 Natürlich kann jede dieser Möglichkeiten angepasst werden. Das ist auch sinnvoll. Zum Beispiel könnte man Rot für Republikaner und Blau für Demokraten verwenden. Andererseits verlangen Publikationen in Fachzeitschriften meistens schlichte Grafiken in schwarz-weiß bzw. mit verschiedenen Grau- oder Schwarztönen. Am besten ihr sucht im Internet mal eigenständig nach Beispielen für andere Farbkonfigurationen für `ggplot`-Graphen und experimentiert etwas rum. 
 
@@ -478,7 +483,8 @@ Natürlich kann jede dieser Möglichkeiten angepasst werden. Das ist auch sinnvo
 Eine weitere Standardvisualisierung ist das Balkendiagramm. `R` geht bei Balkendiagrammen generell davon aus, dass ein Histogramm dargestellt werden soll. Zum Beispiel können wir darstellen ob die Bevölkerung in den US Staaten wächst oder stabil bleibt:
 
 ```{r eval=T} 
-ggplot(data=facts_state) + geom_bar(mapping=aes(x=growth)) # wir nehmen die von uns oben erstelle kategoriale variable "growth"
+ggplot(data=facts_state) + 
+  geom_bar(mapping=aes(x=growth)) # wir nehmen die von uns oben erstelle kategoriale variable "growth"
 ```
 
 Zugegeben, diese Darstellung ist leidlich interessant. Um das zu ändern laden wir jetzt einen weiteren Datensatz von der Github-Seite des ["Houston Data Visualization Meetup"](https://github.com/houstondatavis/data-jam-august-2016) und visualisieren  die Stimmen pro republikanischem Kandidaten in der Vorwahl in New Hampshire. Zuerst laden wir die Daten pro Bezirk herunter, fassen diese auf Ebene der Staaten zusammen und filtern die Ergebnisse für die repubikanische Partei in New Hampshire heraus. 
@@ -498,7 +504,7 @@ ggplot(data=nh_gop) + geom_bar(mapping=aes(x=candidate, y=votes), stat='identity
 
 ### 5.5. Graphikoptionen auf der Diagrammebene
 
-Einige Optionen, wie Beschriftungen, Legenden und das Koordinatensystem, gelten für das gesamte Diagramm und nicht pro ästhetischer Ebene (siehe die Beschreibungen in Punkt 5.1.). Diese Optionen werden dem Diagramm direkt hinzugefügt, indem dem zusätzliche Funktionen hinzugefügt werden. Zum Beispiel können wir `coord_flip()` verwenden, um die x- und y-Achse zu vertauschen:
+Einige Optionen, wie Beschriftungen, Legenden und das Koordinatensystem, gelten für das gesamte Diagramm und nicht pro ästhetischer Ebene (siehe die Beschreibungen in Punkt 5.1.). Diese Optionen werden dem Diagramm mittels zusätzlicher Funktionen hinzugefügt. Zum Beispiel können wir `coord_flip()` verwenden, um die x- und y-Achse zu vertauschen:
 
 ```{r eval=T} 
 ggplot(data=nh_gop) + 
@@ -506,7 +512,7 @@ ggplot(data=nh_gop) +
   coord_flip()
 ```
 
-Die `reorder()`-Funktion kann vorhandene Kategorien umsortieren, zum Beispiel nach der Anzahl der erhaltenen Stimmen. Natürlich können wir dann auch etwas Farbe hinzufügen:
+Die `reorder()`-Funktion kann vorhandene Kategorien umsortieren, zum Beispiel nach der Anzahl der erhaltenen Stimmen:
 
 ```{r eval=T} 
 ggplot(data=nh_gop) + 
@@ -514,11 +520,11 @@ ggplot(data=nh_gop) +
   coord_flip()
 ```
 
-Jetzt sollten wir noch die Beschriftung der Achses verändern und die in diesem Fall unnötige Legende entfernen. Außerdem sollte eine Graphik immer eine Überschrift haben! Zu guter letzt sind WissenschaftlerInnen meistens Freunde von minimalistischen Darstellungen. Das lässt sich mit Grautönen und der Änderung des "Themes" bewerkstelligen:
+Jetzt sollten wir noch die Beschriftung der Achsen verändern und die in diesem Fall unnötige Legende entfernen. Außerdem sollte eine Graphik immer eine Überschrift haben! Zu guter letzt sind Wissenschaftlerinnen meistens Freunde von minimalistischen Darstellungen. Das lässt sich mit Grautönen und der Änderung des "Themes" bewerkstelligen:
 
 ```{r eval=T}
 p <- ggplot(data=nh_gop) + 
-  geom_bar(mapping=aes(x=reorder(candidate, votes), y=votes, fill=candidate), stat='identity') +  
+  geom_bar(mapping=aes(x=reorder(candidate, votes), y=votes, fill=candidate), stat='identity') +
   coord_flip() + 
   xlab("Candidate") + 
   xlab("Votes") + 
@@ -539,7 +545,7 @@ gop2 <-  results_state %>% filter(party == "Republican" & (state == "New Hampshi
 ggplot(data=gop2) + geom_bar(mapping=aes(x=state, y=votes, fill=candidate), stat='identity')
 ```
 
-Standardmäßig sind solche Graphiken gestapelt. Dies kann mit dem Parameter `position` gesteuert werden, der auf `dodge` (für gruppierte Balken) oder `fill` (Stapeln auf 100 %) eingestellt werden kann:
+Standardmäßig sind solche Graphiken gestapelt. Das kann mit dem Parameter `position` gesteuert werden, der auf `dodge` (für gruppierte Balken) oder `fill` (Stapeln auf 100 %) eingestellt werden kann:
 
 ```{r eval=T}
 ggplot(data=gop2) + geom_bar(mapping=aes(x=state, y=votes, fill=candidate), stat='identity', position='dodge')
@@ -552,7 +558,9 @@ Wir können auch dafür sorgen, dass sich die gruppierten Balken zu 100 % addier
 ```{r eval=T}
 gop2 <-  gop2 %>% group_by(state) %>% mutate(vote_prop=votes/sum(votes)) # Neuer Datensatz (mit dem "alten" Namen) mit der manuellen Berechnung
 
-ggplot(data=gop2) + geom_bar(mapping=aes(x=state, y=vote_prop, fill=candidate), stat='identity', position='dodge') + ylab("Votes (%)")
+ggplot(data=gop2) + 
+  geom_bar(mapping=aes(x=state, y=vote_prop, fill=candidate), stat='identity', position='dodge')+ 
+  ylab("Votes (%)")
 ```
 
 Beachtet hier bitte, dass `group_by %>% summarize` den Datensatz im Ganzen verändert und `group_by %>% mutate` dem bestehenden Datensatz lediglich eine weitere Spalte/Variable hinzufügt (also in diesem Fall das Eregbnis der manuellen Berechnung `vote_prop=votes/sum(votes)`).
@@ -561,7 +569,7 @@ Beachtet hier bitte, dass `group_by %>% summarize` den Datensatz im Ganzen verä
 
 Zu guter Letzt ein weiterer Evergreen der Datenvisualisierung: das Liniendiagramm. 
 
-Wir können zum Beispiel den Erfolg von Donald Trump darstellen, indem wir seinen Stimmenanteil über Zeit betrachten. Zuerst kombinieren wir die Ergebnisse pro Bundesstaat mit den Terminen der Primaries (hierfür verwende ich ein paar euch bisher unbekannte, da noch nicht besprochene, Funktionen zum Zusammemnführen von Daten):
+Wir können zum Beispiel den Erfolg von Donald Trump darstellen, indem wir seinen Stimmenanteil über Zeit betrachten. Zuerst kombinieren wir die Ergebnisse pro Bundesstaat mit den Terminen der Primaries (hierfür verwende euch bisher unbekannte, da noch nicht besprochene, Funktionen zum Zusammemnführen von Daten):
 
 ```{r eval=T}
 schedule  <-  read_csv(paste(csv_folder_url, "primary_schedule.csv", sep="/")) # Der Datensatz "primary_schedule" stammt ebenfalls aus der Github-Seite des Houston meetups
@@ -587,47 +595,60 @@ ggplot(trump) + geom_line(aes(x=date, y=vote_prop))
 Machen wir jetzt das selbe für mehr Kandidaten. Diesmal wählen wir die Demokratischen-Kandidaten aus:
 
 ```{r eval=T}
-dems <-  results_state %>% filter(party=="Democrat") %>% left_join(schedule)
-dems <-  dems %>% group_by(date, candidate) %>% summarize(votes=sum(votes)) %>% mutate(vote_prop=votes / sum(votes))
+dems <-  results_state %>% 
+  filter(party=="Democrat") %>% 
+  left_join(schedule)
+
+dems <-  dems %>% 
+  group_by(date, candidate) %>% 
+  summarize(votes=sum(votes)) %>% 
+  mutate(vote_prop=votes / sum(votes))
+
+# plotting
 ggplot(dems) + geom_line(aes(x=date, y=vote_prop, colour=candidate))
 ```
 
-Bonusfrage: Im Code für den Trump-Plot wurde der Anteil in zwei Anweisungen berechnet (zuerst pro Staat, dann pro Datum). In dem Demokraten-Code wurde er nur pro Datum berechnet. Inwiefern spielt das eine Rolle? Ist eine der beiden Berechnungen korrekter als die andere?
+Bonusfrage: Im Code für den Trump-Plot wurde der Anteil in zwei Anweisungen berechnet (zuerst pro Staat, dann pro Datum). In dem Demokraten-Code wurde er nur pro Datum berechnet. Inwiefern spielt das eine Rolle? Ist eine der beiden Berechnungen genauer als die andere?
 
 Nur um euch einige der weiteren Möglichkeiten von `ggplot` zu zeigen, erstellen wir jetzt ein Diagramm aller republikanischen Vorwahlergebnisse am Super Tuesday (1. März):
 
 ```{r eval=T}
 super <-  results_state %>% left_join(schedule) %>% 
   filter(party=="Republican" & date=="2016-03-01") %>% 
-  group_by(state) %>% mutate(vote_prop=votes/sum(votes))
+  group_by(state) %>% 
+  mutate(vote_prop=votes/sum(votes))
 
-ggplot(super) + geom_bar(aes(x=candidate, y=vote_prop), stat='identity')  + facet_wrap(~ state, nrow = 3) + coord_flip()
+ggplot(super) + geom_bar(aes(x=candidate, y=vote_prop), stat='identity')  + 
+  facet_wrap(~ state, nrow = 3) + 
+  coord_flip()
 ```
 
-Ihr müsst nicht direkt alles in den präsentierten Code-Zeilen verstehen. Das wird alles mit Zeit und Übung kommen. Wichtig ist hier nur eines: ihr müsst den Code sehen und zumindest die Logik dahinter verstehen.
+Ihr müsst nicht direkt alles verstehen. Das wird alles mit Zeit und Übung kommen. Wichtig ist hier nur eines: ihr müsst den Code sehen und zumindest die Logik dahinter verstehen.
 
 ### 5.6. Themes
 
-Die Anpassung von Dingen wie Hintergrundfarbe, Gitterfarbe usw. wird durch sogenannte Themes gehandhabt. `ggplot` hat zwei standardmäßige Themes: theme_grey (Standard) und theme_bw (für ein minimalistischeres Theme mit weißem Hintergrund). 
+Die Anpassung von Dingen wie Hintergrundfarbe, Gitter usw. wird durch sogenannte Themes gehandhabt. `ggplot` hat zwei standardmäßige Themes: theme_grey (Standard) und theme_bw (für ein minimalistischeres Theme mit weißem Hintergrund). 
 
 Das Paket `ggthemes` (wie immer: einmalig `install.packages("ggthemes")` und dann vor jeder Verwendung `library(ggthemes)`!) hat einige weitere Themes, darunter ein `economist`-Theme (basierend auf der Zeitung). Um ein Thema zu verwenden, müsst ihr das einfach nur als Codezeile definieren: 
 
 ```{r eval=T}
 library(ggthemes)
-ggplot(trump) + geom_line(aes(x=date, y=vote_prop)) + theme_economist()
+ggplot(trump) + 
+  geom_line(aes(x=date, y=vote_prop)) + 
+  theme_economist()
 ```
 
-Einige Links, um mehr über Themes zu erfahren:
+Mehr über Themes:
 
-<https://ggplot2.tidyverse.org/reference/theme.html>
-<https://www.datanovia.com/en/blog/ggplot-themes-gallery>
-<http://rstudio-pubs-static.s3.amazonaws.com/284329_c7e660636fec4a42a09eed968dc47f32.html> (hier werden auch nette und für euch verfügbare Daten verwendet. das reinschauen lohnt sich!)
+* <https://ggplot2.tidyverse.org/reference/theme.html>
+* <https://www.datanovia.com/en/blog/ggplot-themes-gallery>
+* <http://rstudio-pubs-static.s3.amazonaws.com/284329_c7e660636fec4a42a09eed968dc47f32.html> (hier werden auch nette und für euch verfügbare Daten verwendet. reinschauen und nachmachen!)
 
 ### 5.7. Karten!
 
-Geografische Informationen können in ggplot ähnlich wie Streudiagramme geplottet werden. Dafür werden einfach einfach Längen- und Breitengrad als x und y verwendet. Oftmals möchten wir Daten auf einer bestimmten Karte (eines Teils) der Welt plotten, z. B. um Standorte von Tweets zu plotten oder eine Karte mit Informationen pro Land oder Staat einzufärben.
+Geografische Informationen können in `ggplot` ähnlich wie Streudiagramme geplottet werden. Dafür werden einfach einfach Längen- und Breitengrad als x und y verwendet. Oftmals möchten wir Daten auf einer bestimmten Karte (eines Teils) der Welt plotten, z. B. um Standorte von Tweets zu plotten oder eine Karte mit Informationen pro Land oder Staat einzufärben.
 
-In ggplot wird das realisiert, indem die Umrisse der Länder geplottet werden. Das Paket enthält standardmäßig (sie werden bei der Paket-Installation mitgeliefert) Daten für die USA, die Welt und einige Länder wie Frankreich (nicht die EU oder Deutschland). Die Karten stammen original aus dem Paket `maps`. Das heißt ihr könnt in der Dokumentation von `maps` (wie immer: `?maps`) die Liste der Länder nachschauen.
+In `ggplot` wird das realisiert, indem die Umrisse der Länder geplottet werden. Das Paket enthält standardmäßig (sie werden bei der Paket-Installation mitgeliefert) Daten für die USA, die Welt und einige Länder wie Frankreich (nicht die EU oder Deutschland). Die Karten stammen original aus dem Paket `maps`. Das heißt ihr könnt in der Dokumentation von `maps` (wie immer: `?maps`) die Liste der Länder nachschauen.
 
 ```{r eval=T}
 states <-   map_data("state") # die Namen der beim Paket (hier ggplot2) mitglieferten Daten (hier "state") findet ihr in der Dokumentation des jeweiligen Pakets und natürlich auf CRAN!
@@ -639,7 +660,8 @@ Wir können diese Daten sofort plotten, indem wir die Funktion `geom_polygon` ve
 ```{r eval=T}
 ggplot(data = states) + 
   geom_polygon(aes(x = long, y = lat, fill = region, group = group), color = "white") + 
-  coord_fixed(1.3) + guides(fill=FALSE)  
+  coord_fixed(1.3) + 
+  guides(fill=FALSE)  
 ```
 
 Hinweis: Der Befehl `coord_fixed()` fixiert das Seitenverhältnis auf 1,3 und `guides(fill=FALSE)` verhindert dass eine Legende gezeichnet wird (in diesem Fall würde die Legende für jeden US Staat die zugeordnete Farbe auflisten).

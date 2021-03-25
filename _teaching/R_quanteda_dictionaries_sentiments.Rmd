@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 # 1. Einleitung
 
-Viele Studien mittels Textanalyse analysieren den "Ton" bzw. *Sentiment* eines Textes. Ganz allgemein gesagt ist eine Sentimentanalyse daran interessiert, den emotionalen Inhalt eines Textes, Facebookposts oder Tweets zu analysieren. Ist ein Text positiv oder negativ in Bezug auf ein bestimmtes Thema (z.B. Pro- oder Anti-Brexit)? Werden PolitikerInnen in Tweets sympathisch oder als unsympatisch beschrieben? Ist ein Akteur für oder gegen einen bestimmten politischen Vorschlag? 
+Viele QTA-Studien analysieren den "Ton" bzw. *Sentiment* eines Textes. Eine Sentimentanalyse ist daran interessiert, den emotionalen Inhalt eines Text, Facebookpost oder eines Tweet zu analysieren. Ist ein Text positiv oder negativ in Bezug auf ein bestimmtes Thema (z.B. Pro- oder Anti-Brexit)? Ist ein Akteur für oder gegen einen bestimmten politischen Vorschlag? 
 
 In diesem Tutorial werden wir die Wörterbuchmethode (**Dictionary approach**) verwenden und Sentiment-Analysen durchführen. Diese Methode hat sich als sehr effizient herausgestellt, z.B. um zu entscheiden, ob eine Rezension auf Amazon positiv oder negativ ist. Sentiment-Analysen sind jedoch nicht für jedes Forschungsproblem geeignet. Zeitungsartikel z.B. können verschiedene und sich wiedersprechende Aussagen und Tonlagen zu einem Thema beinhalten. Die Wahl der Methode ist also immer kontextabhängig zu treffen. 
 
@@ -30,7 +30,9 @@ Ein wichtiger Teil dieses Tutorials wird sich mit der Validierung unseres Wörte
 
 Die Grundlage für eine dictionary-Analyse ist die Dokument-Feature-Matrix (DFM) bzw. Dokument-Term-Matrix (DTM). 
 
-Für dieses Tutorial werden wir nicht den Gerichtskorpus verwenden, da es noch kein etabliertes Wörterbuch für Verfassungsgerichtstexte gibt (**Wink mit dem Zaunpfahl**: Vielleicht ein gutes Thema für eine Hausarbeit?). Als Alternative werden wir die bereits bekannten Antrittsreden der US Präsidenten aus dem `quanteda`-Paket verwenden (für eine Liste aller in `quanteda` gespeicherten Korpora: [quanteda.corpora](https://github.com/quanteda/quanteda.corpora)). 
+Für dieses Tutorial werden wir nicht den Gerichtskorpus verwenden, da es noch kein etabliertes Wörterbuch für Verfassungsgerichtstexte gibt (**Wink mit dem Zaunpfahl**: Vielleicht ein gutes Thema für eine Hausarbeit?). 
+
+Als Alternative werden wir die bereits bekannten Antrittsreden der US Präsidenten aus dem `quanteda`-Paket verwenden (eine Liste aller in `quanteda` gespeicherten Korpora findet ihr hier: [quanteda.corpora](https://github.com/quanteda/quanteda.corpora)). 
 
 
 ```{r eval=T}
@@ -44,7 +46,7 @@ Jetzt erstellen wir eine DTM mittels einer Pipeline:
 ```{r eval=T}
 library(tidyverse) 
 
-dtm_speeches <-  inaug_speeches %>% dfm(remove=stopwords("english"), remove_punct=T) # wir entfernen alle Füllwörter und die Interpunktion
+dtm_speeches <-  inaug_speeches %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) # wir entfernen alle Füllwörter, die Interpunktion, Symbole, Zahlen
 dtm_speeches
 ```
 
@@ -60,11 +62,11 @@ textplot_wordcloud(dtm_speeches, max_words=100)
 
 Um eine Sentimentanalyse mit einem Wörterbuch durchzuführen, können wir die `dictionary`-Funktion von `quanteda` verwenden. Natürlich benötigen wir aber zu allererst ein Wörterbuch. Hierfür gibt es verschiedene Wege. 
 
-1) Entweder ihr erstell ein eigenes Lexika, mit eigenen Kategorien und Themen. Der Vorteil ist, dass ihr ein Werkzeug kreieren könnt, welches passgenau auf euer spezielles Forschungsinteresse und Theoriekonzept passt. Der Nachteil ist aber, dass das Erstellen eines validen *und* reliablen Wörterbuches sehr arbeitsintensiv ist. 
+1) Entweder ihr erstellt ein eigenes Lexika, mit eigenen Kategorien und Themen. Der Vorteil ist, dass ihr ein Werkzeug kreieren könnt, welches passgenau auf euer spezielles Forschungsinteresse und Theoriekonzept passt. Der Nachteil ist, dass das Erstellen eines validen *und* reliablen Wörterbuches sehr arbeitsintensiv ist. 
 
-2) Oder ihre verwendet bereits bestehende Wörterbücher. Im Internet gibt es eine Vielzahl an unterschiedlichen Lexika die ihr herunterladen könnt. Zum Beispiel stellt Johann Gründl im Kontext seines Papers [Populist ideas on social media: A dictionary-based measurement of populist communication](https://journals.sagepub.com/doi/full/10.1177/1461444820976970) ein eigenes Wörterbuch vor und zum herunterladen bereit oder ihr ladet euch das Wörterbuch für Sentimentanalysen in deutscher Sprache von [Haselmayer/Jenny (2020)](https://data.aussda.at/dataset.xhtml?persistentId=doi:10.11587/EOPCOB) herunter. 
+2) Oder ihr verwendet bereits bestehende Wörterbücher. Im Internet gibt es eine Vielzahl an unterschiedlichen Lexika die ihr herunterladen könnt. Zum Beispiel stellt Johann Gründl im Kontext seines Papers [Populist ideas on social media: A dictionary-based measurement of populist communication](https://journals.sagepub.com/doi/full/10.1177/1461444820976970) ein eigenes Wörterbuch vor und zum herunterladen bereit. Oder ihr ladet euch das Wörterbuch für Sentimentanalysen in deutscher Sprache von [Haselmayer/Jenny (2020)](https://data.aussda.at/dataset.xhtml?persistentId=doi:10.11587/EOPCOB) herunter. 
 
-3) Alternativ stellen auch etliche `R`-Pakete interessante Wörterbücher bereit. Zum Beispiel enthält das Paket `SentimentAnalysis` drei verschiedene Wörterbücher: 1) `DictionaryGI` ist ein allgemeines Sentiment-Wörterbuch, das auf **The General Inquirer** basiert, und 2) `DictionaryHE` und 3) `DictionaryLM` sind Wörterbücher mit einem speziellem Fokus auf Finanz- und Wirtschaftpolitik, die von Henry (2008) bzw. Loughran & McDonald (2011) vorgestellt wurden. Das Paket `qdapDictionaries` enthält ebenfalls eine Reihe von Wörterbüchern, darunter eine Liste von `positive.words` und `negative.words` aus dem Sentiment-Wörterbuch von Hu & Liu (2004), und spezifische Listen für `strong.words`, `weak.words`, `power.words` und `submit.words` aus dem Harvard IV-Wörterbuch.
+3) Alternativ stellen auch etliche `R`-Pakete Wörterbücher bereit. Zum Beispiel enthält das Paket `SentimentAnalysis` drei verschiedene Wörterbücher: 1) `DictionaryGI` ist ein allgemeines Sentiment-Wörterbuch das auf **The General Inquirer** basiert, und 2) `DictionaryHE` und 3) `DictionaryLM` sind Wörterbücher mit einem speziellem Fokus auf Finanz- und Wirtschaftpolitik. Das Paket `qdapDictionaries` enthält ebenfalls eine Reihe von Wörterbüchern, darunter eine Liste von `positive.words` und `negative.words`  und spezifische Listen für `strong.words`, `weak.words`, `power.words` und `submit.words` aus dem Harvard IV-Wörterbuch.
 
 Ihr könnt die Wörterbücher von jedem Paket einsehen indem ihr sie installiert, in `R` ladet und die help-Page nutzt: 
 
@@ -79,8 +81,7 @@ library(qdapDictionaries)
 head(positive.words)
 ```
 
-Natürlich könnt ihr auch Wörterbücher als CSV herunterladen. Zum Beispiel gibt es das [**VADER lexicon**](https://github.com/cjhutto/vaderSentiment), welches speziell für Social Media Analyses erstellt wurde und spezielle Wörter wie "lol", "rofl" und "meh" enthält. Das Lexikon könnt ihr auf der Github-Seite von C.J. Hutto herunterladen. Dafür nutzen wir die Schritte, die ihr bereits aus dem `tidyR` Tutorial kennt:
-
+Natürlich könnt ihr auch Wörterbücher als CSV herunterladen. Zum Beispiel gibt es das [**VADER lexicon**](https://github.com/cjhutto/vaderSentiment), welches speziell für Social Media Analysen erstellt wurde und Wörter wie "lol", "rofl" und "meh" enthält. Das Lexikon könnt ihr auf der Github-Seite von C.J. Hutto herunterladen. Dafür nutzen wir die Schritte, die ihr bereits aus dem `tidyR` Tutorial kennt:
 
 ```{r eval=T}
 url <-  "https://raw.githubusercontent.com/cjhutto/vaderSentiment/master/vaderSentiment/vader_lexicon.txt" # Die Warnungen von R können hier übersehen werden. 
@@ -92,7 +93,7 @@ Die Auswahl des Wörterbuchs hängt immer von der eigenen Forschungsfrage ab. Zu
 
 ### 3.2 Ein Wörterbuch in `quanteda` nutzen und erstellen
 
-Wie bereits kurz angedeutet können die oben aufgeführten Wörterbücher mit der `dictionary`-Funktion des `quanteda`-Pakets angewendet werden.
+Wie bereits angedeutet können die oben aufgeführten Wörterbücher mit der `dictionary`-Funktion des `quanteda`-Pakets angewendet werden.
 
 ```{r eval=T}
 GI_dict <- dictionary(DictionaryGI) # Wir verwenden hier das Wörterbuch "DictionaryGI" aus dem SentimentAnalysis-Paket (welches wir ja bereits installiert und in `R` geladen haben)
@@ -117,9 +118,9 @@ Vader_dict <-  dictionary(list(positive=vader_pos, neutral=vader_neut, negative=
 Vader_dict
 ```
 
-Ein weitere Möglichkeit eine Analyse mit einem Wörterbuch durchzuführen ist das Erstellen eines eigenen Wörterbuchs. Hierbei müsst ihr theoriegeleitet vorgehen und die Reliabilität und Validität eures Wörterbuches stetig prüfen. 
+Ein weitere Möglichkeit eine Analyse mit einem Wörterbuch durchzuführen ist das Erstellen eines eigenen Wörterbuchs. Hierbei müsst ihr theoriegeleitet vorgehen und die Reliabilität und Validität eures Wörterbuches stets prüfen. 
 
-Nehmen wir an, dass wir beispielsweise untersuchen wollen wie Kongressabgeordnete der republikanischen und der demokratischen Partei in Pressemitteilungen die Diskussion um die Einführung eines Mindestlohns framen. Dabei gehen wir davon aus, dass republikanische Abgeordnete eher wirtschaftsfreundlich argumentieren und demokratische Abgeordnete eher wohlfahrtsstaatlich. Der Einfachheit halber legen wir im Beispiel kein Werte für die Wörter fest (kontextabhängig müsst ihr die (theoriegeleitete!!) Entscheidung treffen, ob manche Wörter ein größeres Gewicht haben als andere!). Wir erstellen unser eigenes Wörterbuch wie folgt: 
+Nehmen wir an, dass wir beispielsweise untersuchen wollen wie Kongressabgeordnete der republikanischen und der demokratischen Partei in Pressemitteilungen die Diskussion um die Einführung eines Mindestlohns framen. Dabei gehen wir davon aus, dass republikanische Abgeordnete eher wirtschaftsfreundlich argumentieren und demokratische Abgeordnete eher wohlfahrtsstaatlich. Der Einfachheit halber legen wir im Beispiel kein Werte für die Wörter fest (kontextabhängig müsst ihr die (theoriegeleitete!!) Entscheidung treffen, ob manche Wörter ein größeres Gewicht haben als andere). Wir erstellen unser eigenes Wörterbuch wie folgt: 
 
 ```{r eval=T}
 # Definition der Wörter die wir durch die bestehende Forschung als relevant für das Thema Mindeslohn identifiziert haben
@@ -131,9 +132,13 @@ MinWage_dict <-  dictionary(list(Republicans=wordsReps, Democrats=wordsDems))
 MinWage_dict
 ```
 
+Ihr seht: Nicht das technische Erstellen eines Wörterbuchs in `R` ist schwierig, sondern die richtigen Wörter zu finden.
+
 ### 3.2 Anwendung des Wörterbuchs
 
-Zu Beginn dieses Tutorials haben wir eine DTM der Antrittsreden der US Präsidenten erstellt. In einem zweiten Schritt haben wir mehrere Wörterbücher heruntergeladen, von denen wir das `GI_dict` für unsere Sentiment-Analyse der Antrittsreden verwenden. Die Anwendung des Wörterbuchs ist einfach: 1) wir nutzen die Funktion `dfm_lookup` um das Wörterbuch auf die DTM anzuwenden, 2) wir konvertieren das Ergebnis in einen `tibble`-Datensatz mit dem Namen "result". Beide Schritte verbinden wir in einer Pipeline. Der zweite Schritt ist rein optional, aber er erleichtert uns die nachfolgenden Schritte. 
+Zu Beginn dieses Tutorials haben wir eine DTM der Antrittsreden der US Präsidenten erstellt. In einem zweiten Schritt haben wir mehrere Wörterbücher heruntergeladen, von denen wir jetzt das `GI_dict` für unsere Sentiment-Analyse der Antrittsreden verwenden. 
+
+Die Anwendung des Wörterbuchs ist einfach: 1) wir nutzen die Funktion `dfm_lookup` um das Wörterbuch auf die DTM anzuwenden, 2) wir konvertieren das Ergebnis in einen `tibble`-Datensatz mit dem Namen "result". Beide Schritte verbinden wir in einer Pipeline. Der zweite Schritt ist rein optional, aber er erleichtert die nachfolgenden Schritte. 
 
 ```{r eval=T}
 result <-  dtm_speeches %>% dfm_lookup(GI_dict) %>% convert(to = "data.frame") %>% as_tibble
@@ -193,7 +198,7 @@ ggplot(sentiment, aes(Reden, Wörter, colour = Polarität, group = Polarität)) 
 
 Die Validierung eines Wörterbuchs ist eine zentrale Aufagbe für jede Sentimentanalyse.
 
-Um ein Maß für die Validität eines Wörterbuches zu erhalten, müssen wir eine Zufallstichprobe von Dokumenten manuell kodieren und die Kodierung mit den Eregbnissen des Wörterbuchs vergleichen. Manuelle Kodierungen gelten als Goldstandard, an dem sich automatische Kodierungen messen lassen müssen. Die Validierung einer jeden Textanalysemethode muss im Methodenabschnitt einer Hausarbeit berichtet und diskutiert werden. 
+Um ein Maß für die Validität eines Wörterbuches zu erhalten, müssen wir eine Zufallstichprobe von Dokumenten manuell kodieren und die Kodierung mit den Eregbnissen des Wörterbuchs vergleichen. Manuelle Kodierungen gelten als Goldstandard, an dem sich automatische Kodierungen messen lassen müssen. Die Validierung einer jeden Textanalysemethode muss im Methodenabschnitt einer Forschungsarbeit berichtet und diskutiert werden. 
 
 Wie groß eine Zufallsstichprobe für eine Validierung sein sollte ist in der Wissenschaft umstritten. Hier gilt jedoch: je größer, desto genauer die Validierung. Das größte Problem bei manueller Kodierung ist die Ressourcenknappheit, weshalb kontextspezifisch ein gutes und realisierbares Maß gefunden (und in der Arbeit auch stichhaltig verargumentiert) werden muss. 
 
@@ -221,7 +226,7 @@ Jetzt können wir die csv.Datei in Excel/Pages (you name it) öffnen und die 20 
 validation <-  read_csv("to_code.csv") %>% mutate(doc_id=as.character(document)) %>% inner_join(result) # wir kombinieren hier unsere manuell kodieren reden mit unseren automatischen ergebnissen (das result-objekt)
 ```
 
-Nun wollen wir sehen, ob die (zugegebenermaßen **völlig zufällige**) manuelle Kodierung mit dem automatischen Sentiment-Score übereinstimmt. Zum Beispiel konnen wir eine Korrelation berechnen:
+Nun kontrollieren wir, wie gut meine (zugegebenermaßen **völlig zufällige**) manuelle Kodierung mit dem automatischen Sentiment-Score übereinstimmt. Zum Beispiel konnen wir eine Korrelation berechnen:
 
 ```{r eval=T}
 cor.test(validation$manual_coding, validation$sentiment1)
@@ -229,7 +234,7 @@ cor.test(validation$manual_coding, validation$sentiment1)
 cor.test(validation$manual_coding, validation$sentiment2)
 ```
 
-Die Korrelationen zeigen keinen signifikanten Zusammenhang zwischen meiner manuellen Kodierung und der automatischen Kodierung. Hätte ich die Dokumente ernsthaft kodiert, dann wäre das ein schlechtes Zeichen für meine Wörterbuchanalyse und es würde bedeuten, dass ich mein Wörterbuch deutlich verbessern müsste. 
+Die Korrelationen zeigen keinen signifikanten Zusammenhang zwischen meiner manuellen Kodierung und der automatischen Kodierung. Hätte ich die Dokumente ernsthaft kodiert, dann wäre das ein schlechtes Zeichen für meine Wörterbuchanalyse und es würde bedeuten, dass ich mein Wörterbuch verbessern müsste. 
 
 Wir können auch eine 'Konfusionsmatrix' berechnen, wenn wir mit der Funktion `cut` einen Nominalwert aus dem Sentiment erzeugen:
 
@@ -281,6 +286,5 @@ head(freqs_pos)
 ```
 
 Die Überprüfung der Top-25-Wörter kann die Gültigkeit eines Wörterbuchs bereits gut abbilden, da diese Wörter oft einen großen Teil der Ergebnisse bestimmen.
-
 
 Für weitere nützliche Hinweise und Beispiele empfehle ich euch die Internetseite von Cornelius Puschmann: <http://inhaltsanalyse-mit-r.de/sentiment.html>

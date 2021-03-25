@@ -1,7 +1,7 @@
 ---
-title: "Erste Schritte mit `quanteda: Tokens and Document-Feature-Matrix"
+title: "Erste Schritte mit `quanteda`: Tokens and Document-Feature-Matrix"
 author: "Philipp Meyer, Institut für Politikwissenschaft"
-date: "05.05.2021, Tokens und DFM Seminar: Quantitative Textanalyse"
+date: "05.05.2021, Tokens und DFM, Seminar: Quantitative Textanalyse"
 output:
   html_document:
     toc: true
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 # 1. Einleitung
 
-Im letzten Tutorial haben wir das Einlesen von Textdokumenten, Dokumentenvariablen und das Erstellen eines Textkorpus besprochen. In diesem Tuorial besprechen wir zwei zentrale Aspekte der Quamtitativen Textanalyse: Tokens und Document-Feature-Matricen.
+Im letzten Tutorial haben wir das Einlesen von Textdokumenten, Dokumentenvariablen und das Erstellen eines Textkorpus besprochen. In diesem Tuorial besprechen wir zwei zentrale Aspekte der quantitativen Textanalyse: Tokens und Document-Feature-Matricen.
 
 Damit wir dort beginnen wo das letzte Tutorium aufgehört hat, geht der folgende Code alle Schritte von letzter Woche im Schnelldurchlauf durch: 
 
@@ -68,9 +68,9 @@ Die Funktion `rm()` haben wir bisher noch nicht besprochen. Ihre einzige Funktio
 
 Bei einem Satz, Absatz oder einem ganzen Textdokument besteht die Aufgabe der Tokenisierung darin, die Textsequenzen zu zerlegen und dabei Aspekte wie z. B. Satzzeichen oder Füllwörter zu entfernen. Wir können diese Sequenzen entweder in einzelne Wörter, in Wortpaare, in dreier Gruppen (n-grams) oder auch in ganze Sätze zerlegen.
 
-Mit der Tokenisierung wird also der Prozess beschrieben, bei dem wir Texte in von uns definierte Sequenzen von Wörtern aufspalten. Sequenzen mit mehr als einem Wort werden in der Textanalyse werden auch `N-Gram` genannt (N ist hier ganz klassisch der Platzhalter für eine Zahl). In `quanteda` können wir mit der `tokens`-Funktion einen Korpus tokenisieren. Die Funktion beinhaltet weitere Argumente um bestimmte nicht brauchbare Textaspekte (wie Interpunktion, Leerzeichen (*whitespace*) oder Füllwörter) zu entfernen.  
+Mit der Tokenisierung wird der Prozess beschrieben, bei dem wir Texte in von uns definierte Sequenzen von Wörtern aufspalten. Sequenzen mit mehr als einem Wort werden in der Textanalyse `N-Gram` genannt (N ist hier ganz klassisch der Platzhalter für eine Zahl). In `quanteda` können wir mit der `tokens`-Funktion einen Korpus tokenisieren. Die Funktion beinhaltet weitere Argumente um bestimmte nicht brauchbare Textaspekte (wie Interpunktion, Leerzeichen (*whitespace*) oder Füllwörter) zu entfernen.  
 
-Wenden die `tokens`-Funktion auf unseren Gerichtskorpus an und schauen uns danach die Tokens einer speziellen Entscheidung an:
+Wenden wir die `tokens`-Funktion auf unseren Gerichtskorpus an und schauen uns danach die Tokens einer speziellen Entscheidung an:
 
 ```{r eval=T}
 entscheidungs_tokens <- tokens(gerichts_korpus)
@@ -80,7 +80,7 @@ head(entscheidungs_tokens[["20150108_2bvr241913.txt"]])
 
 Das ist alles noch wenig aussagekräftig sind. Das können wir natürlich ändern... aber dazu später mehr. 
 
-In der Grundeinstellung splittet die `tokens`-Funktion die Texte in einzelne Wörter auf. In den meisten Fälle brauchen wir jedoch mehr als ein Wort um eine aussagekräftige Analyse zu realisieren. Über die Funktion `tokens_ngrams` `lassen sich Texte in N-Grams aufspalten. In den folgenden zwei Beispiele werden wir 1) Bigramme produzieren (zwei Wörter) und 2) alle Sequenzen von einem, zwei oder drei Begriffen extrahieren.
+Per default splittet die `tokens`-Funktion die Texte in einzelne Wörter auf. In den meisten Fällen brauchen wir jedoch mehr als ein Wort um eine aussagekräftige Analyse zu realisieren. Über die Funktion `tokens_ngrams` lassen sich Texte in N-Grams aufspalten. In den folgenden zwei Beispiele werden wir 1) Bigramme produzieren (zwei Wörter) und 2) alle Sequenzen von einem, zwei oder drei Begriffen extrahieren.
 
 ```{r eval=T}
 entscheidungs_tokens_ngrams <- tokens_ngrams(entscheidungs_tokens, n = 2)
@@ -99,9 +99,9 @@ entscheidungs_tokens <- tokens_remove(entscheidungs_tokens, c("BUNDESVERFASSUNGS
 head(entscheidungs_tokens[["20150108_2bvr241913.txt"]])
 ```
 
-Wir haben jetzt einzelne Wörter nach der Tokenisierung entfernt. Deutlich einfacher und auch üblicher ist es aber, bestimmte Wörter, Satzzeichen, Zahlen und Sonderzeichen während der Tokinisierung zu entfernen. Das Entfernen dieser Elemente ist ein zentraler Bestandteil einer jeden quantitativen Textanalyse. Durch dieses sogenannte **preprocessing** entfernen wir unnötige oder sinnlose Textelemente, ermitteln die Worthäufigkeit und brechen so die Syntax auf. Dadurch erstellen wir einen sogenannten "**Bag of Words**", mit welchem aussagekräftige Analysen durchzuführen.
+Wir haben jetzt einzelne Wörter nach der Tokenisierung entfernt. Deutlich einfacher und auch üblicher ist es aber, bestimmte Wörter, Satzzeichen, Zahlen und Sonderzeichen während der Tokinisierung zu entfernen. Das Entfernen dieser Elemente ist ein zentraler Bestandteil einer jeden quantitativen Textanalyse. Durch dieses sogenannte **preprocessing** entfernen wir unnötige oder sinnlose Textelemente, ermitteln die Worthäufigkeit und brechen so die Syntax auf. Dadurch erstellen wir einen sogenannten "**Bag of Words**".
 
-Im folgenden Code entfernen wir alle Zahlen (remove_numbers = TRUE), Sonderzeichen (remove_symbols = TRUE) Leerzeichen (removeSeparators = TRUE) und die Interpunktion (remove_punct = TRUE). Danach transformieren wir mittels `tokens_tolower` alles Großbuchstaben in Kleinbuchstaben. In einem letzten Schritt nutzen wir `tokens_remove` und entfernen die Wörter "bundesverfassungsgericht", "richter", "bvr","herrn","Entscheidung","art" (Art für Gesetzesartikel),"gg" (Grundgesetz), "karlsruhe" und noch weitere sowie alle weiteren gängigen deutschen Stopp-/Füllwörter (der, die, das, wer, wie, was...). 
+Im folgenden Code entfernen wir alle Zahlen (remove_numbers = TRUE), Sonderzeichen (remove_symbols = TRUE), Leerzeichen (removeSeparators = TRUE) und die Interpunktion (remove_punct = TRUE). Danach transformieren wir mittels `tokens_tolower` alle Großbuchstaben in Kleinbuchstaben. In einem letzten Schritt nutzen wir `tokens_remove` und entfernen die Wörter "bundesverfassungsgericht", "richter", "bvr","herrn","Entscheidung","art" (Art für Gesetzesartikel),"gg" (Grundgesetz), "karlsruhe" sowie alle weiteren gängigen deutschen Stopp-/Füllwörter (der, die, das, wer, wie, was...). 
 
 ```{r eval=T}
 entscheidungs_tokens <- tokens(gerichts_korpus, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, removeSeparators = TRUE)
@@ -145,7 +145,8 @@ head(docnames(entscheidungs_dfm)) # Dokumentennamen
 tail(featnames(entscheidungs_dfm)) # Features 
 ```
 
-Wollen wir einen Überblick über unsere DFM haben, dann können wir eine Tabelle erstellen. Hierbei wird uns auch direkt die *sparsity* unserer DFM angezeigt. Die sparsity beschreibt den Anteil der Nullen in einer DFM (Eine DFM misst die Haufigkeit eines Worts in den Korpusdokumenten). Anders gesagt, eine hohe sparsity bedeutet, die Texte genuine Wörter benützen, sodass dass viele der in den Texten vorkommenden Wörter nur in einigen wenigen gleichzeitig Texten vorkommen. 
+Wollen wir einen Überblick über unsere DFM haben, dann können wir eine Tabelle erstellen. Hierbei wird uns auch direkt die *sparsity* unserer DFM angezeigt. Die sparsity beschreibt den Anteil der Nullen in einer DFM (Eine DFM misst die Haufigkeit eines Worts in den Korpusdokumenten). Anders gesagt, eine hohe sparsity bedeutet, dass die Texte viele genuine Wörter benützen, sodass dass viele der in den Texten vorkommenden Wörter nur in einigen wenigen Texten gleichzeitig vorkommen. 
+Einfach ausgedrück: Bei einem Korpus von drei Texten kommt das Wort "Ball"" kommt nur in Text 1 vor, aber nicht in Text 2 und Text 3. In der DFM würden so für das Wort "Ball" als eine 1 (das Vorkommen in Text 1) und zwei Mal die 0 (aufgrund der Nichtexistenz des Wortes in den Texten 2 & 3) angezeigt.
 
 ```{r eval=T}
 entscheidungs_dfm # hier sehen wir, dass unsere DFM 1,616 Dokumente und 92,572 Features (i.d.R. Wörter, aber meist auch Sonderzeichen die quanteda nicht erkannt hat) hat und 99.4% sparse ist
@@ -155,7 +156,7 @@ entscheidungs_dfm # hier sehen wir, dass unsere DFM 1,616 Dokumente und 92,572 F
 head(entscheidungs_dfm, n = 8, nf = 20) 
 ```
 
-Viele der 92,572 Features in der DFM nicht sehr informativ. Für viele Bag-of-Words-Analysen ist es vorteilhaft, diese Wörter zu entfernen. Das wird in den meisten Fällen die die Ergebnisse verbessern.
+Viele der 92,572 Features in der DFM sind nicht sehr informativ. Für Bag-of-Words-Analysen ist es vorteilhaft, diese Wörter zu entfernen. Das wird in den meisten Fällen die die Ergebnisse verbessern.
 
 Wir können die Funktion `dfm_trim` verwenden um viele der uninformativen Features zu entfernen. Im Beispiel unten entfernen wir alle Terme die eine Häufigkeit (d. h. der Summenwert der Spalte in der DFM) von unter 30% haben. Wir entfernen also alle Wörter die in weniger als 30% aller Texte auftauchen.
 
@@ -164,7 +165,7 @@ entscheidungs_dfm  <- dfm_trim(entscheidungs_dfm, min_termfreq = 30) # mit "max_
 entscheidungs_dfm
 ```
 
-`quanteda` beinhaltet noch einige weitere Funktionen, um ein umfassendes Bild unsere DFMs zu erhalten. `topfeatures` zählt Features in der gesamten DFM und gibt uns die Top-10 Features. `textstat_frequency` gibt uns die Worthäufigkeiten und ordnet die Features danach wie oft sie vorkommen (grundsätzlich ist `textstat_frequency` zu bevorzugen).
+`quanteda` beinhaltet noch einige weitere Funktionen: `topfeatures` zählt Features in der gesamten DFM und gibt uns die Top-10 Features. `textstat_frequency` gibt uns die Worthäufigkeiten und ordnet die Features danach wie oft sie vorkommen (grundsätzlich ist `textstat_frequency` zu bevorzugen).
 
 ```{r eval=T}
 topfeatures(entscheidungs_dfm)
@@ -208,7 +209,7 @@ Wie ihr seht, erzeugt die Gewichtung aussagekräftigere Resultate
 
 ### 3.2. Visualisierungen
 
-Natürlich lassen sich DFMs auch visualisieren. Am wohl bekanntesten sind word clouds, die ihr ja bereits kurz kennengelernt habt:
+Natürlich lassen sich DFMs auch visualisieren. Am wohl bekanntesten sind word clouds, die ihr ja bereits kennengelernt habt:
 
 ```{r eval=T}
 textplot_wordcloud(entscheidungs_dfm, max_words = 100, scale = c(5,1))
@@ -224,4 +225,4 @@ library(RColorBrewer)
 textplot_wordcloud(entscheidungs_dfm[1:4,], color = brewer.pal(4, "Set1"), comparison = T)
 ```
 
-Nachdem ihr jetzt die Grundlagen der QTA, also Corpus, Tokens und DFM kennengelernt habt, werden ab der nächsten Woche mit der eigentlichen Textanalyse beginnen und den dictionary-approach behandeln. 
+Nachdem ihr jetzt die Grundlagen der QTA, also Corpus, Tokens und DFM kennengelernt habt, werden wir ab der nächsten Woche mit der eigentlichen Textanalyse.

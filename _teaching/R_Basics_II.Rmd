@@ -20,12 +20,12 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 # 1. Einleitung
 
-Dieses Tutorial wiederholt die `R`-Grundlagen aus der letzten Sitzung. Ihr könnt die einzelnen Schritte in Kapitel 4 des kostenlosen (Online-)Buches *R for Data Science* nachlesen: <https://r4ds.had.co.nz/workflow-basics.html>. 
+Dieses Tutorial wiederholt eine Aspekte aus der letzten Sitzung. Ihr könnt die einzelnen Schritte in Kapitel 4 des kostenlosen (Online-)Buches *R for Data Science* nachlesen: <https://r4ds.had.co.nz/workflow-basics.html>. 
 
 
 # 2. Befehle
 
-In `R` ist jede Codezeile ein Befehl an euren Computer etwas zu tun oder zu berechnen. Die einfachste Form eines Befehls ist eine mathematische Operation: 
+In `R` ist jede Codezeile ein Befehl an euren Computer. Die einfachste Form eines Befehls ist eine mathematische Operation: 
 
 ```{r eval=T}
 2 + 2
@@ -51,13 +51,13 @@ In diesem Beispiel speichern wir in dem Objekt "**x**" den Wert "**2+3**"". Ihr 
 x
 ```
 
-In diesem Fall ist x eine einfache Zahl, aber ein Objekt kann auch ein großer Datensatz oder das Ergebnis eines statistischen Modells sein. Tatsächlich werden alle Daten, die in `R` verwendet werden, als Objekte gespeichert. Deswegen ist die Vergabe von Namen an Objekte eine der zentralen Aufgaben in `R`! 
+In diesem Fall ist x eine einfache Zahl, aber ein Objekt kann auch ein großer Datensatz oder das Ergebnis eines statistischen Modells sein. Tatsächlich werden alle Daten, die in `R` verwendet werden, als Objekte gespeichert. Deswegen ist die Vergabe von Namen an Objekte eine der zentralen Aufgaben in `R`!
 
-Die Namensvergabe liegt komplett in eurer Hand. `R` ist es egal ob ein Objext *x*, *hannover96* oder *court_decisions_2010* heißt. Ein `R`-Skript muss nachvollziehbar sein. Ihr müsst es zu einem späteren Zeitpunkt nachvollziehen und andere müssen es nachvollziehen können, wenn sie eure Ergebnisse reproduzieren wollen. Deswegen solltet ihr immer Namen verwenden, welche einen klaren kontextuellen Bezug haben und nicht zu lang sind (in `R` will man den Schreibaufwand so gut es geht verringern). Natürlich könnt ihr auch mehrer Wörter verwenden, die solltet ihr dann mit Unterstichen trennen. Zum Beispiel der Name *brd_kanzler_49_20* gibt Auskunft darüber, dass die gespeicherten Information wohl die BundeskanzlerInnen der BRD umfasst.  
+Die Namensvergabe liegt komplett in eurer Hand. `R` ist es egal ob ein Objext *x*, *hannover96* oder *court_decisions_2010* heißt. Ein `R`-Skript muss nachvollziehbar sein. Ihr müsst es zu einem späteren Zeitpunkt nachvollziehen und auch andere müssen es nachvollziehen können, wenn sie eure Ergebnisse reproduzieren wollen. Deswegen solltet ihr immer Namen verwenden, welche einen klaren kontextuellen Bezug haben und nicht zu lang sind (in `R` will man den Schreibaufwand so gering wie möglich halten). Natürlich könnt ihr auch mehrere Wörter verwenden, die solltet ihr dann mit Unterstichen trennen. Zum Beispiel der Name *brd_kanzler_49_20* gibt Auskunft darüber, dass die gespeicherten Information die Bundeskanzler*innen der BRD zwischen den Jahren 1949 bis 2020 umfassen  
 
 # 4. Funktionen
 
-99% von allem, was ihr in `R` machen werdet, wird Funktionen beinhalten. Funktionen sind Befehle, die `R` anweisen, etwas zu tun. In den meisten Fällen benötigt eine Funktion bestimmte Parameter oder Argumente, die angeben, was gemacht werden soll.
+99% von allen Schritten die ihr in `R` machen werdet, wird die Nutzung von Funktionen beinhalten. Funktionen sind Befehle, die `R` anweisen, etwas zu tun. In den meisten Fällen benötigt eine Funktion bestimmte Parameter oder Argumente, die angeben, was gemacht werden soll.
 
 Abstrakt stellt man das Aufrufen von Funktionen wie folgt dar: 
 
@@ -67,7 +67,7 @@ result <-  function(argument1, argument2, ...)
 
 Eine Funktion wird immer durch den Namen der Funktion aufgerufen. In den meisten Fällen wird das Ergebnis des Funktionsaufrufs dann in einem Objekt (in diesem Fall result) gespeichert
 
-Die Funktion c fasst z. B. mehrere Werte zu einem einzigen Objekt zusammen:
+Die Funktion `c` z. B. fasst mehrere Werte zu einem einzigen Objekt zusammen:
 
 ```{r eval=T}
 x <-  c(1,3,5)
@@ -81,7 +81,7 @@ m <-  mean(x)
 m
 ```
 
-Wir haben hier das neue Objekt m erstellt, um den Mittelwert von x zu speichern. Dabei verlieren wir die die Originalinformationen von x nicht. Wenn ihr mehr über die Funktion `mean()` erfahren wollt, oder über eine andere Funktion, dann könnt ihr ganz einfach die `?function` nutzen: 
+Wir haben hier das neue Objekt m erstellt, um den Mittelwert von x zu speichern. Dabei verlieren wir die Originalinformationen von x nicht. Wenn ihr mehr über die Funktion `mean()` erfahren wollt, oder über eine andere Funktion, dann könnt ihr ganz einfach die `?function` nutzen: 
 
 ```{r eval=F}
 ?mean
