@@ -13,7 +13,7 @@ editor_options:
 
 # 1. Einleitung
 
-Dieses Tutorial enthält eine sehr kurze Einführung in die Verwendung von überwachtem maschinellem Lernen für die Textklassifizierung in R. 
+Dieses Tutorial enthält eine sehr kurze Einführung in die Verwendung von überwachtem maschinellem Lernen für die Textklassifizierung in `R`. 
 
 Weitere Tutorials findet ihr zum Beispiel hier: 
 - [Klassifikation mit dem Caret-Paket](https://cran.r-project.org/web/packages/caret/vignettes/caret.html) 
@@ -91,7 +91,7 @@ head(nb_pred)
 mean(nb_pred == actual_test) # Hier vergleichen wir das vorhergesagte Sentiment mit dem tatsächlichen Sentiment
 ```
 
-81% Genauigkeit, das ist wirklich gut. Natürlich müssen wir bedenken, dass Filmkritiken eher einfache Texte sind. Ganz im Gegensatz natürlich zu politischen Texten. 
+81% Genauigkeit, das ist wirklich gut. Natürlich müssen wir bedenken, dass Filmkritiken eher einfache Texte sind. Ganz im Gegensatz zu Parteiprogrammen oder Gerichtsentscheidungen. 
 
 Wir können den regulären Tabellenbefehl verwenden, um eine Kreuztabelle zu erstellen. Kreuztabellen werden oft als 'Konfusionsmatrix' bezeichnet (da sie anzeigen, welche Art von Fehlern unsere Modelle machen):
 
@@ -100,7 +100,7 @@ confusion_matrix <-  table(actual_test, nb_pred)
 confusion_matrix
 ```
 
-Wir können also sehen, dass unser Modell insgesamt 94 Kritiken falsch klassifiziert hat (neg-pos und pos-neg).
+Wir sehen, dass unser Modell insgesamt 94 Kritiken falsch klassifiziert hat (neg-pos und pos-neg).
 
 Das `caret`-Paket verfügt über eine Funktion, mit der wir alle "regulären" supervised learning Metriken in Tabellenform darstellen können:
 
@@ -122,7 +122,7 @@ dtm_train <-  convert(dfm_train, to='matrix')
 dtm_test <-  convert(dfm_test, to='matrix')
 ```
 
-Im folgenden zeigen wir lediglich einen Algorithmus (SVM). Das `caret`-Paket beinhaltet aber natürlich noch weitere Algorithmen. Für weitere Informationen [schaut ihr hier](https://topepo.github.io/caret/train-models-by-tag.html). 
+Im folgenden zeigen wir lediglich einen Algorithmus (SVM). Das `caret`-Paket beinhaltet natürlich noch weitere Algorithmen. Für weitere Informationen [schaut ihr hier](https://topepo.github.io/caret/train-models-by-tag.html). 
 
 ### 7.2 SVM
 
@@ -132,15 +132,17 @@ Wir trainieren jetzt einen einfachen SVM (Support Vector Machine) Algorithmus mi
 set.seed(1)
 svm_model <-  train(x = dtm_train, y = actual_train, method = "svmLinearWeights2",
               trControl = trctrl, tuneGrid = data.frame(cost = 1, Loss = 0, weight = 1))
+
 svm_pred <-  predict(svm_model, newdata = dtm_test)
+
 confusionMatrix(svm_pred, actual_test)
 ```
 
-Für weitere Informationen über den Algorithmus, einschließlich der Bedeutung der Parameter und deren Abstimmung, müsst ihr die Dokumentation des Pakets konsultieren. Die oben verlinkte Caret-Dokumentation sagt euch, welches Paket verwendet wird (in diesem Fall: `LiblineaR`), und dieses Paket enthält eine technischere Erklärung des Algorithmus, im Allgemeinen einschließlich Beispielen und Referenzen.
+Für weitere Informationen über den Algorithmus, einschließlich der Bedeutung der Parameter und deren Abstimmung, müsst ihr die Dokumentation des Pakets konsultieren. Die oben verlinkte Caret-Dokumentation sagt euch, welches Paket verwendet wird (in diesem Fall: `LiblineaR`), und dieses Paket enthält eine technischere Erklärung des Algorithmus, einschließlich Beispielen und Referenzen.
 
 ### 7.3 Definition der Parameter
 
-Die meisten Algorithmen haben (Hyper-)Parameter, die definiert werden müssen, z. B. die Fehlklassifizierungskosten in SVM (in unserem Beispiel "cost = 1"). Meistens existieren keine wirklich fundierten theoretischen Grundlagen für die Definition der Parameter. Das bedeutet im Umkehrschluss, das wir als ForscherInnen meist in einem Trail-and-Error-Verfahren testen und ausprobieren und erst nach einigen Testläufen zu einem guten Eregbnis kommen.
+Die meisten Algorithmen haben (Hyper-)Parameter, die definiert werden müssen, z. B. die Fehlklassifizierungskosten in SVM (in unserem Beispiel "cost = 1"). Meistens existieren keine wirklich fundierten theoretischen Grundlagen für die Definition der Parameter. Das bedeutet im Umkehrschluss, das wir als Forscherinnen meist in einem Trail-and-Error-Verfahren testen und ausprobieren und erst nach einigen Testläufen zu einem guten Eregbnis kommen.
 
 Das `caret`-Paket verfügt aber auch über Funktionen, um die Parameter maschinell zu definieren bzw. um diese Definition zu vereinfachen. Für weitere Informationen schaut euch bitte die folgenden Seiten an:
 

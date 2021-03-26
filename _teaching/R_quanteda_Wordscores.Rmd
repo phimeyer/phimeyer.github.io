@@ -13,7 +13,7 @@ editor_options:
 
 # 1. Einleitung
 
-Dieses Tutorial soll euch die Wordscores-Methode näherbringen. Hierbei handelt es sich, ähnlich wie bei Naïve Bayse um eine supervised classification. Wordscores wurde maßgeblich von Ken Benoit entwickelt und vor allem auch in `quanteda` implementiert. Aus diesem Grund werde ich hier das offizielle Tutorial von der `quanteda` bereitstellen. Die Originalquelle findet ihr [hier](https://tutorials.quanteda.io/machine-learning/wordscores/).
+Dieses Tutorial soll euch die Wordscores-Methode näherbringen. Hierbei handelt es sich, ähnlich wie bei Naïve Bayse um eine supervised classification. Wordscores wurde maßgeblich von Ken Benoit entwickelt und in `quanteda` implementiert. Aus diesem Grund werde ich hier das offizielle Tutorial von `quanteda` bereitstellen. Die Originalquelle findet ihr [hier](https://tutorials.quanteda.io/machine-learning/wordscores/).
 
 # 2. Offizielles WORDSCORES-Tutorial
 

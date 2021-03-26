@@ -15,7 +15,7 @@ editor_options:
 
 Dieses Tutorial soll euch die Wordfish-Methode näherbringen. Im Unterschied zur Wordscore-Methode basiert **Wordfish** auf einem unsupervised learning Ansatz. 
 
-Ähnlich wie bei Wordscore hat sich vor allem das `quanteda`-Team darum bemüht, eine sehr gute Implementierung der Wordfish-Methode zu realisieren. Aus diesem Grund werde ich hier das offizielle Tutorial von der `quanteda` bereitstellen. Die Originalquelle findet ihr [hier](https://tutorials.quanteda.io/machine-learning/wordfish/).
+Ähnlich wie bei Wordscore hat sich vor allem das `quanteda`-Team darum bemüht, eine sehr gute `R`-Implementierung zu realisieren. Aus diesem Grund werde ich hier das offizielle Tutorial von der `quanteda` bereitstellen. Die Originalquelle findet ihr [hier](https://tutorials.quanteda.io/machine-learning/wordfish/).
 
 # 2. Offizielles WORDFISH-Tutorial 
 

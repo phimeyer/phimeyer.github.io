@@ -15,9 +15,9 @@ editor_options:
 
 # 1. Einleitung 
 
-LDA, was für Latent Dirichlet Allocation steht, ist einer der beliebtesten Ansätze zur probabilistischen Themenmodellierung. Das Ziel der Themenmodellierung ist die automatische Zuordnung von Themen zu Dokumenten, ohne dass eine menschliche Überwachung (unsupervised) erforderlich ist. Obwohl die Mathematik hinter dem LDA-Algorthimus recht herausfordernd ist, ist es sehr einfach, ein LDA-Themenmodell in `R` zu erstellen.
+LDA steht für Latent Dirichlet Allocation und ist einer der beliebtesten Ansätze zur Themenmodellierung. Das Ziel der Themenmodellierung ist die automatische Zuordnung von Themen zu Dokumenten, ohne dass eine menschliche Überwachung erforderlich ist. Es handelt sich hierbei also um eine unsupervised classification. Obwohl die Mathematik hinter dem LDA-Algorthimus recht herausfordernd ist, ist es sehr einfach, ein LDA-Themenmodell in `R` zu erstellen.
 
-Ein guter erster Schritt, um zu verstehen, was Themenmodelle sind und wofür sie nützlich sein können, ist es, einfach mit ihnen herumzuspielen und Dinge auszuprobieren. Dafür werden wir unsere Antrittsreden der U.S. Präsidenten verwenden und eine DFM auf Absatzebene erstellen: 
+Um zu verstehen, was Themenmodelle sind und wofür sie nützlich sein können, werden wir im Folgenden ein paar Dinge auszuprobieren. Dafür nutzen wir die Antrittsreden der U.S. Präsidenten und erstellen zu erst eine DFM auf Absatzebene: 
 
 ```{r eval= T}
 library(quanteda)
@@ -28,7 +28,7 @@ inaug_dfm <-  dfm_trim(inaug_dfm)
 
 ### 1.1 Ein LDA Modell berechnen
 
-Um eine LDA mit unserer Matrix auszuführen, konvertieren wir diese zunächst in das Topicmodels-Format (hierfür ist das `topicmodels`-Paket notwendig) und führen dann den LDA aus. Beachtet bitte die Verwendung von `set.seed(.)`. Damit stellen wir die Reproduzierbarkeit der Analyse sicher.
+Um ein LDA-Modell zu berechnen, konvertieren wir unsere DFM zunächst in das Topicmodels-Format (hierfür ist das `topicmodels`-Paket notwendig) und führen dann die Berechnung aus. Beachtet bitte die Verwendung von `set.seed(.)`. Damit stellen wir die Reproduzierbarkeit der Analyse sicher.
 
 ```{r eval= T}
 library(topicmodels)
@@ -39,9 +39,11 @@ inaug_lda <-  LDA(inaug_topicmod, method = "Gibbs", k = 10,  control = list(alph
 inaug_lda
 ```
 
-Obwohl LDA die Themen herausfinden wird, müssen wir selbst entscheiden, wie viele Themen wir überhaupt finden wollen (k = 10). Außerdem gibt es bestimmte Hyperparameter (Alpha), an denen wir herumschrauben können, um eine gewisse Kontrolle über die Themenverteilungen zu haben. Wir werden jetzt nicht ins Detail gehen, aber beachtet bitte, dass wir auch nach 100 Themen hätten fragen können, und unsere Ergebnisse wären ganz anders ausgefallen. 
+Obwohl ein LDA-Modell die Absätze automatisch in Themencluster klassifiziert, müssen wir selbst entscheiden, wie viele Themen wir überhaupt finden wollen (hier k = 10). 
 
-Generell ist das der Knackpunkt bei einer LDA-Analyse, da es keine wirkliche Methode gibt, um die korrekte Anzahl der Themen zu bestimmen. Im Idealfall geschieht das theoriebasiert durch euch, was aber sehr selten ist. Alternativ gibt es auch Wege die Anzahl der Themen mathematisch bestimmen zu lassen, was aber ebenfalls umstritten ist. Letztlich ist die Definition von k immer ein trail-and-error Prozess, bis ihr mit euren Eregbnissen zufrieden seit. Von daher hat die LDA-Methode immer ein gewisses arbiträres Momentum.
+Das ist das größte Problem bei LDA-Modellen. Es gibt keine etablierte Methode, um die korrekte Anzahl von k zu bestimmen. Im Idealfall wird die Anzahl von k theoriebasiert durch euch festgelegt, aber auch das ist meistens sehr schwer und zweitens sehr selten. Alternativ gibt es Wege die Anzahl der Themen mathematisch bestimmen zu lassen, was aber ebenfalls umstritten ist. Letztlich ist die Definition von k immer ein trail-and-error Prozess: wir verändern k so lange, bis wir mit den Eregbnissen zufrieden sind. Wären wir jetzt im Mitten eines Forschungsprozesses würden wir viele weitere Modelle mit unterschiedlich großen k berechnen und deren Ergebnisse vergleichen. Von daher hat die LDA-Methode immer ein gewisses arbiträres Momentum. 
+
+Außerdem gibt es bestimmte Hyperparameter (Alpha), an denen wir herumschrauben können, um eine gewisse Kontrolle über die Verteilung der Absätze in die Themen zu haben. Für mehr Details konsultiert die help-Seiten der Pakte und die Fachliteratur. 
 
 ### 1.2 Die LDA Eregbnisse inspizieren 
 
@@ -51,9 +53,9 @@ Um zu sehen wie gut oder schlecht unser LDA-Modell gearbeitet hat, ist es am ein
 terms(inaug_lda, 5)
 ```
 
-Hier seht ihr welche Wörter welchen Themen zugeordnet wurden. Es ist nun die Aufgabe der*s ForscherIn diese Themen zu interpretieren und passende Überschriften zu geben (auch dieser Prozess ist idealerweise theoriegeleitet). 
+Hier seht ihr welche Wörter welchen Themen zugeordnet wurden. Es ist nun die Aufgabe der Forscherin diese Ergebnisse zu interpretieren und passende Überschriften/Lables zu geben (dieser Prozess der Interpretation der Ergebnisse muss theoriegeleitet sein). Ihr seht also, dass nicht nur die Definition von k subjektiv erfolgt, sondern auch die Interpretation der Ergebnisse.
 
-Die `posterior`- Funktion gibt die Posterior-Verteilung von Wörtern und Dokumenten zu Themen an, die verwendet werden kann, um eine Wortwolke von Begriffen proportional zu ihrem Vorkommen darzustellen:
+Die `posterior`- Funktion gibt die Posterior-Verteilung von Wörtern und Dokumenten zu Themen an, die verwendet werden kann, um eine word cloud von Begriffen proportional zu ihrem Vorkommen darzustellen:
 
 ```{r eval= T}
 topic <-  6
@@ -69,7 +71,7 @@ library(wordcloud)
 wordcloud(names(topwords_topic6), topwords_topic6)
 ```
 
-Wir können uns auch die Themen pro Dokument ansehen, um die Top-Dokumente pro Thema zu finden:
+Wir können uns auch die Themen pro Dokument ansehen, um so die Top-Dokumente pro Thema zu finden:
 
 ```{r eval= T}
 topic_per_docs <-  posterior(inaug_lda)$topics[, topic] 
@@ -85,7 +87,7 @@ inaug_topdoc_corp <-  inaug_corpus[docnames(inaug_corpus) == inaug_topdoc]
 texts(inaug_topdoc_corp)
 ```
 
-Schließlich können wir sehen, welcher Präsident welche Themen bevorzugt hat:
+Schließlich können wir untersuchen, welcher Präsident welche Themen bevorzugt:
 
 ```{r eval = T}
 inaug_docs <-  docvars(inaug_dfm)[match(rownames(inaug_dfm), docnames(inaug_dfm)),]
@@ -94,15 +96,15 @@ rownames(topics_per_pr) <-  topics_per_pr$President
 heatmap(as.matrix(topics_per_pr[-1]))
 ```
 
-Wie ihr sehen könnt, bilden die Themen eine Art "Block"-Verteilung, wobei modernere Präsidenten und ältere Präsidenten ganz unterschiedliche Themen verwenden. Also hat sich entweder die Rolle der Präsidenten geändert, oder der Sprachgebrauch hat sich geändert, oder (wahrscheinlich) beides. Letztlich kann ich mich nur noch einmal wiederholen: **da die Auswahl der Themenanzahl und die Interpretation der Themen zu 100% von der Forscherin abhängig sind, sind LDA-Modelle eher mit einer gewissen Vorsicht zu genießen!**
+Wie ihr sehen könnt, bilden die Themen eine Art "Block"-Verteilung, wobei modernere Präsidenten und ältere Präsidenten ganz unterschiedliche Themen verwenden. Also hat sich entweder die Rolle der Präsidenten geändert, der Sprachgebrauch, oder aber (wahrscheinlich) beides. Ich kann mich aber nur noch einmal wiederholen: **da die Auswahl der Themenanzahl und die Interpretation der Themen zu 100% von der Forscherin abhängig ist, sind LDA-Modelle immer mit einer gewissen Vorsicht zu genießen!**
 
-Um eine bessere Anpassung solcher zeitlichen Dynamiken zu erhalten, wenden wir uns jetzt den structural topic models (STM). STMS erlauben es uns, Themen und/oder Inhalte auf Metadatenkovariaten wie Quelle oder Datum zu konditionieren.
+Um eine bessere Anpassung an zeitliche Dynamiken zu realisieren, wenden wir uns jetzt den structural topic models (STM). STMS erlauben es uns Themenmodelle mit weiteren Inhaltsvariablen zu konditionieren.
 
 # STM
 
 # 2. Einleitung
 
-STM sind eine Erweiterung von LDA. STMs erlauben es, explizit Text-Metadaten wie Datum oder Autor als Kovariaten der Themenprävalenz- und/oder Themenwortverteilungen zu modellieren. Mit dem `stm`-Paket gibt es eine ausgezeichnete Implementierung für `R` (siehe http://structuraltopicmodel.com).
+STM sind eine Erweiterung von LDA. STMs erlauben es Metadaten wie Datum oder Autor als Kovariaten der Themenprävalenz- und/oder Themenverteilung zu modellieren. Mit dem `stm`-Paket gibt es eine ausgezeichnete Implementierung für `R` (siehe http://structuraltopicmodel.com).
 
 Für unsere Beispiele bleiben wir bei den Antrittsreden der US Präsidenten. Da wir unseren Korpus und unsere DFM mit `quanteda` erstellt haben, können wir sicher sein, dass wir Metadaten zur Verfügung haben. 
 
@@ -120,11 +122,11 @@ library(stm)
 inaug_stm <-  stm(inaug_dfm, K = 10, max.em.its = 10)
 ```
 
-K legt die Anzahl der Themen fest. Wie bei der LDA liegt diese Auswahl komplett in eurer Hand und ist idealerweise theoriegeleitet. `max.em.hits` legt die Anzahl der Iterationen fest. 10 ist wahrscheinlich zu niedrig, aber da dieses Beispiel nur Demonstrationszwecken dient, stellen wir so eine halbwegs schnelle Rechnenzeit sicher. Wie immer lege ich euch nahe, dass ihr euch über die Parameter selber informiert.
+K legt die Anzahl der Themen fest. Wie bei der LDA liegt diese Auswahl komplett in eurer Hand und muss theoriegeleitet ablaufen. `max.em.hits` legt die Anzahl der Iterationen ("Iteration beschreibt allgemein einen Prozess mehrfachen Wiederholens gleicher oder ähnlicher Handlungen zur Annäherung an eine Lösung oder ein bestimmtes Ziel." Quelle: Wikipedia) fest. Zehn Iterationen ist wahrscheinlich zu niedrig, aber da dieses Beispiel nur Demonstrationszwecken dient, stellen wir so eine halbwegs schnelle Rechnenzeit sicher. Wie immer lege ich euch nahe, dass ihr euch über die Parameter selber informiert.
 
 ### 2.2 Das STM Modell inspizieren
 
-STM funktioniert ähnlich wie ein LDA-Themenmodell, aber es modelliert auch Korrelationen zwischen Themen. Um die Ergebnisse des Themenmodells zu untersuchen, können wir weitere Funktionen aus `stm`-Paket verwenden:
+STM funktioniert ähnlich wie LDA, aber es modelliert auch Korrelationen zwischen Themen. Um die Ergebnisse des Themenmodells zu untersuchen, können wir weitere Funktionen aus `stm`-Paket verwenden:
 
 ```{r eval = T}
 plot(inaug_stm, type="summary", labeltype = "frex")
@@ -140,13 +142,13 @@ plot(inaug_stm, type="perspectives", topics=c(8,9)) # in diesem fall zwischen de
 
 ### 2.3 Kovariablen
 
-Jetzt modellieren wir das Jahr als Kovarianz für unser Modell:
+Jetzt modellieren wir das Jahr als Kovarianz für unser Modell (`prevalence =~ Year`):
 
 ```{r eval = T}
 inaug_stm_year <- stm(inaug_dfm, K = 10, prevalence =~ Year, max.em.its = 10)
 ```
 
-Neben den oben genannten Funktionen können wir nun auch den Effekt der Jahre mit der Funktion `estimateEffect` modellieren:
+Neben den oben genannten Funktionen können wir auch den Effekt der Jahre mit der Funktion `estimateEffect` modellieren:
 
 ```{r eval = T}
 inaug_year_effects <- estimateEffect(1:10 ~ Year, stmobj = inaug_stm_year, meta = docvars(inaug_dfm))
@@ -159,7 +161,7 @@ Die Themenprävalenzen über die Zeit können wir natürlich auch visualisieren:
 plot(inaug_year_effects, "Year", method = "continuous", topics = c(8,9), model = inaug_stm_year)
 ```
 
-Schließlich fügen wir noch die jeweiligen Präsidenten als inhaltlische kovariate hinzu, da jeder Präsident unterschiedliche Wörter verwendet, um dasselbe Thema zu diskutieren. Wir fügen diese Kovariate mit dem Argument content=~ hinzu:
+Schließlich fügen wir noch die jeweiligen Präsidenten als inhaltlische Kovariate hinzu, da jeder Präsident wahrscheinlich unterschiedliche Wörter verwendet, um ähnliche Themen zu diskutieren. Wir fügen diese Kovariate mit dem Argument `content= ~` hinzu:
 
 ```{r eval = T}
 inaug_stm_präs <- stm(inaug_dfm, K = 10, content =~ President, max.em.its = 10)
@@ -177,7 +179,7 @@ Wir können die Wortwahl pro Präsident als `perspective` Graph visualisieren:
 plot(inaug_stm_präs, type="perspectives", topics=8, covarlevels = c("Obama", "Trump"))
 ```
 
-Um schließlich Texte zu finden, in denen ein bestimmter Präsident über ein bestimmtes Thema spricht, können wir wie folgt vorgehen:
+So können wir schließlich Texte finden, in denen ein bestimmter Präsident über ein bestimmtes Thema spricht:
 
 ```{r eval = T}
 findThoughts(inaug_stm_präs, texts = texts(inaug_corpus), topics = 8, where=President=="Trump", meta=docvars(inaug_dfm))

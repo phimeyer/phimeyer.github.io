@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 # 1. Einleitung
 
-In diesem Tutorial wenden wir uns ganz kurz dem überwachten maschinellen Lernen (supervised learning) zu. Der Text von  [Loftis/Mortensen](https://onlinelibrary.wiley.com/doi/abs/10.1111/psj.12245) der zu dieser Sitzung gelesen werden sollte, beschreibt diese Art der Datengenerierung bereits sehr gut. Sitzung 8 wird dieses Thema nochmals aufgreifen. 
+In diesem Tutorial wenden wir zum ersten Mal dem überwachten maschinellen Lernen (supervised learning) zu. Der Text von  [Loftis/Mortensen](https://onlinelibrary.wiley.com/doi/abs/10.1111/psj.12245) der zu dieser Sitzung gelesen werden soll, beschreibt diese Methode bereits sehr gut. Sitzung 8 wird das Thema dann nochmals aufgreifen. 
 
-Supervised learning erfordert bereits vorhandene Klassifizierungen als Grundlage für das maschninelle Lernen. Insofern ähnelt die Methode dem Wörterbuchansatz. Der Unterschied besteht aber darin, dass wir beim supervised learning, ganz im Sinne der der allgemeinen Logik von maschinellen Lernalgorithmen, die Daten in einen Trainings- und einen Testdatensatz aufteilen. Die Trainingsdaten enthalten (in den meisten Fällen) manuell codierte Klassifizierungen unserer Dokumente, mit denen dann der jeweilige Algorithmus (in diesem Tutorial Naïve Bayes) trainiert wird. Dadurch ist es uns möglich unkodierte Dokumente anhand der gegebenen (manuell codierten) Klassifizierungen maschinell zu klassifizieren. Hierbei handelt es sich letztlich um Vorhersagen bzw. Schätzungen bezüglich der Klassifizierungen der dem Computer unbekannten Dokumente.
+Supervised learning erfordert Dokumente mit bereits vorhandenen Klassifizierungen als Grundlage. Insofern ähnelt die Methode dem Wörterbuchansatz. Der Unterschied besteht aber darin, dass wir beim supervised learning die Daten in einen Trainings- und einen Testdatensatz aufteilen. Die Trainingsdaten enthalten (in den meisten Fällen) manuell codierte Klassifizierungen unserer Dokumente, mit denen dann der Algorithmus (in diesem Tutorial Naïve Bayes) trainiert wird. Dadurch ist es uns möglich unkodierte Dokumente anhand der gegebenen (manuell codierten) Klassifizierungen maschinell zu klassifizieren. Hierbei handelt es sich um Vorhersagen bzw. Schätzungen bezüglich der Klassifizierungen der dem Computer unbekannten Dokumente.
 
-Ein Naïve Bayes-Klassifikator berechnet nun die Wahrscheinlichkeit für jede Klasse auf Basis der Features einer DFM. Er entscheidet sich schließlich für die Klasse mit der höchsten Wahrscheinlichkeit und wählt diese Klasse als die entsprechende Kategorie/Klassifikation aus. Er basiert auf dem [Bayes-Theorem für bedingte Wahrscheinlichkeiten](https://de.wikipedia.org/wiki/Satz_von_Bayes). 
+Ein Naïve Bayes-Klassifikator berechnet die Wahrscheinlichkeit für jede Klassifaktion auf Basis der Features einer DFM. Er entscheidet sich schließlich für die Klassifaktion mit der höchsten Wahrscheinlichkeit und wählt diese als die entsprechende Kategorie/Klassifikation für das uncodierte Dokument aus. Er basiert auf dem [Bayes-Theorem für bedingte Wahrscheinlichkeiten](https://de.wikipedia.org/wiki/Satz_von_Bayes). 
 
-Naïve Bayes ist "naiv" wegen seiner starken Unabhängigkeitsannahmen. Das Bayes-Theorem nimmt an, dass alle Merkmale gleich wichtig sind und dass alle Merkmale unabhängig sind. Das ist natürlich eine sehr starke Annahme. Auch aus diesem Grund ist Naïve Bayes ist ein relativ einfacher Klassifikationsalgorithmus, der nicht viel Zeit und Rechenkapazität erfordert. 
+Naïve Bayes ist "naiv" wegen seiner starken Unabhängigkeitsannahmen. Das Bayes-Theorem nimmt an, dass alle Merkmale gleich wichtig sind und dass alle Merkmale unabhängig sind. Das ist natürlich eine sehr starke Annahme. Auch aus diesem Grund ist Naïve Bayes ein relativ einfacher Klassifikationsalgorithmus, der nicht viel Zeit und Rechenkapazität erfordert. 
 
 Um einen Naïve Bayes-Klassifikator anzuwenden, nutzen wir die `quanteda`-Funktion `textmodel_nb`. Das von `quanteda` bereitgestellte Tutorial gibt ebenfalls einen kurzen aber guten Einblick in die Wirkungsweise: [hier zu finden](https://tutorials.quanteda.io/machine-learning/nb/). 
 
@@ -38,13 +38,13 @@ Die Arbeitschritte zur Durchfühung von überwachten maschinellen Klassifikation
 2. DFM der Trainings- und Testdaten erstellen
 3. Algorithmus mit den Trainingsdaten trainieren und auf die Testdaten anwenden
 4. Genauigkeit der Klassifikation überprüfen
-5. Vergleich mit einer zufälligen Vorhersage
+5. Vergleich mit einer zufälligen Vorhersage durchführen
 
 # 3. Naïve Bayes-Klassifikation
 
 Für unser Beispiel verwenden wir wieder den Korpus zu den Antrittsreden der U.S. Präsidenten. Da wir für eine Naïve Bayes-Klassifikation auch eine manuell codierte Variable benötigen, werden wir im Verlauf dieses Tutorials eine eigene Kodierung vornehmen. Für diese Kodierung stellen wir uns folgende (Forschungs)Frage: Erkennt ein maschnineller Lernalgorithmus ob eine Antrittsrede nach dem Ende des zweiten Weltkriegs gehalten wurde?
 
-Im unserem ersten Schritt erstellen wir eine DTM auf der Grundlage des `quanteda`-Datensatzes `data_corpus_inaugural` (den wir `inaug_speeches` nennen):
+Als erstes erstellen wir eine DTM auf der Grundlage des `quanteda`-Datensatzes `data_corpus_inaugural` (den wir `inaug_speeches` nennen):
 
 ```{r eval=T}
 library(quanteda)
@@ -56,7 +56,7 @@ dtm_speeches <-  inaug_speeches %>% dfm(remove_numbers = TRUE, remove_punct = TR
 dtm_speeches
 ```
 
-Anschließend generieren eine zufällige Anordnung der Spalten in der DTM (dieser Schritt erleichtert uns das zufällige Generieren von Test- und Trainingsdaten: 
+Anschließend generieren eine zufällige Anordnung der Spalten in der DTM (dieser Schritt erleichtert uns das Erstellen von Test- und Trainingsdaten: 
 
 ```{r eval=T}
 # Setzen eines Seeds für Replikationszwecke (Mit diesem seed garantieren wir, dass die zufällige Anordnung bei jedem Durchlauf gleich bleibt. Damit sichern wir die Replizierbarkeit der Ergebnisse)
@@ -80,8 +80,7 @@ train_dtm <- dtm[1:35,]
 test_dtm <- dtm[36:nrow(dtm),]
 ```
 
-Zur Übersicht kontrollieren wir mal die Verteilungen unserer "is_prewar"-Variable in beiden DTMs: 
-
+Zur Übersicht kontrollieren wir die Verteilungen unserer "is_prewar"-Variable in beiden DTMs: 
 ```{r eval=T}
 print(prop.table(table(docvars(
   train_dtm, "is_prewar"
@@ -92,14 +91,14 @@ print(prop.table(table(docvars(
 ))) * 100)
 ```
 
-Wir sehen eine ungefähr gleiche Verteilung der uns interessierenden Variable in beiden Datensätzen. Das ist schon einmal sehr gut
+Wir sehen das die uns interessierende Variable gut in beiden Datensätzen verteilt ist.
 
-In einem nächsten Schritt trainieren wir den Naïve Bayes-Klassifikator. Die generelle Logik des Bayes-Theorem ist, dass die Wahrscheinlichkeit von A abhängig ist von B:
+Im nächsten Schritt trainieren wir den Naïve Bayes-Klassifikator. Die generelle Logik des Bayes-Theorem ist, dass die Wahrscheinlichkeit von A abhängig ist von B:
 
 - A ist das, was wir wissen wollen (wann eine Rede gehalten wurde) 
 - B ist das, was wir sehen (die Rede und das Jahr)
 
-Wenden wir also die `textmodel_nb`-Funktion auf unseren Trainingsdatensatz an. Um die Funktion nutzen zu können, müssen wir (neuerdings...) das Paket `quanteda.textmodels` installieren und laden. Anschließend nutzen wir die `summary`-Funktion um unsere Ergebnisse zu inspizieren: 
+Wenden wir jetzt die `textmodel_nb`-Funktion auf unseren Trainingsdatensatz an. Um die Funktion nutzen zu können, müssen wir (neuerdings...) das Paket `quanteda.textmodels` installieren und laden. Anschließend nutzen wir die `summary`-Funktion um unsere Ergebnisse zu inspizieren: 
 
 ```{r eval=T}
 library(quanteda.textmodels) # vergesst nicht das paket vorher zu installieren!
@@ -108,7 +107,7 @@ nb_model <- textmodel_nb(train_dtm, y = docvars(train_dtm, "is_prewar"))
 summary(nb_model)
 ```
 
-Abschließend wenden wir unser klassifiziertes Naïve Bayes-Modell auf unsere Testdaten an und betrachten unsere Ergebnisse. Dafür nutzen wir die `predict`-Funktion: 
+Jetzt wenden wir unser trainiertes Naïve Bayes-Modell auf unsere Testdaten an und betrachten unsere Ergebnisse. Dafür nutzen wir die `predict`-Funktion: 
 
 ```{r eval=T}
 pred_nb <- predict(nb_model, newdata = test_dtm, force = TRUE) # Wir schätzen unser Modell auf unsere Testdaten
@@ -117,4 +116,6 @@ pred_nb <- predict(nb_model, newdata = test_dtm, force = TRUE) # Wir schätzen u
 table(prediction = pred_nb, is_prewar = docvars(test_dtm, "is_prewar"))
 ```
 
-Wir sehen, dass unsere Vorhersage eine perfekte Genauigkeit erreicht hat und keine falsch-negativen oder falsch-postiven Ergebnisse vorhanden sind. Es versteht sich von selbst, dass die hier präsentierten Schritte nur einen möglichen Weg repräsentieren. Am besten ihr sucht auf eigene Faust nach weiteren Beispielen, Tutorials, und alternativen Wegen eine Klassifikation durchzuführen.
+Wir sehen, dass unsere Vorhersage eine perfekte Genauigkeit erreicht hat und keine falsch-negativen oder falsch-postiven Ergebnisse vorhanden sind. Das bedeutet also, dass unser Naïve Bayes-Modell genau vorhersagen konnte welche Rede vor bzw. nach 1945 gehalten wurde.
+
+Es versteht sich von selbst, dass die hier präsentierten Schritte nur einen möglichen Weg repräsentieren. Natürlich ist auch das gewählte Beispiel eher weniger Aussagekräftig und lediglich zu Demonstrationszwecken gewählt worden. Am besten ihr sucht auf eigene Faust nach weiteren Beispielen, Tutorials, und alternativen Wegen eine Klassifikation durchzuführen.

@@ -248,7 +248,7 @@ div.tocify {
 
 <div id="einleitung" class="section level1">
 <h1>1. Einleitung</h1>
-<p>Dieses Tutorial enthält eine sehr kurze Einführung in die Verwendung von überwachtem maschinellem Lernen für die Textklassifizierung in R.</p>
+<p>Dieses Tutorial enthält eine sehr kurze Einführung in die Verwendung von überwachtem maschinellem Lernen für die Textklassifizierung in <code>R</code>.</p>
 <p>Weitere Tutorials findet ihr zum Beispiel hier: - <a href="https://cran.r-project.org/web/packages/caret/vignettes/caret.html">Klassifikation mit dem Caret-Paket</a> - <a href="http://inhaltsanalyse-mit-r.de/maschinelles_lernen.html">Cornelius Puschmann, Überwachtes maschinelles Lernen</a></p>
 </div>
 <div id="pakete" class="section level1">
@@ -356,7 +356,7 @@ head(nb_pred)</code></pre>
 ## Levels: neg pos</code></pre>
 <pre class="r"><code>mean(nb_pred == actual_test) # Hier vergleichen wir das vorhergesagte Sentiment mit dem tatsächlichen Sentiment</code></pre>
 <pre><code>## [1] 0.812</code></pre>
-<p>81% Genauigkeit, das ist wirklich gut. Natürlich müssen wir bedenken, dass Filmkritiken eher einfache Texte sind. Ganz im Gegensatz natürlich zu politischen Texten.</p>
+<p>81% Genauigkeit, das ist wirklich gut. Natürlich müssen wir bedenken, dass Filmkritiken eher einfache Texte sind. Ganz im Gegensatz zu Parteiprogrammen oder Gerichtsentscheidungen.</p>
 <p>Wir können den regulären Tabellenbefehl verwenden, um eine Kreuztabelle zu erstellen. Kreuztabellen werden oft als 'Konfusionsmatrix' bezeichnet (da sie anzeigen, welche Art von Fehlern unsere Modelle machen):</p>
 <pre class="r"><code>confusion_matrix &lt;-  table(actual_test, nb_pred)
 confusion_matrix</code></pre>
@@ -364,7 +364,7 @@ confusion_matrix</code></pre>
 ## actual_test neg pos
 ##         neg 206  44
 ##         pos  50 200</code></pre>
-<p>Wir können also sehen, dass unser Modell insgesamt 94 Kritiken falsch klassifiziert hat (neg-pos und pos-neg).</p>
+<p>Wir sehen, dass unser Modell insgesamt 94 Kritiken falsch klassifiziert hat (neg-pos und pos-neg).</p>
 <p>Das <code>caret</code>-Paket verfügt über eine Funktion, mit der wir alle &quot;regulären&quot; supervised learning Metriken in Tabellenform darstellen können:</p>
 <pre class="r"><code>confusionMatrix(nb_pred, actual_test, mode = &quot;everything&quot;)</code></pre>
 <pre><code>## Confusion Matrix and Statistics
@@ -407,7 +407,7 @@ confusion_matrix</code></pre>
 <pre class="r"><code>trctrl &lt;-  trainControl(method = &quot;none&quot;)
 dtm_train &lt;-  convert(dfm_train, to='matrix')
 dtm_test &lt;-  convert(dfm_test, to='matrix')</code></pre>
-<p>Im folgenden zeigen wir lediglich einen Algorithmus (SVM). Das <code>caret</code>-Paket beinhaltet aber natürlich noch weitere Algorithmen. Für weitere Informationen <a href="https://topepo.github.io/caret/train-models-by-tag.html">schaut ihr hier</a>.</p>
+<p>Im folgenden zeigen wir lediglich einen Algorithmus (SVM). Das <code>caret</code>-Paket beinhaltet natürlich noch weitere Algorithmen. Für weitere Informationen <a href="https://topepo.github.io/caret/train-models-by-tag.html">schaut ihr hier</a>.</p>
 </div>
 <div id="svm" class="section level3">
 <h3>7.2 SVM</h3>
@@ -415,7 +415,9 @@ dtm_test &lt;-  convert(dfm_test, to='matrix')</code></pre>
 <pre class="r"><code>set.seed(1)
 svm_model &lt;-  train(x = dtm_train, y = actual_train, method = &quot;svmLinearWeights2&quot;,
               trControl = trctrl, tuneGrid = data.frame(cost = 1, Loss = 0, weight = 1))
+
 svm_pred &lt;-  predict(svm_model, newdata = dtm_test)
+
 confusionMatrix(svm_pred, actual_test)</code></pre>
 <pre><code>## Confusion Matrix and Statistics
 ## 
@@ -444,11 +446,11 @@ confusionMatrix(svm_pred, actual_test)</code></pre>
 ##                                           
 ##        'Positive' Class : neg             
 ## </code></pre>
-<p>Für weitere Informationen über den Algorithmus, einschließlich der Bedeutung der Parameter und deren Abstimmung, müsst ihr die Dokumentation des Pakets konsultieren. Die oben verlinkte Caret-Dokumentation sagt euch, welches Paket verwendet wird (in diesem Fall: <code>LiblineaR</code>), und dieses Paket enthält eine technischere Erklärung des Algorithmus, im Allgemeinen einschließlich Beispielen und Referenzen.</p>
+<p>Für weitere Informationen über den Algorithmus, einschließlich der Bedeutung der Parameter und deren Abstimmung, müsst ihr die Dokumentation des Pakets konsultieren. Die oben verlinkte Caret-Dokumentation sagt euch, welches Paket verwendet wird (in diesem Fall: <code>LiblineaR</code>), und dieses Paket enthält eine technischere Erklärung des Algorithmus, einschließlich Beispielen und Referenzen.</p>
 </div>
 <div id="definition-der-parameter" class="section level3">
 <h3>7.3 Definition der Parameter</h3>
-<p>Die meisten Algorithmen haben (Hyper-)Parameter, die definiert werden müssen, z. B. die Fehlklassifizierungskosten in SVM (in unserem Beispiel &quot;cost = 1&quot;). Meistens existieren keine wirklich fundierten theoretischen Grundlagen für die Definition der Parameter. Das bedeutet im Umkehrschluss, das wir als ForscherInnen meist in einem Trail-and-Error-Verfahren testen und ausprobieren und erst nach einigen Testläufen zu einem guten Eregbnis kommen.</p>
+<p>Die meisten Algorithmen haben (Hyper-)Parameter, die definiert werden müssen, z. B. die Fehlklassifizierungskosten in SVM (in unserem Beispiel &quot;cost = 1&quot;). Meistens existieren keine wirklich fundierten theoretischen Grundlagen für die Definition der Parameter. Das bedeutet im Umkehrschluss, das wir als Forscherinnen meist in einem Trail-and-Error-Verfahren testen und ausprobieren und erst nach einigen Testläufen zu einem guten Eregbnis kommen.</p>
 <p>Das <code>caret</code>-Paket verfügt aber auch über Funktionen, um die Parameter maschinell zu definieren bzw. um diese Definition zu vereinfachen. Für weitere Informationen schaut euch bitte die folgenden Seiten an:</p>
 <ol style="list-style-type: decimal">
 <li><a href="https://topepo.github.io/caret/random-hyperparameter-search.html" class="uri">https://topepo.github.io/caret/random-hyperparameter-search.html</a></li>
