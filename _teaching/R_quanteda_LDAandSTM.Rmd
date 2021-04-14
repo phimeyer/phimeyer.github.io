@@ -21,8 +21,17 @@ Um zu verstehen, was Themenmodelle sind und wofür sie nützlich sein können, w
 
 ```{r eval= T}
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
+
 inaug_corpus <-  corpus_reshape(data_corpus_inaugural, to = "paragraphs")
-inaug_dfm <-  dfm(inaug_corpus, remove_punct=T, remove=stopwords("english"))
+
+inaug_dfm <-  inaug_corpus %>% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("english")) %>% 
+  tokens_tolower() %>%
+  dfm() 
+
 inaug_dfm <-  dfm_trim(inaug_dfm) 
 ```
 

@@ -24,6 +24,7 @@ Wordfish is a Poisson scaling model of one-dimensional document positions (Slapi
 ```{r eval = T}
 library(quanteda)
 library(quanteda.textmodels)
+library(quanteda.textstats)
 library(quanteda.corpora) # Die Anleitung zur Installierung findet ihr hier: https://github.com/quanteda/quanteda.corpora
 library(quanteda.textplots) # Für mehr Infos siehe: https://quanteda.io/articles/pkgdown/examples/plotting.html
 ```
@@ -31,7 +32,13 @@ library(quanteda.textplots) # Für mehr Infos siehe: https://quanteda.io/article
 In this example, we show how to apply Wordfish to the Irish budget speeches from 2010. First, we create a document-feature matrix. Afterwards, we run Wordfish.
 
 ```{r eval = T}
-dfmat_irish <- dfm(data_corpus_irishbudget2010, remove_punct = TRUE)
+
+dfmat_irish <-  data_corpus_irishbudget2010 %>% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("english")) %>% 
+  tokens_tolower() %>%
+  dfm() 
+
 tmod_wf <- textmodel_wordfish(dfmat_irish, dir = c(6, 5))
 summary(tmod_wf)
 ```

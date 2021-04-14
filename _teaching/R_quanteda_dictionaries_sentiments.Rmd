@@ -37,6 +37,8 @@ Als Alternative werden wir die bereits bekannten Antrittsreden der US Präsident
 
 ```{r eval=T}
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
 
 inaug_speeches <- data_corpus_inaugural 
 ```
@@ -46,7 +48,24 @@ Jetzt erstellen wir eine DTM mittels einer Pipeline:
 ```{r eval=T}
 library(tidyverse) 
 
-dtm_speeches <-  inaug_speeches %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) # wir entfernen alle Füllwörter, die Interpunktion, Symbole, Zahlen
+dtm_speeches <-  inaug_speeches %>% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("english")) %>% 
+  tokens_tolower() %>%
+  dfm() # wir entfernen alle Füllwörter, die Interpunktion, Symbole, Zahlen
+dtm_speeches
+```
+
+Ohne Pipeline-Operator sieht der Code wie folgt aus: 
+
+```{r eval=T}
+inaug_speeches_tokens <- tokens(inaug_speeches, remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE)
+
+inaug_speeches_tokens <- tokens_remove(inaug_speeches_tokens, pattern = stopwords("english"))
+inaug_speeches_tokens <- tokens_tolower(inaug_speeches_tokens)
+
+dtm_speeches <- dfm(inaug_speeches_tokens)
+
 dtm_speeches
 ```
 
@@ -267,8 +286,9 @@ Es zeigt sich, dass die am häufigsten auftretenden "positiven" Wörter "great" 
 Um das zu kontrollieren bietet sich vor allem die "Key-Word-in-Context"-Methode an. Bei dieser Methode definieren wir ein Zielwort und lassen uns eine Textsequenz vor und nach diesem Wort anzeigen (Die Länge der Sequenz ist optimierbar. Wie? Das könnt ihr mittels der help-Page herausfinden `?kwic`):
 
 ```{r eval=T}
-head(kwic(inaug_speeches, "great"))
-head(kwic(inaug_speeches, "peace"))
+inaug_speeches_toks <- tokens(inaug_speeches)
+head(kwic(inaug_speeches_toks, "great"))
+head(kwic(inaug_speeches_toks, "peace"))
 ```
 
 Daraus geht hervor, dass das Wort "peace" eher als neutraler Begriff verwendet wird und deswegen vermutlich unsere Positive/Negative-zentrierte Sentimentanalyse verzerrt. Um es aus der Liste der positiven Wörter zu entfernen, können wir die Funktion `setdiff` (Differenz zwischen zwei Mengen) verwenden: 

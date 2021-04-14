@@ -255,25 +255,19 @@ div.tocify {
 <h1>2. Pakete</h1>
 <p>Wir werden <code>quanteda</code> für die Textverarbeitung, <code>quanteda.textmodels</code> für einige Methoden des maschinelles Lernen und <code>tidyverse</code> für die allgemeine Datenbereinigung verwenden:</p>
 <pre class="r"><code>library(quanteda)</code></pre>
-<pre><code>## Package version: 2.1.2</code></pre>
-<pre><code>## Parallel computing: 2 of 4 threads used.</code></pre>
+<pre><code>## Package version: 3.0.0
+## Unicode version: 10.0
+## ICU version: 61.1</code></pre>
+<pre><code>## Parallel computing: 4 of 4 threads used.</code></pre>
 <pre><code>## See https://quanteda.io for tutorials and examples.</code></pre>
-<pre><code>## 
-## Attaching package: 'quanteda'</code></pre>
-<pre><code>## The following object is masked from 'package:utils':
-## 
-##     View</code></pre>
-<pre class="r"><code>library(quanteda.textmodels)</code></pre>
-<pre><code>## 
-## Attaching package: 'quanteda.textmodels'</code></pre>
-<pre><code>## The following object is masked from 'package:quanteda':
-## 
-##     data_dfm_lbgexample</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
+<pre class="r"><code>library(quanteda.textmodels)
+library(quanteda.textplots)
+library(quanteda.textstats)
+library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
 ## ✓ tibble  3.1.0     ✓ dplyr   1.0.5
-## ✓ tidyr   1.1.1     ✓ stringr 1.4.0
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
 ## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
@@ -311,10 +305,26 @@ actual_test &lt;-  as.factor(docvars(reviews_test, &quot;Sentiment&quot;))</code
 <div id="das-modell-trainieren" class="section level1">
 <h1>5. Das Modell trainieren</h1>
 <p>Nachdem wir jetzt ein Test- und ein Trainingsset erstellt haben, generieren wir für beide Datensätze eine DTM:</p>
-<pre class="r"><code>dfm_train &lt;-  reviews_train %&gt;%  dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords(&quot;english&quot;))
+<pre class="r"><code>dfm_train &lt;-  reviews_train %&gt;% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %&gt;% 
+  tokens_remove(pattern = stopwords(&quot;english&quot;)) %&gt;% 
+  tokens_tolower() %&gt;%
+  dfm()
 
-dfm_test &lt;- reviews_test %&gt;% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords(&quot;english&quot;)) %&gt;% 
-  dfm_match(featnames(dfm_train)) # Die Testdaten müssen die gleichen Merkmale (Wörter) verwenden wie die Trainingsdaten</code></pre>
+dfm_test &lt;-  reviews_test %&gt;% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %&gt;% 
+  tokens_remove(pattern = stopwords(&quot;english&quot;)) %&gt;% 
+  tokens_tolower() %&gt;%
+  dfm() %&gt;%
+  dfm_match(featnames(dfm_train)) # Die Testdaten müssen die gleichen Merkmale (Wörter) verwenden wie die Trainingsdaten
+
+# SCHREIBWEISE OHNE PIPELINE-OPERATOR
+
+tokens_test &lt;- tokens(reviews_test, remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) 
+tokens_test &lt;-  tokens_remove(tokens_test, pattern = stopwords(&quot;english&quot;)) 
+tokens_test &lt;-  tokens_tolower(tokens_test) 
+dfm_test &lt;- dfm(tokens_test)
+dfm_test &lt;-  dfm_match(dfm_test, featnames(dfm_train)) </code></pre>
 <p>Jetzt trainieren wir das Modell (in diesem Fall mit Naïve Bayse):</p>
 <pre class="r"><code>reviews_nb &lt;- textmodel_nb(dfm_train, actual_train) # wir wenden unsere DTM auf unseren Korpus an
 summary(reviews_nb)</code></pre>
@@ -333,15 +343,15 @@ summary(reviews_nb)</code></pre>
 ## pos 0.001377 0.002295 0.0001306 3.420e-05 0.001300 9.017e-05 0.0002145
 ##         drink     drive      get  accident      one      guys      dies
 ## neg 4.874e-05 0.0001601 0.002625 6.962e-05 0.006701 0.0003899 0.0001358
-## pos 3.420e-05 0.0001088 0.001996 1.835e-04 0.006881 0.0002830 0.0001182
+## pos 3.420e-05 0.0001088 0.001996 1.835e-04 0.006881 0.0002829 0.0001182
 ##     girlfriend continues      see     life nightmares      deal     watch
 ## neg  0.0002715 8.007e-05 0.002019 0.001298  2.785e-05 0.0002332 0.0007972
 ## pos  0.0002083 1.399e-04 0.002214 0.002326  2.798e-05 0.0003109 0.0007338
 ##        movie     sorta     find  critique mind-fuck generation   touches
 ## neg 0.008003 1.392e-05 0.000926 8.007e-05 1.044e-05  1.044e-04 3.133e-05
-## pos 0.005762 1.866e-05 0.001004 7.774e-05 3.109e-06  7.774e-05 9.639e-05
+## pos 0.005762 1.866e-05 0.001004 7.773e-05 3.109e-06  7.773e-05 9.639e-05
 ##          cool      idea
-## neg 0.0002959 0.0005640
+## neg 0.0002959 0.0005639
 ## pos 0.0001803 0.0004011</code></pre>
 </div>
 <div id="das-modell-testen" class="section level1">

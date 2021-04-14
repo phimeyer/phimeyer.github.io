@@ -248,16 +248,23 @@ div.tocify {
 
 <div id="einleitung" class="section level1">
 <h1>1. Einleitung</h1>
-<p>In diesem Tutorial werden wir die ersten Schritte in der quantitativen Textanalyse machen. Wir werden hauptsächlich das <code>quanteda</code>-Paket nutzen und vor allem drei Aspekte besprechen: das Einlesen von Textdaten in <code>R</code>, das Erstellen eines Korpus und das Hinzufügen von Variablen.</p>
+<p>In diesem Tutorial werden wir die ersten Schritte in der quantitativen Textanalyse machen. Wir werden hauptsächlich das <code>quanteda</code>-Paket und seine Nebenpakete (<code>quanteda.textplots</code> und <code>quanteda.textstats</code>) nutzen und vor allem drei Aspekte besprechen: das Einlesen von Textdaten in <code>R</code>, das Erstellen eines Korpus und das Hinzufügen von Variablen.</p>
 </div>
 <div id="installation-und-laden-der-relevanten-r-pakete" class="section level1">
 <h1>2. Installation und Laden der relevanten R-Pakete</h1>
 <p>Für dieses Tutorial benötigen wir vor allem <a href="https://quanteda.io/"><code>quanteda</code></a>, <a href="https://www.rdocumentation.org/packages/readtext/versions/0.50/topics/readtext"><code>readtext</code></a>, <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> und <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>. Zu allen Paketen gibt es auch sehr hilfreiche <a href="https://rstudio.com/resources/cheatsheets/">CheatSheets</a>.</p>
-<pre class="r"><code>install.packages(&quot;tidyverse&quot;) 
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;quanteda&quot;)
+install.packages(&quot;quanteda.textplots&quot;)
+install.packages(&quot;quanteda.textstats&quot;)
+
 install.packages(&quot;readtext&quot;)</code></pre>
 <pre class="r"><code>library(tidyverse) 
+
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
+
 library(readtext)
 library(ggplot2)</code></pre>
 <p>Andere Pakete, die im Laufe dieses Seminars noch eine wichtige Rolle spielen werden sind u.a. <a href="https://cran.r-project.org/web/packages/topicmodels/index.html"><code>topicmodels</code></a> <a href="https://www.structuraltopicmodel.com/"><code>stm</code></a> (Themenmodelle), <a href="http://www.rtexttools.com/"><code>RTextTools</code></a> (überwachtes maschinelles Lernen) und <a href="https://github.com/quanteda/spacyr"><code>spacyr</code></a> (POS-Tagging und Named-Entity-Erkennung).</p>
@@ -422,8 +429,8 @@ gerichts_saetze[15]</code></pre>
 <pre class="r"><code>zufallssatz &lt;- corpus_sample(gerichts_saetze, size = 1)
 zufallssatz</code></pre>
 <pre><code>## Corpus consisting of 1 document and 6 docvars.
-## 20151007_2bvr046215.txt :
-## &quot;6 SächsBesG sogar eine Günstigerregelung vor, wonach im Einz...&quot;</code></pre>
+## 20160419_1bvr330913.txt :
+## &quot;Die vom Gesetzgeber gewählte Lösung, kein isoliertes Abstamm...&quot;</code></pre>
 <p>Schließlich lassen sich Korpora mithilfe von <code>corpus_segment()</code> nach bestimmten Kriterien aufspalten. Probiert es mal aus!</p>
 <p>Bis hierher habt ihr jetzt gelernt, wie man Texte einliest, relevante Variablen und einen Korpus erstellt. An den gezeigten Beispielen wird aber auch deutlich, dass wir an den Entscheidungstexten noch vieles verändern müssen, damit wir eine gute Grundlage für unsere Textanalyse haben. Zum Beispiel müssen wir die Sonderzeichen, die Leerzeichen und Absätze (und damit vor allem die <code>\n</code>!) und die nummerischen Elemente entfernen. Diese Aspekte werden im kommenden Tutorial besprochen.</p>
 </div>

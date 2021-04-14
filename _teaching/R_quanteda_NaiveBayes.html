@@ -270,10 +270,12 @@ div.tocify {
 <p>Für unser Beispiel verwenden wir wieder den Korpus zu den Antrittsreden der U.S. Präsidenten. Da wir für eine Naïve Bayes-Klassifikation auch eine manuell codierte Variable benötigen, werden wir im Verlauf dieses Tutorials eine eigene Kodierung vornehmen. Für diese Kodierung stellen wir uns folgende (Forschungs)Frage: Erkennt ein maschnineller Lernalgorithmus ob eine Antrittsrede nach dem Ende des zweiten Weltkriegs gehalten wurde?</p>
 <p>Als erstes erstellen wir eine DTM auf der Grundlage des <code>quanteda</code>-Datensatzes <code>data_corpus_inaugural</code> (den wir <code>inaug_speeches</code> nennen):</p>
 <pre class="r"><code>library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
 
 inaug_speeches &lt;- data_corpus_inaugural 
 inaug_speeches</code></pre>
-<pre><code>## Corpus consisting of 58 documents and 4 docvars.
+<pre><code>## Corpus consisting of 59 documents and 4 docvars.
 ## 1789-Washington :
 ## &quot;Fellow-Citizens of the Senate and of the House of Representa...&quot;
 ## 
@@ -292,10 +294,15 @@ inaug_speeches</code></pre>
 ## 1809-Madison :
 ## &quot;Unwilling to depart from examples of the most revered author...&quot;
 ## 
-## [ reached max_ndoc ... 52 more documents ]</code></pre>
-<pre class="r"><code>dtm_speeches &lt;-  inaug_speeches %&gt;% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords(&quot;english&quot;)) # wir entfernen alle Füllwörter, Interpunktion, Symbole, Zahlen
+## [ reached max_ndoc ... 53 more documents ]</code></pre>
+<pre class="r"><code>dtm_speeches &lt;-  inaug_speeches %&gt;% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %&gt;% 
+  tokens_remove(pattern = stopwords(&quot;english&quot;)) %&gt;% 
+  tokens_tolower() %&gt;%
+  dfm() # wir entfernen alle Füllwörter, die Interpunktion, Symbole, Zahlen
+
 dtm_speeches</code></pre>
-<pre><code>## Document-feature matrix of: 58 documents, 9,141 features (92.6% sparse) and 4 docvars.
+<pre><code>## Document-feature matrix of: 59 documents, 9,212 features (92.66% sparse) and 4 docvars.
 ##                  features
 ## docs              fellow-citizens senate house representatives among
 ##   1789-Washington               1      1     2               2     1
@@ -312,7 +319,7 @@ dtm_speeches</code></pre>
 ##   1801-Jefferson             0        0    1     0      0
 ##   1805-Jefferson             0        0    2     0      0
 ##   1809-Madison               0        0    1     0      1
-## [ reached max_ndoc ... 52 more documents, reached max_nfeat ... 9,131 more features ]</code></pre>
+## [ reached max_ndoc ... 53 more documents, reached max_nfeat ... 9,202 more features ]</code></pre>
 <p>Anschließend generieren eine zufällige Anordnung der Spalten in der DTM (dieser Schritt erleichtert uns das Erstellen von Test- und Trainingsdaten:</p>
 <pre class="r"><code># Setzen eines Seeds für Replikationszwecke (Mit diesem seed garantieren wir, dass die zufällige Anordnung bei jedem Durchlauf gleich bleibt. Damit sichern wir die Replizierbarkeit der Ergebnisse)
 
@@ -350,7 +357,7 @@ test_dtm &lt;- dtm[36:nrow(dtm),]</code></pre>
 ))) * 100)</code></pre>
 <pre><code>## 
 ##    FALSE     TRUE 
-## 30.43478 69.56522</code></pre>
+## 33.33333 66.66667</code></pre>
 <p>Wir sehen das die uns interessierende Variable gut in beiden Datensätzen verteilt ist.</p>
 <p>Im nächsten Schritt trainieren wir den Naïve Bayes-Klassifikator. Die generelle Logik des Bayes-Theorem ist, dass die Wahrscheinlichkeit von A abhängig ist von B:</p>
 <ul>
@@ -373,20 +380,20 @@ summary(nb_model)</code></pre>
 ## 
 ## Estimated Feature Scores:
 ##       fellow-citizens    senate     house representatives    among vicissitudes
-## FALSE       4.857e-05 4.857e-05 4.857e-05       4.857e-05 0.000680    4.857e-05
-## TRUE        4.848e-04 8.080e-05 8.080e-05       2.155e-04 0.001427    5.387e-05
+## FALSE       0.0000496 9.921e-05 1.984e-04       0.0000496 0.000744    4.960e-05
+## TRUE        0.0004892 8.154e-05 8.154e-05       0.0002174 0.001386    5.436e-05
 ##        incident     life     event    filled   greater anxieties notification
-## FALSE 4.857e-05 0.001797 9.714e-05 9.714e-05 0.0005828 9.714e-05    4.857e-05
-## TRUE  1.885e-04 0.001589 2.155e-04 1.077e-04 0.0007003 5.387e-05    2.693e-05
-##       transmitted     order  received      14th       day   present     month
-## FALSE   4.857e-05 0.0002914 4.857e-05 4.857e-05 0.0016999 0.0002428 9.714e-05
-## TRUE    5.387e-05 0.0008619 2.424e-04 2.693e-05 0.0006195 0.0012120 2.693e-05
+## FALSE 0.0000496 0.001736 9.921e-05 9.921e-05 0.0006944 9.921e-05    4.960e-05
+## TRUE  0.0001902 0.001386 2.718e-04 8.154e-05 0.0005979 5.436e-05    2.718e-05
+##       transmitted    order  received      14th       day   present     month
+## FALSE   4.960e-05 0.000248 0.0000496 4.960e-05 0.0014385 0.0002976 9.921e-05
+## TRUE    5.436e-05 0.001141 0.0002174 2.718e-05 0.0005979 0.0011958 2.718e-05
 ##            one      hand  summoned  country     whose     voice      can
-## FALSE 0.003497 0.0003886 1.457e-04 0.002234 0.0004371 0.0002914 0.004760
-## TRUE  0.002505 0.0005656 5.387e-05 0.003340 0.0009965 0.0002693 0.004579
+## FALSE 0.002480 0.0007937 1.984e-04 0.002083 0.0003472 9.921e-05 0.005208
+## TRUE  0.002745 0.0006523 5.436e-05 0.003289 0.0009241 2.718e-04 0.004376
 ##          never      hear veneration
-## FALSE 0.001457 1.943e-04  4.857e-05
-## TRUE  0.001239 5.387e-05  5.387e-05</code></pre>
+## FALSE 0.001389 2.976e-04  4.960e-05
+## TRUE  0.001604 5.436e-05  2.718e-05</code></pre>
 <p>Jetzt wenden wir unser trainiertes Naïve Bayes-Modell auf unsere Testdaten an und betrachten unsere Ergebnisse. Dafür nutzen wir die <code>predict</code>-Funktion:</p>
 <pre class="r"><code>pred_nb &lt;- predict(nb_model, newdata = test_dtm, force = TRUE) # Wir schätzen unser Modell auf unsere Testdaten
 
@@ -394,7 +401,7 @@ summary(nb_model)</code></pre>
 table(prediction = pred_nb, is_prewar = docvars(test_dtm, &quot;is_prewar&quot;))</code></pre>
 <pre><code>##           is_prewar
 ## prediction FALSE TRUE
-##      FALSE     7    0
+##      FALSE     8    0
 ##      TRUE      0   16</code></pre>
 <p>Wir sehen, dass unsere Vorhersage eine perfekte Genauigkeit erreicht hat und keine falsch-negativen oder falsch-postiven Ergebnisse vorhanden sind. Das bedeutet also, dass unser Naïve Bayes-Modell genau vorhersagen konnte welche Rede vor bzw. nach 1945 gehalten wurde.</p>
 <p>Es versteht sich von selbst, dass die hier präsentierten Schritte nur einen möglichen Weg repräsentieren. Natürlich ist auch das gewählte Beispiel eher weniger Aussagekräftig und lediglich zu Demonstrationszwecken gewählt worden. Am besten ihr sucht auf eigene Faust nach weiteren Beispielen, Tutorials, und alternativen Wegen eine Klassifikation durchzuführen.</p>

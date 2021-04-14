@@ -26,6 +26,8 @@ Wir werden `quanteda` für die Textverarbeitung, `quanteda.textmodels` für eini
 ```{r eval=T}
 library(quanteda)
 library(quanteda.textmodels)
+library(quanteda.textplots)
+library(quanteda.textstats)
 library(tidyverse)
 ```
 
@@ -67,10 +69,27 @@ actual_test <-  as.factor(docvars(reviews_test, "Sentiment"))
 Nachdem wir jetzt ein Test- und ein Trainingsset erstellt haben, generieren wir für beide Datensätze eine DTM:
 
 ```{r eval=T}
-dfm_train <-  reviews_train %>%  dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english"))
 
-dfm_test <- reviews_test %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) %>% 
+dfm_train <-  reviews_train %>% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("english")) %>% 
+  tokens_tolower() %>%
+  dfm()
+
+dfm_test <-  reviews_test %>% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("english")) %>% 
+  tokens_tolower() %>%
+  dfm() %>%
   dfm_match(featnames(dfm_train)) # Die Testdaten müssen die gleichen Merkmale (Wörter) verwenden wie die Trainingsdaten
+
+# SCHREIBWEISE OHNE PIPELINE-OPERATOR
+
+tokens_test <- tokens(reviews_test, remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) 
+tokens_test <-  tokens_remove(tokens_test, pattern = stopwords("english")) 
+tokens_test <-  tokens_tolower(tokens_test) 
+dfm_test <- dfm(tokens_test)
+dfm_test <-  dfm_match(dfm_test, featnames(dfm_train)) 
 ```
 
 Jetzt trainieren wir das Modell (in diesem Fall mit Naïve Bayse):

@@ -22,6 +22,7 @@ Wordscores is a scaling model for estimating the positions (mostly of political 
 ```{r eval = T}
 library(quanteda)
 library(quanteda.textmodels)
+library(quanteda.textstats)
 library(quanteda.corpora) # Die Anleitung zur Installierung findet ihr hier: https://github.com/quanteda/quanteda.corpora
 library(quanteda.textplots) # Für mehr Infos siehe: https://quanteda.io/articles/pkgdown/examples/plotting.html
 ```
@@ -39,7 +40,12 @@ Now we can apply the Wordscores algorithm to a document-feature matrix.
 
 ```{r eval = T}
 # create a document-feature matrix
-dfmat_ger <- dfm(corp_ger, remove = stopwords("de"), remove_punct = TRUE)
+
+dfmat_ger <-  corp_ger %>% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("de")) %>% 
+  tokens_tolower() %>%
+  dfm() # 
 
 # apply Wordscores algorithm to document-feature matrix
 tmod_ws <- textmodel_wordscores(dfmat_ger, y = corp_ger$ref_score, smooth = 1)

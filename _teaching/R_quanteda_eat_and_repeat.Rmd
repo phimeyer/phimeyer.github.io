@@ -32,12 +32,16 @@ Wir werden uns in diesem Tutorial auf die wichtigsten Schritte zur Vorbereitung 
 
 Der Pflichttext für diese Sitzung von [Welbers, van Atteveldt und Benoit, 2017](https://www.tandfonline.com/doi/abs/10.1080/19312458.2017.1387238) bespricht ebenfalls alle Schritte, welche wir jetzt besprechen werden.  
 
-Zur Erinnerung: das `quanteda`-Paket müsst ihr beide jeder `R`-Sitzung laden, jedoch nur einmal vorher installieren:
+Zur Erinnerung: das `quanteda`-Paket und seine Nebenpakete müsst ihr beide jeder `R`-Sitzung laden, jedoch nur einmal vorher installieren:
 
 ```{r eval=T}
+#install.packages("quanteda.textplots")
+#install.packages("quanteda.textstats")
 # install.packages("quanteda") # Falls noch nicht geschehen, dann bitte installiert das Paket bitte. 
 
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
 ```
 
 # 3. Textanalyse mit `quanteda`
@@ -57,9 +61,11 @@ Der erste Schritt einer Textanalyse ist immer die zu analysierenden Texte in `R`
 ```{r eval=T}
 # install.packages("readtext") # Falls noch nicht geschehen, dann bitte installiert das Paket bitte. 
 # install.packages("readr")
+# install.packages("tidyverse")
 
 library(readtext)
 library(readr)
+library(tidyverse)
 ```
 
 #### 3.1.1 Texte aus CSV Dateien importieren
@@ -106,7 +112,7 @@ texts <-  readtext("/Benutzer/ich/Dokumente/dateien")
 
 Die meisten Textanalysen basieren auf den Häufigkeiten von Wörtern in Dokumenten. Das wird als **Bag-of-Words**-Annahme bezeichnet: die Texte sind die Säcke in denen einzelne Wörter stecken. Interpunktion, Wortreihenfolge, Füllwörter und einzelne häufig vorkommende Wörter werden in diesem Vorgehen bereits in den ersten Schritten gelöscht. Obwohl dadurch viele relevante Informationen ignoriert werden, hat sich dieser Ansatz als leistungsfähig und effizient erwiesen.
 
-Das Standardformat für die Darstellung eines Bag-of-Words ist eine Dokument-Term-Matrix (DTM). Hierbei handelt es sich um eine Matrix, in der Zeilen Dokumente sind und die Spalten Wörter repräsentieren. Wir werden zunächst eine kleine Beispiel-DTM aus ein paar Zeilen Text erstellen. Hier verwenden wir die `dfm`-Funktion von `quanteda`. dfm steht für *Document-Feature-Matrix*:
+Das Standardformat für die Darstellung eines Bag-of-Words ist eine Dokument-Term-Matrix (DTM). Hierbei handelt es sich um eine Matrix, in der Zeilen Dokumente sind und die Spalten Wörter repräsentieren. Wir werden zunächst eine kleine Beispiel-DTM aus ein paar Zeilen Text erstellen. Hier verwenden wir die `tokens`-Funktion und die `dfm`-Funktion von `quanteda`. dfm steht für *Document-Feature-Matrix*:
 
 ```{r eval=T}
 text <-  c(d1 = "Die Leibniz Universität Hannover macht gute Lehre.",
@@ -114,7 +120,8 @@ text <-  c(d1 = "Die Leibniz Universität Hannover macht gute Lehre.",
            d3 = "Warum denn eine Katze? Ein Hund ist viel zutraulicher.",
            d4 = "Wir wollen viele Katzen!")
 
-dtm <- dfm(text, tolower=F)
+text_tokens <- tokens(text)
+dtm <- dfm(text_tokens)
 dtm
 ```
 
@@ -124,21 +131,59 @@ Mit diesem Matrixformat können wir jetzt Analysen durchführen, wie z. B. die A
 
 Die direkte Umwandlung eines Textes in einen DFM ist sehr vereinfachend. Beachtet z. B., dass die Wörter "Katzen" und "Katze" unterschiedliche Spalten erhalten. Außerdem sind "Hannover" und "Lehre" genauso unterschiedlich wie "Katzen" und "Katze". Das ist ein Problem, vor allem da wir eher an der Tatsache interessiert sind, dass es in den Sätzen um Katzen geht und weniger um das spezifische Wort an sich. Wir wollen also den Inhalt analysieren. Weiterhin sind Textanalysen vor allem dann aussagekräftig, wenn weniger interessante Wörter wie "die" oder selte Wörter wie "Universität" ignoriert werden. 
 
-Um das zu erreichen, müssen wir zusätzliche Verarbeitungsschritte einfügen. Im nächsten Bespiel erstellen wir eine DFM, konvertieren dabei aber alle Buchstaben zu Kleinbuchstaben, ignorieren Füllwörter und die Interpunktion. 
+Um das zu erreichen, müssen wir zusätzliche Verarbeitungsschritte einfügen. Im nächsten Bespiel erstellen wir eine DFM. Vorher konvertieren wir die Texte in tokens und transformieren dabei alle Buchstaben zu Kleinbuchstaben, ignorieren Füllwörter (`tokens_remove(pattern = stopwords("de"))`) und die Interpunktion. 
 
 Zusätzlich erstellen wir eine zweite DFM mit unseren State-of-the-Union-Reden (siehe oben) und führen dort zusätzlich ein Stemming durch (stemming fünktioniert mit der deutschen Sprache weniger gut, weshalb unsere Beispielsätze hierfür nicht geeignet sind). Einfach ausgedrückt, werden beim Stemming Wörter auf ihren Wortstamm reduziert. Dadurch werden einige Teile an den Wortenden entfernt und so verschiedene Formen desselben Wortes ignoriert. Zum Beispiel Singular versus Plural ("gun" oder "gun-s") und verschiedene Verbformen ("walk", "walk-ing", "walk-s"). 
 
 ```{r eval=T}
 # Beispiel 1: Unsere drei Sätze  
-sätze_dtm <-  dfm(text, tolower=T, remove = stopwords('de'), remove_punct=T)
+text_tokens <- tokens(text, remove_punct=T) %>% 
+  tokens_remove(pattern = stopwords("de")) %>%
+  tokens_tolower()
+sätze_dtm <-  dfm(text_tokens)
 sätze_dtm
 
 # Beispiel 2: SOTU
-sotu_dfm <-  dfm(sotu_corpus, tolower=T, remove = stopwords('en'), remove_punct=T, stem = T)
+sotu_tokens <- tokens(sotu_corpus, remove_punct=T) %>% 
+  tokens_remove(pattern = stopwords("en")) %>% 
+  tokens_tolower() %>%
+  tokens_wordstem()
+sotu_dfm <-  dfm(sotu_tokens)
+sotu_dfm
+
+# Beispiel 2: SOTU, ANDERE SCHREIBWEISE
+sotu_dfm <- sotu_corpus %>% 
+  tokens(remove_punct=T) %>% 
+  tokens_remove(pattern = stopwords("en")) %>% 
+  tokens_tolower() %>%
+  tokens_wordstem() %>%
+  dfm()
+sotu_dfm
+
+# Beispiel 2: SOTU, SCHREIBWEISE OHNE PIPELINE-OPERATOR
+sotu_tokens <- tokens(sotu_corpus, remove_punct=T)
+sotu_tokens <-  tokens_remove(sotu_tokens, pattern = stopwords("en"))
+sotu_tokens <-  tokens_tolower(sotu_tokens)
+sotu_tokens <-  tokens_wordstem(sotu_tokens)
+sotu_dfm <-  dfm(sotu_tokens)
+
 sotu_dfm
 ```
 
-Das `tolower`-Argument bestimmt, ob Texte in Kleinbuchstaben umgewandelt werden (TRUE) oder nicht (FALSE). `stem` bestimmt, ob Stemming verwendet wird (TRUE) oder nicht (FALSE). Das `remove`-Argument ist etwas kniffliger. Wenn ihr einen Blick in die Dokumentation der dfm-Funktion (`?dfm`) werft, werdet ihr sehen, dass `remove` verwendet werden kann, um bestimmte benutzerinnendefinierte Merkmale bzw. Muster zu ignorieren. In diesem Fall haben wir tatsächlich eine andere Funktion, `stopwords()`, verwendet, um eine Liste von Füllwörtern zu entfernen. 
+Das `tokens_tolower`-Argument bestimmt, ob Texte in Kleinbuchstaben umgewandelt werden  oder nicht. `tokens_wordstem` bestimmt, ob Stemming verwendet wird oder nicht. 
+
+Ihr müsst die Befehle übrigens nicht als Pipeline (`%>%`) schreiben. Alternativ könnt ihr die Funktionen auch einzeln ausführen (und dabei das jeweilige Objekt immer wieder einzeln ansteuern): 
+
+```{r eval=T}
+sotu_tokens <- tokens(sotu_corpus, remove_punct=T) 
+sotu_tokens <-  tokens_remove(sotu_tokens, pattern = stopwords("en")) 
+sotu_tokens <-  tokens_tolower(sotu_tokens) 
+sotu_tokens <-  tokens_wordstem(sotu_tokens)
+sotu_dfm <-  dfm(sotu_tokens)
+sotu_dfm
+```
+
+Die `tokens_remove`-Funktion ist etwas kniffliger. Wenn ihr einen Blick in die Dokumentation der Funktionen (`?`) werft, werdet ihr sehen, dass `remove` verwendet werden kann, um bestimmte benutzerinnendefinierte Merkmale bzw. Muster zu ignorieren. In diesem Fall haben wir tatsächlich eine andere Funktion, `stopwords()`, verwendet, um eine Liste von Füllwörtern zu entfernen. 
 
 ```{r eval=T}
 stopwords('de')
@@ -156,7 +201,7 @@ Unsere DFM mit den Reden zur Lage der Nation hat 23.469 Dokumente und 20.429 Mer
 Wir können die Funktion `dfm_trim` verwenden, um bestimmte Wörter zu entfernen. Im Beispiel definieren wir, dass wir alle Wörter entfernen wollen die weniger als 10 Mal vorkommen (d. h. der Summenwert der Spalte im DFM).
 
 ```{r eval=T}
-dtm  = dfm_trim(sotu_dfm, min_termfreq = 10)
+dtm  <-  dfm_trim(sotu_dfm, min_termfreq = 10)
 dtm
 ```
 
@@ -207,18 +252,26 @@ textplot_keyness(sotus_obama_all)
 Ein Keyword-in-Context-Listing zeigt ein bestimmtes Keyword im Kontext seiner Verwendung. Generell ist das eine gute Methode einen Korpus kennenzulernen. Da ein DFM nur Worthäufigkeiten kennt, benötigen wir für die `kwic`-Funktion das Korpusobjekt.
 
 ```{r eval=T}
-sotus_kwic <- kwic(sotu_corpus, 'freedom', window = 7)
+sotu_tokens <- tokens(sotu_corpus) 
+sotus_kwic <- kwic(sotu_tokens, 'freedom', window = 5)
 head(sotu_corpus, 10)    ## only view first 10 results
 ```
 
 Die `kwic`-Funktion kann auch verwendet werden, um eine Analyse auf einen bestimmten Suchbegriff zu fokussieren. Wir können die Ausgabe der Funktion verwenden, um eine neue DFM zu erstellen, damit nur die Wörter innerhalb des angezeigten Fensters in die Matrix aufgenommen werden. Mit dem folgenden Code wird ein DFM erstellt, die nur die Wörter enthält, die innerhalb von 10 Wörtern vor oder nach dem Begriff terror* (terrorism, terrorist, terror, etc.) vorkommen:
 
 ```{r eval=T}
-sotus_terror <-  kwic(sotu_corpus, 'terror*')
-sotus_terror_corp <-  corpus(sotus_terror)
-sotus_terror_dtm <-  dfm(sotus_terror_corp, tolower=T, remove=stopwords('en'), stem=T, remove_punct=T)
+sotus_terror <-  kwic(sotu_tokens, 'terror*')
 
-textplot_wordcloud(sotus_terror_dtm)   
+sotus_terror_corp <-  corpus(sotus_terror)
+
+sotus_terror_tokens <- tokens(sotus_terror_corp, remove_punct=T) %>% 
+  tokens_remove(pattern = stopwords("en")) %>% 
+  tokens_tolower() %>%
+  tokens_wordstem()
+
+sotus_terror_dtm <-  dfm(sotus_terror_tokens)
+
+textplot_wordcloud(sotus_terror_dtm)  
 ```
 
 Wie würde diese Kette von Befehlen in einer Pipeline aussehen? Probiert es mal aus!
@@ -228,25 +281,31 @@ Wie würde diese Kette von Befehlen in einer Pipeline aussehen? Probiert es mal 
 Wir können mit `quanteda` ganz einfach eine Wörterbuchsuche/-analyse durchführen. In Sitzung 6 werden wir noch genauer darauf eingehen. Aus diesem Grund werde ich euch im folgenden Beispiel zeigen, wie man bereits bei der Erstellung einer DFM Wörterbuchbegriffe einbaut. Vergesst bitte nicht, dass Wörterbücher nur dann aussagekräftig sind, wenn sie theoriegeleitet erstellt und auf ihre Validität hin überprüft wurden.
 
 ```{r eval=T}
-sotu_dfm <-  dfm(sotu_corpus, tolower=T, remove = stopwords('en'), remove_punct=T) # zu Präsentationszwecken ohne Stemming
+sotu_tokens <- tokens(sotu_corpus, remove_punct=T) %>% 
+  tokens_remove(pattern = stopwords("en")) %>% 
+  tokens_tolower() # zu Präsentationszwecken ohne Stemming
+  
+sotu_dfm <-  dfm(sotu_tokens)
+sotu_dfm 
 
-sotus_dict <-  dictionary(list(terrorism = 'terror*',
-                       economy = c('econom*', 'tax*', 'job*'),
-                       military = c('army','navy','military','airforce','soldier'),
-                       freedom = c('freedom','liberty')))
-sotus_dict_dtm = dfm_lookup(sotu_dfm, sotus_dict, exclusive=TRUE)
+sotus_dict <-  dictionary(list(terrorism = c("terror*", "bomb*","violence"),
+                               economy = c("economy", "tax", "job"),
+                               military = c("army","navy","milit*","airforce","soldier*"),
+                               freedom = c("freedom","liberty", "democra*")))
+
+sotus_dict_dtm <-  dfm_lookup(sotu_dfm, dict = sotus_dict)
 sotus_dict_dtm 
 ```
 
 Auf dieser Grundlage können wir jetzt unsere Analysen durchführen. 
 
 ```{r eval=T}
-textplot_wordcloud(sotus_dict_dtm)
-
 keyness_obama <-  textstat_keyness(sotus_dict_dtm, docvars(sotus_dict_dtm)$President == "Barack Obama")
 
 textplot_keyness(keyness_obama)
 ```
+
+Wie ihr unschwer erkennen könnt: dieses Wörterbuch ist nicht sehr aussagekräftig. Aber das ist nicht weiter schlimm, hier geht es ja lediglich um den Zweck der Präsentation.
 
 Wir können die DFM auch in einen Datensatz konvertieren, und erhalten dann die Anzahl der einzelnen Konzepte pro Dokument (die man dann z. B. mit Umfragedaten abgleichen könnte).
 

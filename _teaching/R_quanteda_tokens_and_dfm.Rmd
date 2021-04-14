@@ -28,6 +28,8 @@ Damit wir dort beginnen wo das letzte Tutorium aufgehört hat, geht der folgende
 # Die notwendigen Pakete laden
 library(tidyverse) 
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
 library(readtext)
 library(ggplot2)
 
@@ -123,11 +125,13 @@ court_stopswords <- c("bundesverfassungsgericht", "richter", "bvr","herrn","Ents
                       ,"art","gg", "karlsruhe", "dass", "beschluss", "rn","satz","sei"
                       , "bverfge","verfassungsbeschwerde", "beschwerdeführer","beschwerdeführerin") # hier legen wir eine list von wörter an, welche wir von vornherein entfernt haben wollen
 
-entscheidungs_dfm <- dfm(gerichts_korpus, remove_numbers = TRUE, remove_punct = TRUE
-                         , remove_symbols = TRUE, tolower = TRUE
-                         , removeSeparators = TRUE
-                         , remove = c(court_stopswords,stopwords("german"))
-                         )
+entscheidungs_tokens <- tokens(gerichts_korpus, remove_punct=T
+                               , remove_symbols = TRUE, removeSeparators = TRUE) %>%
+  tokens_remove(pattern = c(court_stopswords,stopwords("german"))) %>%
+  tokens_tolower()
+
+
+entscheidungs_dfm <- dfm(entscheidungs_tokens)
 entscheidungs_dfm
 ```
 

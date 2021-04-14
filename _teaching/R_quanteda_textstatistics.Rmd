@@ -33,6 +33,8 @@ Hierfür werden wir die Antrittsreden der US Präsidenten aus dem `quanteda`-Pak
 
 ```{r eval=T}
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
 
 inaug_speeches <- data_corpus_inaugural # der Datensatz data_corpus_inaugural kommt aus quanteda und wird automatisch durch den library-Befehl mitgeladen
 inaug_speeches
@@ -46,7 +48,11 @@ Jetzt erstellen wir eine DTM mittels einer Pipeline:
 library(tidyverse) 
 
 dtm_speeches <-  inaug_speeches %>% 
-  dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) # wir entfernen alle Füllwörter, Interpunktion, Symbole, Zahlen
+  tokens(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE)  %>%
+  tokens_remove(pattern = stopwords("english")) %>%
+  tokens_tolower() %>%
+  dfm() # wir entfernen alle Füllwörter, Interpunktion, Symbole, Zahlen
+
 dtm_speeches
 ```
 
@@ -56,10 +62,12 @@ dtm_speeches
 
 Neben der klassischen Wordcloud lassen sich mit `quanteda` natürlich andere Einblicke in unsere Texte realisieren. Vor allem ist die die KWIC-Methode (Key-Word-In-Context) zu nennen. Hierbei werden der Satzkontext von von euch definierten Begriffe extrahiert und dargestellt. 
 
-Mit `quanteda` ist es möglich den Kontext einzeler Wörter oder auch auch ganze Sätze darzustellen. 
+Mit `quanteda` ist es möglich den Kontext einzeler Wörter oder auch auch ganze Sätze darzustellen. Als ersten Schritt erstellen wir ein `tokens`-Objekt und danach führen wir eine `kwic`-Analyse durch:
 
 ```{r}
-kwic(inaug_speeches, "war", window = 2) # der window befehl definiert die anzahl der kontextwörter die angezeigt werden (ich nehme hier aus darstellerischen gründen nur 2 wörter)
+inaug_speeches_toks <- tokens(inaug_speeches)
+
+kwic(inaug_speeches_toks, "war", window = 2) # der window befehl definiert die anzahl der kontextwörter die angezeigt werden (ich nehme hier aus darstellerischen gründen nur 2 wörter)
 ```
 
 Beachtet bitte das der KWIC-Befehl auf den Korpus und nicht auf die zuvor erstellte DTM angewendet wurde.
@@ -68,7 +76,8 @@ Mittels dieser einfachen Methode lassen sich jetzt weitere Analyseschritte reali
 
 ```{r eval = T}
 library(dplyr)
-term1 <- kwic(inaug_speeches, "freedom") %>%  # KWIC mit dem Wort "freedom"
+
+term1 <- kwic(inaug_speeches_toks, "freedom") %>%  # KWIC mit dem Wort "freedom"
   as.data.frame() %>%  # Transformation in einen Datensatz
   group_by(docname, keyword) %>% # Gruppierung
   mutate(count = n()) %>% # Berechnung wie oft das Wort "Freedom" vorkommt
@@ -76,13 +85,28 @@ term1 <- kwic(inaug_speeches, "freedom") %>%  # KWIC mit dem Wort "freedom"
   arrange(desc(percentage))
 
 
-term2 <- kwic(inaug_speeches, "war") %>%  # KWIC mit dem Wort "war"
+term2 <- kwic(inaug_speeches_toks, "war") %>%  # KWIC mit dem Wort "war"
   as.data.frame() %>%  # Transformation in einen Datensatz
   group_by(docname, keyword) %>% # Gruppierung
   mutate(count = n()) %>% # Berechnung wie oft das Wort "war" vorkommt
   mutate(percentage = count/sum(speeches.stats$Tokens/100), search_term = "war") %>% 
   arrange(desc(percentage))
 ```
+
+Ohne Pipeline-Operator würde der Code für z.B. `term1` wie folgt aussehen: 
+
+```{r eval = T}
+
+inaug_freedom <- kwic(inaug_speeches_toks, "freedom") 
+
+term1 <- as.data.frame(inaug_freedom)
+term1 <- group_by(term1, docname, keyword)
+term1 <- mutate(term1, count = n()) # Berechnung wie oft das Wort "Freedom" vorkommt
+term1 <-  mutate(term1, percentage = count/sum(speeches.stats$Tokens/100), search_term = "freedom") 
+term1 <- arrange(term1, desc(percentage))
+```
+
+So sehen unsere `term1` und `term2 Objekte jetzt aus:
 
 ```{r eval = T}
 term1
@@ -105,7 +129,7 @@ ggplot(kwic_terms, aes(docname, count, group = search_term, col = search_term)) 
 Neben den Häufigkeiten eines Wortes können wir auch die Position des Wortes in dem jeweiligen Text untersuchen. Dafür stellt `quanteda` die Funktion `textplot_xray` zur Verfügung: 
 
 ```{r eval = TRUE}
-textplot_xray(kwic(inaug_speeches, "freedom")) + 
+textplot_xray(kwic(inaug_speeches_toks, "freedom")) + 
   ggtitle("Position des Bergiffs \"freedom\" in den Antrittsreden der US-Präsidenten")
 ```
 
@@ -123,7 +147,7 @@ head(word_freq)
 Da unser Antrittsredenkorpus die Parteien der Präsidenten enthält, können wir mit `textstat_frequency` die Häufigkeiten nach Parteien gruppieren und mittels `arrange` ordnen:
 
 ```{r eval = T}
-party_freq <- textstat_frequency(dtm_speeches, groups = "Party") %>% arrange(rank, group)
+party_freq <- textstat_frequency(dtm_speeches, groups = Party) %>% arrange(rank, group)
 head(party_freq, 35) # schauen wir uns die ersten 35 Beobachtungen an
 ```
 
@@ -190,8 +214,11 @@ Die Berechnung der Wortähnlichkeiten wird durch die `textstat_simil`-Funktion r
 ```{r eval=T}
 sentences_corpus <- corpus_reshape(inaug_speeches, to = "sentences") # wir formen unserem corpus basierend auf den einzelnen Reden in einen corpus basierend auf den einzelnen Sätzen um
 
-sentences_dfm <- dfm(sentences_corpus, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english"))
-
+sentences_dfm <- sentences_corpus %>%   
+  tokens(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("english")) %>%
+  tokens_tolower() %>%
+  dfm()
 
 similarity_freedom <- textstat_simil(sentences_dfm, sentences_dfm[,"freedom"], margin = "features", method = "cosine")
 

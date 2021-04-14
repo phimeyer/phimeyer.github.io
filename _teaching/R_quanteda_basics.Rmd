@@ -20,21 +20,28 @@ knitr::opts_chunk$set(echo = TRUE, results = TRUE, message = FALSE, warning = FA
 
 # 1. Einleitung
 
-In diesem Tutorial werden wir die ersten Schritte in der quantitativen Textanalyse machen. Wir werden hauptsächlich das `quanteda`-Paket nutzen und vor allem drei Aspekte besprechen: das Einlesen von Textdaten in `R`, das Erstellen eines Korpus und das Hinzufügen von Variablen. 
+In diesem Tutorial werden wir die ersten Schritte in der quantitativen Textanalyse machen. Wir werden hauptsächlich das `quanteda`-Paket und seine Nebenpakete (`quanteda.textplots` und `quanteda.textstats`) nutzen und vor allem drei Aspekte besprechen: das Einlesen von Textdaten in `R`, das Erstellen eines Korpus und das Hinzufügen von Variablen. 
 
 # 2. Installation und Laden der relevanten R-Pakete
 
 Für dieses Tutorial benötigen wir vor allem [`quanteda`](https://quanteda.io/), [`readtext`](https://www.rdocumentation.org/packages/readtext/versions/0.50/topics/readtext), [`tidyverse`](https://www.tidyverse.org/) und [`ggplot2`](https://ggplot2.tidyverse.org/). Zu allen Paketen gibt es auch sehr hilfreiche [CheatSheets](https://rstudio.com/resources/cheatsheets/).
 
 ```{r eval=F}
-install.packages("tidyverse") 
+install.packages("tidyverse")
 install.packages("quanteda")
+install.packages("quanteda.textplots")
+install.packages("quanteda.textstats")
+
 install.packages("readtext")
 ```
 
 ```{r eval=T}
 library(tidyverse) 
+
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
+
 library(readtext)
 library(ggplot2)
 ```

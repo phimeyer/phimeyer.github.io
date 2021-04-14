@@ -48,11 +48,18 @@ Als erstes erstellen wir eine DTM auf der Grundlage des `quanteda`-Datensatzes `
 
 ```{r eval=T}
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
 
 inaug_speeches <- data_corpus_inaugural 
 inaug_speeches
 
-dtm_speeches <-  inaug_speeches %>% dfm(remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE, remove = stopwords("english")) # wir entfernen alle Füllwörter, Interpunktion, Symbole, Zahlen
+dtm_speeches <-  inaug_speeches %>% 
+  tokens(remove_numbers = TRUE, remove_punct = TRUE,remove_symbols = TRUE) %>% 
+  tokens_remove(pattern = stopwords("english")) %>% 
+  tokens_tolower() %>%
+  dfm() # wir entfernen alle Füllwörter, die Interpunktion, Symbole, Zahlen
+
 dtm_speeches
 ```
 
