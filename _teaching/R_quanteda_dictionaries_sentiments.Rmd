@@ -40,6 +40,7 @@ library(quanteda)
 library(quanteda.textplots)
 library(quanteda.textstats)
 
+
 inaug_speeches <- data_corpus_inaugural 
 ```
 
@@ -242,6 +243,7 @@ docs %>% filter(document %in% sample_speeches) %>% mutate(manual_coding="") %>% 
 Jetzt können wir die csv.Datei in Excel/Pages (you name it) öffnen und die 20 zufällig ausgewählten Dokumente manuell kodieren. Anschließend müssen wir das Ergebnis wieder in `R` einlesen und mit den automatisch generierten Ergebnissen unserer Wörterbuchanalyse konbinieren:
 
 ```{r eval=T}
+library(readr) # wir brauchen das paket um die csv zu speichern (vorher müsst ihr vielleicht install.packages("readr") ausführen)
 validation <-  read_csv("to_code.csv") %>% mutate(doc_id=as.character(document)) %>% inner_join(result) # wir kombinieren hier unsere manuell kodieren reden mit unseren automatischen ergebnissen (das result-objekt)
 ```
 

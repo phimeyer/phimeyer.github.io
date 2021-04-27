@@ -4,9 +4,9 @@
 
 # Für diesen kurzen Aufgabenblock müsst ihr als erstes Daten herunterladen und ein tibble erstellen. 
 # Führt zuerst den folgenden Code aus: 
-
+library(readr)
 url <-  "https://raw.githubusercontent.com/fivethirtyeight/data/master/daily-show-guests/daily_show_guests.csv"
-daily <-  read.csv(url)
+daily <-  read_csv(url)
 daily <-  as.data.frame(daily)
 
 # Dieser Datensatz beinhaltet alle Gäste die John Stewart in seine Daily Show eingeladen hat. 

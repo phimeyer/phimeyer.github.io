@@ -85,6 +85,7 @@ Im folgenden Beipsiel laden wir zwei Datensätze herunter. Zum einen meinen eige
 Beide Datensätze stammen aus dem Internet. Aber ihr könnt die URL meines Datensatzes nutzen, um diesen direkt herunterzuladen. Falls ihr das macht, dann versucht doch einmal die Daten von eurem lokalen Laufwerk aus einzulesen. 
 
 ```{r eval=T}
+library(readr) # zur Sicherheit laden wir das Paket "readr", in welchem die read_csv-Funktion implementiert ist
 
 # Schritt 1: Lest die URL in R ein (die Internetseiten verweisen direkt auf die hochgeladenen csv.Dateien. Das ist nicht überall der Fall, weshalb der hier präsentierte nur einer von vielen ist)
 url_courts <-  "https://phimeyer.github.io/teaching/FCC_senate_decisions.csv" 
@@ -388,9 +389,9 @@ install.packages("ggplot2") # beim ersten mal nicht vergessen!
 ```
 
 ```{r eval=T}
-csv_folder_url <- "https://raw.githubusercontent.com/houstondatavis/data-jam-august-2016/master/csv" # Im Github-Unterordner "csv" finden sich die verschiedenen Datensätze
+csv_folder_url <- "https://raw.githubusercontent.com/houstondatavis/data-jam-august-2016/master/csv/county_facts.csv" 
 
-facts <-  read_csv(paste(csv_folder_url, "county_facts.csv", sep = "/"))  # read_csv ist eine Funktion im tidyverse-Paket. Das Argument sep = "/" gibt R den Befehl einen Backslah zwischen der in  "csv_folder_url" gespeicherten URL und dem gesuchten Datensatz mit dem Namen "county_facts.csv" zu setzen. 
+facts <-  read_csv(csv_folder_url)  
 
 facts_subset <- facts %>% select(fips, area_name, state_abbreviation
                                  , population=Pop_2014_count, pop_change=Pop_change_pct
@@ -490,7 +491,9 @@ ggplot(data=facts_state) +
 Zugegeben, diese Darstellung ist leidlich interessant. Um das zu ändern laden wir jetzt einen weiteren Datensatz von der Github-Seite des ["Houston Data Visualization Meetup"](https://github.com/houstondatavis/data-jam-august-2016) und visualisieren  die Stimmen pro republikanischem Kandidaten in der Vorwahl in New Hampshire. Zuerst laden wir die Daten pro Bezirk herunter, fassen diese auf Ebene der Staaten zusammen und filtern die Ergebnisse für die repubikanische Partei in New Hampshire heraus. 
 
 ```{r eval=T} 
-results <-  read_csv(paste(csv_folder_url, "primary_results.csv", sep = "/")) # der Datensatz auf der Github-Seite hat den Namen "primary_results"
+primary_results_url <- "https://raw.githubusercontent.com/houstondatavis/data-jam-august-2016/master/csv/primary_results.csv"
+
+results <-  read_csv(primary_results_url) 
 results_state <-  results %>% group_by(state, party, candidate) %>% summarize(votes=sum(votes))
 nh_gop <-  results_state %>% filter(state == "New Hampshire" & party == "Republican")
 nh_gop
@@ -572,7 +575,9 @@ Zu guter Letzt ein weiterer Evergreen der Datenvisualisierung: das Liniendiagram
 Wir können zum Beispiel den Erfolg von Donald Trump darstellen, indem wir seinen Stimmenanteil über Zeit betrachten. Zuerst kombinieren wir die Ergebnisse pro Bundesstaat mit den Terminen der Primaries (hierfür verwende euch bisher unbekannte, da noch nicht besprochene, Funktionen zum Zusammemnführen von Daten):
 
 ```{r eval=T}
-schedule  <-  read_csv(paste(csv_folder_url, "primary_schedule.csv", sep="/")) # Der Datensatz "primary_schedule" stammt ebenfalls aus der Github-Seite des Houston meetups
+schedule_url  <-  "https://raw.githubusercontent.com/houstondatavis/data-jam-august-2016/master/csv/primary_schedule.csv"
+  
+schedule <- read_csv(schedule_url) # Der Datensatz "primary_schedule" stammt ebenfalls aus der Github-Seite des Houston meetups
 
 schedule <-  schedule %>% mutate(date = as.Date(date, format="%m/%d/%y")) # hier transformieren wir die Daten der Vorwahlen in Monat-Tag-Jahr
 

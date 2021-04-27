@@ -7,6 +7,7 @@
 # Führt zuerst den folgenden Code aus:
 
 library(ggplot2) # Nicht vergessen das Paket zu laden!
+library(readr)
 
 csv_folder_url <- "https://raw.githubusercontent.com/houstondatavis/data-jam-august-2016/master/csv"
 facts <-  read_csv(paste(csv_folder_url, "county_facts.csv", sep = "/"))
