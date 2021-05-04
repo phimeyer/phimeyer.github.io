@@ -10,6 +10,8 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 
 <b>Journal articles</b>
 
+- Meyer, Philipp. 2021. Promoted media coverage of court decisions: Media gatekeeping of court press releases and the role of news values. <i>Journalism Studies</i>, 22(6), 723-740. [DOI: 10.1080/1461670X.2020.1819861](https://doi.org/10.1080/1461670X.2020.1819861).
+    - <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1080/1461670X.2020.1819861" data-hide-no-mentions="true" class="altmetric-embed"></div> 
 - Meyer, Philipp. 2020. Judicial Public Relations: Determinants of Press Release Publication by Constitutional Courts. <i>Politics</i>, 40(4), 477-493. [DOI: 10.1177/0263395719885753](https://journals.sagepub.com/doi/full/10.1177/0263395719885753). 
     - <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1177/0263395719885753" data-hide-no-mentions="true" class="altmetric-embed"></div>
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://github.com/phimeyer/Replication-Data-for-Determinants-of-FCC-Press-Releases"><span style="color: #333333;"><span style="font-size: medium;"> <b>Replication data</b> </span></span> 
@@ -19,8 +21,6 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
     - <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1080/10584609.2020.1784329" data-hide-no-mentions="true" class="altmetric-embed"></div>
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://doi.org/10.17605/OSF.IO/HFY4K"><span style="color: #333333;"><span style="font-size: medium;"> <b>Replication data</b> </span></span> 
 <br>    
-- Meyer, Philipp. Accepted. Promoted media coverage of court decisions: Media gatekeeping of court press releases and the role of news values. <i>Journalism Studies</i>.
-<br>   
 - Hönnige, Christoph, Dominic Nyhuis, Philipp Meyer, Philipp Köker, and Susumu Shikano. 2020. Dominating the Debate: Visibility Bias and Mentions of British MPs in Newspaper Reporting on Brexit. <i>Political Research Exchange</i>, 2(1), 1-26. [DOI: 10.1080/2474736X.2020.1788955](https://doi.org/10.1080/2474736X.2020.1788955).
     - <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1080/2474736X.2020.1788955" data-hide-no-mentions="true" class="altmetric-embed"></div>
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit"><span style="color: #333333;"><span style="font-size: medium;"> <b>Blog post</b> </span></span>
