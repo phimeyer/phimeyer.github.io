@@ -1,8 +1,8 @@
 ---
-title: "Open justice at apex courts. A new perspective for comparative research on courts."
+title: "Open justice at highest courts: A new avenue for comparative research."
 category: working_paper
 permalink: /publication/Meyer_Open_Justice
-citation: 'Meyer, Philipp. Open justice at highest courts: A new avenue for comparative research. Working paper.'
+citation: 'Meyer, Philipp. Open justice at highest courts: A new avenue for comparative research. In: Howard, Robert M., Kirk A. Randazzo, and Vanessa Reid (Ed.): Handbook on Law and Political Systems. Cheltenham: Edward Elgar Publishing. [\textit{Peer reviewed, Under contract}.'
 ---
 
 <p><b>Description</b><br>
