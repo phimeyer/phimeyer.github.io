@@ -15,7 +15,8 @@ This page will provide you with a list of classes I taught as well as the studen
 - <p><b>Quantitative Text Analysis </b><br>
   Leibniz University Hannover<br>
   Summer Term 2021<br>
-    <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/teaching/QTA_IPW"><span style="color: #333333;"><span style="font-size: medium;">See `R`-Tutorials and exercises for this course</span></span></a>
+    <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/teaching/QTA_IPW"><span style="color: #333333;"><span style="font-size: medium;">See `R`-Tutorials and exercises for this course</span></span></a>    
+    <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="http://phimeyer.github.io/files/SoSe_2021-Quantitative_Text_Analysis.pdf"><span style="color: #333333;"><span style="font-size: medium;">See evaluation</span></span></a>
 
 - <p><b>Praxis der Verfassungsgebung: Ein Planspiel </b><br>
   Leibniz University Hannover<br>
