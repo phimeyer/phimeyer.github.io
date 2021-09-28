@@ -12,7 +12,7 @@ locale                   : "de-EU"
 title                    : "Dr. Philipp Meyer"
 title_separator          : "-"
 name                     : &name "Dr. Philipp Meyer"
-description              : &description "political scientist<br/>research and teaching fellow" 
+description              : &description "data mining manager<br/>and political scientist" 
 url                      : https://phimeyer.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  :  # the subpath of your site, e.g. "/blog"
 repository               : 
@@ -90,7 +90,7 @@ author:
   bio              : "Political scientist focusing on judicial politics, political public relations, and political communication at <a style='color: black;' href='https://www.ipw.uni-hannover.de/'>Department of Political Science, Leibniz University Hannover</a>"
   location         : "Hannover, Germany"
   googlescholar    : "https://scholar.google.com/citations?user=mk7kDiQAAAAJ&hl=de"
-  email            : "p.meyer@ipw.uni-hannover.de"
+  email            : "ph.m3yer@gmail.com"
   researchgate     : "https://www.researchgate.net/profile/Philipp_Meyer10"
   uri              :
   bitbucket        :
