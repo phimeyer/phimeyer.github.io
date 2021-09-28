@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Political Scientist and Postdoctoral Research Fellow at Gottfried Wilhelm Leibniz University Hannover, Germany. I research politics with particular interest and expertise in:
+I am a Data Mining Manager at SAZ Services GmbH and Political Scientist. My research interests are:
 
 - Judicial Politics, Judicial Behaviour, and Judicial Public Relations
 - Political Communication
