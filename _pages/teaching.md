@@ -10,6 +10,13 @@ I taught first-year undergraduate as well as advanced undergraduate and graduate
 
 This page will provide you with a list of classes I taught as well as the student evaluations of these classes.
 
+<b>Online Tutorial</b>
+
+Research Project “Digitization in a lecture. Peer-assisted e-learning in political science statistics training with the programming language R”, Department of Political Science, Leibniz University Hannover
+- Development of an e-learning tutorial for statistical education in political science with R Markdown
+- Creation and maintenance of a website via a Github repository:
+- <p style="line-height: .5;" align="left"><span style="font-size: small;"><a style="line-height: .5;" href="https://politikwissenschaftliche-statistik-mit-r.netlify.app/"><span style="color: #333333;"><span style="font-size: medium;">Homepage of the Online Tutorial (in German)</span></span></a> 
+
 <b>Graduate</b>
 
 - <p><b>Quantitative Text Analysis </b><br>
