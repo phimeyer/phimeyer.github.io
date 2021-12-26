@@ -10,7 +10,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 
 <b>Journal articles</b>
 
-- Meyer, Philipp. Forthcoming. Discussing case law and promoting the rule of law: reports on bilateral court meetings as a novel data source to assess transjudicial communication. <i>Zeitschrift für Vergleichende Politikwissenschaft</i>. [DOI: 10.1007/s12286-021-00499-0](https://doi.org/10.1007/s12286-021-00499-0).
+- Meyer, Philipp. 2021. Discussing case law and promoting the rule of law: reports on bilateral court meetings as a novel data source to assess transjudicial communication. <i>Zeitschrift für Vergleichende Politikwissenschaft</i>, 15(3), 295–323. [DOI: 10.1007/s12286-021-00499-0](https://doi.org/10.1007/s12286-021-00499-0).
 - Cleophas, Catherine, Christoph Hönnige, Meisel, Frank and Philipp Meyer. OnlineFirst. Who's cheating? Mining patterns of collusion from text and events in online exams. <i>INFORMS Transaction on Education</i>. [DOI: 10.1287/ited.2021.0260](https://pubsonline.informs.org/doi/abs/10.1287/ited.2021.0260)
    - <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1287/ited.2021.0260" data-hide-no-mentions="true" class="altmetric-embed"></div>
    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://www.forschung-und-lehre.de/heftarchiv/ausgabe-621/ "><span style="color: #333333;"><span style="font-size: medium;"> <b>Post in <i>Forschung und Lehre</i> (6/2021): "Online Klausuren - Wer schummelt und wenn ja, wie viele?"</b> </span></span> 
