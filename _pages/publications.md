@@ -54,6 +54,6 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the blog post here</b> </span></span>
 - Meyer, Philipp. 2019. Communicating Judicial Decisions – Evidence on the Determinants of Press Release Publication from the German case. <i>Politics Blog</i>. 
    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the blog post here</b> </span></span>
-- Meyer, Philipp. 2013. Improving livelihood and natural research sustainability by a combination of two systems. <i>Research Paper for the Heinrich Böll Foundation Cambodia, Resource Governance Section. Phnom Penh.</i>. 
+- Meyer, Philipp. 2013. Improving livelihood and natural research sustainability by a combination of two systems. <i>Research Paper for the Heinrich Böll Foundation Cambodia, Resource Governance Section. Phnom Penh.</i>
    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://kh.boell.org/en/2016/08/09/improving-livelihood-and-natural-resource-sustainability-combination-two-systems"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the study here</b> </span></span>
 
