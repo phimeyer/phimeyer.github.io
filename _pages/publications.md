@@ -45,3 +45,12 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
  <b>Dissertation</b>
 
 - Meyer, Philipp. 2021. <i>Communicating judicial decisions: court press releases and their effect on the news media.</i> Hannover: Gottfried Wilhelm Leibniz Universität, Diss.,xiv, 160 S. [DOI: 10.15488/10391](https://doi.org/10.15488/10391).
+   
+<b>Outreach</b>
+- Hönnige, Christoph, Dominic Nyhuis, Philipp Meyer, Philipp Köker, and Susumu Shikano. 2020. How balanced was the debate over Brexit?. <i>The UK in a Changing Europe</i>. 
+   - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the blog post here</b> </span></span>
+- Meyer, Philipp. 2019. Communicating Judicial Decisions – Evidence on the Determinants of Press Release Publication from the German case. <i>Politics Blog</i>. 
+   - <span style="font-size: medium;"><a style="line-height: 1.5;" href="http://politicsblog.ac.uk/2019/12/20/communicating-judicial-decisions-evidence-on-the-determinants-of-press-release-publication-from-the-german-case/"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the blog post here</b> </span></span>
+- Meyer, Philipp. 2013. Improving livelihood and natural research sustainability by a combination of two systems. <i>Research Paper for the Heinrich Böll Foundation Cambodia, Resource Governance Section. Phnom Penh.</i>. 
+   - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://kh.boell.org/en/2016/08/09/improving-livelihood-and-natural-resource-sustainability-combination-two-systems"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the study here</b> </span></span>
+
