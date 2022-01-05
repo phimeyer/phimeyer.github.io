@@ -45,6 +45,9 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
  <b>Dissertation</b>
 
 - Meyer, Philipp. 2021. <i>Communicating judicial decisions: court press releases and their effect on the news media.</i> Hannover: Gottfried Wilhelm Leibniz Universität, Diss.,xiv, 160 S. [DOI: 10.15488/10391](https://doi.org/10.15488/10391).
+<br> 
+
+<hr>
    
 <b>Outreach</b>
 - Hönnige, Christoph, Dominic Nyhuis, Philipp Meyer, Philipp Köker, and Susumu Shikano. 2020. How balanced was the debate over Brexit?. <i>The UK in a Changing Europe</i>. 
