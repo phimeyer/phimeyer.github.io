@@ -25,8 +25,7 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 <br>    
 - Hönnige, Christoph, Dominic Nyhuis, Philipp Meyer, Philipp Köker, and Susumu Shikano. 2020. Dominating the Debate: Visibility Bias and Mentions of British MPs in Newspaper Reporting on Brexit. <i>Political Research Exchange</i>, 2(1), 1-26. [DOI: 10.1080/2474736X.2020.1788955](https://doi.org/10.1080/2474736X.2020.1788955).
     - <div data-badge-popover="right" data-badge-type="4" data-doi="https://doi.org/10.1080/2474736X.2020.1788955" data-hide-no-mentions="true" class="altmetric-embed"></div>
-<br> 
-
+   
 <hr>
    
 <b>Chapters in Edited Volumes</b>
@@ -36,18 +35,17 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 <br>
 - Meyer, Philipp and Christoph Hönnige. 2017. Der Niedersächsische Staatsgerichtshof. In: Reutter, Werner (ed.) <i>Landesverfassungsgerichte: Entwicklung – Aufbau – Funktionen</i>. Wiesbaden: Springer VS, S. 219-241.
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://link.springer.com/chapter/10.1007/978-3-658-16094-4_10"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Chapter here</b> </span></span>
- 
+   
  <hr>
- 
  
  <b>Dissertation</b>
 
 - Meyer, Philipp. 2021. <i>Communicating judicial decisions: court press releases and their effect on the news media.</i> Hannover: Gottfried Wilhelm Leibniz Universität, Diss.,xiv, 160 S. [DOI: 10.15488/10391](https://doi.org/10.15488/10391).
-<br> 
-
+   
 <hr>
    
 <b>Outreach</b>
+   
 - Hönnige, Christoph, Dominic Nyhuis, Philipp Meyer, Philipp Köker, and Susumu Shikano. 2020. How balanced was the debate over Brexit?. <i>The UK in a Changing Europe</i>. 
    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://ukandeu.ac.uk/how-balanced-was-the-debate-over-brexit"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the blog post here</b> </span></span>
 - Meyer, Philipp. 2019. Communicating Judicial Decisions – Evidence on the Determinants of Press Release Publication from the German case. <i>Politics Blog</i>. 
