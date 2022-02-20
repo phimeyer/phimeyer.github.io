@@ -28,7 +28,9 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 <hr>
    
 <b>Chapters in Edited Volumes</b>
-
+ - Meyer, Philipp. In Print. Open justice at highest courts: A new avenue for comparative research. In: Howard, Robert M., Kirk A. Randazzo, and Rebecca A. Reid (Ed.): \emph{Handbook on Law and Political Systems}. Cheltenham: Edward Elgar Publishing.
+    - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_Open_Justice"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
+   
 - Meyer, Philipp and Christoph Hönnige. 2019. Rolle und Einfluss des Bundesverfassungsgerichts in der Amtszeit der Regierung Merkel III. In: Zohlnhöfer, Reimut & Thomas Saalfeld (eds.) <i>Zwischen Stillstand, Politikwandel und Krisenmanagement. Eine Bilanz der Regierung Merkel 2013-2017</i>. Wiesbaden: Springer VS, 317-341.
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://link.springer.com/chapter/10.1007/978-3-658-22663-3_13"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Chapter here</b> </span></span>
 <br>
