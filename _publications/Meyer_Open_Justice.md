@@ -1,6 +1,6 @@
 ---
 title: "Open justice at highest courts: A new avenue for comparative research."
-category: working_paper
+category: print
 permalink: /publication/Meyer_Open_Justice
 citation: 'Meyer, Philipp. In Print. Open justice at highest courts: A new avenue for comparative research. In: Howard, Robert M., Kirk A. Randazzo, and Rebecca A. Reid (Ed.): Handbook on Law and Political Systems. Cheltenham: Edward Elgar Publishing.'
 ---
