@@ -12,9 +12,6 @@ I am particularly interested in research on Comparative Political Institutions a
  
 <b>Under Review</b>
  
- - Meyer, Philipp. Open justice at highest courts: A new avenue for comparative research. Manuscript submitted, under review, and under contract.
-    - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_Open_Justice"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
- 
  - Meyer, Philipp. Transparency and strategic promotion: How court press releases facilitate judicial agenda-setting in Germany. <i>Revise and Resubmit</i> 
 
 <b>Paper Projects</b>
