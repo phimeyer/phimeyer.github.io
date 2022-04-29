@@ -6,7 +6,6 @@ author_profile: true
 ---
 
 <p>
-E-Mail: ph.m3yer@gmail.com<br>
 </p>
 
 * [ORCID](https://orcid.org/0000-0002-7986-9432)
