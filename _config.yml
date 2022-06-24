@@ -12,7 +12,7 @@ locale                   : "de-EU"
 title                    : "Dr. Philipp Meyer"
 title_separator          : "-"
 name                     : &name "Dr. Philipp Meyer"
-description              : &description "data mining manager<br/>and political scientist" 
+description              : &description "science manager<br/>and political scientist" 
 url                      : https://phimeyer.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  :  # the subpath of your site, e.g. "/blog"
 repository               : 
@@ -87,7 +87,7 @@ analytics:
 author:
   name             : "Dr. Philipp Meyer"
   avatar           : "PhilippMeyer.jpg"
-  bio              : "Data Mining Manager at SAZ Services GmbH & Political scientist focusing on judicial politics, political public relations, and political communication</a>"
+  bio              : "Science Manager at DFG & Political scientist focusing on judicial politics, political public relations, and political communication</a>"
   location         : "Hannover, Germany"
   googlescholar    : "https://scholar.google.com/citations?user=mk7kDiQAAAAJ&hl=de"
   email            : 
