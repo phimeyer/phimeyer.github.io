@@ -8,7 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-I am a Data Mining Manager at SAZ Services GmbH and Political Scientist. My research interests are:
+I am (soon to be) Science Manager at Deutsche Forschungsgemeinschaft e.V. (DFG) and Political Scientist. 
+
+My will focus on the promotion of Digital Expertise in the sciences and Open Science in general.
+
+My research interests are:
 
 - Judicial Politics, Judicial Behaviour, and Judicial Public Relations
 - Political Communication
