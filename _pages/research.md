@@ -9,10 +9,6 @@ author_profile: true
 Here you can find information on my papers submitted for review and my recent paper projects.
 
 I am particularly interested in research on Comparative Political Institutions and Quantitative Text Analysis with an emphasis on Judicial Politics, Judicial Public Relations and Political Communication.
- 
-<b>Under Review</b>
- 
- - Meyer, Philipp. Transparency and strategic promotion: How court press releases facilitate judicial agenda-setting in Germany. <i>Revise and Resubmit</i> 
 
 <b>Paper Projects</b>
  
