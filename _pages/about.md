@@ -8,11 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-I am (soon to be) Science Manager at Deutsche Forschungsgemeinschaft e.V. (DFG) and Political Scientist. 
+I am (soon to be) a Science Manager at German Research Foundation (DFG) focusing on e-research technologies and the Digital Turn in Science and Research. 
 
-My will focus on the promotion of Digital Expertise in the sciences and Open Science in general.
-
-My research interests are:
+As a Political Scientist my research interests are:
 
 - Judicial Politics, Judicial Behaviour, and Judicial Public Relations
 - Political Communication
