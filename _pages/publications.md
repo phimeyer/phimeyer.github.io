@@ -30,13 +30,13 @@ You can also find my articles on <u><a href="https://scholar.google.de/citations
 <hr>
    
 <b>Chapters in Edited Volumes</b>
- - Meyer, Philipp. In Print. Open justice at highest courts: A new avenue for comparative research. In: Howard, Robert M., Kirk A. Randazzo, and Rebecca A. Reid (Ed.): <i>Research Handbook on the Law and Political Systems</i>. Cheltenham: Edward Elgar Publishing.
-    - <p style="line-height: 1.5;" align="left"><span style="font-size: medium;"><a style="line-height: 1.5;" href="https://phimeyer.github.io/publication/Meyer_Open_Justice"><span style="color: #333333;"><span style="font-size: medium;">More about this Project</span></span></a>  
+ - Meyer, Philipp. 2023. Open justice at highest courts: A new avenue for comparative research. In: Howard, Robert M., Kirk A. Randazzo, and Rebecca A. Reid (Ed.): <i>Research Handbook on Law and Political Systems</i>. Cheltenham: Edward Elgar Publishing, pp. 236-256.
+    - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://www.e-elgar.com/shop/gbp/research-handbook-on-law-and-political-systems-9781800378339.html"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Handbook here</b> </span></span>  
    
-- Meyer, Philipp and Christoph Hönnige. 2019. Rolle und Einfluss des Bundesverfassungsgerichts in der Amtszeit der Regierung Merkel III. In: Zohlnhöfer, Reimut & Thomas Saalfeld (eds.) <i>Zwischen Stillstand, Politikwandel und Krisenmanagement. Eine Bilanz der Regierung Merkel 2013-2017</i>. Wiesbaden: Springer VS, 317-341.
+- Meyer, Philipp and Christoph Hönnige. 2019. Rolle und Einfluss des Bundesverfassungsgerichts in der Amtszeit der Regierung Merkel III. In: Zohlnhöfer, Reimut & Thomas Saalfeld (eds.) <i>Zwischen Stillstand, Politikwandel und Krisenmanagement. Eine Bilanz der Regierung Merkel 2013-2017</i>. Wiesbaden: Springer VS, pp. 317-341.
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://link.springer.com/chapter/10.1007/978-3-658-22663-3_13"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Chapter here</b> </span></span>
 <br>
-- Meyer, Philipp and Christoph Hönnige. 2017. Der Niedersächsische Staatsgerichtshof. In: Reutter, Werner (ed.) <i>Landesverfassungsgerichte: Entwicklung – Aufbau – Funktionen</i>. Wiesbaden: Springer VS, S. 219-241.
+- Meyer, Philipp and Christoph Hönnige. 2017. Der Niedersächsische Staatsgerichtshof. In: Reutter, Werner (ed.) <i>Landesverfassungsgerichte: Entwicklung – Aufbau – Funktionen</i>. Wiesbaden: Springer VS, pp. 219-241.
     - <span style="font-size: medium;"><a style="line-height: 1.5;" href="https://link.springer.com/chapter/10.1007/978-3-658-16094-4_10"><span style="color: #333333;"><span style="font-size: medium;"> <b>Access the Chapter here</b> </span></span>
    
  <hr>
